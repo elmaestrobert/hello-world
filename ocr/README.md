@@ -43,6 +43,8 @@ Methods are evaluated on **quality** (CER, WER, character similarity), **speed**
 | `minicpm-v` | MiniCPM-V 2.6 | High-res OCR | Beats GPT-4o on OCRBench |
 | `llama3.2-vision` | Llama 3.2 Vision 11B | General vision | Good but trails Qwen |
 | `gemma3` | Gemma 3 12B | General vision | Google open model |
+| `deepseek-ocr` | DeepSeek-OCR | High-throughput OCR | 3B params (570M active MoE); needs Ollama >= 0.13.0 |
+| `deepseek-ocr2` | DeepSeek-OCR 2 | Token-efficient OCR | Jan 2026; Qwen2-0.5B vision encoder, "visual causal flow" |
 
 ### Cloud APIs (requires API key)
 
@@ -67,6 +69,8 @@ Methods are evaluated on **quality** (CER, WER, character similarity), **speed**
 | `tabula` | Simple tables | Requires Java JRE |
 | `img2table` | Scanned doc tables | Uses tesseract/easyocr for cells |
 | `unstructured` | Mixed document types | PDF, DOCX, HTML, email |
+| `mineru` | PDF-to-Markdown for RAG | **90.67 OmniDocBench** — top open-source; Apache 2.0 |
+| `docling` | Enterprise documents | IBM Research; 97.9% table accuracy; MIT license |
 
 ---
 
@@ -177,6 +181,9 @@ Results are saved to:
 | aws-textract | — | — | 84.8% | Mistral table benchmark |
 | olmOCR-2 | — | — | 82.4 | olmOCR-Bench |
 | marker | — | — | 76.1 | olmOCR-Bench |
+| **mineru2.5** | **90.67** | — | — | **OmniDocBench CVPR 2025 — best open-source** |
+| docling | — | 97.9%* | — | Enterprise table benchmark (IBM Research) |
+| deepseek-ocr | ~97% | — | — | At <10x image compression |
 
 ---
 
@@ -193,9 +200,9 @@ ocr/
 │   ├── base.py                 ← BaseOCR class + OCRResult dataclass
 │   ├── local_packages/         ← tesseract, easyocr, paddleocr, surya, doctr
 │   ├── pdf_extractors/         ← pymupdf, pdfplumber, pypdf, marker
-│   ├── ollama_models/          ← qwen2.5vl, glm-ocr, minicpm-v, llama3.2-vision, gemma3
-│   ├── apis/                   ← mistral, anthropic, openai, gemini, azure, textract
-│   └── specialized/            ← camelot, tabula, img2table, unstructured
+│   ├── ollama_models/          ← qwen2.5vl, glm-ocr, minicpm-v, llama3.2-vision, gemma3, deepseek-ocr/2
+│   ├── apis/                   ← mistral-ocr-3, claude, gpt-4o, gemini, azure, textract
+│   └── specialized/            ← camelot, tabula, img2table, unstructured, mineru, docling
 ├── evaluators/
 │   ├── text_metrics.py         ← CER, WER, BLEU-1
 │   ├── table_metrics.py        ← Cell accuracy, structure score

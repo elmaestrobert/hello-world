@@ -105,6 +105,14 @@ def _build_method_registry() -> dict:
         from ocr.methods.ollama_models.gemma3_vision import Gemma3VisionMethod
         return Gemma3VisionMethod(size="12b")
 
+    def _make_deepseek_ocr():
+        from ocr.methods.ollama_models.deepseek_ocr import DeepSeekOCRMethod
+        return DeepSeekOCRMethod(version=1)
+
+    def _make_deepseek_ocr2():
+        from ocr.methods.ollama_models.deepseek_ocr import DeepSeekOCRMethod
+        return DeepSeekOCRMethod(version=2)
+
     # ---- Cloud APIs ----
     def _make_mistral_ocr():
         from ocr.methods.apis.mistral_ocr import MistralOCRMethod
@@ -155,6 +163,14 @@ def _build_method_registry() -> dict:
         from ocr.methods.specialized.unstructured_method import UnstructuredMethod
         return UnstructuredMethod()
 
+    def _make_mineru():
+        from ocr.methods.specialized.mineru_method import MinerUMethod
+        return MinerUMethod()
+
+    def _make_docling():
+        from ocr.methods.specialized.docling_method import DoclingMethod
+        return DoclingMethod()
+
     registry = {
         # Local packages
         "tesseract":         _make_tesseract,
@@ -174,6 +190,8 @@ def _build_method_registry() -> dict:
         "minicpm-v":         _make_minicpm_v,
         "llama3.2-vision":   _make_llama32_vision,
         "gemma3":            _make_gemma3,
+        "deepseek-ocr":      _make_deepseek_ocr,
+        "deepseek-ocr2":     _make_deepseek_ocr2,
         # Cloud APIs
         "mistral-ocr":       _make_mistral_ocr,
         "claude-3-5-sonnet": _make_claude_sonnet,
@@ -188,6 +206,8 @@ def _build_method_registry() -> dict:
         "tabula":            _make_tabula,
         "img2table":         _make_img2table,
         "unstructured":      _make_unstructured,
+        "mineru":            _make_mineru,
+        "docling":           _make_docling,
     }
     return registry
 
@@ -303,7 +323,7 @@ def main():
         selected_names = all_method_names
 
     ollama_names = {"qwen2.5vl:7b", "qwen2.5vl:3b", "glm-ocr", "minicpm-v",
-                    "llama3.2-vision", "gemma3"}
+                    "llama3.2-vision", "gemma3", "deepseek-ocr", "deepseek-ocr2"}
     api_names = {"mistral-ocr", "claude-3-5-sonnet", "claude-3-5-haiku",
                  "gpt-4o", "gpt-4o-mini", "gemini-2.0-flash", "azure", "textract"}
 

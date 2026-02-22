@@ -42,6 +42,8 @@ camelot-py[cv]>=0.11.0  # Camelot (requires ghostscript + opencv)
 tabula-py>=2.9.0        # tabula (requires Java JRE)
 img2table>=1.2.0        # img2table
 unstructured[pdf]>=0.15.0  # unstructured.io (hi_res needs detectron2/poppler)
+magic-pdf>=0.10.0           # MinerU / MinerU2.5 (90.67 OmniDocBench SOTA)
+docling>=2.0.0              # Docling by IBM (97.9% table accuracy, MIT)
 
 # ----- Evaluation & reporting -------------------------------
 # No extra deps needed – evaluation uses stdlib only
