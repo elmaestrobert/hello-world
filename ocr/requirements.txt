@@ -1,0 +1,54 @@
+# ============================================================
+# OCR Comparison Framework – Python Dependencies
+# ============================================================
+# Install everything:        pip install -r requirements.txt
+# Install minimal (free):    pip install -r requirements.txt --ignore-requires-python
+#                            (then only install what you need below)
+# ============================================================
+
+# ----- Core dependencies (always needed) --------------------
+Pillow>=10.0.0          # Image handling
+PyMuPDF>=1.23.0         # fitz – PDF rendering & text extraction (used by base class)
+pypdf>=4.0.0            # Pure-Python PDF reader (fallback page count)
+
+# ----- Local OCR packages -----------------------------------
+pytesseract>=0.3.10     # Tesseract wrapper (requires tesseract binary)
+easyocr>=1.7.0          # Deep-learning OCR, 80+ languages
+paddleocr>=2.7.0        # PaddleOCR (fast, high accuracy)
+paddlepaddle>=2.6.0     # PaddlePaddle backend for PaddleOCR
+surya-ocr>=0.4.0        # Transformer OCR, 90+ languages (GPU preferred)
+python-doctr>=0.8.0     # docTR by Mindee
+
+# ----- PDF extractors ---------------------------------------
+# PyMuPDF already listed above
+pdfplumber>=0.11.0      # Precise PDF text + table extraction
+marker-pdf>=0.2.0       # marker – PDF to markdown (GPU preferred)
+
+# ----- Cloud APIs -------------------------------------------
+mistralai>=1.0.0        # Mistral OCR API
+anthropic>=0.40.0       # Claude / Anthropic vision API
+openai>=1.30.0          # OpenAI GPT-4o vision
+google-generativeai>=0.8.0  # Gemini API
+
+# Azure Document Intelligence
+azure-ai-documentintelligence>=1.0.0
+azure-core>=1.30.0
+
+# AWS Textract
+boto3>=1.34.0
+
+# ----- Table extraction specialists -------------------------
+camelot-py[cv]>=0.11.0  # Camelot (requires ghostscript + opencv)
+tabula-py>=2.9.0        # tabula (requires Java JRE)
+img2table>=1.2.0        # img2table
+unstructured[pdf]>=0.15.0  # unstructured.io (hi_res needs detectron2/poppler)
+
+# ----- Evaluation & reporting -------------------------------
+# No extra deps needed – evaluation uses stdlib only
+# Optional: tabulate for nicer tables
+tabulate>=0.9.0
+
+# ----- Optional extras --------------------------------------
+# numpy>=1.24.0          # needed by easyocr/paddleocr (auto-installed)
+# torch>=2.0.0           # needed by surya/doctr for GPU acceleration
+# opencv-python>=4.8.0   # needed by camelot[cv] and doctr
