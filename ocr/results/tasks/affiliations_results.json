@@ -1,0 +1,75 @@
+{
+  "multilingual_doc_understanding.pdf": {
+    "pymupdf": {
+      "raw_text": "arXiv:2502.67890 [cs.LG]\nMultilingual Document Understanding via Cross-Lingual\nLayout Pretraining\nFran\u00e7ois Dubois1, Yuki Tanaka2, Priya Sharma3, Marco Rossi4, Hannah Schmidt1,5,\nChen Wei6\n1 INRIA Paris, 2 rue Simone Iff, 75012 Paris, France\n2 University of Tokyo, Department of Information Science, Bunkyo-ku, Tokyo 113-8656, Japan\n3 Indian Institute of Technology Bombay, Mumbai 400076, Maharashtra, India\n4 Sapienza University of Rome, Department of Computer Science, Via Salaria 113, 00198 Rome, Italy\n1,5 INRIA Paris & ETH Z\u00fcrich, Department of Computer Science, 8092 Z\u00fcrich, Switzerland\n6 Tsinghua University, Institute for AI Industry Research (AIR), Beijing 100084, China\n{francois.dubois@inria.fr, ytanaka@is.s.u-tokyo.ac.jp, priya.sharma@iitb.ac.in, m.rossi@di.uniroma1.it,\nhschmidt@ethz.ch, chenwei@air.tsinghua.edu.cn}\nAbstract\nDocument understanding across languages poses unique challenges due to diverse\nscripts, reading orders, and layout conventions. We introduce XLayout-BERT, a\nmultilingual layout-aware pretrained model trained on 120 million document pages\nin 50 languages. Using a novel cross-lingual layout alignment objective,\nXLayout-BERT achieves an average of 89.4 F1 across multilingual document\nbenchmarks, surpassing prior state-of-the-art by 6.2 points. We additionally release\na new benchmark, MultiDocBench, covering 15 languages and 8 document types\nincluding academic papers, government forms, invoices, and newspapers.\n1. Introduction\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut\nlabore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco\nlaboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in\nvoluptate velit esse cillum dolore eu fugiat nulla pariatur.\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut\nlabore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco\nlaboris nisi",
+      "raw_affiliation_block": "arXiv:2502.67890 [cs.LG]\nFran\u00e7ois Dubois1, Yuki Tanaka2, Priya Sharma3, Marco Rossi4, Hannah Schmidt1,5,\n1 INRIA Paris, 2 rue Simone Iff, 75012 Paris, France\n2 University of Tokyo, Department of Information Science, Bunkyo-ku, Tokyo 113-8656, Japan\n3 Indian Institute of Technology Bombay, Mumbai 400076, Maharashtra, India\n4 Sapienza University of Rome, Department of Computer Science, Via Salaria 113, 00198 Rome, Italy\n1,5 INRIA Paris & ETH Z\u00fcrich, Department of Computer Science, 8092 Z\u00fcrich, Switzerland\n6 Tsinghua University, Institute for AI Industry Research (AIR), Beijing 100084, China\n{francois.dubois@inria.fr, ytanaka@is.s.u-tokyo.ac.jp, priya.sharma@iitb.ac.in, m.rossi@di.uniroma1.it,\nhschmidt@ethz.ch, chenwei@air.tsinghua.edu.cn}\nlabore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco\nlaboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in\nlabore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco\nlaboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in\nlabore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco\nlaboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in",
+      "emails": [
+        "francois.dubois@inria.fr",
+        "ytanaka@is.s.u-tokyo.ac.jp",
+        "priya.sharma@iitb.ac.in",
+        "m.rossi@di.uniroma1.it",
+        "hschmidt@ethz.ch",
+        "chenwei@air.tsinghua.edu.cn"
+      ],
+      "institutions": [
+        "Fran\u00e7ois Dubois1, Yuki Tanaka2, Priya Sharma3, Marco Rossi4, Hannah Schmidt1,5,",
+        "1 INRIA Paris, 2 rue Simone Iff, 75012 Paris, France",
+        "2 University of Tokyo, Department of Information Science, Bunkyo-ku, Tokyo 113-8656, Japan",
+        "3 Indian Institute of Technology Bombay, Mumbai 400076, Maharashtra, India",
+        "4 Sapienza University of Rome, Department of Computer Science, Via Salaria 113, 00198 Rome, Italy",
+        "1,5 INRIA Paris & ETH Z\u00fcrich, Department of Computer Science, 8092 Z\u00fcrich, Switzerland",
+        "6 Tsinghua University, Institute for AI Industry Research (AIR), Beijing 100084, China",
+        "labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco",
+        "laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in"
+      ],
+      "authors_line": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut"
+    }
+  },
+  "rl_ocr_training.pdf": {
+    "pymupdf": {
+      "raw_text": "arXiv:2510.19817 [cs.LG]\nReward-Guided OCR: Reinforcement Learning with\nVerifiable Document Rewards\nJames O'Brien1, Sofia Garcia2, Arjun Gupta1,2, Wei-Lin Chiang3\n1 Allen Institute for AI (Ai2), Seattle, WA 98103, USA\n2 University of Washington, Paul G. Allen School of Computer Science, Seattle, WA 98195, USA\n1,2 Allen Institute for AI (Ai2) & University of Washington\n3 UC Berkeley, EECS Department, Berkeley, CA 94720, USA\n{jamesobrien@allenai.org, sgarcia@cs.washington.edu, agupta@allenai.org, wlchiang@eecs.berkeley.edu}\nAbstract\nTraining OCR models with maximum likelihood estimation on noisy ground-truth\nannotations leads to systematic errors on challenging document elements such as\nmathematical formulas, multi-column layouts, and complex tables. We propose\nRLVR-OCR, a reinforcement learning framework that trains OCR models using\nverifiable binary rewards derived from automated unit tests. Each reward checks a\nspecific \ndocument \nproperty\u2014equation \nformat, \ntable \nstructure, \nreading\norder\u2014without requiring human annotation. Applied to a 7B vision-language model,\nRLVR-OCR achieves 82.4 on the olmOCR-Bench benchmark, a +14.2 point\nimprovement over supervised fine-tuning alone, and demonstrates strong\ngeneralization to out-of-domain document types.\n1. Introduction\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut\nlabore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco\nlaboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in\nvoluptate velit esse cillum dolore eu fugiat nulla pariatur.\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut\nlabore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco\nlaboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in\nvoluptate velit esse cillum dolore eu fugiat nulla pariatur.\n2. Verifiable Reward Design\nLorem ipsum dolor",
+      "raw_affiliation_block": "arXiv:2510.19817 [cs.LG]\n1 Allen Institute for AI (Ai2), Seattle, WA 98103, USA\n2 University of Washington, Paul G. Allen School of Computer Science, Seattle, WA 98195, USA\n1,2 Allen Institute for AI (Ai2) & University of Washington\n3 UC Berkeley, EECS Department, Berkeley, CA 94720, USA\n{jamesobrien@allenai.org, sgarcia@cs.washington.edu, agupta@allenai.org, wlchiang@eecs.berkeley.edu}\nlabore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco\nlaboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in\nlabore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco\nlaboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in\nlabore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco\nlaboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in\nlabore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco",
+      "emails": [
+        "jamesobrien@allenai.org",
+        "sgarcia@cs.washington.edu",
+        "agupta@allenai.org",
+        "wlchiang@eecs.berkeley.edu"
+      ],
+      "institutions": [
+        "1 Allen Institute for AI (Ai2), Seattle, WA 98103, USA",
+        "2 University of Washington, Paul G. Allen School of Computer Science, Seattle, WA 98195, USA",
+        "1,2 Allen Institute for AI (Ai2) & University of Washington",
+        "3 UC Berkeley, EECS Department, Berkeley, CA 94720, USA",
+        "labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco",
+        "laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in"
+      ],
+      "authors_line": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut"
+    }
+  },
+  "vlm_ocr_benchmark_2025.pdf": {
+    "pymupdf": {
+      "raw_text": "arXiv:2501.12345 [cs.LG]\nScaling Vision-Language Models for High-Fidelity\nDocument OCR\nAlice Chen1,2, Bob Kumar1, Carol Li2, David Park3, Elena M\u00fcller4\n1,2 Department of Computer Science, Stanford University, Stanford, CA 94305, USA\n1 Department of Computer Science, Stanford University, Stanford, CA 94305, USA\n2 Google DeepMind, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA\n3 KAIST AI Graduate School, Daejeon 34141, Republic of Korea\n4 Max Planck Institute for Informatics, 66123 Saarbr\u00fccken, Germany\n{achen@cs.stanford.edu, bkumar@cs.stanford.edu, carol.li@deepmind.google.com, dpark@kaist.ac.kr,\nemuller@mpi-inf.mpg.de}\nAbstract\nWe present ScaleOCR, a scalable framework for training vision-language models\non document understanding tasks. Our approach combines a high-resolution image\nencoder with a large language model decoder, trained on a diverse corpus of 50\nmillion annotated document pages spanning 84 languages and 12 document\ncategories. ScaleOCR achieves state-of-the-art results on DocVQA (97.3),\nOmniDocBench (91.2), and the OCRBench benchmark suite, outperforming prior\nmethods by 3.1 points on average. We further demonstrate that scaling model\ncapacity and training data consistently improves performance, and release our\nmodel weights, training code, and evaluation suite to the research community.\n1. Introduction\nOptical character recognition has long been a cornerstone of document digitization. Recent\nadvances in vision-language models (VLMs) have dramatically improved OCR quality on\ncomplex layouts, multilingual text, and handwriting.\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut\nlabore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco\nlaboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in\nvoluptate velit esse cillum dolore eu fugiat nulla pariatur.\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
+      "raw_affiliation_block": "arXiv:2501.12345 [cs.LG]\n1,2 Department of Computer Science, Stanford University, Stanford, CA 94305, USA\n1 Department of Computer Science, Stanford University, Stanford, CA 94305, USA\n2 Google DeepMind, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA\n3 KAIST AI Graduate School, Daejeon 34141, Republic of Korea\n4 Max Planck Institute for Informatics, 66123 Saarbr\u00fccken, Germany\n{achen@cs.stanford.edu, bkumar@cs.stanford.edu, carol.li@deepmind.google.com, dpark@kaist.ac.kr,\nemuller@mpi-inf.mpg.de}\nWe present ScaleOCR, a scalable framework for training vision-language models\nmethods by 3.1 points on average. We further demonstrate that scaling model\nmodel weights, training code, and evaluation suite to the research community.\nlabore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco\nlaboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in\nlabore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco\nlaboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in",
+      "emails": [
+        "achen@cs.stanford.edu",
+        "bkumar@cs.stanford.edu",
+        "carol.li@deepmind.google.com",
+        "dpark@kaist.ac.kr",
+        "emuller@mpi-inf.mpg.de"
+      ],
+      "institutions": [
+        "1,2 Department of Computer Science, Stanford University, Stanford, CA 94305, USA",
+        "1 Department of Computer Science, Stanford University, Stanford, CA 94305, USA",
+        "2 Google DeepMind, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA",
+        "3 KAIST AI Graduate School, Daejeon 34141, Republic of Korea",
+        "4 Max Planck Institute for Informatics, 66123 Saarbr\u00fccken, Germany",
+        "We present ScaleOCR, a scalable framework for training vision-language models",
+        "methods by 3.1 points on average. We further demonstrate that scaling model",
+        "model weights, training code, and evaluation suite to the research community.",
+        "labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco",
+        "laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in"
+      ],
+      "authors_line": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut"
+    }
+  }
+}
