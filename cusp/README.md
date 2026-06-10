@@ -48,7 +48,10 @@ operational / enabling) and code of conduct — as promised in the proposal text
 - **v2 (2026-06-10):** added **Spain** (MAEC, FECYT, CDTI, CSIC), **Italy** (MAECI/
   Farnesina, CNR, MUR), **Austria** (BMEIA, OeAD, ZSI, IIASA), **Poland** (MSZ/
   Diplomatic Academy, PAN/PolSCA, FNP, KRASP) + FMSTAN network. — *36 actors, 8 jurisdictions.*
-- _Next:_ Sweden/Nordics, Belgium, Czechia, Portugal; then deepen each country
+- **v3 (2026-06-10):** added **Sweden** (UD/innovation offices, STINT, VR/IntSam, IVA),
+  **Belgium** (FPS Foreign Affairs, BELSPO), **Czechia** (MFA SD Unit, CAS),
+  **Portugal** (FCT/goPORTUGAL, MNE/Camões). — *46 actors, 12 jurisdictions.*
+- _Next:_ Denmark/Finland, Ireland, Greece, Hungary; then deepen each country
   (universities, research infrastructures, industry/multinationals, diaspora networks).
 
 > A self-contained build, `cusp-standalone.html` (data inlined), is regenerated each
