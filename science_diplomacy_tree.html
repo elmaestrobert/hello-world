@@ -16,6 +16,7 @@
     --dry: #6b7785;
     --event: #7ee787;
     --past: #b0bac4;
+    --future: #7ee787;
   }
   * { box-sizing: border-box; }
   body {
@@ -42,6 +43,30 @@
   .dot.past { background: var(--past); }
   .dot.dry { background: var(--dry); }
 
+  /* Upcoming timeline */
+  .upcoming {
+    background: linear-gradient(135deg, #122619, #14201a);
+    border: 1px solid #1f5430; border-radius: 12px;
+    padding: 1rem 1.3rem; margin-bottom: 1.8rem;
+  }
+  .upcoming h2 { margin: 0 0 .7rem; font-size: 1.15rem; color: var(--event); }
+  .timeline { list-style: none; margin: 0; padding: 0; }
+  .timeline li {
+    display: grid; grid-template-columns: 9.5rem 1fr;
+    gap: .8rem; padding: .42rem 0; border-bottom: 1px dashed #1f3527;
+    align-items: baseline;
+  }
+  .timeline li:last-child { border-bottom: none; }
+  .timeline .when { color: var(--hub); font-weight: 600; font-size: .88rem; white-space: nowrap; }
+  .timeline .what .name { font-weight: 600; color: var(--event); }
+  .timeline .what .where { color: var(--text); }
+  .timeline .what .extra { color: var(--muted); font-size: .85rem; }
+  .deadline {
+    color: #ff9d6b; font-size: .8rem; font-weight: 600;
+    background: #33210f; border: 1px solid #5a3a1a; border-radius: 6px;
+    padding: 0 .45rem; margin-left: .4rem; white-space: nowrap;
+  }
+
   /* Tree */
   ul.tree, ul.tree ul { list-style: none; margin: 0; padding-left: 1.4rem; position: relative; }
   ul.tree { padding-left: 0; }
@@ -64,7 +89,6 @@
     display: inline-block;
   }
   summary:hover { border-color: var(--accent); }
-  summary .flag { margin-right: .35rem; }
   summary .count {
     font-weight: 400; color: var(--muted); font-size: .8rem; margin-left: .45rem;
   }
@@ -80,16 +104,27 @@
     background: #2a2418; border-radius: 6px; padding: 0 .4rem; margin-left: .4rem;
   }
   .ev .org { color: var(--muted); font-size: .85rem; }
+  .ev.future { background: #12241733; border-left: 3px solid var(--event); padding-left: .5rem; border-radius: 4px; }
   .badge {
     font-size: .7rem; text-transform: uppercase; letter-spacing: .05em;
     border-radius: 5px; padding: .05rem .4rem; margin-left: .45rem; vertical-align: middle;
   }
-  .badge.upcoming { background: #11341c; color: var(--event); border: 1px solid #1f5430; }
+  .badge.future { background: #11341c; color: var(--event); border: 1px solid #1f5430; font-weight: 700; }
   .badge.recurring { background: #1c2a3a; color: var(--accent); border: 1px solid #2a4763; }
   .badge.cancelled { background: #3a1c1c; color: #ff8989; border: 1px solid #5c2b2b; }
+  .badge.tbc { background: #2e2a14; color: var(--hub); border: 1px solid #57502a; }
+
+  .watchlist {
+    margin-top: 1.8rem; background: var(--panel); border: 1px solid #2a4763;
+    border-radius: 10px; padding: 1rem 1.2rem;
+  }
+  .watchlist h2 { font-size: 1.05rem; margin: 0 0 .5rem; color: var(--accent); }
+  .watchlist ul { margin: 0; padding-left: 1.2rem; }
+  .watchlist li { color: var(--muted); margin: .3rem 0; }
+  .watchlist li strong { color: var(--text); }
 
   .dry-section {
-    margin-top: 2rem; background: var(--panel); border: 1px solid var(--line);
+    margin-top: 1.5rem; background: var(--panel); border: 1px solid var(--line);
     border-radius: 10px; padding: 1rem 1.2rem;
   }
   .dry-section h2 { font-size: 1.05rem; margin: 0 0 .5rem; color: var(--dry); }
@@ -107,6 +142,9 @@
     margin-right: .5rem;
   }
   .controls button:hover { border-color: var(--accent); }
+  @media (max-width: 640px) {
+    .timeline li { grid-template-columns: 1fr; gap: .1rem; }
+  }
 </style>
 </head>
 <body>
@@ -114,13 +152,64 @@
   <h1>🌍 Science Diplomacy Events in Europe</h1>
   <div class="subtitle">
     Search-tree map — started broad, branched near each host city, terminated after the
-    geographic branches went 3+ rounds without new events. Compiled 10 June 2026 ·
-    ~35 events · 17 host cities · 10 iterations.
+    geographic branches went 3+ rounds without new events. Updated 10 June 2026 ·
+    ~35 events · 17 host cities. <strong style="color:var(--event)">Future events verified against today's date.</strong>
+  </div>
+
+  <div class="upcoming">
+    <h2>⏭️ Upcoming — happening after 10 June 2026 (chronological)</h2>
+    <ul class="timeline">
+      <li>
+        <span class="when">22–26 Jun 2026</span>
+        <span class="what"><span class="name">Geneva Science Diplomacy Week 2026</span> — <span class="where">Geneva 🇨🇭</span>
+        <span class="extra">GESDA · immersive programme for decision-makers · applications open</span></span>
+      </li>
+      <li>
+        <span class="when">22 Jun–3 Jul 2026</span>
+        <span class="what"><span class="name">UNIGE SDG Summer School — Scientific Diplomacy, Multilateralism &amp; Global Challenges</span> — <span class="where">Geneva 🇨🇭</span>
+        <span class="extra">SDG Solution Space · planetary health &amp; AI governance · 2nd week optional</span></span>
+      </li>
+      <li>
+        <span class="when">1–5 Jul 2026</span>
+        <span class="what"><span class="name">Barcelona Science &amp; Technology Diplomacy Summer School</span> — <span class="where">Barcelona 🇪🇸</span>
+        <span class="extra">SciTech DiploHub + IBEI · mid-career scientists, tech experts, diplomats · applications open</span></span>
+      </li>
+      <li>
+        <span class="when">~mid-Jul 2026 <span class="badge tbc">dates TBC</span></span>
+        <span class="what"><span class="name">VIU Summer School — Science Diplomacy in the Age of Climate Change</span> — <span class="where">Venice 🇮🇹</span>
+        <span class="extra">past editions mid-July (e.g. 15–20 Jul 2024) · contact summerschools@univiu.org</span></span>
+      </li>
+      <li>
+        <span class="when">13–16 Jul 2026</span>
+        <span class="what"><span class="name">ESHS/HSS Joint Meeting — symposium “Science Diplomacy in Times of Upheaval”</span> — <span class="where">Edinburgh 🏴󠁧󠁢󠁳󠁣󠁴󠁿</span>
+        <span class="extra">history-of-science angle · 20-min in-person talks</span></span>
+      </li>
+      <li>
+        <span class="when">20–23 Jul 2026</span>
+        <span class="what"><span class="name">AAAS–TWAS Summer Course on Science Diplomacy</span> — <span class="where">Trieste 🇮🇹</span>
+        <span class="extra">annual flagship course since 2014</span></span>
+      </li>
+      <li>
+        <span class="when">22 Jul–8 Oct 2026</span>
+        <span class="what"><span class="name">ASEF Asia–Europe Training on S&amp;T Diplomacy</span> — <span class="where">online</span> + Youth Summit, Jakarta 🇮🇩 19–23 Oct
+        <span class="extra">early-career professionals</span><span class="deadline">apply by 21 Jun 2026</span></span>
+      </li>
+      <li>
+        <span class="when">14–16 Oct 2026</span>
+        <span class="what"><span class="name">GESDA Science &amp; Diplomacy Anticipation Summit</span> — <span class="where">Geneva (Palexpo) 🇨🇭</span>
+        <span class="extra">1000+ scientists, diplomats, policymakers · quantum, neurotech, climate, health</span></span>
+      </li>
+      <li>
+        <span class="when">24–27 Nov 2026</span>
+        <span class="what"><span class="name">CEI Advanced Training Course — SD in Central, Eastern &amp; South-Eastern Europe</span> — <span class="where">Trieste &amp; Gorizia 🇮🇹</span>
+        <span class="extra">15 lectures · 3 roundtables · research-infrastructure visit</span><span class="deadline">apply by 30 Jun 2026</span></span>
+      </li>
+    </ul>
   </div>
 
   <div class="legend">
     <span><span class="dot hub"></span> Hub / branch (host city)</span>
-    <span><span class="dot event"></span> Upcoming event</span>
+    <span><span class="dot event"></span> Future event (after 10 Jun 2026)</span>
     <span><span class="dot past"></span> Past event</span>
     <span><span class="dot dry"></span> Dry branch (probed, nothing found)</span>
   </div>
@@ -154,8 +243,8 @@
             <details open>
               <summary>🇦🇹 Vienna / Laxenburg<span class="count">6</span></summary>
               <ul>
+                <li class="ev past"><span class="name">CUSP — 1st consortium meeting</span><span class="date">9–10 Jun 2026</span> <span class="org">Horizon Europe · ZSI · EU SD Alliance (project runs to ~2029 — more events expected)</span></li>
                 <li class="ev past"><span class="name">1st Ukrainian–European Science Diplomacy Forum</span><span class="date">12 Mar 2026</span></li>
-                <li class="ev past"><span class="name">CUSP — 1st consortium meeting</span><span class="date">9–10 Jun 2026</span> <span class="org">Horizon Europe · ZSI · EU SD Alliance</span></li>
                 <li class="ev past"><span class="name">IIASA science diplomacy event</span><span class="date">9 Dec 2025</span> <span class="org">ÖAW Theatersaal</span></li>
                 <li class="ev past"><span class="name">SAM Conference 2025</span> <span class="org">Austrian Academy of Sciences</span></li>
                 <li class="ev past"><span class="name">IIASA “Together for Water” (MENA)</span><span class="date">28–29 Oct</span> <span class="org">Laxenburg · Austrian MFA · 22 countries</span></li>
@@ -166,13 +255,14 @@
 
           <li>
             <details open>
-              <summary>🇨🇭 Geneva<span class="count">5</span></summary>
+              <summary>🇨🇭 Geneva<span class="count">6</span></summary>
               <ul>
-                <li class="ev"><span class="name">GESDA Science &amp; Diplomacy Anticipation Summit</span><span class="date">14–16 Oct 2026</span><span class="badge upcoming">upcoming</span><span class="badge recurring">annual</span> <span class="org">Palexpo · 1000+ participants</span></li>
-                <li class="ev past"><span class="name">Geneva Science Diplomacy Week 2025</span><span class="date">5–9 May 2025</span> <span class="org">incl. CERN Day, 8 May</span></li>
-                <li class="ev past"><span class="name">Geneva Science Diplomacy Week 2026</span><span class="badge recurring">annual</span></li>
+                <li class="ev future"><span class="name">Geneva Science Diplomacy Week 2026</span><span class="date">22–26 Jun 2026</span><span class="badge future">future</span><span class="badge recurring">annual</span> <span class="org">applications open</span></li>
+                <li class="ev future"><span class="name">UNIGE SDG Summer School — Scientific Diplomacy &amp; Multilateralism</span><span class="date">22 Jun–3 Jul 2026</span><span class="badge future">future</span><span class="badge recurring">annual</span></li>
+                <li class="ev future"><span class="name">GESDA Science &amp; Diplomacy Anticipation Summit</span><span class="date">14–16 Oct 2026</span><span class="badge future">future</span><span class="badge recurring">annual since 2021</span> <span class="org">Palexpo · 1000+ participants</span></li>
+                <li class="ev past"><span class="name">GESDA Quantum Diplomacy in Action Conference</span><span class="date">6 May 2026</span></li>
                 <li class="ev past"><span class="name">OSCE “Anticipating Technologies” conference</span><span class="date">7–8 May 2026</span> <span class="org">Swiss Chairpersonship · Day 1 at CERN Science Gateway</span></li>
-                <li class="ev"><span class="name">UNIGE SDG Summer School — Scientific Diplomacy &amp; Multilateralism</span><span class="badge recurring">annual</span></li>
+                <li class="ev past"><span class="name">Geneva Science Diplomacy Week 2025</span><span class="date">5–9 May 2025</span> <span class="org">incl. CERN Day, 8 May</span></li>
               </ul>
             </details>
           </li>
@@ -181,8 +271,8 @@
             <details open>
               <summary>🇮🇹 Trieste / Gorizia<span class="count">4</span></summary>
               <ul>
-                <li class="ev"><span class="name">AAAS–TWAS Summer Course on Science Diplomacy</span><span class="date">20–23 Jul 2026</span><span class="badge upcoming">upcoming</span><span class="badge recurring">annual since 2014</span></li>
-                <li class="ev"><span class="name">CEI Advanced Training Course — SD in Central/Eastern/SE Europe</span><span class="date">24–27 Nov 2026</span><span class="badge upcoming">upcoming</span> <span class="org">apply by 30 Jun 2026 · Univ. of Trieste · ICTP · Area Science Park</span></li>
+                <li class="ev future"><span class="name">AAAS–TWAS Summer Course on Science Diplomacy</span><span class="date">20–23 Jul 2026</span><span class="badge future">future</span><span class="badge recurring">annual since 2014</span></li>
+                <li class="ev future"><span class="name">CEI Advanced Training Course — SD in Central/Eastern/SE Europe</span><span class="date">24–27 Nov 2026</span><span class="badge future">future</span> <span class="org">Univ. of Trieste · ICTP · Area Science Park</span><span class="deadline">apply by 30 Jun 2026</span></li>
                 <li class="ev past"><span class="name">CEI 1st Conference on SD in CESEE</span> <span class="org">inaugural</span></li>
                 <li class="ev past"><span class="name">TWAS–IAP–ICGEB–BWC science diplomacy workshop</span><span class="date">Mar 2024</span></li>
               </ul>
@@ -193,7 +283,7 @@
             <details open>
               <summary>🇮🇹 Northern Italy (from Trieste/Venice)<span class="count">2</span></summary>
               <ul>
-                <li class="ev"><span class="name">Venice International University — SD in the Age of Climate Change</span><span class="badge recurring">summer course</span></li>
+                <li class="ev future"><span class="name">Venice International University — SD in the Age of Climate Change</span><span class="date">~mid-Jul 2026</span><span class="badge future">future</span><span class="badge tbc">dates TBC</span><span class="badge recurring">summer course</span></li>
                 <li class="ev past"><span class="name">Politecnico di Milano — SD for Researchers + open workshop</span><span class="date">6 Mar 2026</span></li>
               </ul>
             </details>
@@ -203,7 +293,7 @@
             <details open>
               <summary>🇪🇸 Spain (from Madrid)<span class="count">1</span></summary>
               <ul>
-                <li class="ev"><span class="name">Barcelona S&amp;T Diplomacy Summer School</span><span class="date">early Jul</span><span class="badge recurring">annual</span> <span class="org">SciTech DiploHub · IBEI · 5th+ edition</span></li>
+                <li class="ev future"><span class="name">Barcelona S&amp;T Diplomacy Summer School</span><span class="date">1–5 Jul 2026</span><span class="badge future">future</span><span class="badge recurring">annual</span> <span class="org">SciTech DiploHub · IBEI · applications open</span></li>
               </ul>
             </details>
           </li>
@@ -232,7 +322,7 @@
               <ul>
                 <li class="ev past"><span class="name">Int’l Scientific Conference on SD + EU SD Alliance presentation</span><span class="date">13 May 2026</span> — Belgrade 🇷🇸</li>
                 <li class="ev past"><span class="name">UNESCO–Slovenia: “Shaping the Future through Science Diplomacy”</span><span class="date">18–19 Nov 2025</span> — Ljubljana 🇸🇮</li>
-                <li class="ev past"><span class="name">Leopoldina Berlin-Process 9th Joint Science Conference — “Science under Pressure”</span><span class="date">14–16 Oct 2025</span> — Ljubljana 🇸🇮 <span class="org">series: Berlin, Vienna, Paris, Rome, London, Tirana ’23</span></li>
+                <li class="ev past"><span class="name">Leopoldina Berlin-Process 9th Joint Science Conference — “Science under Pressure”</span><span class="date">14–16 Oct 2025</span> — Ljubljana 🇸🇮 <span class="org">series: Berlin, Vienna, Paris, Rome, London, Tirana ’23 — 10th edition expected 2026, host TBA</span></li>
                 <li class="ev past"><span class="name">POLICY ANSWERS Final Event (Western Balkans &amp; ERA)</span><span class="date">19 Mar 2026</span> — Tirana 🇦🇱</li>
                 <li class="ev past"><span class="name">OSCE PA SEE Inter-Parliamentary Forum on SD</span><span class="date">26 May 2026</span> — online</li>
                 <li class="ev past"><span class="name">CEI Health Diplomacy Course (SEE region)</span><span class="date">28 Nov 2024</span> — Sofia 🇧🇬</li>
@@ -244,7 +334,7 @@
             <details open>
               <summary>🇭🇺🇷🇴 Hungary / Romania (CatalySD)<span class="count">2</span></summary>
               <ul>
-                <li class="ev past"><span class="name">Budapest Science Diplomacy School</span><span class="date">23–27 Jun 2025</span> <span class="org">Corvinus Univ. · Proteus Foundation · Erasmus+ CatalySD</span></li>
+                <li class="ev past"><span class="name">Budapest Science Diplomacy School</span><span class="date">23–27 Jun 2025</span> <span class="org">Corvinus Univ. · Proteus Foundation · Erasmus+ CatalySD (project ended Dec 2025; courses continue at Corvinus &amp; Sapientia)</span></li>
                 <li class="ev past"><span class="name">Cluj-Napoca Science &amp; Innovation Day</span><span class="date">11 Nov 2025</span> <span class="org">Sapientia University</span></li>
               </ul>
             </details>
@@ -254,7 +344,7 @@
             <details open>
               <summary>🇬🇧 United Kingdom<span class="count">2</span></summary>
               <ul>
-                <li class="ev"><span class="name">ESHS/HSS symposium — “Science Diplomacy in Times of Upheaval”</span><span class="date">13–16 Jul 2026</span><span class="badge upcoming">upcoming</span> — Edinburgh 🏴󠁧󠁢󠁳󠁣󠁴󠁿</li>
+                <li class="ev future"><span class="name">ESHS/HSS symposium — “Science Diplomacy in Times of Upheaval”</span><span class="date">13–16 Jul 2026</span><span class="badge future">future</span> — Edinburgh 🏴󠁧󠁢󠁳󠁣󠁴󠁿</li>
                 <li class="ev past"><span class="name">Royal Society — “Science as a global public good?”</span><span class="date">Mar 2026</span> — London</li>
               </ul>
             </details>
@@ -262,10 +352,11 @@
 
           <li>
             <details open>
-              <summary>🌏 Europe-linked, venue (partly) outside Europe<span class="count">2</span></summary>
+              <summary>🌏 Europe-linked, venue (partly) outside Europe<span class="count">3</span></summary>
               <ul>
+                <li class="ev future"><span class="name">ASEF Asia–Europe Training + Youth Summit on S&amp;T Diplomacy</span><span class="date">online 22 Jul–8 Oct · Jakarta 19–23 Oct 2026</span><span class="badge future">future</span><span class="deadline">apply by 21 Jun 2026</span></li>
+                <li class="ev future"><span class="name">World Science Forum 2026 — “Science for Global Resilience and Equity”</span><span class="date">late 2026</span><span class="badge future">future</span><span class="badge tbc">dates TBC</span> — Jakarta 🇮🇩 <span class="org">strong SD track; previous editions Budapest</span></li>
                 <li class="ev past"><span class="name">UNESCO Global Ministerial Dialogue on Science Diplomacy</span><span class="date">25–26 Mar 2025</span></li>
-                <li class="ev"><span class="name">ASEF Asia–Europe Training + Youth Summit on S&amp;T Diplomacy</span><span class="date">online 22 Jul–8 Oct · Jakarta 19–23 Oct 2026</span><span class="badge upcoming">upcoming</span> <span class="org">apply by 21 Jun 2026</span></li>
               </ul>
             </details>
           </li>
@@ -273,6 +364,17 @@
       </details>
     </li>
   </ul>
+
+  <div class="watchlist">
+    <h2>👀 Watchlist — likely future events, not yet announced</h2>
+    <ul>
+      <li><strong>3rd European Science Diplomacy Conference</strong> — biennial pattern (Madrid Dec 2023 → Copenhagen Dec 2025) suggests <strong>December 2027</strong>; no host announced yet. Watch the EU SD Alliance and the Greek 2027 Council presidency.</li>
+      <li><strong>Irish EU Council Presidency (Jul–Dec 2026)</strong> — ~250 events planned domestically; the SD framework recommendation lands in its term, so a presidency SD event is plausible. None announced yet.</li>
+      <li><strong>Leopoldina Berlin-Process Joint Science Conference, 10th edition</strong> — annual series; 2026 host not yet announced (2025 was Ljubljana).</li>
+      <li><strong>CUSP project (Horizon Europe, launched 1 Jun 2026)</strong> — will run its own SD events/trainings across Europe over the coming years; first consortium meeting was Vienna, 9–10 Jun 2026.</li>
+      <li><strong>Geneva Science Diplomacy Week 2027 / GESDA Summit 2027</strong> — annual fixtures, expect May–June and October 2027.</li>
+    </ul>
+  </div>
 
   <div class="dry-section">
     <h2>🍂 Dry branches — probed, no dedicated SD events found (termination signal)</h2>
@@ -292,7 +394,8 @@
     <p><strong>Notes:</strong> ESOF 2026 (EuroScience Open Forum) <span class="badge cancelled">in limbo</span> — EuroScience filed for bankruptcy in Jan 2026.
     Most events trace back to a few recurring hubs: EU Science Diplomacy Alliance, GESDA (Geneva),
     TWAS/ICTP &amp; CEI (Trieste), IIASA (Vienna/Laxenburg), SciTech DiploHub (Barcelona),
-    Leopoldina Berlin Process, UNESCO, and CatalySD (Budapest/Cluj).</p>
+    Leopoldina Berlin Process, UNESCO, and CatalySD (Budapest/Cluj).
+    “Future” = after 10 June 2026.</p>
   </div>
 </div>
 </body>
