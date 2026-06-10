@@ -761,5 +761,115 @@ const ACTORS = [
     networked:"Links 250k+ Greek-born professionals & wider 8M diaspora; bridges to universities & firms abroad.",
     documents:["Knowledge & Partnership Bridges programme materials"],
     alignment:"Aligned — exemplifies the diaspora-network instrument the project taxonomy & Framework highlight."
+  },
+
+  /* ===================== SWITZERLAND (Horizon-associated) ===================== */
+  {
+    id:"ch-fdfa", name:"Federal Dept. of Foreign Affairs (FDFA) — Science & Foreign Policy",
+    country:"Switzerland", geography:"National (Bern) + Int'l Geneva (assoc. state)", actorType:"Diplomatic",
+    sdType:["s4d","SinD","d4s"], sinceYear:2018, activity:"A",
+    domains:["General S&T","Health","Digital","Climate","Quantum","Security/Dual-use"],
+    orientation:"Cooperative", interestFocus:"Global", coreObjective:"Anticipatory science diplomacy; strengthen multilateralism via Int'l Geneva",
+    positioning:"Primary", explicitness:"Explicit", governance:"Coordinated (FDFA + EAER/SERI)",
+    tools:["Authority","Nodality","Organisation","Treasure"],
+    sciFields:["All fields"],
+    networked:"SD is a pillar of Foreign Policy Strategy 2024–27; backs GESDA, swissnex, CERN; co-led with EAER/SERI.",
+    documents:["Foreign Policy Strategy 2024–27","Science-diplomacy pages (eda.admin.ch)"],
+    alignment:"Exemplary — among the most explicit, anticipatory SD doctrines; a reference point for the Framework."
+  },
+  {
+    id:"ch-gesda", name:"GESDA — Geneva Science and Diplomacy Anticipator",
+    country:"Switzerland", geography:"International Geneva (assoc. state)", actorType:"NGO/Network",
+    sdType:["s4d","SinD"], sinceYear:2019, activity:"A",
+    domains:["Quantum","AI","Health","Climate","Space","Digital","General S&T"],
+    orientation:"Cooperative", interestFocus:"Global", coreObjective:"Anticipate scientific breakthroughs & use them to strengthen multilateralism",
+    positioning:"Primary", explicitness:"Explicit", governance:"Public-private foundation (Confederation + Geneva)",
+    tools:["Nodality","Organisation","Authority"],
+    sciFields:["Quantum","AI","Neuroscience","Eco-regeneration","Space"],
+    networked:"Runs the 'Science Breakthrough Radar'; convenes scientists & diplomats in Int'l Geneva; Open Quantum Institute.",
+    documents:["Science Breakthrough Radar (annual)","GESDA summit reports"],
+    alignment:"Exemplary — anticipatory, multilateral SD model strongly resonant with the Framework's forward-looking aims."
+  },
+  {
+    id:"ch-swissnex", name:"swissnex — Swiss global network for education, research & innovation",
+    country:"Switzerland", geography:"Hubs in innovation centres worldwide (assoc. state)", actorType:"Diplomatic",
+    sdType:["d4s","s4d"], sinceYear:2000, activity:"B",
+    domains:["Digital","Health","General S&T","Energy"],
+    orientation:"Competitive", interestFocus:"National", coreObjective:"Connect Swiss research/innovation to global hubs (public-private)",
+    positioning:"Secondary", explicitness:"Explicit", governance:"Public-private, under EAER/SERI + FDFA",
+    tools:["Nodality","Organisation","Treasure"],
+    sciFields:["ICT","Life sciences","Engineering"],
+    networked:"swissnex hubs (Boston, SF, Bangalore, Shanghai, Rio, Osaka…); trains 'next-generation science diplomats'.",
+    documents:["swissnex annual report"],
+    alignment:"Aligned — network/attaché model the Framework's operational layer relies on."
+  },
+
+  /* ===================== NORWAY (Horizon-associated) ===================== */
+  {
+    id:"no-mfa", name:"Ministry of Foreign Affairs — Arctic & High North / Svalbard policy",
+    country:"Norway", geography:"National (Oslo) + Svalbard (assoc. state)", actorType:"Diplomatic",
+    sdType:["s4d","SinD"], sinceYear:2006, activity:"A",
+    domains:["Polar","Oceans","Climate","Security/Dual-use","General S&T"],
+    orientation:"Mixed", interestFocus:"Cross-border", coreObjective:"Use polar science to anchor sovereignty, cooperation & High-North policy",
+    positioning:"Primary", explicitness:"Explicit", governance:"Coordinated",
+    tools:["Authority","Nodality","Organisation","Treasure"],
+    sciFields:["Polar","Marine","Climate"],
+    networked:"Chaired Arctic Council (2023–25); Svalbard research hub; new Svalbard research office (2026) with RCN & Polar Institute.",
+    documents:["The Norwegian Government's Arctic Policy","Svalbard research strategy (2026)"],
+    alignment:"Exemplary — Arctic/polar science diplomacy is a textbook case the Framework references."
+  },
+  {
+    id:"no-polar", name:"Norwegian Polar Institute",
+    country:"Norway", geography:"National (Tromsø) + Arctic/Antarctic stations (assoc. state)", actorType:"Scientific/Research",
+    sdType:["SinD","s4d"], sinceYear:1948, activity:"B",
+    domains:["Polar","Climate","Oceans","Biodiversity"],
+    orientation:"Cooperative", interestFocus:"Global", coreObjective:"Polar research & scientific advice underpinning Arctic/Antarctic governance",
+    positioning:"Secondary", explicitness:"Implicit", governance:"Public research/advisory body",
+    tools:["Nodality","Organisation","Authority"],
+    sciFields:["Polar","Glaciology","Marine biology","Climate"],
+    networked:"Ny-Ålesund & Troll stations; Antarctic Treaty/SCAR; staffing the new Svalbard research office.",
+    documents:["Scientific advice on Arctic/Antarctic governance"],
+    alignment:"Aligned — research-based 'science in diplomacy' for polar governance."
+  },
+  {
+    id:"no-rcn", name:"Research Council of Norway (RCN)",
+    country:"Norway", geography:"National (Oslo) (assoc. state)", actorType:"Governmental/IO",
+    sdType:["d4s"], sinceYear:1993, activity:"B",
+    domains:["Polar","Climate","Energy","Oceans","General S&T"],
+    orientation:"Cooperative", interestFocus:"Cross-border", coreObjective:"Fund & internationalise Norwegian research",
+    positioning:"Tertiary", explicitness:"Implicit", governance:"National funding council",
+    tools:["Treasure","Organisation","Nodality"],
+    sciFields:["All fields"],
+    networked:"Funds High North Research Centre & polar research; Horizon Europe; new Svalbard office co-staffing.",
+    documents:["RCN international strategy"],
+    alignment:"Aligned — funder enabling Norway's polar & climate science diplomacy."
+  },
+
+  /* ===================== ESTONIA ===================== */
+  {
+    id:"ee-mfa", name:"Ministry of Foreign Affairs — Digital & Cyber Diplomacy Dept.",
+    country:"Estonia", geography:"National (Tallinn) + missions", actorType:"Diplomatic",
+    sdType:["s4d","SinD"], sinceYear:2019, activity:"B",
+    domains:["Digital","AI","Security/Dual-use","General S&T"],
+    orientation:"Mixed", interestFocus:"Global", coreObjective:"Project e-governance expertise as digital & science diplomacy",
+    positioning:"Primary", explicitness:"Explicit", governance:"Centralised (digital-first state)",
+    tools:["Authority","Nodality","Organisation"],
+    sciFields:["ICT","AI","Cybersecurity"],
+    networked:"Dedicated Digital & Cyber Diplomacy Dept (2019); e-Residency; exports e-governance; hosts NATO CCDCOE.",
+    documents:["Digital diplomacy materials","RDIE Strategy 2021–2035"],
+    alignment:"Aligned — leads the digital-diplomacy frontier the Framework names as a priority domain."
+  },
+  {
+    id:"ee-mer", name:"Ministry of Education & Research — RDIE Strategy / international cooperation",
+    country:"Estonia", geography:"National (Tartu/Tallinn)", actorType:"Governmental/IO",
+    sdType:["d4s","SinD"], sinceYear:2021, activity:"C",
+    domains:["Digital","General S&T","Health","Climate"],
+    orientation:"Cooperative", interestFocus:"Cross-border", coreObjective:"Boost research capacity & promote science diplomacy with partner regions",
+    positioning:"Secondary", explicitness:"Explicit", governance:"Coordinated",
+    tools:["Treasure","Authority","Organisation"],
+    sciFields:["ICT","All fields"],
+    networked:"Runs RDIE Strategy 2021–2035 (with Econ. Affairs); Horizon Europe, Nordic-Baltic, Taiwan & Japan schemes.",
+    documents:["RDIE Strategy 2021–2035"],
+    alignment:"Aligned — strategy text explicitly names 'science diplomacy' as an objective."
   }
 ];

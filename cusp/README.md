@@ -55,7 +55,10 @@ operational / enabling) and code of conduct — as promised in the proposal text
   **Finland** (UM + Academy, Finnish Academy of Science & Letters), **Ireland**
   (Research Ireland, DFA/Global Ireland), **Greece** (MFA, diaspora knowledge
   network). — *54 actors, 16 jurisdictions.*
-- _Next:_ Hungary, Slovenia, Estonia, Norway/Switzerland (associated); then deepen
+- **v5 (2026-06-10):** added **Switzerland** (FDFA, GESDA, swissnex), **Norway**
+  (MFA/Arctic, Polar Institute, RCN) — both Horizon-associated — and **Estonia**
+  (MFA Digital & Cyber Diplomacy, Min. of Education & Research). — *62 actors, 19 jurisdictions.*
+- _Next:_ Hungary, Slovenia, Croatia, Romania, Bulgaria, Baltics; then **deepen**
   each country (universities, research infrastructures, multinationals, diaspora).
 
 > A self-contained build, `cusp-standalone.html` (data inlined), is regenerated each
