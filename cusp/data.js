@@ -871,5 +871,223 @@ const ACTORS = [
     networked:"Runs RDIE Strategy 2021–2035 (with Econ. Affairs); Horizon Europe, Nordic-Baltic, Taiwan & Japan schemes.",
     documents:["RDIE Strategy 2021–2035"],
     alignment:"Aligned — strategy text explicitly names 'science diplomacy' as an objective."
+  },
+
+  /* ===================== GERMANY — DEPTH ===================== */
+  {
+    id:"de-gain", name:"GAIN — German Academic International Network (diaspora)",
+    country:"Germany", geography:"National (Bonn) + North America", actorType:"NGO/Network",
+    sdType:["d4s","s4d"], sinceYear:2003, activity:"B",
+    domains:["General S&T","Health","HSS"],
+    orientation:"Cooperative", interestFocus:"Cross-border", coreObjective:"Connect & repatriate German researchers abroad (brain circulation)",
+    positioning:"Secondary", explicitness:"Implicit", governance:"Joint initiative (AvH + DAAD + DFG)",
+    tools:["Nodality","Organisation","Treasure"],
+    sciFields:["All fields"],
+    networked:"Annual Boston/SF convention; HRK associate member; engages diaspora with policymakers.",
+    documents:["GAIN annual convention materials"],
+    alignment:"Aligned — model diaspora/brain-circulation instrument the project taxonomy & Framework flag."
+  },
+  {
+    id:"de-hrk", name:"HRK — German Rectors' Conference",
+    country:"Germany", geography:"National (Bonn/Berlin)", actorType:"NGO/Network",
+    sdType:["d4s"], sinceYear:1949, activity:"C",
+    domains:["General S&T","HSS"],
+    orientation:"Cooperative", interestFocus:"Cross-border", coreObjective:"Represent universities; steer internationalisation & knowledge security",
+    positioning:"Tertiary", explicitness:"Implicit", governance:"Rectors' association",
+    tools:["Nodality","Organisation","Authority"],
+    sciFields:["All fields"],
+    networked:"Voice of German universities; EUA member; guidance on China & knowledge security; GAIN associate.",
+    documents:["HRK guidelines on international cooperation & knowledge security"],
+    alignment:"Aligned — university-sector voice on internationalisation & research security per the Framework."
+  },
+  {
+    id:"de-helmholtz", name:"Helmholtz Association (incl. DESY, big-science infrastructures)",
+    country:"Germany", geography:"National (18 centres) + international facilities", actorType:"Scientific/Research",
+    sdType:["d4s","DinS"], sinceYear:1995, activity:"A",
+    domains:["General S&T","Energy","Climate","Health","Quantum","Space"],
+    orientation:"Cooperative", interestFocus:"Global", coreObjective:"Operate large-scale research infrastructures open to global users",
+    positioning:"Secondary", explicitness:"Implicit", governance:"Association of public research centres",
+    tools:["Organisation","Nodality","Treasure"],
+    sciFields:["Physics","Energy","Health","Earth & environment"],
+    networked:"Runs DESY/European XFEL host, FAIR, etc.; international user communities; bilateral lab partnerships.",
+    documents:["Helmholtz international strategy"],
+    alignment:"Aligned — research infrastructures are convening platforms central to 'diplomacy in science'."
+  },
+  {
+    id:"de-siemens", name:"Siemens AG (multinational, EU-level reach)",
+    country:"Germany", geography:"HQ Munich; global operations", actorType:"Industry",
+    sdType:["DinS"], sinceYear:1847, activity:"C",
+    domains:["Digital","Energy","Quantum","General S&T"],
+    orientation:"Competitive", interestFocus:"Global", coreObjective:"Shape standards, markets & tech ecosystems (corporate techno-diplomacy)",
+    positioning:"Tertiary", explicitness:"Implicit", governance:"Private multinational",
+    tools:["Treasure","Organisation","Nodality"],
+    sciFields:["Engineering","ICT","Energy"],
+    networked:"Standards bodies; public-private R&D; lobbying on EU industrial/tech policy.",
+    documents:["Corporate technology & sustainability reports"],
+    alignment:"Indirect — industry shapes tech sovereignty/standards the Framework cares about; rarely self-IDs as SD."
+  },
+
+  /* ===================== FRANCE — DEPTH ===================== */
+  {
+    id:"fr-pasteur", name:"Institut Pasteur & the Pasteur Network (global health)",
+    country:"France", geography:"HQ Paris + 33-member network on 5 continents", actorType:"Scientific/Research",
+    sdType:["s4d","d4s","SinD"], sinceYear:1887, activity:"A",
+    domains:["Health","Biodiversity","General S&T"],
+    orientation:"Cooperative", interestFocus:"Global", coreObjective:"Combat disease worldwide; health diplomacy via a values-based network",
+    positioning:"Primary", explicitness:"Explicit", governance:"Foundation + voluntary international network",
+    tools:["Nodality","Organisation","Treasure","Authority"],
+    sciFields:["Microbiology","Immunology","Public health","Genomics"],
+    networked:"Pasteur Network (33 institutes); WHO 'official relations' (2016); One-Health approach; outbreak response.",
+    documents:["Pasteur Network cooperation agreement","Global health reports"],
+    alignment:"Exemplary — a textbook health-diplomacy network embodying the Framework's global-partnership ethos."
+  },
+  {
+    id:"fr-univ", name:"France Universités (Conference of University Presidents)",
+    country:"France", geography:"National (Paris)", actorType:"NGO/Network",
+    sdType:["d4s"], sinceYear:1971, activity:"C",
+    domains:["General S&T","HSS"],
+    orientation:"Cooperative", interestFocus:"Cross-border", coreObjective:"Represent universities; coordinate internationalisation",
+    positioning:"Tertiary", explicitness:"Implicit", governance:"Presidents' association",
+    tools:["Nodality","Organisation","Authority"],
+    sciFields:["All fields"],
+    networked:"EUA member; partners MESR & Campus France; positions on int'l partnerships & research security.",
+    documents:["Position papers on internationalisation"],
+    alignment:"Aligned — sector voice the Framework engages on university diplomacy."
+  },
+  {
+    id:"fr-cnes", name:"CNES — National Centre for Space Studies (space diplomacy)",
+    country:"France", geography:"National (Paris/Toulouse/Kourou)", actorType:"Governmental/IO",
+    sdType:["s4d","d4s","SinD"], sinceYear:1961, activity:"A",
+    domains:["Space","Climate","Oceans","Security/Dual-use"],
+    orientation:"Mixed", interestFocus:"Global", coreObjective:"Lead France's space policy & cooperation (a flagship of S&T diplomacy)",
+    positioning:"Primary", explicitness:"Explicit", governance:"Public agency (under MESR + Defence)",
+    tools:["Treasure","Authority","Organisation","Nodality"],
+    sciFields:["Space","Earth observation","Climate"],
+    networked:"ESA's largest contributor base; bilateral space agreements (NASA, ISRO); Space Climate Observatory.",
+    documents:["Space Climate Observatory","Bilateral space cooperation agreements"],
+    alignment:"Strong — space is a flagship SD domain; CNES is a primary site of French S&T diplomacy."
+  },
+  {
+    id:"x-airbus", name:"Airbus (pan-European multinational)",
+    country:"EU", geography:"FR/DE/ES/NL footprint; global", actorType:"Industry",
+    sdType:["DinS"], sinceYear:1970, activity:"C",
+    domains:["Space","Security/Dual-use","Digital","General S&T"],
+    orientation:"Competitive", interestFocus:"Global", coreObjective:"Embody European industrial cooperation; shape aero/space markets & standards",
+    positioning:"Tertiary", explicitness:"Implicit", governance:"Pan-European private multinational",
+    tools:["Treasure","Organisation","Nodality"],
+    sciFields:["Aerospace","Engineering"],
+    networked:"Symbol of EU industrial integration; ESA/EU space programmes; export & dual-use policy stakeholder.",
+    documents:["Corporate & sustainability reports"],
+    alignment:"Indirect — pan-EU industrial cooperation underpins the sovereignty agenda; not a self-identified SD actor."
+  },
+
+  /* ===================== NETHERLANDS — DEPTH ===================== */
+  {
+    id:"nl-knaw", name:"KNAW — Royal Netherlands Academy of Arts and Sciences",
+    country:"Netherlands", geography:"National (Amsterdam)", actorType:"Policy Advice",
+    sdType:["SinD","s4d"], sinceYear:1808, activity:"B",
+    domains:["General S&T","HSS","Health","Security/Dual-use"],
+    orientation:"Cooperative", interestFocus:"Cross-border", coreObjective:"Advise on science & safeguard academic freedom and knowledge security",
+    positioning:"Secondary", explicitness:"Explicit", governance:"Self-governing academy + institutes",
+    tools:["Nodality","Authority"],
+    sciFields:["All fields"],
+    networked:"ALLEA member; influential position paper on knowledge security; advises on open-yet-secure cooperation.",
+    documents:["Knowledge Security — Academy Position Paper","Statements on the Knowledge Security Act"],
+    alignment:"Strong — directly engages the open-vs-secure balance at the heart of the Framework's research-security strand."
+  },
+  {
+    id:"nl-unl", name:"Universities of the Netherlands (UNL)",
+    country:"Netherlands", geography:"National (The Hague/Utrecht)", actorType:"NGO/Network",
+    sdType:["d4s"], sinceYear:1985, activity:"C",
+    domains:["General S&T","HSS","Security/Dual-use"],
+    orientation:"Cooperative", interestFocus:"Cross-border", coreObjective:"Represent universities; coordinate internationalisation & knowledge security",
+    positioning:"Tertiary", explicitness:"Implicit", governance:"Universities' association",
+    tools:["Nodality","Organisation","Authority"],
+    sciFields:["All fields"],
+    networked:"Works with National Contact Point Knowledge Security; EUA; partners ministries on int'l policy.",
+    documents:["National Knowledge Security Guidelines (sector input)"],
+    alignment:"Aligned — operationalises the Framework's research-security guidance at sector level."
+  },
+  {
+    id:"nl-asml", name:"ASML (multinational; export controls & tech sovereignty)",
+    country:"Netherlands", geography:"HQ Veldhoven; global", actorType:"Industry",
+    sdType:["DinS"], sinceYear:1984, activity:"B",
+    domains:["Digital","Quantum","Security/Dual-use","General S&T"],
+    orientation:"Competitive", interestFocus:"Global", coreObjective:"Lead advanced lithography; central to semiconductor geopolitics",
+    positioning:"Secondary", explicitness:"Implicit", governance:"Private multinational",
+    tools:["Treasure","Organisation","Nodality"],
+    sciFields:["Photonics","Semiconductors","Physics"],
+    networked:"Subject of EU–US–NL–China export-control diplomacy; knowledge-security debates; university R&D ties.",
+    documents:["Annual reports; export-control compliance disclosures"],
+    alignment:"Highly relevant — a focal point of technology-sovereignty diplomacy the Framework foregrounds (though not self-IDed as SD)."
+  },
+
+  /* ===================== SPAIN — DEPTH ===================== */
+  {
+    id:"es-raicex", name:"RAICEX — Network of Associations of Spanish Researchers Abroad (diaspora)",
+    country:"Spain", geography:"National (Madrid) + 18 countries", actorType:"NGO/Network",
+    sdType:["d4s","s4d"], sinceYear:2018, activity:"B",
+    domains:["General S&T","Health","HSS","Climate"],
+    orientation:"Cooperative", interestFocus:"Global", coreObjective:"Connect the Spanish scientific diaspora to the national STI system",
+    positioning:"Primary", explicitness:"Explicit", governance:"Federation of diaspora associations",
+    tools:["Nodality","Organisation"],
+    sciFields:["All fields"],
+    networked:"4,000+ researchers in 18 countries; advisory body & info channel for Spanish STI; partners FECYT.",
+    documents:["RAICEX reports & policy recommendations"],
+    alignment:"Strong — exemplary diaspora science-diplomacy network complementing Spain's bottom-up model."
+  },
+  {
+    id:"es-crue", name:"CRUE — Spanish Universities (rectors' conference)",
+    country:"Spain", geography:"National (Madrid)", actorType:"NGO/Network",
+    sdType:["d4s"], sinceYear:1994, activity:"D",
+    domains:["General S&T","HSS"],
+    orientation:"Cooperative", interestFocus:"Cross-border", coreObjective:"Represent universities; coordinate internationalisation",
+    positioning:"Tertiary", explicitness:"Implicit", governance:"Rectors' association",
+    tools:["Nodality","Organisation"],
+    sciFields:["All fields"],
+    networked:"EUA member; partners ministries; Latin-America & Mediterranean university cooperation.",
+    documents:["CRUE internationalisation strategy"],
+    alignment:"Aligned — university-sector voice, esp. toward Ibero-American partnerships."
+  },
+
+  /* ===================== ITALY — DEPTH ===================== */
+  {
+    id:"it-crui", name:"CRUI — Conference of Italian University Rectors",
+    country:"Italy", geography:"National (Rome)", actorType:"NGO/Network",
+    sdType:["d4s"], sinceYear:1963, activity:"D",
+    domains:["General S&T","HSS"],
+    orientation:"Cooperative", interestFocus:"Cross-border", coreObjective:"Coordinate university-system policy & internationalisation",
+    positioning:"Tertiary", explicitness:"Implicit", governance:"Rectors' association",
+    tools:["Nodality","Organisation","Authority"],
+    sciFields:["All fields"],
+    networked:"EUA member; negotiates with government; Mediterranean & Balkan university networks.",
+    documents:["CRUI position papers"],
+    alignment:"Aligned — university-sector voice engaged by the Framework."
+  },
+  {
+    id:"it-issnaf", name:"ISSNAF — Italian Scientists & Scholars in North America Foundation (diaspora)",
+    country:"Italy", geography:"National links + North America", actorType:"NGO/Network",
+    sdType:["d4s","s4d"], sinceYear:2007, activity:"C",
+    domains:["General S&T","Health","Digital"],
+    orientation:"Cooperative", interestFocus:"Global", coreObjective:"Connect the Italian scientific diaspora in North America to Italy",
+    positioning:"Secondary", explicitness:"Explicit", governance:"Foundation/network",
+    tools:["Nodality","Organisation"],
+    sciFields:["All fields"],
+    networked:"3,000+ Italian researchers in North America; awards, mentoring; links to MAECI attachés & universities.",
+    documents:["ISSNAF annual programmes"],
+    alignment:"Aligned — diaspora network instrument complementing Italy's attaché-led SD."
+  },
+  {
+    id:"it-asi", name:"ASI — Italian Space Agency (space diplomacy)",
+    country:"Italy", geography:"National (Rome) + facilities", actorType:"Governmental/IO",
+    sdType:["s4d","d4s","SinD"], sinceYear:1988, activity:"B",
+    domains:["Space","Climate","Oceans","Security/Dual-use"],
+    orientation:"Mixed", interestFocus:"Global", coreObjective:"Lead Italy's space policy & cooperation",
+    positioning:"Secondary", explicitness:"Explicit", governance:"Public agency (under MUR)",
+    tools:["Treasure","Authority","Organisation","Nodality"],
+    sciFields:["Space","Earth observation"],
+    networked:"ESA participation; bilateral agreements (NASA Artemis, UAE); links to MAECI space attachés.",
+    documents:["Bilateral space cooperation agreements"],
+    alignment:"Aligned — space is a flagship SD domain; ASI is a secondary site of Italian S&T diplomacy."
   }
 ];

@@ -58,8 +58,14 @@ operational / enabling) and code of conduct — as promised in the proposal text
 - **v5 (2026-06-10):** added **Switzerland** (FDFA, GESDA, swissnex), **Norway**
   (MFA/Arctic, Polar Institute, RCN) — both Horizon-associated — and **Estonia**
   (MFA Digital & Cyber Diplomacy, Min. of Education & Research). — *62 actors, 19 jurisdictions.*
-- _Next:_ Hungary, Slovenia, Croatia, Romania, Bulgaria, Baltics; then **deepen**
-  each country (universities, research infrastructures, multinationals, diaspora).
+- **v6 (2026-06-10) — depth pass on priority states:** added diaspora networks
+  (DE: GAIN; ES: RAICEX; IT: ISSNAF), rectors'/university associations (DE: HRK;
+  FR: France Universités; NL: UNL; ES: CRUE; IT: CRUI), flagship research
+  institutions & infrastructures (DE: Helmholtz/DESY; FR: Institut Pasteur Network;
+  FR: CNES; IT: ASI), academies (NL: KNAW), and multinationals (DE: Siemens; NL:
+  ASML; EU: Airbus). — *78 actors, 19 jurisdictions, all 7 actor types represented.*
+- _Next:_ remaining EU members (HU, SI, HR, RO, BG, SK, LT, LV, LU, CY, MT);
+  deepen FR/NL/ES/IT further; add A–E 'fit' scoring per SD type.
 
 > A self-contained build, `cusp-standalone.html` (data inlined), is regenerated each
 > iteration for one-tap opening without the sibling `data.js`.
