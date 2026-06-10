@@ -649,5 +649,117 @@ const ACTORS = [
     networked:"Co-hosts embassy science advisers with FCT; Camões Institute; Portuguese-speaking African countries & Timor-Leste.",
     documents:["MNE–FCT cooperation materials"],
     alignment:"Aligned — combines science with cultural/lusophone diplomacy in line with the Framework."
+  },
+
+  /* ===================== DENMARK ===================== */
+  {
+    id:"dk-icdk", name:"Innovation Centre Denmark (ICDK)",
+    country:"Denmark", geography:"National (Copenhagen) + 7 innovation hubs", actorType:"Diplomatic",
+    sdType:["d4s","s4d"], sinceYear:2006, activity:"A",
+    domains:["Digital","Energy","Health","General S&T","Quantum"],
+    orientation:"Competitive", interestFocus:"National", coreObjective:"Connect Danish research & business to global innovation ecosystems (triple-helix)",
+    positioning:"Primary", explicitness:"Explicit", governance:"Joint MFA + Min. of HE & Science",
+    tools:["Nodality","Organisation","Treasure"],
+    sciFields:["ICT","Life sciences","Engineering","Quantum"],
+    networked:"7 centres (Silicon Valley, Boston, Munich, Bangalore, Seoul, Shanghai, Tel Aviv); part of the foreign service; green/life-science/tech focus.",
+    documents:["ICDK annual reports","CFA evaluation of ICDK"],
+    alignment:"Strong — embedded science-in-the-foreign-service model the Framework promotes."
+  },
+  {
+    id:"dk-techamb", name:"Tech Ambassador / TechPlomacy (Office of Denmark's Tech Ambassador)",
+    country:"Denmark", geography:"HQ Silicon Valley + Copenhagen & Beijing", actorType:"Diplomatic",
+    sdType:["s4d","SinD"], sinceYear:2017, activity:"A",
+    domains:["Digital","AI","Quantum","Security/Dual-use"],
+    orientation:"Mixed", interestFocus:"Global", coreObjective:"Conduct diplomacy with the tech industry as a geopolitical actor ('TechPlomacy')",
+    positioning:"Primary", explicitness:"Explicit", governance:"MFA (ambassador-rank office)",
+    tools:["Authority","Nodality","Organisation"],
+    sciFields:["ICT","AI","Quantum"],
+    networked:"World's first national tech ambassador; engages Big Tech directly; inspired other states' tech-diplomacy offices.",
+    documents:["TechPlomacy strategy materials"],
+    alignment:"Pioneering — extends SD into digital/tech diplomacy, a priority domain of the Framework."
+  },
+
+  /* ===================== FINLAND ===================== */
+  {
+    id:"fi-um", name:"Ministry for Foreign Affairs (UM) + Academy joint development research",
+    country:"Finland", geography:"National (Helsinki) + missions", actorType:"Diplomatic",
+    sdType:["s4d","d4s"], sinceYear:2012, activity:"C",
+    domains:["Climate","General S&T","Food security","Health"],
+    orientation:"Cooperative", interestFocus:"Global", coreObjective:"Use science to 'operate larger than its size'; SDGs & climate",
+    positioning:"Secondary", explicitness:"Emerging", governance:"Coordinated",
+    tools:["Treasure","Nodality","Organisation"],
+    sciFields:["All fields"],
+    networked:"Co-funds development research with Research Council of Finland; works with OKM ministry & academies.",
+    documents:["Development research strategy","MFA research project materials"],
+    alignment:"Aligned, emerging — Finland building explicit SD capacity per the academy report's recommendations."
+  },
+  {
+    id:"fi-acadsci", name:"Finnish Academy of Science and Letters",
+    country:"Finland", geography:"National (Helsinki)", actorType:"Policy Advice",
+    sdType:["SinD","s4d"], sinceYear:1908, activity:"C",
+    domains:["General S&T","HSS","Climate"],
+    orientation:"Cooperative", interestFocus:"National", coreObjective:"Advise on science & represent the Finnish scientific community",
+    positioning:"Secondary", explicitness:"Explicit", governance:"Self-governing academy",
+    tools:["Nodality","Authority"],
+    sciFields:["All fields"],
+    networked:"Produced a national science-diplomacy report (survey/interviews) with 10 recommendations; ALLEA member.",
+    documents:["Finnish science diplomacy report (10 recommendations)"],
+    alignment:"Strong — explicitly advancing a national SD agenda mapped onto the EU Framework."
+  },
+
+  /* ===================== IRELAND ===================== */
+  {
+    id:"ie-research", name:"Research Ireland (formerly Science Foundation Ireland + IRC)",
+    country:"Ireland", geography:"National (Dublin)", actorType:"Governmental/IO",
+    sdType:["d4s"], sinceYear:2000, activity:"B",
+    domains:["General S&T","Digital","Health","Climate","Food security"],
+    orientation:"Competitive", interestFocus:"Global", coreObjective:"Fund research; attract talent & build international partnerships",
+    positioning:"Secondary", explicitness:"Implicit", governance:"National funding agency",
+    tools:["Treasure","Nodality","Organisation"],
+    sciFields:["ICT","Life sciences","Engineering"],
+    networked:"International strategy (5 pillars); SDG Challenge with Irish Aid; co-investment with national funders.",
+    documents:["SFI Strategy 'Shaping Our Future'","International strategy pillars"],
+    alignment:"Aligned — funder-led talent/partnership diplomacy; SDG Challenge links science to development."
+  },
+  {
+    id:"ie-dfa", name:"Department of Foreign Affairs — Global Ireland & Irish Aid",
+    country:"Ireland", geography:"National (Dublin) + expanding mission network", actorType:"Diplomatic",
+    sdType:["s4d","SinD"], sinceYear:2018, activity:"C",
+    domains:["General S&T","Health","Climate","Water"],
+    orientation:"Cooperative", interestFocus:"Global", coreObjective:"Project influence via Global Ireland; science for peacebuilding & development",
+    positioning:"Secondary", explicitness:"Emerging", governance:"Coordinated",
+    tools:["Authority","Nodality","Treasure"],
+    sciFields:["All fields"],
+    networked:"Global Ireland strategies; Irish Aid–Research Ireland SDG partnership; British–Irish Council shared evidence (peacebuilding).",
+    documents:["Global Ireland strategies"],
+    alignment:"Aligned — notable for science-for-peacebuilding, a core SD value in the Framework."
+  },
+
+  /* ===================== GREECE ===================== */
+  {
+    id:"gr-mfa", name:"Hellenic MFA — Science & Public Diplomacy",
+    country:"Greece", geography:"National (Athens) + missions", actorType:"Diplomatic",
+    sdType:["s4d","SinD"], sinceYear:2020, activity:"D",
+    domains:["General S&T","Archaeology","HSS","Digital","Oceans"],
+    orientation:"Cooperative", interestFocus:"Cross-border", coreObjective:"Develop Greece's role in EU science diplomacy; leverage cultural heritage",
+    positioning:"Secondary", explicitness:"Emerging", governance:"Coordinated (forming)",
+    tools:["Authority","Nodality","Organisation"],
+    sciFields:["All fields","Archaeology"],
+    networked:"Hosting 'Role of Greece in EU Science Diplomacy' symposium (Jun 2026); engages diaspora & academics abroad.",
+    documents:["EU SD symposium programme (2026)","Cultural diplomacy materials"],
+    alignment:"Emerging — explicitly orienting toward the EU Framework; community still forming."
+  },
+  {
+    id:"gr-diaspora", name:"Greek Diaspora Knowledge Network ('Knowledge & Partnership Bridges')",
+    country:"Greece", geography:"National (Athens) + global diaspora", actorType:"NGO/Network",
+    sdType:["d4s","s4d"], sinceYear:2016, activity:"C",
+    domains:["AI","Digital","General S&T","Health","Energy"],
+    orientation:"Cooperative", interestFocus:"Global", coreObjective:"Mobilise the Greek scientific diaspora as a knowledge & partnership asset",
+    positioning:"Primary", explicitness:"Explicit", governance:"Network/platform",
+    tools:["Nodality","Organisation"],
+    sciFields:["AI","ICT","Biotechnology","Materials","Energy"],
+    networked:"Links 250k+ Greek-born professionals & wider 8M diaspora; bridges to universities & firms abroad.",
+    documents:["Knowledge & Partnership Bridges programme materials"],
+    alignment:"Aligned — exemplifies the diaspora-network instrument the project taxonomy & Framework highlight."
   }
 ];

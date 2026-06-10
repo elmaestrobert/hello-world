@@ -51,8 +51,12 @@ operational / enabling) and code of conduct — as promised in the proposal text
 - **v3 (2026-06-10):** added **Sweden** (UD/innovation offices, STINT, VR/IntSam, IVA),
   **Belgium** (FPS Foreign Affairs, BELSPO), **Czechia** (MFA SD Unit, CAS),
   **Portugal** (FCT/goPORTUGAL, MNE/Camões). — *46 actors, 12 jurisdictions.*
-- _Next:_ Denmark/Finland, Ireland, Greece, Hungary; then deepen each country
-  (universities, research infrastructures, industry/multinationals, diaspora networks).
+- **v4 (2026-06-10):** added **Denmark** (ICDK, Tech Ambassador/TechPlomacy),
+  **Finland** (UM + Academy, Finnish Academy of Science & Letters), **Ireland**
+  (Research Ireland, DFA/Global Ireland), **Greece** (MFA, diaspora knowledge
+  network). — *54 actors, 16 jurisdictions.*
+- _Next:_ Hungary, Slovenia, Estonia, Norway/Switzerland (associated); then deepen
+  each country (universities, research infrastructures, multinationals, diaspora).
 
 > A self-contained build, `cusp-standalone.html` (data inlined), is regenerated each
 > iteration for one-tap opening without the sibling `data.js`.
