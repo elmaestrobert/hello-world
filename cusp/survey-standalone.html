@@ -1,0 +1,1441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CUSP · Science Diplomacy Actor Assessment</title>
+<style>
+  :root{
+    --bg1:#eef3ff; --bg2:#f7faff; --card:#ffffff; --ink:#1c2540; --muted:#6b7799;
+    --line:#e3e9f6; --brand:#4f6ef7; --brand2:#22c3a6; --soft:#f0f4ff;
+    --A:#1fab74; --B:#7bc043; --C:#f2c14e; --D:#f08a4b; --E:#e2615b;
+    --shadow:0 8px 30px rgba(60,80,160,.10);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font:15px/1.55 ui-sans-serif,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+       color:var(--ink);background:linear-gradient(160deg,var(--bg1),var(--bg2));min-height:100vh}
+  .app{max-width:760px;margin:0 auto;padding:26px 18px 60px}
+  .brandbar{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+  .logo{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--brand2));
+        display:grid;place-items:center;color:#fff;font-weight:800}
+  .brandbar h1{font-size:17px;margin:0;font-weight:700;letter-spacing:.2px}
+  .brandbar .tag{color:var(--muted);font-size:12.5px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:24px}
+  h2{margin:0 0 6px;font-size:20px}
+  .lede{color:var(--muted);margin:0 0 18px}
+  label.fld{display:block;font-weight:600;font-size:13px;margin:16px 0 7px}
+  select,input[type=text],textarea{width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:12px;
+        background:var(--soft);color:var(--ink);font:inherit;outline:none}
+  select:focus,input:focus,textarea:focus{border-color:var(--brand);background:#fff}
+  textarea{min-height:74px;resize:vertical}
+  .seg{display:flex;gap:8px;flex-wrap:wrap}
+  .seg.scope button{flex:1;min-width:200px;text-align:left;padding:16px;border-radius:14px;border:1px solid var(--line);
+        background:var(--soft);cursor:pointer;transition:.15s}
+  .seg.scope button:hover{border-color:var(--brand);transform:translateY(-1px)}
+  .seg.scope button.on{border-color:var(--brand);background:#fff;box-shadow:var(--shadow)}
+  .seg.scope b{display:block;font-size:15px;margin-bottom:3px}
+  .seg.scope span{color:var(--muted);font-size:12.5px}
+  .btn{appearance:none;border:none;border-radius:12px;padding:12px 20px;font:inherit;font-weight:650;cursor:pointer;transition:.15s}
+  .btn.primary{background:var(--brand);color:#fff}
+  .btn.primary:hover{filter:brightness(1.05);transform:translateY(-1px)}
+  .btn.primary:disabled{opacity:.45;cursor:not-allowed;transform:none}
+  .btn.ghost{background:var(--soft);color:var(--ink);border:1px solid var(--line)}
+  .btn.ghost:hover{border-color:var(--brand)}
+  .row{display:flex;align-items:center;gap:10px}
+  .spacer{flex:1}
+  /* progress */
+  .prog{height:8px;background:#e7edfb;border-radius:8px;overflow:hidden;margin:2px 0 16px}
+  .prog>div{height:100%;background:linear-gradient(90deg,var(--brand),var(--brand2));transition:width .25s}
+  .crumbs{display:flex;justify-content:space-between;color:var(--muted);font-size:12.5px;margin-bottom:6px}
+  /* actor header */
+  .ahead{display:flex;align-items:flex-start;gap:12px;margin-bottom:4px}
+  .avatar{width:42px;height:42px;border-radius:12px;flex:none;display:grid;place-items:center;color:#fff;font-weight:800;font-size:15px}
+  .ahead .nm{font-size:18px;font-weight:700;line-height:1.25}
+  .ahead .mt{color:var(--muted);font-size:12.5px;margin-top:2px}
+  .pills{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 4px}
+  .pill{font-size:11px;padding:3px 9px;border-radius:999px;background:var(--soft);border:1px solid var(--line);color:var(--muted)}
+  .ctx{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:11px 13px;margin:12px 0 6px;font-size:13px;color:#42507a}
+  .ctx b{color:var(--ink)}
+  /* questions */
+  .q{padding:16px 0;border-top:1px solid var(--line)}
+  .q .qt{font-weight:650;font-size:14px;margin-bottom:3px}
+  .q .qh{color:var(--muted);font-size:12px;margin-bottom:9px}
+  .ae{display:flex;gap:6px}
+  .ae button{flex:1;padding:9px 4px;border-radius:10px;border:1px solid var(--line);background:#fff;cursor:pointer;
+        font-weight:700;font-size:13px;color:var(--muted);transition:.12s;position:relative}
+  .ae button small{display:block;font-weight:500;font-size:9.5px;margin-top:2px;letter-spacing:.2px}
+  .ae button:hover{border-color:var(--brand)}
+  .ae button.on{color:#fff;border-color:transparent}
+  .ae button.on.A{background:var(--A)} .ae button.on.B{background:var(--B)}
+  .ae button.on.C{background:var(--C)} .ae button.on.D{background:var(--D)} .ae button.on.E{background:var(--E)}
+  .matrix{display:grid;grid-template-columns:auto 1fr;gap:8px 12px;align-items:center}
+  .matrix .ml{font-size:13px;font-weight:600}
+  .matrix .ml small{display:block;font-weight:400;color:var(--muted);font-size:11px}
+  .mini button{padding:7px 3px;font-size:12px}
+  .mini button small{display:none}
+  .slider{display:flex;align-items:center;gap:12px}
+  input[type=range]{flex:1;accent-color:var(--brand)}
+  .slabel{font-size:12px;color:var(--muted);min-width:78px;text-align:center}
+  .skip{margin-top:6px}
+  .skipped{opacity:.55}
+  /* review */
+  table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:12px}
+  th,td{text-align:left;padding:8px 9px;border-bottom:1px solid var(--line)}
+  th{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.5px}
+  .badge{display:inline-block;min-width:20px;text-align:center;padding:1px 6px;border-radius:6px;color:#fff;font-weight:700;font-size:11px}
+  .badge.A{background:var(--A)}.badge.B{background:var(--B)}.badge.C{background:var(--C)}.badge.D{background:var(--D)}.badge.E{background:var(--E)}
+  .badge.skip{background:#aab3cc}
+  .stat{display:inline-flex;flex-direction:column;gap:2px;background:var(--soft);border:1px solid var(--line);
+        border-radius:12px;padding:10px 14px;margin:4px 6px 4px 0}
+  .stat b{font-size:20px}.stat span{color:var(--muted);font-size:11.5px}
+  .hide{display:none}
+  .foot{color:var(--muted);font-size:12px;text-align:center;margin-top:18px}
+  .save-note{color:var(--brand2);font-size:12px;font-weight:600}
+  @media(max-width:560px){.mini button{padding:7px 2px}}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="brandbar">
+    <div class="logo">C</div>
+    <div><h1>Science Diplomacy Actor Assessment</h1>
+    <div class="tag">CUSP · rate how each actor fits the science-diplomacy taxonomy</div></div>
+  </div>
+
+  <!-- ============ START ============ -->
+  <section id="start" class="card">
+    <h2>Let's assess some actors 👋</h2>
+    <p class="lede">Pick a lens, and you'll judge each matching actor one at a time on a friendly A–E scale. Your answers save automatically in this browser — you can stop and come back.</p>
+
+    <label class="fld">Your name or role <span style="color:var(--muted);font-weight:400">(optional)</span></label>
+    <input id="who" type="text" placeholder="e.g. Maria, policy analyst"/>
+
+    <label class="fld">Choose your lens</label>
+    <div class="seg scope" id="scopeBtns">
+      <button data-scope="country"><b>By country / geography</b><span>Judge all the actors based in one place</span></button>
+      <button data-scope="actorType"><b>By diplomacy partner type</b><span>Judge all actors of one kind (e.g. all foreign ministries)</span></button>
+    </div>
+
+    <label class="fld" id="pickLabel" style="display:none">Which one?</label>
+    <select id="pick" style="display:none"></select>
+
+    <div class="row" style="margin-top:22px">
+      <div class="spacer"></div>
+      <button class="btn primary" id="startBtn" disabled>Start assessment →</button>
+    </div>
+  </section>
+
+  <!-- ============ SURVEY ============ -->
+  <section id="survey" class="card hide">
+    <div class="crumbs"><span id="scopeTag"></span><span id="posTag"></span></div>
+    <div class="prog"><div id="progBar" style="width:0%"></div></div>
+
+    <div class="ahead">
+      <div class="avatar" id="avatar">A</div>
+      <div><div class="nm" id="aName"></div><div class="mt" id="aMeta"></div></div>
+    </div>
+    <div class="pills" id="aPills"></div>
+    <div class="ctx" id="aCtx"></div>
+
+    <div class="q">
+      <div class="qt">1 · Overall, how significant is this actor in science diplomacy?</div>
+      <div class="qh">A = very high · B = high · C = moderate · D = low · E = minimal</div>
+      <div class="ae" data-q="significance"></div>
+    </div>
+
+    <div class="q">
+      <div class="qt">2 · How well does each type of science diplomacy fit?</div>
+      <div class="qh">s4d = science for diplomacy · d4s = diplomacy for science · SinD = science in diplomacy · DinS = diplomacy in science</div>
+      <div class="matrix" id="sdMatrix"></div>
+    </div>
+
+    <div class="q">
+      <div class="qt">3 · How active is it right now?</div>
+      <div class="qh">Based on visible, current science-diplomacy activity</div>
+      <div class="ae" data-q="activity"></div>
+    </div>
+
+    <div class="q">
+      <div class="qt">4 · What's its orientation?</div>
+      <div class="qh">Where does it sit between cooperative and competitive?</div>
+      <div class="slider">
+        <span class="slabel">🤝 Cooperative</span>
+        <input type="range" id="orient" min="1" max="5" step="1" value="3"/>
+        <span class="slabel">⚔️ Competitive</span>
+      </div>
+    </div>
+
+    <div class="q">
+      <div class="qt">5 · Anything to add?</div>
+      <div class="qh">Optional — evidence, doubts, documents, your reasoning</div>
+      <textarea id="notes" placeholder="Optional notes…"></textarea>
+    </div>
+
+    <div class="skip">
+      <label class="row" style="gap:8px;cursor:pointer;font-size:13px;color:var(--muted)">
+        <input type="checkbox" id="unfamiliar"/> I'm not familiar enough with this actor — skip it
+      </label>
+    </div>
+
+    <div class="row" style="margin-top:20px">
+      <button class="btn ghost" id="prevBtn">← Back</button>
+      <span class="save-note" id="saveNote">saved ✓</span>
+      <div class="spacer"></div>
+      <button class="btn primary" id="nextBtn">Next →</button>
+    </div>
+  </section>
+
+  <!-- ============ REVIEW ============ -->
+  <section id="review" class="card hide">
+    <h2>Nice work 🎉</h2>
+    <p class="lede" id="reviewLede"></p>
+    <div id="stats"></div>
+    <div style="overflow:auto"><table id="resTable"></table></div>
+    <div class="row" style="margin-top:20px;flex-wrap:wrap;gap:10px">
+      <button class="btn ghost" id="backToSurvey">← Edit answers</button>
+      <button class="btn ghost" id="restart">Start over</button>
+      <div class="spacer"></div>
+      <button class="btn ghost" id="copyJson">Copy JSON</button>
+      <button class="btn ghost" id="dlCsv">Download CSV</button>
+      <button class="btn primary" id="dlJson">Download JSON</button>
+    </div>
+    <div class="foot">Responses live only in your browser until you export them.</div>
+  </section>
+
+  <div class="foot">CUSP assessment · A–E scale · companion to the actor map (<code>cusp/index.html</code>)</div>
+</div>
+
+<script>
+/* CUSP — Mapping Science Diplomacy Actors in the EU & Priority Member States
+ * Dataset (v1). Each record is coded against the project taxonomy (a–p) and
+ * checked for alignment with the EU Framework for Science Diplomacy (2025 expert
+ * report; Council Recommendation COM(2026) 96 final, adopted 29 May 2026).
+ *
+ * Taxonomy keys:
+ *  a geography        b actorType        c sdType[]        d sinceYear
+ *  e activity (A–E)   f domains[]        g orientation     h interestFocus
+ *  i coreObjective    j positioning      k explicitness    l governance
+ *  m tools[]          n sciFields[]      o networked       p documents[]
+ *  + alignment (note on fit with EU SD Framework)
+ *
+ * sdType vocabulary: s4d (science for diplomacy), d4s (diplomacy for science),
+ *   SinD (science in diplomacy), DinS (diplomacy in science).
+ * activity scale: A=very high, B=high, C=moderate, D=emerging, E=latent.
+ */
+
+const TAXONOMY = {
+  actorType: ["Diplomatic","Governmental/IO","Scientific/Research","NGO/Network","Training","Policy Advice","Industry"],
+  sdType: ["s4d","d4s","SinD","DinS"],
+  orientation: ["Cooperative","Mixed","Competitive"],
+  interestFocus: ["National","Cross-border","Global"],
+  positioning: ["Primary","Secondary","Tertiary"],
+  explicitness: ["Explicit","Implicit","Emerging"],
+  activity: ["A","B","C","D","E"],
+  domains: ["Climate","Oceans","Polar","Space","Digital","Quantum","AI","Health","Food security","Energy","Biodiversity","Archaeology","HSS","Security/Dual-use","Migration","Water","General S&T"]
+};
+
+const ACTORS = [
+  /* ===================== EU LEVEL ===================== */
+  {
+    id:"eu-dgrtd", name:"European Commission — DG Research & Innovation (DG RTD)",
+    country:"EU", geography:"Supranational (Brussels)", actorType:"Governmental/IO",
+    sdType:["s4d","d4s","SinD"], sinceYear:2014, activity:"A",
+    domains:["General S&T","Climate","Health","Digital","Security/Dual-use"],
+    orientation:"Mixed", interestFocus:"Cross-border", coreObjective:"Promote EU values & strategic interests through open, secure international S&T cooperation",
+    positioning:"Primary", explicitness:"Explicit", governance:"Centralised (Commission-led, comitology)",
+    tools:["Authority","Treasure","Organisation","Nodality"],
+    sciFields:["All fields","Engineering","Life sciences","Climate science","ICT"],
+    networked:"Owns the EU SD Framework; coordinates EEAS, JRC, Member States via ERAC/strategic fora; runs Horizon Europe international cooperation.",
+    documents:["A European Framework for Science Diplomacy (2025)","COM(2026) 96 final — Council Recommendation","Global Approach to R&I (2021)"],
+    alignment:"Author/owner of the Framework — full alignment by definition; sets the shared vision, narrative and code of conduct."
+  },
+  {
+    id:"eu-eeas", name:"European External Action Service (EEAS) & EU Delegations",
+    country:"EU", geography:"Supranational + global network of Delegations", actorType:"Diplomatic",
+    sdType:["s4d","SinD"], sinceYear:2011, activity:"B",
+    domains:["General S&T","Security/Dual-use","Digital","Climate","Space"],
+    orientation:"Mixed", interestFocus:"Global", coreObjective:"Embed S&T in EU foreign & security policy; leverage research for geopolitical objectives",
+    positioning:"Secondary", explicitness:"Emerging", governance:"Centralised (HR/VP-led)",
+    tools:["Authority","Nodality","Organisation"],
+    sciFields:["All fields"],
+    networked:"Partners DG RTD on Framework delivery; some Delegations host science/tech counsellors; links to Member State embassies.",
+    documents:["EU Strategic Compass (2022)","Joint communications on tech sovereignty"],
+    alignment:"Identified in the Framework as a key operational arm; alignment growing as SD attaché/counsellor function develops."
+  },
+  {
+    id:"eu-jrc", name:"Joint Research Centre (JRC)",
+    country:"EU", geography:"Supranational (Ispra, Seville, Geel, Karlsruhe, Petten)", actorType:"Scientific/Research",
+    sdType:["SinD","s4d"], sinceYear:1957, activity:"A",
+    domains:["General S&T","Climate","Health","Food security","Security/Dual-use","Digital"],
+    orientation:"Cooperative", interestFocus:"Cross-border", coreObjective:"Provide independent scientific evidence to underpin EU policy & external action",
+    positioning:"Secondary", explicitness:"Explicit", governance:"Centralised (Commission in-house science)",
+    tools:["Nodality","Organisation","Authority"],
+    sciFields:["Nuclear","Environmental","Data science","Economics","Materials"],
+    networked:"Science-for-policy backbone; supports Competence Centre on Science Diplomacy concepts; partners with national labs & IAEA.",
+    documents:["Science for policy reports","Knowledge for Policy platform outputs"],
+    alignment:"Strong — exemplifies 'science in diplomacy' evidence function the Framework promotes."
+  },
+  {
+    id:"eu-sam-gcsa", name:"Group of Chief Scientific Advisors / Scientific Advice Mechanism (SAM)",
+    country:"EU", geography:"Supranational (Brussels)", actorType:"Policy Advice",
+    sdType:["SinD"], sinceYear:2015, activity:"B",
+    domains:["General S&T","Health","Climate","Digital"],
+    orientation:"Cooperative", interestFocus:"Cross-border", coreObjective:"Independent scientific advice to the College of Commissioners",
+    positioning:"Tertiary", explicitness:"Implicit", governance:"Centralised advisory",
+    tools:["Nodality","Authority"],
+    sciFields:["All fields"],
+    networked:"Works with SAPEA (academies) & national academies; feeds evidence into SD-relevant dossiers.",
+    documents:["SAM scientific opinions","SAPEA evidence reviews"],
+    alignment:"Supports the evidence-into-policy pillar; not primarily an SD body but enabling."
+  },
+  {
+    id:"eu-erc", name:"European Research Council (ERC) & European Innovation Council (EIC)",
+    country:"EU", geography:"Supranational (Brussels)", actorType:"Governmental/IO",
+    sdType:["d4s"], sinceYear:2007, activity:"A",
+    domains:["General S&T","Quantum","AI","Health"],
+    orientation:"Competitive", interestFocus:"Global", coreObjective:"Fund frontier research; attract & retain global talent (diplomacy for science)",
+    positioning:"Tertiary", explicitness:"Implicit", governance:"Centralised executive agency",
+    tools:["Treasure","Nodality"],
+    sciFields:["All fields"],
+    networked:"Global talent magnet; mobility shapes EU's S&T standing; links to national funders.",
+    documents:["ERC Work Programmes","Talent & mobility statistics"],
+    alignment:"Embodies 'diplomacy for science' — using EU convening power & funds to enable science."
+  },
+
+  /* ===================== GERMANY ===================== */
+  {
+    id:"de-aa", name:"Federal Foreign Office (Auswärtiges Amt) — Science & Academic Relations",
+    country:"Germany", geography:"National (Berlin) + global missions", actorType:"Diplomatic",
+    sdType:["s4d","SinD"], sinceYear:2009, activity:"A",
+    domains:["General S&T","Climate","Health","Security/Dual-use","HSS"],
+    orientation:"Cooperative", interestFocus:"Cross-border", coreObjective:"Use science & academic exchange to build trust and project soft power",
+    positioning:"Primary", explicitness:"Explicit", governance:"Centralised within federal structure",
+    tools:["Authority","Treasure","Organisation","Nodality"],
+    sciFields:["All fields"],
+    networked:"Chairs DWIH Board of Trustees; deploys science counsellors; funds intermediary organisations (DAAD, AvH, Goethe).",
+    documents:["Foreign Cultural & Education Policy reports","Research & Academic Relations Initiative"],
+    alignment:"High — long-standing explicit SD posture; model for the Framework's 'science for diplomacy'."
+  },
+  {
+    id:"de-bmftr", name:"Federal Ministry of Research, Technology & Space (BMFTR)",
+    country:"Germany", geography:"National (Berlin/Bonn)", actorType:"Governmental/IO",
+    sdType:["d4s","SinD"], sinceYear:2014, activity:"A",
+    domains:["General S&T","Space","Quantum","Climate","Health"],
+    orientation:"Mixed", interestFocus:"National", coreObjective:"Steer international research cooperation & innovation policy",
+    positioning:"Primary", explicitness:"Explicit", governance:"Centralised (federal competence)",
+    tools:["Treasure","Authority","Organisation"],
+    sciFields:["Engineering","Physics","Life sciences","Space"],
+    networked:"Co-runs DWIH; bilateral S&T agreements; partners EU on Horizon; funds big-science (DESY, CERN contributions).",
+    documents:["Internationalisation Strategy","China Strategy for research"],
+    alignment:"Strong — explicit SD framing ('interface of science, international politics, diplomacy')."
+  },
+  {
+    id:"de-daad", name:"German Academic Exchange Service (DAAD)",
+    country:"Germany", geography:"National (Bonn) + 70+ offices worldwide", actorType:"NGO/Network",
+    sdType:["s4d","d4s"], sinceYear:1925, activity:"A",
+    domains:["HSS","General S&T","Health","Climate"],
+    orientation:"Cooperative", interestFocus:"Global", coreObjective:"Promote academic exchange, mobility & internationalisation as soft power",
+    positioning:"Secondary", explicitness:"Implicit", governance:"Self-governing membership org (publicly funded)",
+    tools:["Treasure","Organisation","Nodality"],
+    sciFields:["All fields"],
+    networked:"Intermediary for AA & BMFTR; runs scholarship & university partnership programmes; lektorat network.",
+    documents:["DAAD Strategy 2025","Academic freedom monitoring reports"],
+    alignment:"Aligned as a key intermediary/network the Framework relies on for talent & trust-building."
+  },
+  {
+    id:"de-avh", name:"Alexander von Humboldt Foundation",
+    country:"Germany", geography:"National (Bonn) + global alumni network", actorType:"NGO/Network",
+    sdType:["d4s","s4d"], sinceYear:1953, activity:"B",
+    domains:["General S&T","HSS","Climate"],
+    orientation:"Cooperative", interestFocus:"Global", coreObjective:"Build a lifelong global network of top researchers (research diplomacy via fellowships)",
+    positioning:"Secondary", explicitness:"Implicit", governance:"Foundation (publicly funded)",
+    tools:["Treasure","Nodality"],
+    sciFields:["All fields"],
+    networked:"~30,000 Humboldtians in 140 countries; Philipp Schwartz Initiative for at-risk scholars.",
+    documents:["Annual reports","Philipp Schwartz Initiative reports"],
+    alignment:"Aligned — exemplary 'diplomacy for science' talent diplomacy instrument."
+  },
+  {
+    id:"de-leopoldina", name:"Leopoldina — German National Academy of Sciences",
+    country:"Germany", geography:"National (Halle)", actorType:"Policy Advice",
+    sdType:["SinD","s4d"], sinceYear:2008, activity:"B",
+    domains:["Health","Climate","General S&T","HSS"],
+    orientation:"Cooperative", interestFocus:"Cross-border", coreObjective:"Represent German science abroad & advise government on science-based policy",
+    positioning:"Secondary", explicitness:"Explicit", governance:"Self-governing academy",
+    tools:["Nodality","Authority"],
+    sciFields:["All fields"],
+    networked:"G-Science (G7/G20) academies statements; ALLEA & IAP member; advises federal government.",
+    documents:["G-Science statements","Ad hoc policy statements"],
+    alignment:"Aligned — science-academy track-II diplomacy explicitly recognised in the Framework."
+  },
+
+  /* ===================== FRANCE ===================== */
+  {
+    id:"fr-meae", name:"Ministry for Europe & Foreign Affairs (MEAE) — Scientific & Academic Diplomacy",
+    country:"France", geography:"National (Paris) + global network", actorType:"Diplomatic",
+    sdType:["s4d","SinD"], sinceYear:2013, activity:"A",
+    domains:["General S&T","Climate","Oceans","Health","Space","Digital"],
+    orientation:"Mixed", interestFocus:"Global", coreObjective:"Project French scientific excellence & influence; link science community to foreign policy",
+    positioning:"Primary", explicitness:"Explicit", governance:"Centralised (étatist)",
+    tools:["Authority","Treasure","Organisation","Nodality"],
+    sciFields:["All fields"],
+    networked:"Ambassador-delegate for S,T&I; dense network of scientific counsellors/attachés; annual strategy meeting.",
+    documents:["Science Diplomacy for France (2013)","Annual scientific cooperation guidelines"],
+    alignment:"High — one of the most explicit national SD doctrines in the EU; influences the Framework."
+  },
+  {
+    id:"fr-mesr", name:"Ministry of Higher Education & Research (MESR)",
+    country:"France", geography:"National (Paris)", actorType:"Governmental/IO",
+    sdType:["d4s","SinD"], sinceYear:2013, activity:"A",
+    domains:["General S&T","Space","Climate","Health","Quantum"],
+    orientation:"Mixed", interestFocus:"National", coreObjective:"Develop & conduct national research policy incl. international dimension",
+    positioning:"Primary", explicitness:"Explicit", governance:"Centralised",
+    tools:["Treasure","Authority","Organisation"],
+    sciFields:["Physics","Space","Life sciences","Mathematics"],
+    networked:"Steers CNRS, CNES, IRD; co-leads SD with MEAE; bilateral programmes (PHC Hubert Curien).",
+    documents:["National Research Strategy","Loi de programmation de la recherche"],
+    alignment:"Aligned — co-pilot of French SD; supports EU Framework's research-policy integration."
+  },
+  {
+    id:"fr-ird", name:"French National Research Institute for Sustainable Development (IRD)",
+    country:"France", geography:"National (Marseille) + Global South network", actorType:"Scientific/Research",
+    sdType:["s4d","d4s"], sinceYear:1944, activity:"B",
+    domains:["Climate","Health","Biodiversity","Food security","Oceans"],
+    orientation:"Cooperative", interestFocus:"Global", coreObjective:"Equitable research partnerships with the Global South (development diplomacy)",
+    positioning:"Secondary", explicitness:"Explicit", governance:"Public research establishment",
+    tools:["Treasure","Organisation","Nodality"],
+    sciFields:["Environmental","Health","Agronomy","Social sciences"],
+    networked:"Representations across Africa, LatAm, Asia; partners AFD, AU; SDG-oriented co-construction.",
+    documents:["Science for sustainable development reports","IRD objectives & means contract"],
+    alignment:"Aligned — embodies the Framework's emphasis on equitable global partnerships."
+  },
+  {
+    id:"fr-cnrs", name:"CNRS — National Centre for Scientific Research",
+    country:"France", geography:"National (Paris) + international labs (IRL/IRP)", actorType:"Scientific/Research",
+    sdType:["d4s","DinS"], sinceYear:1939, activity:"A",
+    domains:["General S&T","Quantum","Climate","Space","HSS"],
+    orientation:"Cooperative", interestFocus:"Global", coreObjective:"Conduct & internationalise French basic research",
+    positioning:"Tertiary", explicitness:"Implicit", governance:"Public research establishment (large, fragmented internally)",
+    tools:["Organisation","Nodality","Treasure"],
+    sciFields:["All fields"],
+    networked:"International Research Labs worldwide; CERN/big-science membership; bilateral partnerships.",
+    documents:["CNRS international strategy","Objectives contract with state"],
+    alignment:"Aligned as a research actor whose mobility & partnerships deliver 'diplomacy in science'."
+  },
+
+  /* ===================== NETHERLANDS ===================== */
+  {
+    id:"nl-owa", name:"Network of Education & Science Attachés (OWA) — Min. of Education, Culture & Science",
+    country:"Netherlands", geography:"National (The Hague) + 12 missions", actorType:"Diplomatic",
+    sdType:["s4d","SinD"], sinceYear:2000, activity:"B",
+    domains:["General S&T","Digital","Health","Climate"],
+    orientation:"Cooperative", interestFocus:"Cross-border", coreObjective:"Strengthen international representation of the Dutch knowledge sector",
+    positioning:"Primary", explicitness:"Explicit", governance:"Coordinated (consensus 'polder')",
+    tools:["Nodality","Organisation","Authority"],
+    sciFields:["All fields"],
+    networked:"Sits under OCW Directorate of International Policy; links to NWO, universities, KNAW.",
+    documents:["International knowledge policy letters to parliament"],
+    alignment:"Aligned — attaché network is exactly the operational instrument the Framework promotes."
+  },
+  {
+    id:"nl-ian", name:"Netherlands Innovation Network (IA Network) — Min. of Economic Affairs",
+    country:"Netherlands", geography:"National (The Hague) + innovation hubs", actorType:"Diplomatic",
+    sdType:["d4s","s4d"], sinceYear:2003, activity:"B",
+    domains:["Digital","Quantum","Energy","Health","General S&T"],
+    orientation:"Competitive", interestFocus:"National", coreObjective:"Connect Dutch & global innovation ecosystems; support economic security",
+    positioning:"Secondary", explicitness:"Implicit", governance:"Coordinated",
+    tools:["Nodality","Treasure","Organisation"],
+    sciFields:["ICT","Engineering","Life sciences"],
+    networked:"Innovation Attachés co-located with embassies; partners RVO, top sectors.",
+    documents:["Innovation attaché network reports"],
+    alignment:"Aligned to the economic-security/competitiveness dimension of the Framework."
+  },
+  {
+    id:"nl-nwo", name:"Dutch Research Council (NWO)",
+    country:"Netherlands", geography:"National (The Hague)", actorType:"Governmental/IO",
+    sdType:["d4s","SinD"], sinceYear:1950, activity:"B",
+    domains:["General S&T","Climate","Health","Quantum"],
+    orientation:"Cooperative", interestFocus:"Cross-border", coreObjective:"Coordinate national & international knowledge policy and funding",
+    positioning:"Secondary", explicitness:"Explicit", governance:"Coordinated council",
+    tools:["Treasure","Nodality","Organisation"],
+    sciFields:["All fields"],
+    networked:"Bridges government international knowledge policy & institutions; Science4Diplomacy activities.",
+    documents:["NWO strategy","Science diplomacy web programme"],
+    alignment:"Aligned — explicitly frames a 'science diplomacy' role bridging policy and institutions."
+  },
+  {
+    id:"nl-wrr", name:"Scientific Council for Government Policy (WRR)",
+    country:"Netherlands", geography:"National (The Hague)", actorType:"Policy Advice",
+    sdType:["SinD"], sinceYear:1972, activity:"C",
+    domains:["HSS","Digital","Climate","Health","Security/Dual-use"],
+    orientation:"Cooperative", interestFocus:"National", coreObjective:"Independent multidisciplinary advice on long-term policy issues",
+    positioning:"Tertiary", explicitness:"Implicit", governance:"Independent advisory body",
+    tools:["Nodality","Authority"],
+    sciFields:["Social sciences","Economics","Law"],
+    networked:"INGSA member; feeds science into government strategy incl. external relations.",
+    documents:["WRR reports (e.g. on security, AI, EU)"],
+    alignment:"Enabling — strengthens the science-into-policy capacity the Framework calls for."
+  },
+
+  /* ===================== PAN-EU / TRANSNATIONAL NETWORKS ===================== */
+  {
+    id:"x-s4d4c", name:"S4D4C / EU Science Diplomacy Alliance",
+    country:"EU", geography:"Transnational network (Vienna-coordinated)", actorType:"NGO/Network",
+    sdType:["s4d","d4s","SinD","DinS"], sinceYear:2018, activity:"B",
+    domains:["General S&T","Climate","Health","Water","HSS"],
+    orientation:"Cooperative", interestFocus:"Cross-border", coreObjective:"Build EU science diplomacy capacity, training & community of practice",
+    positioning:"Primary", explicitness:"Explicit", governance:"Network/consortium",
+    tools:["Nodality","Organisation","Training"],
+    sciFields:["All fields"],
+    networked:"Successor to S4D4C, InsSciDE, EL-CSID Horizon projects; trains diplomats & scientists; informs the Framework.",
+    documents:["State-of-the-art reports","Training curricula","Madrid Declaration"],
+    alignment:"Foundational input to the EU Framework — high alignment & intellectual influence."
+  },
+  {
+    id:"x-allea", name:"ALLEA — All European Academies",
+    country:"EU", geography:"Transnational (Berlin secretariat)", actorType:"Policy Advice",
+    sdType:["SinD","s4d"], sinceYear:1994, activity:"C",
+    domains:["HSS","General S&T","Climate","Health"],
+    orientation:"Cooperative", interestFocus:"Cross-border", coreObjective:"Federate national academies; advise on science & values (academic freedom, integrity)",
+    positioning:"Secondary", explicitness:"Implicit", governance:"Federation of academies",
+    tools:["Nodality","Authority","Organisation"],
+    sciFields:["All fields"],
+    networked:"50+ academies in 40+ countries; runs SAPEA with the Commission's SAM.",
+    documents:["European Code of Conduct for Research Integrity","Statements on academic freedom"],
+    alignment:"Aligned — academy diplomacy & values protection central to the Framework."
+  },
+  {
+    id:"x-fmstan", name:"FMSTAN — Foreign Ministries S&T Advisers Network / SPIDER",
+    country:"EU", geography:"Transnational (informal, global)", actorType:"NGO/Network",
+    sdType:["s4d","SinD"], sinceYear:2016, activity:"C",
+    domains:["General S&T","Security/Dual-use","Health","Climate"],
+    orientation:"Cooperative", interestFocus:"Global", coreObjective:"Peer network of S&T advisers in foreign ministries; share practice",
+    positioning:"Primary", explicitness:"Explicit", governance:"Informal network",
+    tools:["Nodality","Organisation"],
+    sciFields:["All fields"],
+    networked:"Convenes MFA science advisers; met with S4D4C/SPIDER in Vienna; links EU & non-EU ministries.",
+    documents:["Meeting reports","Joint statements with SPIDER"],
+    alignment:"Aligned — operationalises the 'science adviser in the MFA' role the Framework promotes."
+  },
+
+  /* ===================== SPAIN ===================== */
+  {
+    id:"es-maec", name:"Ministry of Foreign Affairs, EU & Cooperation (MAEC)",
+    country:"Spain", geography:"National (Madrid) + missions", actorType:"Diplomatic",
+    sdType:["s4d","SinD"], sinceYear:2016, activity:"B",
+    domains:["General S&T","Climate","Health","Oceans"],
+    orientation:"Cooperative", interestFocus:"Cross-border", coreObjective:"Use science as soft power; coordinate STI diplomacy strategy",
+    positioning:"Primary", explicitness:"Explicit", governance:"Coordinated inter-ministerial",
+    tools:["Authority","Nodality","Organisation"],
+    sciFields:["All fields"],
+    networked:"Co-owns 2016 STI Diplomacy Strategy with Min. of Science; hosts FECYT scientific coordinators in embassies.",
+    documents:["Strategy for Science, Technology & Innovation Diplomacy (2016)"],
+    alignment:"Aligned — early national SD strategy; bottom-up model complements the Framework."
+  },
+  {
+    id:"es-fecyt", name:"FECYT — Spanish Foundation for Science & Technology + Science Diplomacy Network",
+    country:"Spain", geography:"National (Madrid) + embassy coordinators", actorType:"NGO/Network",
+    sdType:["s4d","d4s"], sinceYear:2016, activity:"B",
+    domains:["General S&T","Health","Digital"],
+    orientation:"Cooperative", interestFocus:"Global", coreObjective:"Mobilise Spanish researchers abroad as a science-diplomacy network",
+    positioning:"Primary", explicitness:"Explicit", governance:"Public foundation",
+    tools:["Nodality","Organisation","Treasure"],
+    sciFields:["All fields"],
+    networked:"Runs the 'Science Diplomacy Network'; deployed scientific coordinators to Washington, London, Berlin (2018 pilot).",
+    documents:["Science Diplomacy Network materials","Annual activity reports"],
+    alignment:"Strong — diaspora/network model directly serves the Framework's talent & influence aims."
+  },
+  {
+    id:"es-cdti", name:"CDTI — Centre for the Development of Industrial Technology",
+    country:"Spain", geography:"National (Madrid) + tech attachés", actorType:"Governmental/IO",
+    sdType:["d4s"], sinceYear:1977, activity:"C",
+    domains:["Digital","Space","Energy","General S&T"],
+    orientation:"Competitive", interestFocus:"National", coreObjective:"Support business R&D internationalisation & innovation diplomacy",
+    positioning:"Tertiary", explicitness:"Implicit", governance:"Public agency",
+    tools:["Treasure","Organisation"],
+    sciFields:["Engineering","ICT","Space"],
+    networked:"Network of technological attachés; manages ESA/Eureka participation; partners FECYT on SD network.",
+    documents:["CDTI international programmes"],
+    alignment:"Aligned to the competitiveness/economic-security strand of the Framework."
+  },
+  {
+    id:"es-csic", name:"CSIC — Spanish National Research Council",
+    country:"Spain", geography:"National (Madrid) + Brussels & Rome offices", actorType:"Scientific/Research",
+    sdType:["d4s","DinS"], sinceYear:1939, activity:"B",
+    domains:["General S&T","Oceans","Climate","Health","Archaeology"],
+    orientation:"Cooperative", interestFocus:"Global", coreObjective:"Conduct & internationalise Spanish public research",
+    positioning:"Tertiary", explicitness:"Implicit", governance:"Large public research body",
+    tools:["Organisation","Nodality","Treasure"],
+    sciFields:["All fields"],
+    networked:"International joint units; Antarctic & oceanographic campaigns; archaeology missions abroad.",
+    documents:["CSIC international strategy"],
+    alignment:"Aligned as a research actor delivering partnerships & 'diplomacy in science'."
+  },
+
+  /* ===================== ITALY ===================== */
+  {
+    id:"it-maeci", name:"MAECI (Farnesina) — DGSP & Network of Scientific/Space Attachés",
+    country:"Italy", geography:"National (Rome) + missions", actorType:"Diplomatic",
+    sdType:["s4d","SinD"], sinceYear:2000, activity:"A",
+    domains:["General S&T","Space","Health","Digital","Archaeology"],
+    orientation:"Mixed", interestFocus:"Cross-border", coreObjective:"Promote Italian S&T abroad; support competitiveness of industry",
+    positioning:"Primary", explicitness:"Explicit", governance:"Centralised (DGSP-led)",
+    tools:["Authority","Organisation","Nodality"],
+    sciFields:["All fields"],
+    networked:"Expanded science/space attaché network by ~70%; attachés seconded from public bodies (Art.168); links to CNR.",
+    documents:["Science diplomacy pages (esteri.it)","Scientific Attachés conference proceedings"],
+    alignment:"Strong — explicit, well-resourced attaché network central to the Framework's operational layer."
+  },
+  {
+    id:"it-cnr", name:"CNR — National Research Council of Italy",
+    country:"Italy", geography:"National (Rome) + Brussels office", actorType:"Scientific/Research",
+    sdType:["d4s","SinD"], sinceYear:1923, activity:"B",
+    domains:["General S&T","Oceans","Climate","Health","Polar"],
+    orientation:"Cooperative", interestFocus:"Global", coreObjective:"Conduct research & support diplomacy with scientific expertise",
+    positioning:"Secondary", explicitness:"Explicit", governance:"Large public research body",
+    tools:["Nodality","Organisation","Treasure"],
+    sciFields:["All fields"],
+    networked:"Supports scientific attachés abroad; ran the 'DIPLOMAzia' programme (2015–16); bilateral agreements.",
+    documents:["DIPLOMAzia programme outputs","International relations reports"],
+    alignment:"Aligned — supplies expertise into diplomacy; partner to MAECI attaché network."
+  },
+  {
+    id:"it-mur", name:"Ministry of University & Research (MUR)",
+    country:"Italy", geography:"National (Rome)", actorType:"Governmental/IO",
+    sdType:["d4s","SinD"], sinceYear:2020, activity:"C",
+    domains:["General S&T","Space","Health"],
+    orientation:"Mixed", interestFocus:"National", coreObjective:"Set research policy incl. international cooperation",
+    positioning:"Secondary", explicitness:"Implicit", governance:"Centralised",
+    tools:["Treasure","Authority"],
+    sciFields:["All fields"],
+    networked:"Steers CNR, ASI, INFN; Horizon Europe; bilateral S&T programmes with MAECI.",
+    documents:["National Research Programme (PNR)"],
+    alignment:"Aligned — research-policy pillar supporting Italy's SD posture."
+  },
+
+  /* ===================== AUSTRIA ===================== */
+  {
+    id:"at-bmeia", name:"Federal Ministry for European & International Affairs (BMEIA) — S&T Cooperation",
+    country:"Austria", geography:"National (Vienna) + missions", actorType:"Diplomatic",
+    sdType:["s4d","SinD"], sinceYear:2018, activity:"C",
+    domains:["General S&T","Climate","Security/Dual-use"],
+    orientation:"Cooperative", interestFocus:"Cross-border", coreObjective:"Integrate science into Austrian foreign policy",
+    positioning:"Secondary", explicitness:"Emerging", governance:"Coordinated",
+    tools:["Authority","Nodality","Organisation"],
+    sciFields:["All fields"],
+    networked:"Co-organised FMSTAN/SPIDER Vienna meetings with IIASA; works with OeAD & universities.",
+    documents:["Scientific & Technical Cooperation programme materials"],
+    alignment:"Aligned, emerging — Austria treats SD as a 'relatively new field'; building toward the Framework."
+  },
+  {
+    id:"at-oead", name:"OeAD — Austria's Agency for Education & Internationalisation",
+    country:"Austria", geography:"National (Vienna)", actorType:"Training",
+    sdType:["d4s","s4d"], sinceYear:1961, activity:"B",
+    domains:["General S&T","HSS","Climate"],
+    orientation:"Cooperative", interestFocus:"Cross-border", coreObjective:"Run mobility, S&T cooperation & development-research programmes",
+    positioning:"Tertiary", explicitness:"Implicit", governance:"Public agency",
+    tools:["Treasure","Organisation","Nodality"],
+    sciFields:["All fields"],
+    networked:"Manages bilateral S&T cooperation (WTZ) programmes; Austria Centres; Appear development research.",
+    documents:["WTZ programme reports","APPEAR programme outputs"],
+    alignment:"Aligned — capacity, mobility & training instruments the Framework's 'enabling' layer relies on."
+  },
+  {
+    id:"at-zsi", name:"ZSI — Centre for Social Innovation (S4D4C coordinator)",
+    country:"Austria", geography:"National (Vienna) + EU projects", actorType:"NGO/Network",
+    sdType:["s4d","d4s","SinD","DinS"], sinceYear:2018, activity:"B",
+    domains:["General S&T","HSS","Climate","Health"],
+    orientation:"Cooperative", interestFocus:"Cross-border", coreObjective:"Research & train the EU SD community of practice",
+    positioning:"Primary", explicitness:"Explicit", governance:"Research NGO",
+    tools:["Nodality","Organisation","Training"],
+    sciFields:["Social sciences","All fields"],
+    networked:"Coordinated H2020 S4D4C; co-founder EU Science Diplomacy Alliance; trains diplomats.",
+    documents:["S4D4C case studies & reports","Science Diplomacy in the Making (2020)"],
+    alignment:"High — intellectual contributor to the Framework's evidence base."
+  },
+  {
+    id:"at-iiasa", name:"IIASA — International Institute for Applied Systems Analysis",
+    country:"Austria", geography:"Sited in Laxenburg (AT); intergovernmental membership", actorType:"Scientific/Research",
+    sdType:["s4d","SinD"], sinceYear:1972, activity:"A",
+    domains:["Climate","Energy","Food security","Biodiversity","Water","General S&T"],
+    orientation:"Cooperative", interestFocus:"Global", coreObjective:"Systems analysis bridging science & policy across geopolitical divides",
+    positioning:"Primary", explicitness:"Explicit", governance:"Intergovernmental (member academies)",
+    tools:["Nodality","Organisation","Authority"],
+    sciFields:["Systems analysis","Environmental","Economics","Demography"],
+    networked:"Founded as Cold-War bridge-building institute; national member organisations; UN/IPCC links; co-hosted FMSTAN.",
+    documents:["IIASA global assessments","Systems analysis reports for policy"],
+    alignment:"Exemplary — the archetypal 'science for diplomacy' bridge institution; strongly cited in SD literature. (Sited in AT but international — logged under host country with IO note.)"
+  },
+
+  /* ===================== POLAND ===================== */
+  {
+    id:"pl-msz", name:"Ministry of Foreign Affairs (MSZ) + Diplomatic Academy",
+    country:"Poland", geography:"National (Warsaw) + missions", actorType:"Diplomatic",
+    sdType:["s4d","SinD"], sinceYear:2000, activity:"C",
+    domains:["General S&T","HSS","Security/Dual-use","Climate"],
+    orientation:"Cooperative", interestFocus:"Cross-border", coreObjective:"Promote & internationalise Polish science as part of foreign policy",
+    positioning:"Secondary", explicitness:"Emerging", governance:"Coordinated",
+    tools:["Authority","Nodality","Organisation"],
+    sciFields:["All fields"],
+    networked:"Historically led science promotion (cultural diplomacy); Diplomatic Academy trains diplomats; works with PAN.",
+    documents:["Diplomatic Academy materials","Foreign policy strategy"],
+    alignment:"Aligned, emerging — Polish SD is largely bottom-up; ministry coordination still consolidating."
+  },
+  {
+    id:"pl-pan", name:"Polish Academy of Sciences (PAN) + PolSCA Brussels & foreign stations",
+    country:"Poland", geography:"National (Warsaw) + stations Paris/Rome/Vienna/Kyiv/Berlin/Brussels", actorType:"Scientific/Research",
+    sdType:["d4s","s4d","SinD"], sinceYear:1952, activity:"B",
+    domains:["General S&T","HSS","Archaeology","Climate","Space"],
+    orientation:"Cooperative", interestFocus:"Global", coreObjective:"Internationalise Polish science; represent it abroad (d4s priority)",
+    positioning:"Primary", explicitness:"Explicit", governance:"Self-governing academy + 79 institutes (fragmented)",
+    tools:["Nodality","Organisation","Authority"],
+    sciFields:["All fields"],
+    networked:"Foreign scientific stations & PolSCA contact agency in Brussels; ALLEA/IAP member; bottom-up partnerships.",
+    documents:["PAN international activity reports","Science diplomacy of Poland (academic study, 2020)"],
+    alignment:"Aligned — active across all three classic SD types; matches the Framework's academy-diplomacy role."
+  },
+  {
+    id:"pl-fnp", name:"Foundation for Polish Science (FNP)",
+    country:"Poland", geography:"National (Warsaw)", actorType:"NGO/Network",
+    sdType:["d4s"], sinceYear:1991, activity:"C",
+    domains:["General S&T","Health","Quantum"],
+    orientation:"Cooperative", interestFocus:"Cross-border", coreObjective:"Support top researchers & international mobility (talent diplomacy)",
+    positioning:"Tertiary", explicitness:"Implicit", governance:"Independent foundation",
+    tools:["Treasure","Nodality"],
+    sciFields:["All fields"],
+    networked:"Runs PASIFIC (MSCA-cofunded) fellowships; partners EU programmes; alumni network.",
+    documents:["FNP programme reports","PASIFIC fellowship materials"],
+    alignment:"Aligned — 'diplomacy for science' talent instrument."
+  },
+  {
+    id:"pl-krasp", name:"KRASP — Conference of Rectors of Academic Schools in Poland",
+    country:"Poland", geography:"National (Warsaw)", actorType:"NGO/Network",
+    sdType:["d4s"], sinceYear:1997, activity:"D",
+    domains:["General S&T","HSS"],
+    orientation:"Cooperative", interestFocus:"Cross-border", coreObjective:"Represent universities; coordinate internationalisation",
+    positioning:"Tertiary", explicitness:"Implicit", governance:"Rectors' association",
+    tools:["Nodality","Organisation"],
+    sciFields:["All fields"],
+    networked:"Member of EUA; partners ministries on internationalisation; historic role in science promotion.",
+    documents:["KRASP resolutions & strategy papers"],
+    alignment:"Aligned — rectors' associations are the university-sector voice the Framework engages."
+  },
+
+  /* ===================== SWEDEN ===================== */
+  {
+    id:"se-mfa", name:"Ministry for Foreign Affairs (UD) + Innovation/Research Offices",
+    country:"Sweden", geography:"National (Stockholm) + 7 innovation & research offices", actorType:"Diplomatic",
+    sdType:["d4s","s4d"], sinceYear:2010, activity:"B",
+    domains:["General S&T","Climate","Digital","Energy","Health"],
+    orientation:"Cooperative", interestFocus:"Cross-border", coreObjective:"Promote Swedish research & innovation; 'innovation diplomacy'",
+    positioning:"Secondary", explicitness:"Implicit", governance:"Coordinated (agency-led)",
+    tools:["Nodality","Organisation","Treasure"],
+    sciFields:["All fields"],
+    networked:"7 innovation/research offices abroad; works with Vinnova, VR; historic SD legacy (1972 Stockholm Conference).",
+    documents:["Innovation diplomacy materials","1972 Stockholm Conference legacy"],
+    alignment:"Aligned — strong agency-coordinated model; less explicit 'SD' branding than the Framework uses."
+  },
+  {
+    id:"se-stint", name:"STINT — Swedish Foundation for Int'l Cooperation in Research & Higher Education",
+    country:"Sweden", geography:"National (Stockholm)", actorType:"NGO/Network",
+    sdType:["d4s","s4d"], sinceYear:1994, activity:"B",
+    domains:["General S&T","HSS","Climate"],
+    orientation:"Cooperative", interestFocus:"Global", coreObjective:"Internationalise Swedish HE & research; build a science-diplomacy capacity",
+    positioning:"Primary", explicitness:"Explicit", governance:"Parliament-created foundation",
+    tools:["Treasure","Nodality","Organisation"],
+    sciFields:["All fields"],
+    networked:"Funds partnerships & mobility; published 'Science Diplomacy in and for Sweden' (2022).",
+    documents:["Science Diplomacy in and for Sweden (2022)"],
+    alignment:"Strong — explicitly frames and advocates Swedish science diplomacy."
+  },
+  {
+    id:"se-vr", name:"Swedish Research Council (VR) + IntSam coordination",
+    country:"Sweden", geography:"National (Stockholm)", actorType:"Governmental/IO",
+    sdType:["d4s","SinD"], sinceYear:2001, activity:"B",
+    domains:["General S&T","Climate","Space","Health"],
+    orientation:"Cooperative", interestFocus:"Cross-border", coreObjective:"Fund research; coordinate agencies' international activity (IntSam)",
+    positioning:"Secondary", explicitness:"Implicit", governance:"Coordinated council",
+    tools:["Treasure","Organisation","Nodality"],
+    sciFields:["All fields"],
+    networked:"Convenes IntSam with Vinnova, Formas, Forte, SNSA, Energy Agency; big-science memberships (CERN, ESS, ESO).",
+    documents:["International strategy","IntSam coordination materials"],
+    alignment:"Aligned — funder coordination underpins the Framework's 'enabling' instruments."
+  },
+  {
+    id:"se-iva", name:"IVA — Royal Swedish Academy of Engineering Sciences",
+    country:"Sweden", geography:"National (Stockholm)", actorType:"Policy Advice",
+    sdType:["SinD","s4d"], sinceYear:1919, activity:"C",
+    domains:["General S&T","Energy","Digital","Climate"],
+    orientation:"Cooperative", interestFocus:"National", coreObjective:"Bridge engineering science, business & policy",
+    positioning:"Tertiary", explicitness:"Implicit", governance:"State-funded academy/foundation",
+    tools:["Nodality","Authority","Organisation"],
+    sciFields:["Engineering","Economics"],
+    networked:"Convenes industry & policy; international academy links; advises on research & innovation policy.",
+    documents:["IVA policy reports & roadmaps"],
+    alignment:"Enabling — academy-business-policy convening complements the Framework."
+  },
+
+  /* ===================== BELGIUM ===================== */
+  {
+    id:"be-fps", name:"FPS Foreign Affairs (Diplomatie.be) — incl. space & S&T cooperation",
+    country:"Belgium", geography:"National (Brussels) + missions", actorType:"Diplomatic",
+    sdType:["s4d","SinD"], sinceYear:2000, activity:"C",
+    domains:["Space","General S&T","Security/Dual-use","Polar"],
+    orientation:"Cooperative", interestFocus:"Cross-border", coreObjective:"Embed S&T (esp. space) in foreign policy; host EU/NATO institutions",
+    positioning:"Secondary", explicitness:"Emerging", governance:"Federal + regional (fragmented)",
+    tools:["Authority","Nodality","Organisation"],
+    sciFields:["Space","All fields"],
+    networked:"Coordinates with BELSPO on ESA; Brussels hosts EU/NATO; works across federal & regional levels.",
+    documents:["International space policy materials"],
+    alignment:"Aligned — strong in space diplomacy; federal/regional split complicates a single SD posture."
+  },
+  {
+    id:"be-belspo", name:"BELSPO — Belgian Science Policy Office",
+    country:"Belgium", geography:"National (Brussels)", actorType:"Governmental/IO",
+    sdType:["d4s","SinD"], sinceYear:1959, activity:"B",
+    domains:["Space","Polar","Climate","Biodiversity","Oceans","General S&T"],
+    orientation:"Cooperative", interestFocus:"Cross-border", coreObjective:"Manage federal research & Belgium's role in int'l scientific organisations",
+    positioning:"Secondary", explicitness:"Implicit", governance:"Federal science administration",
+    tools:["Treasure","Organisation","Authority"],
+    sciFields:["Space","Polar","Environmental","All fields"],
+    networked:"Main Belgian actor in ESA; runs Belgian Polar Platform (Princess Elisabeth Antarctica); coordinates with Foreign Affairs.",
+    documents:["Federal research programme reports","Belgian Polar Platform materials"],
+    alignment:"Aligned — delivers big-science & polar diplomacy the Framework values; coordinates with MFA."
+  },
+
+  /* ===================== CZECHIA ===================== */
+  {
+    id:"cz-mzv", name:"MFA — Science Diplomacy Unit (Economic & Science Diplomacy Dept.)",
+    country:"Czechia", geography:"National (Prague) + ~90 missions", actorType:"Diplomatic",
+    sdType:["s4d","d4s","SinD"], sinceYear:2015, activity:"B",
+    domains:["General S&T","Digital","Health","Security/Dual-use"],
+    orientation:"Mixed", interestFocus:"Cross-border", coreObjective:"Build SD capacity; connect Czech science, firms & diplomacy",
+    positioning:"Primary", explicitness:"Explicit", governance:"Coordinated (interministerial steering group)",
+    tools:["Authority","Nodality","Organisation"],
+    sciFields:["All fields"],
+    networked:"Dedicated SD Unit; scientific counsellors/attachés at ~90 missions; interministerial group at RVVI with TACR, GACR, CAS.",
+    documents:["Science diplomacy strategy/pages (mzv.gov.cz)"],
+    alignment:"Strong — explicit, institutionalised SD Unit; close fit with the Framework's operational layer."
+  },
+  {
+    id:"cz-cas", name:"Czech Academy of Sciences (CAS / AV ČR)",
+    country:"Czechia", geography:"National (Prague) + 54 institutes", actorType:"Scientific/Research",
+    sdType:["d4s","SinD"], sinceYear:1992, activity:"B",
+    domains:["General S&T","HSS","Health","Climate"],
+    orientation:"Cooperative", interestFocus:"Global", coreObjective:"Integrate Czech science into the international context",
+    positioning:"Secondary", explicitness:"Implicit", governance:"Self-governing academy + 54 institutes",
+    tools:["Organisation","Nodality","Treasure"],
+    sciFields:["All fields"],
+    networked:"Member of interministerial SD group; ALLEA/IAP; bilateral academy agreements; mobility schemes.",
+    documents:["CAS international strategy"],
+    alignment:"Aligned — academy diplomacy plus participation in national SD coordination."
+  },
+
+  /* ===================== PORTUGAL ===================== */
+  {
+    id:"pt-fct", name:"FCT — Foundation for Science & Technology (incl. goPORTUGAL)",
+    country:"Portugal", geography:"National (Lisbon)", actorType:"Governmental/IO",
+    sdType:["d4s","s4d"], sinceYear:1997, activity:"B",
+    domains:["General S&T","Oceans","Climate","Space","Health"],
+    orientation:"Cooperative", interestFocus:"Global", coreObjective:"Fund research & steer bilateral/multilateral S&T agreements",
+    positioning:"Primary", explicitness:"Explicit", governance:"Public funding agency",
+    tools:["Treasure","Organisation","Nodality"],
+    sciFields:["All fields"],
+    networked:"Runs goPORTUGAL & int'l partnerships (MIT, CMU, UT Austin); places postdoc science advisers in embassies; CPLP/PSAC focus.",
+    documents:["goPORTUGAL programme (2018)","International cooperation agreements"],
+    alignment:"Strong — funder-led SD with embassy science advisers; close to the Framework's model."
+  },
+  {
+    id:"pt-mne", name:"Ministry of Foreign Affairs (MNE) — Camões & S&T cooperation",
+    country:"Portugal", geography:"National (Lisbon) + lusophone network", actorType:"Diplomatic",
+    sdType:["s4d","SinD"], sinceYear:2018, activity:"C",
+    domains:["General S&T","Oceans","HSS","Climate"],
+    orientation:"Cooperative", interestFocus:"Cross-border", coreObjective:"Use science & language ties (CPLP) for influence & development",
+    positioning:"Secondary", explicitness:"Emerging", governance:"Coordinated",
+    tools:["Authority","Nodality","Organisation"],
+    sciFields:["All fields"],
+    networked:"Co-hosts embassy science advisers with FCT; Camões Institute; Portuguese-speaking African countries & Timor-Leste.",
+    documents:["MNE–FCT cooperation materials"],
+    alignment:"Aligned — combines science with cultural/lusophone diplomacy in line with the Framework."
+  },
+
+  /* ===================== DENMARK ===================== */
+  {
+    id:"dk-icdk", name:"Innovation Centre Denmark (ICDK)",
+    country:"Denmark", geography:"National (Copenhagen) + 7 innovation hubs", actorType:"Diplomatic",
+    sdType:["d4s","s4d"], sinceYear:2006, activity:"A",
+    domains:["Digital","Energy","Health","General S&T","Quantum"],
+    orientation:"Competitive", interestFocus:"National", coreObjective:"Connect Danish research & business to global innovation ecosystems (triple-helix)",
+    positioning:"Primary", explicitness:"Explicit", governance:"Joint MFA + Min. of HE & Science",
+    tools:["Nodality","Organisation","Treasure"],
+    sciFields:["ICT","Life sciences","Engineering","Quantum"],
+    networked:"7 centres (Silicon Valley, Boston, Munich, Bangalore, Seoul, Shanghai, Tel Aviv); part of the foreign service; green/life-science/tech focus.",
+    documents:["ICDK annual reports","CFA evaluation of ICDK"],
+    alignment:"Strong — embedded science-in-the-foreign-service model the Framework promotes."
+  },
+  {
+    id:"dk-techamb", name:"Tech Ambassador / TechPlomacy (Office of Denmark's Tech Ambassador)",
+    country:"Denmark", geography:"HQ Silicon Valley + Copenhagen & Beijing", actorType:"Diplomatic",
+    sdType:["s4d","SinD"], sinceYear:2017, activity:"A",
+    domains:["Digital","AI","Quantum","Security/Dual-use"],
+    orientation:"Mixed", interestFocus:"Global", coreObjective:"Conduct diplomacy with the tech industry as a geopolitical actor ('TechPlomacy')",
+    positioning:"Primary", explicitness:"Explicit", governance:"MFA (ambassador-rank office)",
+    tools:["Authority","Nodality","Organisation"],
+    sciFields:["ICT","AI","Quantum"],
+    networked:"World's first national tech ambassador; engages Big Tech directly; inspired other states' tech-diplomacy offices.",
+    documents:["TechPlomacy strategy materials"],
+    alignment:"Pioneering — extends SD into digital/tech diplomacy, a priority domain of the Framework."
+  },
+
+  /* ===================== FINLAND ===================== */
+  {
+    id:"fi-um", name:"Ministry for Foreign Affairs (UM) + Academy joint development research",
+    country:"Finland", geography:"National (Helsinki) + missions", actorType:"Diplomatic",
+    sdType:["s4d","d4s"], sinceYear:2012, activity:"C",
+    domains:["Climate","General S&T","Food security","Health"],
+    orientation:"Cooperative", interestFocus:"Global", coreObjective:"Use science to 'operate larger than its size'; SDGs & climate",
+    positioning:"Secondary", explicitness:"Emerging", governance:"Coordinated",
+    tools:["Treasure","Nodality","Organisation"],
+    sciFields:["All fields"],
+    networked:"Co-funds development research with Research Council of Finland; works with OKM ministry & academies.",
+    documents:["Development research strategy","MFA research project materials"],
+    alignment:"Aligned, emerging — Finland building explicit SD capacity per the academy report's recommendations."
+  },
+  {
+    id:"fi-acadsci", name:"Finnish Academy of Science and Letters",
+    country:"Finland", geography:"National (Helsinki)", actorType:"Policy Advice",
+    sdType:["SinD","s4d"], sinceYear:1908, activity:"C",
+    domains:["General S&T","HSS","Climate"],
+    orientation:"Cooperative", interestFocus:"National", coreObjective:"Advise on science & represent the Finnish scientific community",
+    positioning:"Secondary", explicitness:"Explicit", governance:"Self-governing academy",
+    tools:["Nodality","Authority"],
+    sciFields:["All fields"],
+    networked:"Produced a national science-diplomacy report (survey/interviews) with 10 recommendations; ALLEA member.",
+    documents:["Finnish science diplomacy report (10 recommendations)"],
+    alignment:"Strong — explicitly advancing a national SD agenda mapped onto the EU Framework."
+  },
+
+  /* ===================== IRELAND ===================== */
+  {
+    id:"ie-research", name:"Research Ireland (formerly Science Foundation Ireland + IRC)",
+    country:"Ireland", geography:"National (Dublin)", actorType:"Governmental/IO",
+    sdType:["d4s"], sinceYear:2000, activity:"B",
+    domains:["General S&T","Digital","Health","Climate","Food security"],
+    orientation:"Competitive", interestFocus:"Global", coreObjective:"Fund research; attract talent & build international partnerships",
+    positioning:"Secondary", explicitness:"Implicit", governance:"National funding agency",
+    tools:["Treasure","Nodality","Organisation"],
+    sciFields:["ICT","Life sciences","Engineering"],
+    networked:"International strategy (5 pillars); SDG Challenge with Irish Aid; co-investment with national funders.",
+    documents:["SFI Strategy 'Shaping Our Future'","International strategy pillars"],
+    alignment:"Aligned — funder-led talent/partnership diplomacy; SDG Challenge links science to development."
+  },
+  {
+    id:"ie-dfa", name:"Department of Foreign Affairs — Global Ireland & Irish Aid",
+    country:"Ireland", geography:"National (Dublin) + expanding mission network", actorType:"Diplomatic",
+    sdType:["s4d","SinD"], sinceYear:2018, activity:"C",
+    domains:["General S&T","Health","Climate","Water"],
+    orientation:"Cooperative", interestFocus:"Global", coreObjective:"Project influence via Global Ireland; science for peacebuilding & development",
+    positioning:"Secondary", explicitness:"Emerging", governance:"Coordinated",
+    tools:["Authority","Nodality","Treasure"],
+    sciFields:["All fields"],
+    networked:"Global Ireland strategies; Irish Aid–Research Ireland SDG partnership; British–Irish Council shared evidence (peacebuilding).",
+    documents:["Global Ireland strategies"],
+    alignment:"Aligned — notable for science-for-peacebuilding, a core SD value in the Framework."
+  },
+
+  /* ===================== GREECE ===================== */
+  {
+    id:"gr-mfa", name:"Hellenic MFA — Science & Public Diplomacy",
+    country:"Greece", geography:"National (Athens) + missions", actorType:"Diplomatic",
+    sdType:["s4d","SinD"], sinceYear:2020, activity:"D",
+    domains:["General S&T","Archaeology","HSS","Digital","Oceans"],
+    orientation:"Cooperative", interestFocus:"Cross-border", coreObjective:"Develop Greece's role in EU science diplomacy; leverage cultural heritage",
+    positioning:"Secondary", explicitness:"Emerging", governance:"Coordinated (forming)",
+    tools:["Authority","Nodality","Organisation"],
+    sciFields:["All fields","Archaeology"],
+    networked:"Hosting 'Role of Greece in EU Science Diplomacy' symposium (Jun 2026); engages diaspora & academics abroad.",
+    documents:["EU SD symposium programme (2026)","Cultural diplomacy materials"],
+    alignment:"Emerging — explicitly orienting toward the EU Framework; community still forming."
+  },
+  {
+    id:"gr-diaspora", name:"Greek Diaspora Knowledge Network ('Knowledge & Partnership Bridges')",
+    country:"Greece", geography:"National (Athens) + global diaspora", actorType:"NGO/Network",
+    sdType:["d4s","s4d"], sinceYear:2016, activity:"C",
+    domains:["AI","Digital","General S&T","Health","Energy"],
+    orientation:"Cooperative", interestFocus:"Global", coreObjective:"Mobilise the Greek scientific diaspora as a knowledge & partnership asset",
+    positioning:"Primary", explicitness:"Explicit", governance:"Network/platform",
+    tools:["Nodality","Organisation"],
+    sciFields:["AI","ICT","Biotechnology","Materials","Energy"],
+    networked:"Links 250k+ Greek-born professionals & wider 8M diaspora; bridges to universities & firms abroad.",
+    documents:["Knowledge & Partnership Bridges programme materials"],
+    alignment:"Aligned — exemplifies the diaspora-network instrument the project taxonomy & Framework highlight."
+  },
+
+  /* ===================== SWITZERLAND (Horizon-associated) ===================== */
+  {
+    id:"ch-fdfa", name:"Federal Dept. of Foreign Affairs (FDFA) — Science & Foreign Policy",
+    country:"Switzerland", geography:"National (Bern) + Int'l Geneva (assoc. state)", actorType:"Diplomatic",
+    sdType:["s4d","SinD","d4s"], sinceYear:2018, activity:"A",
+    domains:["General S&T","Health","Digital","Climate","Quantum","Security/Dual-use"],
+    orientation:"Cooperative", interestFocus:"Global", coreObjective:"Anticipatory science diplomacy; strengthen multilateralism via Int'l Geneva",
+    positioning:"Primary", explicitness:"Explicit", governance:"Coordinated (FDFA + EAER/SERI)",
+    tools:["Authority","Nodality","Organisation","Treasure"],
+    sciFields:["All fields"],
+    networked:"SD is a pillar of Foreign Policy Strategy 2024–27; backs GESDA, swissnex, CERN; co-led with EAER/SERI.",
+    documents:["Foreign Policy Strategy 2024–27","Science-diplomacy pages (eda.admin.ch)"],
+    alignment:"Exemplary — among the most explicit, anticipatory SD doctrines; a reference point for the Framework."
+  },
+  {
+    id:"ch-gesda", name:"GESDA — Geneva Science and Diplomacy Anticipator",
+    country:"Switzerland", geography:"International Geneva (assoc. state)", actorType:"NGO/Network",
+    sdType:["s4d","SinD"], sinceYear:2019, activity:"A",
+    domains:["Quantum","AI","Health","Climate","Space","Digital","General S&T"],
+    orientation:"Cooperative", interestFocus:"Global", coreObjective:"Anticipate scientific breakthroughs & use them to strengthen multilateralism",
+    positioning:"Primary", explicitness:"Explicit", governance:"Public-private foundation (Confederation + Geneva)",
+    tools:["Nodality","Organisation","Authority"],
+    sciFields:["Quantum","AI","Neuroscience","Eco-regeneration","Space"],
+    networked:"Runs the 'Science Breakthrough Radar'; convenes scientists & diplomats in Int'l Geneva; Open Quantum Institute.",
+    documents:["Science Breakthrough Radar (annual)","GESDA summit reports"],
+    alignment:"Exemplary — anticipatory, multilateral SD model strongly resonant with the Framework's forward-looking aims."
+  },
+  {
+    id:"ch-swissnex", name:"swissnex — Swiss global network for education, research & innovation",
+    country:"Switzerland", geography:"Hubs in innovation centres worldwide (assoc. state)", actorType:"Diplomatic",
+    sdType:["d4s","s4d"], sinceYear:2000, activity:"B",
+    domains:["Digital","Health","General S&T","Energy"],
+    orientation:"Competitive", interestFocus:"National", coreObjective:"Connect Swiss research/innovation to global hubs (public-private)",
+    positioning:"Secondary", explicitness:"Explicit", governance:"Public-private, under EAER/SERI + FDFA",
+    tools:["Nodality","Organisation","Treasure"],
+    sciFields:["ICT","Life sciences","Engineering"],
+    networked:"swissnex hubs (Boston, SF, Bangalore, Shanghai, Rio, Osaka…); trains 'next-generation science diplomats'.",
+    documents:["swissnex annual report"],
+    alignment:"Aligned — network/attaché model the Framework's operational layer relies on."
+  },
+
+  /* ===================== NORWAY (Horizon-associated) ===================== */
+  {
+    id:"no-mfa", name:"Ministry of Foreign Affairs — Arctic & High North / Svalbard policy",
+    country:"Norway", geography:"National (Oslo) + Svalbard (assoc. state)", actorType:"Diplomatic",
+    sdType:["s4d","SinD"], sinceYear:2006, activity:"A",
+    domains:["Polar","Oceans","Climate","Security/Dual-use","General S&T"],
+    orientation:"Mixed", interestFocus:"Cross-border", coreObjective:"Use polar science to anchor sovereignty, cooperation & High-North policy",
+    positioning:"Primary", explicitness:"Explicit", governance:"Coordinated",
+    tools:["Authority","Nodality","Organisation","Treasure"],
+    sciFields:["Polar","Marine","Climate"],
+    networked:"Chaired Arctic Council (2023–25); Svalbard research hub; new Svalbard research office (2026) with RCN & Polar Institute.",
+    documents:["The Norwegian Government's Arctic Policy","Svalbard research strategy (2026)"],
+    alignment:"Exemplary — Arctic/polar science diplomacy is a textbook case the Framework references."
+  },
+  {
+    id:"no-polar", name:"Norwegian Polar Institute",
+    country:"Norway", geography:"National (Tromsø) + Arctic/Antarctic stations (assoc. state)", actorType:"Scientific/Research",
+    sdType:["SinD","s4d"], sinceYear:1948, activity:"B",
+    domains:["Polar","Climate","Oceans","Biodiversity"],
+    orientation:"Cooperative", interestFocus:"Global", coreObjective:"Polar research & scientific advice underpinning Arctic/Antarctic governance",
+    positioning:"Secondary", explicitness:"Implicit", governance:"Public research/advisory body",
+    tools:["Nodality","Organisation","Authority"],
+    sciFields:["Polar","Glaciology","Marine biology","Climate"],
+    networked:"Ny-Ålesund & Troll stations; Antarctic Treaty/SCAR; staffing the new Svalbard research office.",
+    documents:["Scientific advice on Arctic/Antarctic governance"],
+    alignment:"Aligned — research-based 'science in diplomacy' for polar governance."
+  },
+  {
+    id:"no-rcn", name:"Research Council of Norway (RCN)",
+    country:"Norway", geography:"National (Oslo) (assoc. state)", actorType:"Governmental/IO",
+    sdType:["d4s"], sinceYear:1993, activity:"B",
+    domains:["Polar","Climate","Energy","Oceans","General S&T"],
+    orientation:"Cooperative", interestFocus:"Cross-border", coreObjective:"Fund & internationalise Norwegian research",
+    positioning:"Tertiary", explicitness:"Implicit", governance:"National funding council",
+    tools:["Treasure","Organisation","Nodality"],
+    sciFields:["All fields"],
+    networked:"Funds High North Research Centre & polar research; Horizon Europe; new Svalbard office co-staffing.",
+    documents:["RCN international strategy"],
+    alignment:"Aligned — funder enabling Norway's polar & climate science diplomacy."
+  },
+
+  /* ===================== ESTONIA ===================== */
+  {
+    id:"ee-mfa", name:"Ministry of Foreign Affairs — Digital & Cyber Diplomacy Dept.",
+    country:"Estonia", geography:"National (Tallinn) + missions", actorType:"Diplomatic",
+    sdType:["s4d","SinD"], sinceYear:2019, activity:"B",
+    domains:["Digital","AI","Security/Dual-use","General S&T"],
+    orientation:"Mixed", interestFocus:"Global", coreObjective:"Project e-governance expertise as digital & science diplomacy",
+    positioning:"Primary", explicitness:"Explicit", governance:"Centralised (digital-first state)",
+    tools:["Authority","Nodality","Organisation"],
+    sciFields:["ICT","AI","Cybersecurity"],
+    networked:"Dedicated Digital & Cyber Diplomacy Dept (2019); e-Residency; exports e-governance; hosts NATO CCDCOE.",
+    documents:["Digital diplomacy materials","RDIE Strategy 2021–2035"],
+    alignment:"Aligned — leads the digital-diplomacy frontier the Framework names as a priority domain."
+  },
+  {
+    id:"ee-mer", name:"Ministry of Education & Research — RDIE Strategy / international cooperation",
+    country:"Estonia", geography:"National (Tartu/Tallinn)", actorType:"Governmental/IO",
+    sdType:["d4s","SinD"], sinceYear:2021, activity:"C",
+    domains:["Digital","General S&T","Health","Climate"],
+    orientation:"Cooperative", interestFocus:"Cross-border", coreObjective:"Boost research capacity & promote science diplomacy with partner regions",
+    positioning:"Secondary", explicitness:"Explicit", governance:"Coordinated",
+    tools:["Treasure","Authority","Organisation"],
+    sciFields:["ICT","All fields"],
+    networked:"Runs RDIE Strategy 2021–2035 (with Econ. Affairs); Horizon Europe, Nordic-Baltic, Taiwan & Japan schemes.",
+    documents:["RDIE Strategy 2021–2035"],
+    alignment:"Aligned — strategy text explicitly names 'science diplomacy' as an objective."
+  },
+
+  /* ===================== GERMANY — DEPTH ===================== */
+  {
+    id:"de-gain", name:"GAIN — German Academic International Network (diaspora)",
+    country:"Germany", geography:"National (Bonn) + North America", actorType:"NGO/Network",
+    sdType:["d4s","s4d"], sinceYear:2003, activity:"B",
+    domains:["General S&T","Health","HSS"],
+    orientation:"Cooperative", interestFocus:"Cross-border", coreObjective:"Connect & repatriate German researchers abroad (brain circulation)",
+    positioning:"Secondary", explicitness:"Implicit", governance:"Joint initiative (AvH + DAAD + DFG)",
+    tools:["Nodality","Organisation","Treasure"],
+    sciFields:["All fields"],
+    networked:"Annual Boston/SF convention; HRK associate member; engages diaspora with policymakers.",
+    documents:["GAIN annual convention materials"],
+    alignment:"Aligned — model diaspora/brain-circulation instrument the project taxonomy & Framework flag."
+  },
+  {
+    id:"de-hrk", name:"HRK — German Rectors' Conference",
+    country:"Germany", geography:"National (Bonn/Berlin)", actorType:"NGO/Network",
+    sdType:["d4s"], sinceYear:1949, activity:"C",
+    domains:["General S&T","HSS"],
+    orientation:"Cooperative", interestFocus:"Cross-border", coreObjective:"Represent universities; steer internationalisation & knowledge security",
+    positioning:"Tertiary", explicitness:"Implicit", governance:"Rectors' association",
+    tools:["Nodality","Organisation","Authority"],
+    sciFields:["All fields"],
+    networked:"Voice of German universities; EUA member; guidance on China & knowledge security; GAIN associate.",
+    documents:["HRK guidelines on international cooperation & knowledge security"],
+    alignment:"Aligned — university-sector voice on internationalisation & research security per the Framework."
+  },
+  {
+    id:"de-helmholtz", name:"Helmholtz Association (incl. DESY, big-science infrastructures)",
+    country:"Germany", geography:"National (18 centres) + international facilities", actorType:"Scientific/Research",
+    sdType:["d4s","DinS"], sinceYear:1995, activity:"A",
+    domains:["General S&T","Energy","Climate","Health","Quantum","Space"],
+    orientation:"Cooperative", interestFocus:"Global", coreObjective:"Operate large-scale research infrastructures open to global users",
+    positioning:"Secondary", explicitness:"Implicit", governance:"Association of public research centres",
+    tools:["Organisation","Nodality","Treasure"],
+    sciFields:["Physics","Energy","Health","Earth & environment"],
+    networked:"Runs DESY/European XFEL host, FAIR, etc.; international user communities; bilateral lab partnerships.",
+    documents:["Helmholtz international strategy"],
+    alignment:"Aligned — research infrastructures are convening platforms central to 'diplomacy in science'."
+  },
+  {
+    id:"de-siemens", name:"Siemens AG (multinational, EU-level reach)",
+    country:"Germany", geography:"HQ Munich; global operations", actorType:"Industry",
+    sdType:["DinS"], sinceYear:1847, activity:"C",
+    domains:["Digital","Energy","Quantum","General S&T"],
+    orientation:"Competitive", interestFocus:"Global", coreObjective:"Shape standards, markets & tech ecosystems (corporate techno-diplomacy)",
+    positioning:"Tertiary", explicitness:"Implicit", governance:"Private multinational",
+    tools:["Treasure","Organisation","Nodality"],
+    sciFields:["Engineering","ICT","Energy"],
+    networked:"Standards bodies; public-private R&D; lobbying on EU industrial/tech policy.",
+    documents:["Corporate technology & sustainability reports"],
+    alignment:"Indirect — industry shapes tech sovereignty/standards the Framework cares about; rarely self-IDs as SD."
+  },
+
+  /* ===================== FRANCE — DEPTH ===================== */
+  {
+    id:"fr-pasteur", name:"Institut Pasteur & the Pasteur Network (global health)",
+    country:"France", geography:"HQ Paris + 33-member network on 5 continents", actorType:"Scientific/Research",
+    sdType:["s4d","d4s","SinD"], sinceYear:1887, activity:"A",
+    domains:["Health","Biodiversity","General S&T"],
+    orientation:"Cooperative", interestFocus:"Global", coreObjective:"Combat disease worldwide; health diplomacy via a values-based network",
+    positioning:"Primary", explicitness:"Explicit", governance:"Foundation + voluntary international network",
+    tools:["Nodality","Organisation","Treasure","Authority"],
+    sciFields:["Microbiology","Immunology","Public health","Genomics"],
+    networked:"Pasteur Network (33 institutes); WHO 'official relations' (2016); One-Health approach; outbreak response.",
+    documents:["Pasteur Network cooperation agreement","Global health reports"],
+    alignment:"Exemplary — a textbook health-diplomacy network embodying the Framework's global-partnership ethos."
+  },
+  {
+    id:"fr-univ", name:"France Universités (Conference of University Presidents)",
+    country:"France", geography:"National (Paris)", actorType:"NGO/Network",
+    sdType:["d4s"], sinceYear:1971, activity:"C",
+    domains:["General S&T","HSS"],
+    orientation:"Cooperative", interestFocus:"Cross-border", coreObjective:"Represent universities; coordinate internationalisation",
+    positioning:"Tertiary", explicitness:"Implicit", governance:"Presidents' association",
+    tools:["Nodality","Organisation","Authority"],
+    sciFields:["All fields"],
+    networked:"EUA member; partners MESR & Campus France; positions on int'l partnerships & research security.",
+    documents:["Position papers on internationalisation"],
+    alignment:"Aligned — sector voice the Framework engages on university diplomacy."
+  },
+  {
+    id:"fr-cnes", name:"CNES — National Centre for Space Studies (space diplomacy)",
+    country:"France", geography:"National (Paris/Toulouse/Kourou)", actorType:"Governmental/IO",
+    sdType:["s4d","d4s","SinD"], sinceYear:1961, activity:"A",
+    domains:["Space","Climate","Oceans","Security/Dual-use"],
+    orientation:"Mixed", interestFocus:"Global", coreObjective:"Lead France's space policy & cooperation (a flagship of S&T diplomacy)",
+    positioning:"Primary", explicitness:"Explicit", governance:"Public agency (under MESR + Defence)",
+    tools:["Treasure","Authority","Organisation","Nodality"],
+    sciFields:["Space","Earth observation","Climate"],
+    networked:"ESA's largest contributor base; bilateral space agreements (NASA, ISRO); Space Climate Observatory.",
+    documents:["Space Climate Observatory","Bilateral space cooperation agreements"],
+    alignment:"Strong — space is a flagship SD domain; CNES is a primary site of French S&T diplomacy."
+  },
+  {
+    id:"x-airbus", name:"Airbus (pan-European multinational)",
+    country:"EU", geography:"FR/DE/ES/NL footprint; global", actorType:"Industry",
+    sdType:["DinS"], sinceYear:1970, activity:"C",
+    domains:["Space","Security/Dual-use","Digital","General S&T"],
+    orientation:"Competitive", interestFocus:"Global", coreObjective:"Embody European industrial cooperation; shape aero/space markets & standards",
+    positioning:"Tertiary", explicitness:"Implicit", governance:"Pan-European private multinational",
+    tools:["Treasure","Organisation","Nodality"],
+    sciFields:["Aerospace","Engineering"],
+    networked:"Symbol of EU industrial integration; ESA/EU space programmes; export & dual-use policy stakeholder.",
+    documents:["Corporate & sustainability reports"],
+    alignment:"Indirect — pan-EU industrial cooperation underpins the sovereignty agenda; not a self-identified SD actor."
+  },
+
+  /* ===================== NETHERLANDS — DEPTH ===================== */
+  {
+    id:"nl-knaw", name:"KNAW — Royal Netherlands Academy of Arts and Sciences",
+    country:"Netherlands", geography:"National (Amsterdam)", actorType:"Policy Advice",
+    sdType:["SinD","s4d"], sinceYear:1808, activity:"B",
+    domains:["General S&T","HSS","Health","Security/Dual-use"],
+    orientation:"Cooperative", interestFocus:"Cross-border", coreObjective:"Advise on science & safeguard academic freedom and knowledge security",
+    positioning:"Secondary", explicitness:"Explicit", governance:"Self-governing academy + institutes",
+    tools:["Nodality","Authority"],
+    sciFields:["All fields"],
+    networked:"ALLEA member; influential position paper on knowledge security; advises on open-yet-secure cooperation.",
+    documents:["Knowledge Security — Academy Position Paper","Statements on the Knowledge Security Act"],
+    alignment:"Strong — directly engages the open-vs-secure balance at the heart of the Framework's research-security strand."
+  },
+  {
+    id:"nl-unl", name:"Universities of the Netherlands (UNL)",
+    country:"Netherlands", geography:"National (The Hague/Utrecht)", actorType:"NGO/Network",
+    sdType:["d4s"], sinceYear:1985, activity:"C",
+    domains:["General S&T","HSS","Security/Dual-use"],
+    orientation:"Cooperative", interestFocus:"Cross-border", coreObjective:"Represent universities; coordinate internationalisation & knowledge security",
+    positioning:"Tertiary", explicitness:"Implicit", governance:"Universities' association",
+    tools:["Nodality","Organisation","Authority"],
+    sciFields:["All fields"],
+    networked:"Works with National Contact Point Knowledge Security; EUA; partners ministries on int'l policy.",
+    documents:["National Knowledge Security Guidelines (sector input)"],
+    alignment:"Aligned — operationalises the Framework's research-security guidance at sector level."
+  },
+  {
+    id:"nl-asml", name:"ASML (multinational; export controls & tech sovereignty)",
+    country:"Netherlands", geography:"HQ Veldhoven; global", actorType:"Industry",
+    sdType:["DinS"], sinceYear:1984, activity:"B",
+    domains:["Digital","Quantum","Security/Dual-use","General S&T"],
+    orientation:"Competitive", interestFocus:"Global", coreObjective:"Lead advanced lithography; central to semiconductor geopolitics",
+    positioning:"Secondary", explicitness:"Implicit", governance:"Private multinational",
+    tools:["Treasure","Organisation","Nodality"],
+    sciFields:["Photonics","Semiconductors","Physics"],
+    networked:"Subject of EU–US–NL–China export-control diplomacy; knowledge-security debates; university R&D ties.",
+    documents:["Annual reports; export-control compliance disclosures"],
+    alignment:"Highly relevant — a focal point of technology-sovereignty diplomacy the Framework foregrounds (though not self-IDed as SD)."
+  },
+
+  /* ===================== SPAIN — DEPTH ===================== */
+  {
+    id:"es-raicex", name:"RAICEX — Network of Associations of Spanish Researchers Abroad (diaspora)",
+    country:"Spain", geography:"National (Madrid) + 18 countries", actorType:"NGO/Network",
+    sdType:["d4s","s4d"], sinceYear:2018, activity:"B",
+    domains:["General S&T","Health","HSS","Climate"],
+    orientation:"Cooperative", interestFocus:"Global", coreObjective:"Connect the Spanish scientific diaspora to the national STI system",
+    positioning:"Primary", explicitness:"Explicit", governance:"Federation of diaspora associations",
+    tools:["Nodality","Organisation"],
+    sciFields:["All fields"],
+    networked:"4,000+ researchers in 18 countries; advisory body & info channel for Spanish STI; partners FECYT.",
+    documents:["RAICEX reports & policy recommendations"],
+    alignment:"Strong — exemplary diaspora science-diplomacy network complementing Spain's bottom-up model."
+  },
+  {
+    id:"es-crue", name:"CRUE — Spanish Universities (rectors' conference)",
+    country:"Spain", geography:"National (Madrid)", actorType:"NGO/Network",
+    sdType:["d4s"], sinceYear:1994, activity:"D",
+    domains:["General S&T","HSS"],
+    orientation:"Cooperative", interestFocus:"Cross-border", coreObjective:"Represent universities; coordinate internationalisation",
+    positioning:"Tertiary", explicitness:"Implicit", governance:"Rectors' association",
+    tools:["Nodality","Organisation"],
+    sciFields:["All fields"],
+    networked:"EUA member; partners ministries; Latin-America & Mediterranean university cooperation.",
+    documents:["CRUE internationalisation strategy"],
+    alignment:"Aligned — university-sector voice, esp. toward Ibero-American partnerships."
+  },
+
+  /* ===================== ITALY — DEPTH ===================== */
+  {
+    id:"it-crui", name:"CRUI — Conference of Italian University Rectors",
+    country:"Italy", geography:"National (Rome)", actorType:"NGO/Network",
+    sdType:["d4s"], sinceYear:1963, activity:"D",
+    domains:["General S&T","HSS"],
+    orientation:"Cooperative", interestFocus:"Cross-border", coreObjective:"Coordinate university-system policy & internationalisation",
+    positioning:"Tertiary", explicitness:"Implicit", governance:"Rectors' association",
+    tools:["Nodality","Organisation","Authority"],
+    sciFields:["All fields"],
+    networked:"EUA member; negotiates with government; Mediterranean & Balkan university networks.",
+    documents:["CRUI position papers"],
+    alignment:"Aligned — university-sector voice engaged by the Framework."
+  },
+  {
+    id:"it-issnaf", name:"ISSNAF — Italian Scientists & Scholars in North America Foundation (diaspora)",
+    country:"Italy", geography:"National links + North America", actorType:"NGO/Network",
+    sdType:["d4s","s4d"], sinceYear:2007, activity:"C",
+    domains:["General S&T","Health","Digital"],
+    orientation:"Cooperative", interestFocus:"Global", coreObjective:"Connect the Italian scientific diaspora in North America to Italy",
+    positioning:"Secondary", explicitness:"Explicit", governance:"Foundation/network",
+    tools:["Nodality","Organisation"],
+    sciFields:["All fields"],
+    networked:"3,000+ Italian researchers in North America; awards, mentoring; links to MAECI attachés & universities.",
+    documents:["ISSNAF annual programmes"],
+    alignment:"Aligned — diaspora network instrument complementing Italy's attaché-led SD."
+  },
+  {
+    id:"it-asi", name:"ASI — Italian Space Agency (space diplomacy)",
+    country:"Italy", geography:"National (Rome) + facilities", actorType:"Governmental/IO",
+    sdType:["s4d","d4s","SinD"], sinceYear:1988, activity:"B",
+    domains:["Space","Climate","Oceans","Security/Dual-use"],
+    orientation:"Mixed", interestFocus:"Global", coreObjective:"Lead Italy's space policy & cooperation",
+    positioning:"Secondary", explicitness:"Explicit", governance:"Public agency (under MUR)",
+    tools:["Treasure","Authority","Organisation","Nodality"],
+    sciFields:["Space","Earth observation"],
+    networked:"ESA participation; bilateral agreements (NASA Artemis, UAE); links to MAECI space attachés.",
+    documents:["Bilateral space cooperation agreements"],
+    alignment:"Aligned — space is a flagship SD domain; ASI is a secondary site of Italian S&T diplomacy."
+  }
+];
+
+</script>
+<script>
+const AE=[["A","Very high"],["B","High"],["C","Moderate"],["D","Low"],["E","Minimal"]];
+const TYPE_COLOR={Diplomatic:"#4f6ef7","Governmental/IO":"#22c3a6","Scientific/Research":"#9b6bf7","NGO/Network":"#f0609b",Training:"#e0a500","Policy Advice":"#f08a4b",Industry:"#e2615b"};
+const SDT=["s4d","d4s","SinD","DinS"];
+let scope=null, pickVal=null, queue=[], idx=0, answers={}, who="";
+
+const $=id=>document.getElementById(id);
+const key=()=>`cusp-survey:${scope}:${pickVal}`;
+
+/* ---------- START ---------- */
+document.querySelectorAll("#scopeBtns button").forEach(b=>{
+  b.onclick=()=>{
+    scope=b.dataset.scope;
+    document.querySelectorAll("#scopeBtns button").forEach(x=>x.classList.toggle("on",x===b));
+    const vals=[...new Set(ACTORS.map(a=>a[scope]))].sort();
+    const sel=$("pick"); sel.innerHTML=`<option value="">— choose —</option>`+
+      vals.map(v=>`<option value="${v}">${v} (${ACTORS.filter(a=>a[scope]===v).length})</option>`).join("");
+    $("pickLabel").style.display="block"; sel.style.display="block";
+    $("pickLabel").textContent = scope==="country" ? "Which country / geography?" : "Which partner type?";
+    pickVal=null; $("startBtn").disabled=true;
+  };
+});
+$("pick").onchange=e=>{ pickVal=e.target.value; $("startBtn").disabled=!pickVal; };
+$("startBtn").onclick=()=>{
+  who=$("who").value.trim();
+  queue=ACTORS.filter(a=>a[scope]===pickVal);
+  answers=JSON.parse(localStorage.getItem(key())||"{}");
+  idx=0; show("survey"); renderActor();
+};
+
+/* ---------- helpers ---------- */
+function show(which){ ["start","survey","review"].forEach(s=>$(s).classList.toggle("hide",s!==which)); window.scrollTo(0,0); }
+function aeControl(container,current,onPick,mini){
+  container.innerHTML="";
+  AE.forEach(([l,desc])=>{
+    const b=document.createElement("button");
+    b.className=(current===l?`on ${l}`:"");
+    b.innerHTML=mini?l:`${l}<small>${desc}</small>`;
+    b.title=desc;
+    b.onclick=()=>{ onPick(current===l?null:l); };
+    container.appendChild(b);
+  });
+}
+
+/* ---------- SURVEY ---------- */
+function renderActor(){
+  const a=queue[idx];
+  const cur=answers[a.id]||{sd:{}};
+  $("scopeTag").textContent = (scope==="country"?"📍 ":"🏛️ ")+pickVal;
+  $("posTag").textContent = `Actor ${idx+1} of ${queue.length}`;
+  $("progBar").style.width = (100*(idx)/queue.length)+"%";
+
+  const col=TYPE_COLOR[a.actorType]||"#4f6ef7";
+  $("avatar").style.background=col; $("avatar").textContent=a.name.replace(/^[^A-Za-z]*/,"").charAt(0)||"•";
+  $("aName").textContent=a.name;
+  $("aMeta").textContent=`${a.country} · ${a.geography} · since ${a.sinceYear}`;
+  $("aPills").innerHTML=[a.actorType,...a.sdType,a.orientation,...a.domains.slice(0,3)]
+    .map(p=>`<span class="pill">${p}</span>`).join("");
+  $("aCtx").innerHTML=`<b>What they do:</b> ${a.coreObjective}.`;
+
+  aeControl(document.querySelector('[data-q=significance]'), cur.significance, v=>{cur.significance=v;saveCur(a,cur);renderActor();});
+  aeControl(document.querySelector('[data-q=activity]'), cur.activity, v=>{cur.activity=v;saveCur(a,cur);renderActor();});
+
+  const m=$("sdMatrix"); m.innerHTML="";
+  SDT.forEach(t=>{
+    const lab=document.createElement("div"); lab.className="ml";
+    const fits=a.sdType.includes(t);
+    lab.innerHTML=`${t}${fits?` <small>actor self-claims this</small>`:` <small>not self-claimed</small>`}`;
+    const ctrl=document.createElement("div"); ctrl.className="ae mini";
+    m.appendChild(lab); m.appendChild(ctrl);
+    aeControl(ctrl, (cur.sd&&cur.sd[t]), v=>{cur.sd=cur.sd||{};cur.sd[t]=v;saveCur(a,cur);renderActor();}, true);
+  });
+
+  $("orient").value=cur.orient||3;
+  $("orient").oninput=e=>{cur.orient=+e.target.value;saveCur(a,cur,true);};
+  $("notes").value=cur.notes||"";
+  $("notes").oninput=e=>{cur.notes=e.target.value;saveCur(a,cur,true);};
+  $("unfamiliar").checked=!!cur.skip;
+  $("unfamiliar").onchange=e=>{cur.skip=e.target.checked;saveCur(a,cur);renderActor();};
+  document.getElementById("survey").classList.toggle("skipped",!!cur.skip);
+
+  $("prevBtn").style.visibility = idx===0?"hidden":"visible";
+  $("nextBtn").textContent = idx===queue.length-1 ? "Finish →" : "Next →";
+}
+function saveCur(a,cur,quiet){
+  answers[a.id]=cur;
+  localStorage.setItem(key(),JSON.stringify(answers));
+  const n=$("saveNote"); n.style.opacity=1; if(!quiet){ clearTimeout(saveCur._t); }
+  saveCur._t=setTimeout(()=>n.style.opacity=.4,900);
+}
+$("prevBtn").onclick=()=>{ if(idx>0){idx--;renderActor();} };
+$("nextBtn").onclick=()=>{ if(idx<queue.length-1){idx++;renderActor();} else renderReview(); };
+
+/* ---------- REVIEW ---------- */
+const SCORE={A:5,B:4,C:3,D:2,E:1};
+function renderReview(){
+  $("progBar").style.width="100%";
+  const done=queue.filter(a=>{const c=answers[a.id];return c&&(c.skip||c.significance)});
+  const rated=queue.filter(a=>{const c=answers[a.id];return c&&!c.skip&&c.significance});
+  const avg=rated.length? (rated.reduce((s,a)=>s+SCORE[answers[a.id].significance],0)/rated.length):0;
+  $("reviewLede").textContent=`${who?who+", you":"You"} assessed ${rated.length} of ${queue.length} actors for "${pickVal}"${queue.length-done.length?` (${queue.length-done.length} left blank)`:""}.`;
+  $("stats").innerHTML=
+    `<div class="stat"><b>${rated.length}</b><span>actors rated</span></div>`+
+    `<div class="stat"><b>${avg?avg.toFixed(1):"–"}</b><span>avg significance /5</span></div>`+
+    `<div class="stat"><b>${queue.filter(a=>answers[a.id]&&answers[a.id].skip).length}</b><span>skipped (unfamiliar)</span></div>`;
+  const rows=queue.map(a=>{
+    const c=answers[a.id]||{};
+    if(c.skip) return `<tr><td>${a.name}</td><td><span class="badge skip">skip</span></td><td colspan="3" style="color:var(--muted)">not familiar</td><td></td></tr>`;
+    const b=v=>v?`<span class="badge ${v}">${v}</span>`:`<span style="color:var(--muted)">–</span>`;
+    const sd=SDT.map(t=>`${t} ${ (c.sd&&c.sd[t])?`<span class="badge ${c.sd[t]}">${c.sd[t]}</span>`:'–'}`).join(" &nbsp; ");
+    const or=c.orient?["Coop","Coop-","Mixed","Comp-","Comp"][c.orient-1]:"–";
+    return `<tr><td><b>${a.name}</b></td><td>${b(c.significance)}</td><td>${b(c.activity)}</td><td style="font-size:11.5px">${sd}</td><td>${or}</td><td style="color:var(--muted)">${c.notes?c.notes.replace(/</g,"&lt;"):""}</td></tr>`;
+  }).join("");
+  $("resTable").innerHTML=`<thead><tr><th>Actor</th><th>Signif.</th><th>Active</th><th>SD-type fit</th><th>Orient.</th><th>Notes</th></tr></thead><tbody>${rows}</tbody>`;
+  show("review");
+}
+$("backToSurvey").onclick=()=>{ idx=queue.length-1; show("survey"); renderActor(); };
+$("restart").onclick=()=>{ if(confirm("Clear your answers for this lens and start over?")){ localStorage.removeItem(key()); location.reload(); } };
+
+function payload(){
+  return {tool:"CUSP science diplomacy actor assessment",respondent:who||null,scope,selection:pickVal,
+    timestamp:new Date().toISOString(),
+    responses:queue.map(a=>({id:a.id,name:a.name,country:a.country,actorType:a.actorType,...(answers[a.id]||{})}))};
+}
+function dl(name,txt,type){const b=new Blob([txt],{type});const u=URL.createObjectURL(b);
+  const x=document.createElement("a");x.href=u;x.download=name;x.click();URL.revokeObjectURL(u);}
+$("dlJson").onclick=()=>dl(`cusp-assessment-${scope}-${pickVal}.json`,JSON.stringify(payload(),null,2),"application/json");
+$("copyJson").onclick=()=>{navigator.clipboard.writeText(JSON.stringify(payload(),null,2));$("copyJson").textContent="Copied ✓";setTimeout(()=>$("copyJson").textContent="Copy JSON",1400);};
+$("dlCsv").onclick=()=>{
+  const p=payload();const cols=["id","name","country","actorType","significance","activity","sd_s4d","sd_d4s","sd_SinD","sd_DinS","orient","skip","notes"];
+  const esc=v=>`"${String(v??"").replace(/"/g,'""')}"`;
+  const lines=[cols.join(",")].concat(p.responses.map(r=>cols.map(c=>{
+    if(c.startsWith("sd_"))return esc(r.sd?r.sd[c.slice(3)]:"");return esc(r[c]);}).join(",")));
+  dl(`cusp-assessment-${scope}-${pickVal}.csv`,lines.join("\n"),"text/csv");
+};
+</script>
+</body>
+</html>

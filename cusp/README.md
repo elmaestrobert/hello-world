@@ -6,8 +6,16 @@ priority Member States, coded against a 16-field taxonomy (a–p) and checked fo
 
 ## Files
 - `index.html` — interactive viewer (filter, search, cards / table / charts, per-actor detail). Open directly in a browser; no build step or network needed.
+- `survey.html` — **assessment tool**: pick a country *or* a partner type, then judge each matching actor one at a time on the A–E scale (significance, per-SD-type fit, activity, orientation, notes). Auto-saves to the browser; exports JSON/CSV.
 - `data.js` — the dataset. Each actor is one object coded against the taxonomy.
+- `*-standalone.html` — self-contained builds (data inlined) of the viewer and the survey, for one-tap opening / sharing.
 - `README.md` — method, taxonomy, sources, and the running country log.
+
+## Assessment tool (`survey.html`)
+A light, guided survey so a respondent can *judge* the mapped actors:
+1. Choose a lens — **by country/geography** or **by diplomacy partner type** (actor type b).
+2. Rate each actor on: overall **significance** (A–E), **fit of each SD type** s4d/d4s/SinD/DinS (A–E), **how active** (A–E), **orientation** (cooperative↔competitive), plus free notes — or mark "not familiar" to skip.
+3. Review screen aggregates your scores and exports **JSON** or **CSV**. Answers persist per lens in `localStorage`, so multiple respondents/lenses can be collected and combined offline.
 
 ## How to use
 Open `cusp/index.html`. Filter via the left rail (country, actor type, SD type,

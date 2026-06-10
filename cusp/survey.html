@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CUSP · Science Diplomacy Actor Assessment</title>
+<style>
+  :root{
+    --bg1:#eef3ff; --bg2:#f7faff; --card:#ffffff; --ink:#1c2540; --muted:#6b7799;
+    --line:#e3e9f6; --brand:#4f6ef7; --brand2:#22c3a6; --soft:#f0f4ff;
+    --A:#1fab74; --B:#7bc043; --C:#f2c14e; --D:#f08a4b; --E:#e2615b;
+    --shadow:0 8px 30px rgba(60,80,160,.10);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font:15px/1.55 ui-sans-serif,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+       color:var(--ink);background:linear-gradient(160deg,var(--bg1),var(--bg2));min-height:100vh}
+  .app{max-width:760px;margin:0 auto;padding:26px 18px 60px}
+  .brandbar{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+  .logo{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--brand2));
+        display:grid;place-items:center;color:#fff;font-weight:800}
+  .brandbar h1{font-size:17px;margin:0;font-weight:700;letter-spacing:.2px}
+  .brandbar .tag{color:var(--muted);font-size:12.5px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:24px}
+  h2{margin:0 0 6px;font-size:20px}
+  .lede{color:var(--muted);margin:0 0 18px}
+  label.fld{display:block;font-weight:600;font-size:13px;margin:16px 0 7px}
+  select,input[type=text],textarea{width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:12px;
+        background:var(--soft);color:var(--ink);font:inherit;outline:none}
+  select:focus,input:focus,textarea:focus{border-color:var(--brand);background:#fff}
+  textarea{min-height:74px;resize:vertical}
+  .seg{display:flex;gap:8px;flex-wrap:wrap}
+  .seg.scope button{flex:1;min-width:200px;text-align:left;padding:16px;border-radius:14px;border:1px solid var(--line);
+        background:var(--soft);cursor:pointer;transition:.15s}
+  .seg.scope button:hover{border-color:var(--brand);transform:translateY(-1px)}
+  .seg.scope button.on{border-color:var(--brand);background:#fff;box-shadow:var(--shadow)}
+  .seg.scope b{display:block;font-size:15px;margin-bottom:3px}
+  .seg.scope span{color:var(--muted);font-size:12.5px}
+  .btn{appearance:none;border:none;border-radius:12px;padding:12px 20px;font:inherit;font-weight:650;cursor:pointer;transition:.15s}
+  .btn.primary{background:var(--brand);color:#fff}
+  .btn.primary:hover{filter:brightness(1.05);transform:translateY(-1px)}
+  .btn.primary:disabled{opacity:.45;cursor:not-allowed;transform:none}
+  .btn.ghost{background:var(--soft);color:var(--ink);border:1px solid var(--line)}
+  .btn.ghost:hover{border-color:var(--brand)}
+  .row{display:flex;align-items:center;gap:10px}
+  .spacer{flex:1}
+  /* progress */
+  .prog{height:8px;background:#e7edfb;border-radius:8px;overflow:hidden;margin:2px 0 16px}
+  .prog>div{height:100%;background:linear-gradient(90deg,var(--brand),var(--brand2));transition:width .25s}
+  .crumbs{display:flex;justify-content:space-between;color:var(--muted);font-size:12.5px;margin-bottom:6px}
+  /* actor header */
+  .ahead{display:flex;align-items:flex-start;gap:12px;margin-bottom:4px}
+  .avatar{width:42px;height:42px;border-radius:12px;flex:none;display:grid;place-items:center;color:#fff;font-weight:800;font-size:15px}
+  .ahead .nm{font-size:18px;font-weight:700;line-height:1.25}
+  .ahead .mt{color:var(--muted);font-size:12.5px;margin-top:2px}
+  .pills{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 4px}
+  .pill{font-size:11px;padding:3px 9px;border-radius:999px;background:var(--soft);border:1px solid var(--line);color:var(--muted)}
+  .ctx{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:11px 13px;margin:12px 0 6px;font-size:13px;color:#42507a}
+  .ctx b{color:var(--ink)}
+  /* questions */
+  .q{padding:16px 0;border-top:1px solid var(--line)}
+  .q .qt{font-weight:650;font-size:14px;margin-bottom:3px}
+  .q .qh{color:var(--muted);font-size:12px;margin-bottom:9px}
+  .ae{display:flex;gap:6px}
+  .ae button{flex:1;padding:9px 4px;border-radius:10px;border:1px solid var(--line);background:#fff;cursor:pointer;
+        font-weight:700;font-size:13px;color:var(--muted);transition:.12s;position:relative}
+  .ae button small{display:block;font-weight:500;font-size:9.5px;margin-top:2px;letter-spacing:.2px}
+  .ae button:hover{border-color:var(--brand)}
+  .ae button.on{color:#fff;border-color:transparent}
+  .ae button.on.A{background:var(--A)} .ae button.on.B{background:var(--B)}
+  .ae button.on.C{background:var(--C)} .ae button.on.D{background:var(--D)} .ae button.on.E{background:var(--E)}
+  .matrix{display:grid;grid-template-columns:auto 1fr;gap:8px 12px;align-items:center}
+  .matrix .ml{font-size:13px;font-weight:600}
+  .matrix .ml small{display:block;font-weight:400;color:var(--muted);font-size:11px}
+  .mini button{padding:7px 3px;font-size:12px}
+  .mini button small{display:none}
+  .slider{display:flex;align-items:center;gap:12px}
+  input[type=range]{flex:1;accent-color:var(--brand)}
+  .slabel{font-size:12px;color:var(--muted);min-width:78px;text-align:center}
+  .skip{margin-top:6px}
+  .skipped{opacity:.55}
+  /* review */
+  table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:12px}
+  th,td{text-align:left;padding:8px 9px;border-bottom:1px solid var(--line)}
+  th{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.5px}
+  .badge{display:inline-block;min-width:20px;text-align:center;padding:1px 6px;border-radius:6px;color:#fff;font-weight:700;font-size:11px}
+  .badge.A{background:var(--A)}.badge.B{background:var(--B)}.badge.C{background:var(--C)}.badge.D{background:var(--D)}.badge.E{background:var(--E)}
+  .badge.skip{background:#aab3cc}
+  .stat{display:inline-flex;flex-direction:column;gap:2px;background:var(--soft);border:1px solid var(--line);
+        border-radius:12px;padding:10px 14px;margin:4px 6px 4px 0}
+  .stat b{font-size:20px}.stat span{color:var(--muted);font-size:11.5px}
+  .hide{display:none}
+  .foot{color:var(--muted);font-size:12px;text-align:center;margin-top:18px}
+  .save-note{color:var(--brand2);font-size:12px;font-weight:600}
+  @media(max-width:560px){.mini button{padding:7px 2px}}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="brandbar">
+    <div class="logo">C</div>
+    <div><h1>Science Diplomacy Actor Assessment</h1>
+    <div class="tag">CUSP · rate how each actor fits the science-diplomacy taxonomy</div></div>
+  </div>
+
+  <!-- ============ START ============ -->
+  <section id="start" class="card">
+    <h2>Let's assess some actors 👋</h2>
+    <p class="lede">Pick a lens, and you'll judge each matching actor one at a time on a friendly A–E scale. Your answers save automatically in this browser — you can stop and come back.</p>
+
+    <label class="fld">Your name or role <span style="color:var(--muted);font-weight:400">(optional)</span></label>
+    <input id="who" type="text" placeholder="e.g. Maria, policy analyst"/>
+
+    <label class="fld">Choose your lens</label>
+    <div class="seg scope" id="scopeBtns">
+      <button data-scope="country"><b>By country / geography</b><span>Judge all the actors based in one place</span></button>
+      <button data-scope="actorType"><b>By diplomacy partner type</b><span>Judge all actors of one kind (e.g. all foreign ministries)</span></button>
+    </div>
+
+    <label class="fld" id="pickLabel" style="display:none">Which one?</label>
+    <select id="pick" style="display:none"></select>
+
+    <div class="row" style="margin-top:22px">
+      <div class="spacer"></div>
+      <button class="btn primary" id="startBtn" disabled>Start assessment →</button>
+    </div>
+  </section>
+
+  <!-- ============ SURVEY ============ -->
+  <section id="survey" class="card hide">
+    <div class="crumbs"><span id="scopeTag"></span><span id="posTag"></span></div>
+    <div class="prog"><div id="progBar" style="width:0%"></div></div>
+
+    <div class="ahead">
+      <div class="avatar" id="avatar">A</div>
+      <div><div class="nm" id="aName"></div><div class="mt" id="aMeta"></div></div>
+    </div>
+    <div class="pills" id="aPills"></div>
+    <div class="ctx" id="aCtx"></div>
+
+    <div class="q">
+      <div class="qt">1 · Overall, how significant is this actor in science diplomacy?</div>
+      <div class="qh">A = very high · B = high · C = moderate · D = low · E = minimal</div>
+      <div class="ae" data-q="significance"></div>
+    </div>
+
+    <div class="q">
+      <div class="qt">2 · How well does each type of science diplomacy fit?</div>
+      <div class="qh">s4d = science for diplomacy · d4s = diplomacy for science · SinD = science in diplomacy · DinS = diplomacy in science</div>
+      <div class="matrix" id="sdMatrix"></div>
+    </div>
+
+    <div class="q">
+      <div class="qt">3 · How active is it right now?</div>
+      <div class="qh">Based on visible, current science-diplomacy activity</div>
+      <div class="ae" data-q="activity"></div>
+    </div>
+
+    <div class="q">
+      <div class="qt">4 · What's its orientation?</div>
+      <div class="qh">Where does it sit between cooperative and competitive?</div>
+      <div class="slider">
+        <span class="slabel">🤝 Cooperative</span>
+        <input type="range" id="orient" min="1" max="5" step="1" value="3"/>
+        <span class="slabel">⚔️ Competitive</span>
+      </div>
+    </div>
+
+    <div class="q">
+      <div class="qt">5 · Anything to add?</div>
+      <div class="qh">Optional — evidence, doubts, documents, your reasoning</div>
+      <textarea id="notes" placeholder="Optional notes…"></textarea>
+    </div>
+
+    <div class="skip">
+      <label class="row" style="gap:8px;cursor:pointer;font-size:13px;color:var(--muted)">
+        <input type="checkbox" id="unfamiliar"/> I'm not familiar enough with this actor — skip it
+      </label>
+    </div>
+
+    <div class="row" style="margin-top:20px">
+      <button class="btn ghost" id="prevBtn">← Back</button>
+      <span class="save-note" id="saveNote">saved ✓</span>
+      <div class="spacer"></div>
+      <button class="btn primary" id="nextBtn">Next →</button>
+    </div>
+  </section>
+
+  <!-- ============ REVIEW ============ -->
+  <section id="review" class="card hide">
+    <h2>Nice work 🎉</h2>
+    <p class="lede" id="reviewLede"></p>
+    <div id="stats"></div>
+    <div style="overflow:auto"><table id="resTable"></table></div>
+    <div class="row" style="margin-top:20px;flex-wrap:wrap;gap:10px">
+      <button class="btn ghost" id="backToSurvey">← Edit answers</button>
+      <button class="btn ghost" id="restart">Start over</button>
+      <div class="spacer"></div>
+      <button class="btn ghost" id="copyJson">Copy JSON</button>
+      <button class="btn ghost" id="dlCsv">Download CSV</button>
+      <button class="btn primary" id="dlJson">Download JSON</button>
+    </div>
+    <div class="foot">Responses live only in your browser until you export them.</div>
+  </section>
+
+  <div class="foot">CUSP assessment · A–E scale · companion to the actor map (<code>cusp/index.html</code>)</div>
+</div>
+
+<script src="data.js"></script>
+<script>
+const AE=[["A","Very high"],["B","High"],["C","Moderate"],["D","Low"],["E","Minimal"]];
+const TYPE_COLOR={Diplomatic:"#4f6ef7","Governmental/IO":"#22c3a6","Scientific/Research":"#9b6bf7","NGO/Network":"#f0609b",Training:"#e0a500","Policy Advice":"#f08a4b",Industry:"#e2615b"};
+const SDT=["s4d","d4s","SinD","DinS"];
+let scope=null, pickVal=null, queue=[], idx=0, answers={}, who="";
+
+const $=id=>document.getElementById(id);
+const key=()=>`cusp-survey:${scope}:${pickVal}`;
+
+/* ---------- START ---------- */
+document.querySelectorAll("#scopeBtns button").forEach(b=>{
+  b.onclick=()=>{
+    scope=b.dataset.scope;
+    document.querySelectorAll("#scopeBtns button").forEach(x=>x.classList.toggle("on",x===b));
+    const vals=[...new Set(ACTORS.map(a=>a[scope]))].sort();
+    const sel=$("pick"); sel.innerHTML=`<option value="">— choose —</option>`+
+      vals.map(v=>`<option value="${v}">${v} (${ACTORS.filter(a=>a[scope]===v).length})</option>`).join("");
+    $("pickLabel").style.display="block"; sel.style.display="block";
+    $("pickLabel").textContent = scope==="country" ? "Which country / geography?" : "Which partner type?";
+    pickVal=null; $("startBtn").disabled=true;
+  };
+});
+$("pick").onchange=e=>{ pickVal=e.target.value; $("startBtn").disabled=!pickVal; };
+$("startBtn").onclick=()=>{
+  who=$("who").value.trim();
+  queue=ACTORS.filter(a=>a[scope]===pickVal);
+  answers=JSON.parse(localStorage.getItem(key())||"{}");
+  idx=0; show("survey"); renderActor();
+};
+
+/* ---------- helpers ---------- */
+function show(which){ ["start","survey","review"].forEach(s=>$(s).classList.toggle("hide",s!==which)); window.scrollTo(0,0); }
+function aeControl(container,current,onPick,mini){
+  container.innerHTML="";
+  AE.forEach(([l,desc])=>{
+    const b=document.createElement("button");
+    b.className=(current===l?`on ${l}`:"");
+    b.innerHTML=mini?l:`${l}<small>${desc}</small>`;
+    b.title=desc;
+    b.onclick=()=>{ onPick(current===l?null:l); };
+    container.appendChild(b);
+  });
+}
+
+/* ---------- SURVEY ---------- */
+function renderActor(){
+  const a=queue[idx];
+  const cur=answers[a.id]||{sd:{}};
+  $("scopeTag").textContent = (scope==="country"?"📍 ":"🏛️ ")+pickVal;
+  $("posTag").textContent = `Actor ${idx+1} of ${queue.length}`;
+  $("progBar").style.width = (100*(idx)/queue.length)+"%";
+
+  const col=TYPE_COLOR[a.actorType]||"#4f6ef7";
+  $("avatar").style.background=col; $("avatar").textContent=a.name.replace(/^[^A-Za-z]*/,"").charAt(0)||"•";
+  $("aName").textContent=a.name;
+  $("aMeta").textContent=`${a.country} · ${a.geography} · since ${a.sinceYear}`;
+  $("aPills").innerHTML=[a.actorType,...a.sdType,a.orientation,...a.domains.slice(0,3)]
+    .map(p=>`<span class="pill">${p}</span>`).join("");
+  $("aCtx").innerHTML=`<b>What they do:</b> ${a.coreObjective}.`;
+
+  aeControl(document.querySelector('[data-q=significance]'), cur.significance, v=>{cur.significance=v;saveCur(a,cur);renderActor();});
+  aeControl(document.querySelector('[data-q=activity]'), cur.activity, v=>{cur.activity=v;saveCur(a,cur);renderActor();});
+
+  const m=$("sdMatrix"); m.innerHTML="";
+  SDT.forEach(t=>{
+    const lab=document.createElement("div"); lab.className="ml";
+    const fits=a.sdType.includes(t);
+    lab.innerHTML=`${t}${fits?` <small>actor self-claims this</small>`:` <small>not self-claimed</small>`}`;
+    const ctrl=document.createElement("div"); ctrl.className="ae mini";
+    m.appendChild(lab); m.appendChild(ctrl);
+    aeControl(ctrl, (cur.sd&&cur.sd[t]), v=>{cur.sd=cur.sd||{};cur.sd[t]=v;saveCur(a,cur);renderActor();}, true);
+  });
+
+  $("orient").value=cur.orient||3;
+  $("orient").oninput=e=>{cur.orient=+e.target.value;saveCur(a,cur,true);};
+  $("notes").value=cur.notes||"";
+  $("notes").oninput=e=>{cur.notes=e.target.value;saveCur(a,cur,true);};
+  $("unfamiliar").checked=!!cur.skip;
+  $("unfamiliar").onchange=e=>{cur.skip=e.target.checked;saveCur(a,cur);renderActor();};
+  document.getElementById("survey").classList.toggle("skipped",!!cur.skip);
+
+  $("prevBtn").style.visibility = idx===0?"hidden":"visible";
+  $("nextBtn").textContent = idx===queue.length-1 ? "Finish →" : "Next →";
+}
+function saveCur(a,cur,quiet){
+  answers[a.id]=cur;
+  localStorage.setItem(key(),JSON.stringify(answers));
+  const n=$("saveNote"); n.style.opacity=1; if(!quiet){ clearTimeout(saveCur._t); }
+  saveCur._t=setTimeout(()=>n.style.opacity=.4,900);
+}
+$("prevBtn").onclick=()=>{ if(idx>0){idx--;renderActor();} };
+$("nextBtn").onclick=()=>{ if(idx<queue.length-1){idx++;renderActor();} else renderReview(); };
+
+/* ---------- REVIEW ---------- */
+const SCORE={A:5,B:4,C:3,D:2,E:1};
+function renderReview(){
+  $("progBar").style.width="100%";
+  const done=queue.filter(a=>{const c=answers[a.id];return c&&(c.skip||c.significance)});
+  const rated=queue.filter(a=>{const c=answers[a.id];return c&&!c.skip&&c.significance});
+  const avg=rated.length? (rated.reduce((s,a)=>s+SCORE[answers[a.id].significance],0)/rated.length):0;
+  $("reviewLede").textContent=`${who?who+", you":"You"} assessed ${rated.length} of ${queue.length} actors for "${pickVal}"${queue.length-done.length?` (${queue.length-done.length} left blank)`:""}.`;
+  $("stats").innerHTML=
+    `<div class="stat"><b>${rated.length}</b><span>actors rated</span></div>`+
+    `<div class="stat"><b>${avg?avg.toFixed(1):"–"}</b><span>avg significance /5</span></div>`+
+    `<div class="stat"><b>${queue.filter(a=>answers[a.id]&&answers[a.id].skip).length}</b><span>skipped (unfamiliar)</span></div>`;
+  const rows=queue.map(a=>{
+    const c=answers[a.id]||{};
+    if(c.skip) return `<tr><td>${a.name}</td><td><span class="badge skip">skip</span></td><td colspan="3" style="color:var(--muted)">not familiar</td><td></td></tr>`;
+    const b=v=>v?`<span class="badge ${v}">${v}</span>`:`<span style="color:var(--muted)">–</span>`;
+    const sd=SDT.map(t=>`${t} ${ (c.sd&&c.sd[t])?`<span class="badge ${c.sd[t]}">${c.sd[t]}</span>`:'–'}`).join(" &nbsp; ");
+    const or=c.orient?["Coop","Coop-","Mixed","Comp-","Comp"][c.orient-1]:"–";
+    return `<tr><td><b>${a.name}</b></td><td>${b(c.significance)}</td><td>${b(c.activity)}</td><td style="font-size:11.5px">${sd}</td><td>${or}</td><td style="color:var(--muted)">${c.notes?c.notes.replace(/</g,"&lt;"):""}</td></tr>`;
+  }).join("");
+  $("resTable").innerHTML=`<thead><tr><th>Actor</th><th>Signif.</th><th>Active</th><th>SD-type fit</th><th>Orient.</th><th>Notes</th></tr></thead><tbody>${rows}</tbody>`;
+  show("review");
+}
+$("backToSurvey").onclick=()=>{ idx=queue.length-1; show("survey"); renderActor(); };
+$("restart").onclick=()=>{ if(confirm("Clear your answers for this lens and start over?")){ localStorage.removeItem(key()); location.reload(); } };
+
+function payload(){
+  return {tool:"CUSP science diplomacy actor assessment",respondent:who||null,scope,selection:pickVal,
+    timestamp:new Date().toISOString(),
+    responses:queue.map(a=>({id:a.id,name:a.name,country:a.country,actorType:a.actorType,...(answers[a.id]||{})}))};
+}
+function dl(name,txt,type){const b=new Blob([txt],{type});const u=URL.createObjectURL(b);
+  const x=document.createElement("a");x.href=u;x.download=name;x.click();URL.revokeObjectURL(u);}
+$("dlJson").onclick=()=>dl(`cusp-assessment-${scope}-${pickVal}.json`,JSON.stringify(payload(),null,2),"application/json");
+$("copyJson").onclick=()=>{navigator.clipboard.writeText(JSON.stringify(payload(),null,2));$("copyJson").textContent="Copied ✓";setTimeout(()=>$("copyJson").textContent="Copy JSON",1400);};
+$("dlCsv").onclick=()=>{
+  const p=payload();const cols=["id","name","country","actorType","significance","activity","sd_s4d","sd_d4s","sd_SinD","sd_DinS","orient","skip","notes"];
+  const esc=v=>`"${String(v??"").replace(/"/g,'""')}"`;
+  const lines=[cols.join(",")].concat(p.responses.map(r=>cols.map(c=>{
+    if(c.startsWith("sd_"))return esc(r.sd?r.sd[c.slice(3)]:"");return esc(r[c]);}).join(",")));
+  dl(`cusp-assessment-${scope}-${pickVal}.csv`,lines.join("\n"),"text/csv");
+};
+</script>
+</body>
+</html>
