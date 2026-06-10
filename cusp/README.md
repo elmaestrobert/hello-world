@@ -44,9 +44,15 @@ operational / enabling) and code of conduct — as promised in the proposal text
 ## Coverage log
 - **v1 (2026-06-10):** EU level (DG RTD, EEAS/Delegations, JRC, SAM/GCSA, ERC/EIC),
   pan-EU networks (EU Science Diplomacy Alliance/S4D4C, ALLEA), **Germany**,
-  **France**, **Netherlands**. — *21 actors.*
-- _Next:_ Spain, Italy, Austria, Poland, Sweden/Nordics, then deepen each country
-  (universities, academies, research infrastructures, industry, diaspora networks).
+  **France**, **Netherlands**.
+- **v2 (2026-06-10):** added **Spain** (MAEC, FECYT, CDTI, CSIC), **Italy** (MAECI/
+  Farnesina, CNR, MUR), **Austria** (BMEIA, OeAD, ZSI, IIASA), **Poland** (MSZ/
+  Diplomatic Academy, PAN/PolSCA, FNP, KRASP) + FMSTAN network. — *36 actors, 8 jurisdictions.*
+- _Next:_ Sweden/Nordics, Belgium, Czechia, Portugal; then deepen each country
+  (universities, research infrastructures, industry/multinationals, diaspora networks).
+
+> A self-contained build, `cusp-standalone.html` (data inlined), is regenerated each
+> iteration for one-tap opening without the sibling `data.js`.
 
 ## Key sources
 - *A European Framework for Science Diplomacy* — EC expert report, Feb 2025.
