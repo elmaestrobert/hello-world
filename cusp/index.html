@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CUSP · Mapping Science Diplomacy Actors in the EU</title>
+<style>
+  :root{
+    --bg:#0c1220; --panel:#141d33; --panel2:#1b2742; --line:#28365c;
+    --ink:#e8edf7; --muted:#9aa8c7; --accent:#4f8cff; --accent2:#22d3a6;
+    --warn:#ffb454; --pill:#21304f;
+    --diplo:#4f8cff; --gov:#22d3a6; --sci:#a78bfa; --ngo:#ff7eb6; --train:#ffd166; --policy:#ffb454; --ind:#ff6b6b;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font:14px/1.5 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink)}
+  header{padding:22px 26px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#101a30,#0c1220)}
+  h1{margin:0;font-size:21px;letter-spacing:.3px}
+  .sub{color:var(--muted);font-size:13px;margin-top:4px}
+  .wrap{display:grid;grid-template-columns:300px 1fr;gap:0;min-height:calc(100vh - 84px)}
+  aside{border-right:1px solid var(--line);padding:18px;background:var(--panel);position:sticky;top:0;align-self:start;height:calc(100vh - 84px);overflow:auto}
+  main{padding:20px 24px;overflow:auto}
+  .fgroup{margin-bottom:18px}
+  .fgroup h3{margin:0 0 8px;font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted)}
+  .chips{display:flex;flex-wrap:wrap;gap:6px}
+  .chip{cursor:pointer;padding:4px 10px;border-radius:999px;background:var(--pill);border:1px solid var(--line);color:var(--ink);font-size:12px;user-select:none}
+  .chip.on{background:var(--accent);border-color:var(--accent);color:#fff}
+  .chip.small{font-size:11px;padding:3px 8px}
+  input[type=search]{width:100%;padding:9px 11px;border-radius:8px;border:1px solid var(--line);background:var(--panel2);color:var(--ink);font-size:13px}
+  .bar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+  .btn{cursor:pointer;padding:7px 13px;border-radius:8px;border:1px solid var(--line);background:var(--panel2);color:var(--ink);font-size:13px}
+  .btn.on{background:var(--accent);border-color:var(--accent);color:#fff}
+  .count{color:var(--muted);font-size:13px;margin-left:auto}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:18px}
+  .stat{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+  .stat .n{font-size:22px;font-weight:700}
+  .stat .l{color:var(--muted);font-size:12px}
+  .stat .bars{margin-top:8px;display:flex;flex-direction:column;gap:4px}
+  .brow{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--muted)}
+  .brow .track{flex:1;height:7px;background:var(--pill);border-radius:6px;overflow:hidden}
+  .brow .fill{height:100%;background:var(--accent2)}
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:15px 16px;position:relative;cursor:pointer;transition:.15s}
+  .card:hover{border-color:var(--accent);transform:translateY(-2px)}
+  .card .name{font-weight:650;font-size:14.5px;padding-right:10px}
+  .card .meta{color:var(--muted);font-size:12px;margin:4px 0 9px}
+  .tags{display:flex;flex-wrap:wrap;gap:5px}
+  .tag{font-size:10.5px;padding:2px 7px;border-radius:6px;background:var(--pill);border:1px solid var(--line)}
+  .tag.type{color:#fff;border:none}
+  .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;vertical-align:middle}
+  .actObadge{position:absolute;top:13px;right:14px;font-weight:700;font-size:13px;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:var(--pill);border:1px solid var(--line)}
+  table{width:100%;border-collapse:collapse;font-size:12.5px}
+  th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.6px;cursor:pointer;position:sticky;top:0;background:var(--bg)}
+  tbody tr:hover{background:var(--panel)}
+  /* modal */
+  .modal{position:fixed;inset:0;background:rgba(4,8,16,.72);display:none;align-items:center;justify-content:center;padding:24px;z-index:50}
+  .modal.on{display:flex}
+  .sheet{background:var(--panel);border:1px solid var(--line);border-radius:16px;max-width:760px;width:100%;max-height:88vh;overflow:auto;padding:22px 24px}
+  .sheet h2{margin:0 0 2px;font-size:18px}
+  .sheet .x{position:absolute;top:20px;right:24px;cursor:pointer;color:var(--muted);font-size:22px}
+  .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:14px}
+  .field{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:9px 11px}
+  .field .k{color:var(--muted);font-size:10.5px;text-transform:uppercase;letter-spacing:.6px;margin-bottom:3px}
+  .field .v{font-size:13px}
+  .align{margin-top:14px;background:rgba(34,211,166,.08);border:1px solid var(--accent2);border-radius:10px;padding:11px 13px}
+  .align .k{color:var(--accent2);font-size:11px;text-transform:uppercase;letter-spacing:.6px;margin-bottom:3px}
+  ul.docs{margin:4px 0 0;padding-left:18px}
+  a.src{color:var(--accent)}
+  .legend{font-size:11px;color:var(--muted);margin-top:6px;display:flex;flex-wrap:wrap;gap:10px}
+  footer{padding:16px 26px;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <h1>CUSP · Science Diplomacy Actor Map — EU &amp; Priority Member States</h1>
+  <div class="sub">Interactive mapping coded against the project taxonomy (a–p) and checked for alignment with the <b>EU Framework for Science Diplomacy</b> (2025 / Council Rec. 2026). Click any actor for the full coding.</div>
+</header>
+
+<div class="wrap">
+  <aside>
+    <div class="fgroup">
+      <h3>Search</h3>
+      <input id="q" type="search" placeholder="name, theme, objective…"/>
+    </div>
+    <div class="fgroup"><h3>Country / Geography</h3><div class="chips" id="f-country"></div></div>
+    <div class="fgroup"><h3>Type of actor (b)</h3><div class="chips" id="f-actorType"></div></div>
+    <div class="fgroup"><h3>Type of SD (c)</h3><div class="chips" id="f-sdType"></div></div>
+    <div class="fgroup"><h3>Thematic domain (f)</h3><div class="chips" id="f-domains"></div></div>
+    <div class="fgroup"><h3>Orientation (g)</h3><div class="chips" id="f-orientation"></div></div>
+    <div class="fgroup"><h3>Interest focus (h)</h3><div class="chips" id="f-interestFocus"></div></div>
+    <div class="fgroup"><h3>Positioning (j)</h3><div class="chips" id="f-positioning"></div></div>
+    <div class="fgroup"><h3>Activity (e)</h3><div class="chips" id="f-activity"></div></div>
+    <button class="btn" id="reset" style="width:100%">Reset all filters</button>
+  </aside>
+
+  <main>
+    <div class="bar">
+      <button class="btn on" id="v-cards">Cards</button>
+      <button class="btn" id="v-table">Table</button>
+      <button class="btn" id="v-stats">Charts</button>
+      <span class="count" id="count"></span>
+    </div>
+    <div class="legend" id="legend"></div>
+    <div id="view-stats" class="stats" style="display:none"></div>
+    <div id="view-cards" class="cards"></div>
+    <div id="view-table" style="display:none;overflow:auto"></div>
+  </main>
+</div>
+
+<div class="modal" id="modal"><div class="sheet" style="position:relative" id="sheet"></div></div>
+
+<footer>
+  CUSP working dataset · v1 · <span id="meta"></span>. Activity scale A (very high) → E (latent). Coding is indicative and iteratively refined — see <code>cusp/README.md</code> for method &amp; sources.
+</footer>
+
+<script src="data.js"></script>
+<script>
+const TYPE_COLOR={Diplomatic:"var(--diplo)","Governmental/IO":"var(--gov)","Scientific/Research":"var(--sci)","NGO/Network":"var(--ngo)",Training:"var(--train)","Policy Advice":"var(--policy)",Industry:"var(--ind)"};
+const F={country:new Set(),actorType:new Set(),sdType:new Set(),domains:new Set(),orientation:new Set(),interestFocus:new Set(),positioning:new Set(),activity:new Set()};
+let Q="";
+
+function uniq(key){const s=new Set();ACTORS.forEach(a=>{const v=a[key];Array.isArray(v)?v.forEach(x=>s.add(x)):s.add(v)});return [...s].sort()}
+function buildChips(){
+  const map={country:"country",actorType:"actorType",sdType:"sdType",domains:"domains",orientation:"orientation",interestFocus:"interestFocus",positioning:"positioning",activity:"activity"};
+  for(const k in map){
+    const el=document.getElementById("f-"+k);
+    uniq(map[k]).forEach(v=>{
+      const c=document.createElement("span");c.className="chip small";c.textContent=v;
+      c.onclick=()=>{F[k].has(v)?F[k].delete(v):F[k].add(v);c.classList.toggle("on");render()};
+      el.appendChild(c);
+    });
+  }
+}
+function matches(a){
+  for(const k in F){
+    if(F[k].size===0)continue;
+    const v=a[k];const ok=Array.isArray(v)?v.some(x=>F[k].has(x)):F[k].has(v);
+    if(!ok)return false;
+  }
+  if(Q){
+    const blob=JSON.stringify(a).toLowerCase();
+    if(!Q.split(/\s+/).every(t=>blob.includes(t)))return false;
+  }
+  return true;
+}
+function typeTag(t){return `<span class="tag type" style="background:${TYPE_COLOR[t]}">${t}</span>`}
+function card(a){
+  return `<div class="card" data-id="${a.id}">
+    <div class="actObadge" title="Activity ${a.activity}">${a.activity}</div>
+    <div class="name">${a.name}</div>
+    <div class="meta"><span class="dot" style="background:${TYPE_COLOR[a.actorType]}"></span>${a.country} · ${a.geography} · since ${a.sinceYear}</div>
+    <div class="tags">
+      ${typeTag(a.actorType)}
+      ${a.sdType.map(s=>`<span class="tag">${s}</span>`).join("")}
+      <span class="tag">${a.orientation}</span>
+      ${a.domains.slice(0,3).map(d=>`<span class="tag">${d}</span>`).join("")}
+    </div>
+  </div>`;
+}
+function row(a){
+  return `<tr data-id="${a.id}">
+    <td><b>${a.name}</b></td><td>${a.country}</td>
+    <td><span class="dot" style="background:${TYPE_COLOR[a.actorType]}"></span>${a.actorType}</td>
+    <td>${a.sdType.join(", ")}</td><td>${a.orientation}</td><td>${a.interestFocus}</td>
+    <td>${a.positioning}</td><td style="text-align:center">${a.activity}</td>
+    <td>${a.domains.join(", ")}</td></tr>`;
+}
+function field(k,v){return `<div class="field"><div class="k">${k}</div><div class="v">${v}</div></div>`}
+function openModal(a){
+  const s=document.getElementById("sheet");
+  s.innerHTML=`<span class="x" onclick="document.getElementById('modal').classList.remove('on')">×</span>
+    <h2>${a.name}</h2>
+    <div class="meta" style="color:var(--muted)">${typeTag(a.actorType)} &nbsp;${a.country} · ${a.geography}</div>
+    <div class="grid2">
+      ${field("a · Geography",a.geography)}
+      ${field("b · Actor type",a.actorType)}
+      ${field("c · SD type",a.sdType.join(", "))}
+      ${field("d · Engaged since",a.sinceYear+" ("+(2026-a.sinceYear)+" yrs)")}
+      ${field("e · Activity",a.activity)}
+      ${field("f · Domains",a.domains.join(", "))}
+      ${field("g · Orientation",a.orientation)}
+      ${field("h · Interest focus",a.interestFocus)}
+      ${field("i · Core objective",a.coreObjective)}
+      ${field("j · Positioning",a.positioning)}
+      ${field("k · Explicitness",a.explicitness)}
+      ${field("l · Governance",a.governance)}
+      ${field("m · Tools",a.tools.join(", "))}
+      ${field("n · Science fields",a.sciFields.join(", "))}
+      ${field("o · Networked with",a.networked)}
+    </div>
+    <div class="field" style="margin-top:12px"><div class="k">p · Documents produced</div>
+      <ul class="docs">${a.documents.map(d=>`<li>${d}</li>`).join("")}</ul></div>
+    <div class="align"><div class="k">Alignment with EU SD Framework</div><div>${a.alignment}</div></div>`;
+  document.getElementById('modal').classList.add('on');
+}
+function statBlock(title,key){
+  const counts={};const list=ACTORS.filter(matches);
+  list.forEach(a=>{const v=a[key];(Array.isArray(v)?v:[v]).forEach(x=>counts[x]=(counts[x]||0)+1)});
+  const max=Math.max(1,...Object.values(counts));
+  const rows=Object.entries(counts).sort((p,q)=>q[1]-p[1]).map(([k,n])=>
+    `<div class="brow"><span style="width:96px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${k}</span>
+     <span class="track"><span class="fill" style="width:${100*n/max}%"></span></span><span>${n}</span></div>`).join("");
+  return `<div class="stat"><div class="l">${title}</div><div class="bars">${rows}</div></div>`;
+}
+function render(){
+  const list=ACTORS.filter(matches);
+  document.getElementById("count").textContent=`${list.length} / ${ACTORS.length} actors`;
+  document.getElementById("view-cards").innerHTML=list.map(card).join("")||"<p style='color:var(--muted)'>No actors match these filters.</p>";
+  document.getElementById("view-table").innerHTML=`<table><thead><tr>
+    <th>Actor</th><th>Country</th><th>Type (b)</th><th>SD (c)</th><th>Orient. (g)</th><th>Focus (h)</th><th>Pos. (j)</th><th>Act. (e)</th><th>Domains (f)</th>
+    </tr></thead><tbody>${list.map(row).join("")}</tbody></table>`;
+  document.getElementById("view-stats").innerHTML=
+    statBlock("By country (a)","country")+statBlock("By actor type (b)","actorType")+
+    statBlock("By SD type (c)","sdType")+statBlock("By domain (f)","domains")+
+    statBlock("By orientation (g)","orientation")+statBlock("By interest focus (h)","interestFocus");
+  document.querySelectorAll("[data-id]").forEach(el=>el.onclick=()=>openModal(ACTORS.find(a=>a.id===el.dataset.id)));
+}
+function setView(v){
+  ["cards","table","stats"].forEach(x=>{
+    document.getElementById("view-"+x).style.display=(x===v)?(x==="cards"?"grid":(x==="stats"?"grid":"block")):"none";
+    document.getElementById("v-"+x).classList.toggle("on",x===v);
+  });
+}
+document.getElementById("q").oninput=e=>{Q=e.target.value.toLowerCase().trim();render()};
+document.getElementById("v-cards").onclick=()=>setView("cards");
+document.getElementById("v-table").onclick=()=>setView("table");
+document.getElementById("v-stats").onclick=()=>setView("stats");
+document.getElementById("reset").onclick=()=>{for(const k in F)F[k].clear();Q="";document.getElementById("q").value="";document.querySelectorAll(".chip.on").forEach(c=>c.classList.remove("on"));render()};
+document.getElementById("modal").onclick=e=>{if(e.target.id==="modal")e.currentTarget.classList.remove("on")};
+document.getElementById("legend").innerHTML=Object.entries(TYPE_COLOR).map(([t,c])=>`<span><span class="dot" style="background:${c}"></span>${t}</span>`).join("");
+document.getElementById("meta").textContent=`${ACTORS.length} actors · ${uniq("country").length} jurisdictions · updated 2026-06-10`;
+buildChips();render();
+</script>
+</body>
+</html>
