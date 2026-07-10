@@ -88,15 +88,27 @@ operational / enabling) and code of conduct — as promised in the proposal text
   **alignment scores** (documented heuristic), 153 typed **relations** edges,
   coder/confidence/status metadata; wrote `RUBRICS.md`; recoded activity per rubric
   (5 downgrades). All records `status: draft` pending Phase 2 verification.
-- _Next (Phase 2):_ evidence verification pass → `status: verified`; then Phase 3
-  coverage (remaining 11 EU members, intergovernmental RIs incl. CERN, sub-national actors).
+- **v7.1.1 (2026-07-10) — Phase 2 verification pass:** all 78 records verified by
+  7 parallel research agents against current (Jul 2026) official sources. Now
+  **250 sources** (min 2 per record, all with ≥2 distinct domains); confidence
+  72 H / 6 M; `status: verified` across the board. ~30 substantive corrections
+  applied — highlights: Council Rec proposal is **COM(2026) 97** (not 96); EIC
+  est. 2021 (not 2007); PASIFIC is **PAN's** programme (not FNP's); French
+  research ministry renamed **MESRE** (Space added); CDTI renamed CDTI Innovación;
+  DAAD ~60 offices (not 70+); MAECI attaché growth +60%+5% (not 70%); Svalbard
+  Research Office led by Norway's Education Ministry (not MFA); IIASA membership
+  is national member organisations (not intergovernmental); Greek diaspora
+  network launched Aug 2017, activity downgraded to D. Full detail in
+  `verification-report.md`; audit trail in `phase2-corrections.js`.
+- _Next (Phase 3):_ coverage — remaining 11 EU members, intergovernmental RIs
+  (CERN, EMBL, ESA, ESO, ESS…), sub-national actors, type rebalance.
 
 > A self-contained build, `cusp-standalone.html` (data inlined), is regenerated each
 > iteration for one-tap opening without the sibling `data.js`.
 
 ## Key sources
 - *A European Framework for Science Diplomacy* — EC expert report, Feb 2025.
-- *Council Recommendation on an EU framework for science diplomacy* — COM(2026) 96 final (adopted 29 May 2026).
+- *Council Recommendation on an EU framework for science diplomacy* — proposal COM(2026) 97 (27 Feb 2026); adopted by Council 29 May 2026.
 - European Commission, Science diplomacy pages (research-and-innovation.ec.europa.eu).
 - S4D4C / EU Science Diplomacy Alliance state-of-the-art reports.
 - National sources: Auswärtiges Amt & BMFTR (DE); MEAE & MESR (FR); Min. OCW / EZ, NWO, WRR (NL).
