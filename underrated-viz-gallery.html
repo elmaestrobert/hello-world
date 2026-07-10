@@ -1,0 +1,1088 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Underrated Chart Cabinet — 32 visualization types you should be using</title>
+<style>
+  :root{
+    --page:#f9f9f7; --surf:#fcfcfb;
+    --ink:#0b0b0b; --tx2:#52514e; --mut:#898781;
+    --grid:#e1e0d9; --axis:#c3c2b7; --border:rgba(11,11,11,.10);
+    --s1:#2a78d6; --s2:#1baf7a; --s3:#eda100; --s4:#008300;
+    --s5:#4a3aa7; --s6:#e34948; --s7:#e87ba4; --s8:#eb6834;
+    --q100:#cde2fb; --q150:#b7d3f6; --q200:#9ec5f4; --q250:#86b6ef;
+    --q300:#6da7ec; --q350:#5598e7; --q400:#3987e5; --q450:#2a78d6;
+    --q500:#256abf; --q550:#1c5cab; --q600:#184f95; --q650:#104281; --q700:#0d366b;
+    --crit:#d03b3b;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --page:#0d0d0d; --surf:#1a1a19;
+      --ink:#ffffff; --tx2:#c3c2b7; --mut:#898781;
+      --grid:#2c2c2a; --axis:#383835; --border:rgba(255,255,255,.10);
+      --s1:#3987e5; --s2:#199e70; --s3:#c98500; --s4:#008300;
+      --s5:#9085e9; --s6:#e66767; --s7:#d55181; --s8:#d95926;
+      --q100:#0d366b; --q150:#104281; --q200:#184f95; --q250:#1c5cab;
+      --q300:#256abf; --q350:#2a78d6; --q400:#3987e5; --q450:#5598e7;
+      --q500:#6da7ec; --q550:#86b6ef; --q600:#9ec5f4; --q650:#b7d3f6; --q700:#cde2fb;
+    }
+  }
+  :root[data-theme="light"]{
+    --page:#f9f9f7; --surf:#fcfcfb;
+    --ink:#0b0b0b; --tx2:#52514e; --mut:#898781;
+    --grid:#e1e0d9; --axis:#c3c2b7; --border:rgba(11,11,11,.10);
+    --s1:#2a78d6; --s2:#1baf7a; --s3:#eda100; --s4:#008300;
+    --s5:#4a3aa7; --s6:#e34948; --s7:#e87ba4; --s8:#eb6834;
+    --q100:#cde2fb; --q150:#b7d3f6; --q200:#9ec5f4; --q250:#86b6ef;
+    --q300:#6da7ec; --q350:#5598e7; --q400:#3987e5; --q450:#2a78d6;
+    --q500:#256abf; --q550:#1c5cab; --q600:#184f95; --q650:#104281; --q700:#0d366b;
+  }
+  :root[data-theme="dark"]{
+    --page:#0d0d0d; --surf:#1a1a19;
+    --ink:#ffffff; --tx2:#c3c2b7; --mut:#898781;
+    --grid:#2c2c2a; --axis:#383835; --border:rgba(255,255,255,.10);
+    --s1:#3987e5; --s2:#199e70; --s3:#c98500; --s4:#008300;
+    --s5:#9085e9; --s6:#e66767; --s7:#d55181; --s8:#d95926;
+    --q100:#0d366b; --q150:#104281; --q200:#184f95; --q250:#1c5cab;
+    --q300:#256abf; --q350:#2a78d6; --q400:#3987e5; --q450:#5598e7;
+    --q500:#6da7ec; --q550:#86b6ef; --q600:#9ec5f4; --q650:#b7d3f6; --q700:#cde2fb;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--page); color:var(--ink);
+    font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+    -webkit-font-smoothing:antialiased; line-height:1.45;
+  }
+  header{max-width:1240px; margin:0 auto; padding:48px 24px 8px; position:relative}
+  h1{font-size:30px; margin:0 0 8px; letter-spacing:-.02em}
+  .sub{color:var(--tx2); max-width:70ch; margin:0 0 4px; font-size:15px}
+  .hint{color:var(--mut); font-size:13px; margin:0}
+  #themeBtn{
+    position:absolute; top:48px; right:24px; cursor:pointer;
+    background:var(--surf); color:var(--tx2); border:1px solid var(--border);
+    border-radius:8px; padding:6px 12px; font:inherit; font-size:13px;
+  }
+  nav.filters{
+    max-width:1240px; margin:20px auto 0; padding:0 24px;
+    display:flex; flex-wrap:wrap; gap:8px;
+  }
+  nav.filters button{
+    cursor:pointer; background:var(--surf); color:var(--tx2);
+    border:1px solid var(--border); border-radius:999px;
+    padding:6px 14px; font:inherit; font-size:13px;
+  }
+  nav.filters button.on{background:var(--ink); color:var(--page); border-color:var(--ink)}
+  main{
+    max-width:1240px; margin:20px auto 60px; padding:0 24px;
+    display:grid; grid-template-columns:repeat(auto-fill,minmax(370px,1fr)); gap:20px;
+  }
+  article.card{
+    background:var(--surf); border:1px solid var(--border); border-radius:14px;
+    padding:20px 20px 14px; display:flex; flex-direction:column;
+  }
+  article.card.wide{grid-column:span 2}
+  @media (max-width:850px){article.card.wide{grid-column:span 1}}
+  .chip{
+    align-self:flex-start; font-size:11px; letter-spacing:.04em; text-transform:uppercase;
+    color:var(--mut); border:1px solid var(--border); border-radius:999px; padding:2px 9px;
+  }
+  h3{font-size:17px; margin:10px 0 6px; letter-spacing:-.01em}
+  h3 .no{color:var(--mut); font-weight:400; font-variant-numeric:tabular-nums}
+  p.why{font-size:13.5px; color:var(--tx2); margin:0 0 12px}
+  figure{margin:auto 0 0; padding:0}
+  svg{display:block; overflow:visible}
+  svg text{font-family:inherit}
+  p.swap{font-size:12px; color:var(--mut); margin:10px 0 0; border-top:1px solid var(--grid); padding-top:9px}
+  p.swap b{color:var(--tx2); font-weight:600}
+  .legend{display:flex; flex-wrap:wrap; gap:4px 16px; margin-top:8px; font-size:12px; color:var(--tx2)}
+  .legend i{display:inline-block; width:9px; height:9px; border-radius:3px; margin-right:6px}
+  .tt{
+    position:fixed; pointer-events:none; opacity:0; z-index:10;
+    background:var(--ink); color:var(--page); font-size:12px;
+    padding:5px 9px; border-radius:7px; max-width:260px;
+    transition:opacity .08s; white-space:pre-line;
+  }
+  footer{max-width:1240px; margin:0 auto 56px; padding:0 24px; color:var(--mut); font-size:13px}
+</style>
+</head>
+<body>
+<header>
+  <h1>The Underrated Chart Cabinet</h1>
+  <p class="sub">Thirty-two visualization forms that deserve far more use than they get —
+  each one solves a problem that bars, lines, and pies solve badly. Every example below is
+  hand-drawn SVG with zero dependencies: view source and steal freely.</p>
+  <p class="hint">Hover any mark for values · filter by what the data’s job is.</p>
+  <button id="themeBtn">◐ theme</button>
+</header>
+<nav class="filters" id="filters"></nav>
+<main id="gallery"></main>
+<footer>Colorblind-safe categorical palette (worst adjacent CVD ΔE 24.2), single-hue sequential ramp,
+diverging blue↔red. Dark mode uses re-stepped hues, not inverted ones. Identity is never carried by
+color alone — every multi-series chart has a legend or direct labels, and every mark has a tooltip.</footer>
+
+<script>
+'use strict';
+/* ---------- tiny SVG + math toolkit ---------- */
+const NS='http://www.w3.org/2000/svg';
+function E(t,a={},...kids){
+  const n=document.createElementNS(NS,t); let st='';
+  for(const[k,v]of Object.entries(a)){
+    if(k==='text')n.textContent=v;
+    else if(k==='fill'||k==='stroke')st+=k+':'+v+';';
+    else if(k==='style')st+=v+';';
+    else n.setAttribute(k,v);
+  }
+  if(st)n.setAttribute('style',st);
+  for(const kd of kids)n.appendChild(kd);
+  return n;
+}
+function S(w,h,label){return E('svg',{viewBox:`0 0 ${w} ${h}`,width:'100%',role:'img','aria-label':label||''})}
+function txt(x,y,s,o={}){return E('text',{x,y,text:s,'font-size':o.fs||11,'text-anchor':o.a||'start',fill:o.c||'var(--mut)','font-weight':o.w||400,...(o.at||{})})}
+function line(x1,y1,x2,y2,stroke,sw=1,o={}){return E('line',{x1,y1,x2,y2,stroke,'stroke-width':sw,...o})}
+function circ(cx,cy,r,fill,o={}){return E('circle',{cx,cy,r,fill,...o})}
+function rect(x,y,w,h,fill,o={}){return E('rect',{x,y,width:w,height:h,fill,...o})}
+function path(d,o={}){return E('path',{d,...o})}
+const C=i=>`var(--s${i})`;
+const QSTEPS=[100,150,200,250,300,350,400,450,500,550,600,650,700];
+const Q=t=>`var(--q${QSTEPS[Math.max(0,Math.min(QSTEPS.length-1,Math.floor(t*QSTEPS.length)))]})`;
+const P=pts=>pts.map((p,i)=>(i?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1)).join('');
+function rng(seed){let a=seed>>>0;return()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function gauss(r){return Math.sqrt(-2*Math.log(1-r()))*Math.cos(2*Math.PI*r())}
+function kde(vals,min,max,bw,n=70){
+  const out=[],k=1/(vals.length*bw*Math.sqrt(2*Math.PI));
+  for(let i=0;i<=n;i++){const x=min+(max-min)*i/n;let s=0;
+    for(const v of vals){const u=(x-v)/bw;s+=Math.exp(-.5*u*u)}
+    out.push([x,s*k])}
+  return out;
+}
+function quantile(sorted,q){const p=(sorted.length-1)*q,b=Math.floor(p),d=p-b;
+  return sorted[b+1]!==undefined?sorted[b]+d*(sorted[b+1]-sorted[b]):sorted[b]}
+function arcPath(cx,cy,r0,r1,a0,a1){
+  const pt=(r,a)=>[cx+r*Math.cos(a),cy+r*Math.sin(a)],big=(a1-a0)>Math.PI?1:0;
+  const[xa,ya]=pt(r1,a0),[xb,yb]=pt(r1,a1),[xc,yc]=pt(r0,a1),[xd,yd]=pt(r0,a0);
+  return `M${xa.toFixed(1)} ${ya.toFixed(1)}A${r1} ${r1} 0 ${big} 1 ${xb.toFixed(1)} ${yb.toFixed(1)}L${xc.toFixed(1)} ${yc.toFixed(1)}A${r0} ${r0} 0 ${big} 0 ${xd.toFixed(1)} ${yd.toFixed(1)}Z`;
+}
+function barH(x0,x1,y,h,r=4){r=Math.min(r,h/2,Math.abs(x1-x0));
+  return `M${x0} ${y}H${x1-r}Q${x1} ${y} ${x1} ${y+r}V${y+h-r}Q${x1} ${y+h} ${x1-r} ${y+h}H${x0}Z`}
+function barUp(x,w,yBase,yTop,r=4){r=Math.min(r,w/2,Math.abs(yBase-yTop));
+  return `M${x} ${yBase}V${yTop+r}Q${x} ${yTop} ${x+r} ${yTop}H${x+w-r}Q${x+w} ${yTop} ${x+w} ${yTop+r}V${yBase}Z`}
+function legend(items){
+  const d=document.createElement('div');d.className='legend';
+  for(const[label,color]of items){
+    const s=document.createElement('span');
+    s.innerHTML=`<i style="background:${color}"></i>${label}`;d.appendChild(s)}
+  return d;
+}
+const tip=(el,s)=>{el.setAttribute('data-tip',s);return el};
+
+/* ---------- shared tooltip ---------- */
+const tt=document.createElement('div');tt.className='tt';document.body.appendChild(tt);
+addEventListener('pointermove',e=>{
+  const t=e.target.closest&&e.target.closest('[data-tip]');
+  if(t){tt.textContent=t.getAttribute('data-tip');tt.style.opacity=1;
+    const x=Math.min(e.clientX+14,innerWidth-tt.offsetWidth-8);
+    tt.style.left=x+'px';tt.style.top=(e.clientY+14)+'px';}
+  else tt.style.opacity=0;
+});
+addEventListener('pointerdown',()=>tt.style.opacity=0);
+
+/* ================================================================
+   THE CHARTS
+   ================================================================ */
+const CHARTS=[];
+
+/* 1 · Slopegraph */
+CHARTS.push({id:'slopegraph',cat:'Comparison',title:'Slopegraph',
+why:'Tufte’s favorite, almost never used. Two time points, many categories — the slope of each line IS the story. Instantly shows who rose, who fell, and by how much, with zero chart junk.',
+swap:'grouped bar charts comparing two periods',
+h:305,render(f){
+  const W=520,H=305,x1=175,x2=345,yT=48,yB=282,max=45;
+  const data=[['Search',34,41],['Social',28,21],['Email',18,26],['Direct',12,7],['Referral',8,14],['Podcast',5,11]];
+  const y=v=>yB-(v/max)*(yB-yT);
+  const svg=S(W,H,'Slopegraph of channel share, 2024 vs 2025');
+  svg.append(txt(x1,26,'2024',{a:'middle',c:'var(--tx2)',w:600,fs:12}),
+             txt(x2,26,'2025',{a:'middle',c:'var(--tx2)',w:600,fs:12}),
+             line(x1,36,x1,yB+6,'var(--grid)'),line(x2,36,x2,yB+6,'var(--grid)'));
+  for(const[name,a,b]of data){
+    const col=b>=a?C(1):C(6);
+    svg.append(tip(line(x1,y(a),x2,y(b),col,2,{'stroke-linecap':'round'}),`${name}: ${a}% → ${b}%`));
+    svg.append(circ(x1,y(a),4,col,{stroke:'var(--surf)','stroke-width':2}),
+               circ(x2,y(b),4,col,{stroke:'var(--surf)','stroke-width':2}),
+               txt(x1-10,y(a)+4,`${name}  ${a}%`,{a:'end',c:'var(--tx2)'}),
+               txt(x2+10,y(b)+4,`${b}%`,{c:'var(--ink)',w:600}));
+  }
+  f.append(svg,legend([['Rising share',C(1)],['Falling share',C(6)]]));
+}});
+
+/* 2 · Bump chart */
+CHARTS.push({id:'bump',cat:'Comparison',title:'Bump chart',wide:true,
+why:'Rank over time. When position matters more than magnitude — league tables, search rankings, market leaders — a bump chart shows every overtake as a literal crossing. Far more legible than a spaghetti line chart of raw values.',
+swap:'multi-line charts where readers only care about who’s ahead',
+h:290,render(f){
+  const W=760,H=290,x0=120,x1=640,yT=54,dy=44;
+  const qs=['Q1','Q2','Q3','Q4','Q5','Q6'];
+  const series=[['Alpha',[1,2,2,1,1,1]],['Beta',[2,1,1,2,3,3]],['Gamma',[3,3,4,4,2,2]],['Delta',[4,5,3,5,4,5]],['Echo',[5,4,5,3,5,4]]];
+  const X=i=>x0+(x1-x0)*i/5, Y=r=>yT+(r-1)*dy;
+  const svg=S(W,H,'Bump chart of product rank over six quarters');
+  qs.forEach((q,i)=>svg.append(txt(X(i),30,q,{a:'middle'}),line(X(i),40,X(i),yT+4*dy+12,'var(--grid)')));
+  series.forEach(([name,ranks],si)=>{
+    svg.append(path(P(ranks.map((r,i)=>[X(i),Y(r)])),{fill:'none',stroke:C(si+1),'stroke-width':2,'stroke-linejoin':'round','stroke-linecap':'round'}));
+    ranks.forEach((r,i)=>svg.append(tip(circ(X(i),Y(r),4.5,C(si+1),{stroke:'var(--surf)','stroke-width':2}),`${name} — ${qs[i]}: #${r}`)));
+    svg.append(txt(x0-12,Y(ranks[0])+4,name,{a:'end',c:'var(--tx2)',w:600}),
+               txt(x1+12,Y(ranks[5])+4,name,{c:'var(--tx2)',w:600}));
+  });
+  for(let r=1;r<=5;r++)svg.append(txt(58,Y(r)+4,'#'+r,{a:'end',fs:10}));
+  f.append(svg);
+}});
+
+/* 3 · Dumbbell plot */
+CHARTS.push({id:'dumbbell',cat:'Comparison',title:'Dumbbell plot',
+why:'The gap is the point. Two dots per category joined by a bar of air — before/after, us/them, min/max. It encodes the change itself as visible distance, which grouped bars force you to compute in your head.',
+swap:'paired bar charts (before vs after)',
+h:295,render(f){
+  const W=520,H=295,x0=150,x1=480,yT=42,dy=32,max=50;
+  const data=[['Platform',12,31],['Mobile',18,34],['Data',9,27],['Security',15,24],['Design',22,38],['QA',11,19],['DevRel',7,21]];
+  const X=v=>x0+(v/max)*(x1-x0);
+  const svg=S(W,H,'Dumbbell plot: share of women in engineering by team, 2015 vs 2025');
+  [0,10,20,30,40,50].forEach(v=>svg.append(line(X(v),yT-12,X(v),yT+6*dy+14,'var(--grid)'),txt(X(v),yT+6*dy+30,v+'%',{a:'middle',fs:10})));
+  data.forEach(([name,a,b],i)=>{
+    const y=yT+i*dy;
+    svg.append(txt(x0-12,y+4,name,{a:'end',c:'var(--tx2)'}),
+      line(X(a),y,X(b),y,'var(--axis)',2),
+      tip(circ(X(a),y,5,C(2),{stroke:'var(--surf)','stroke-width':2}),`${name} 2015: ${a}%`),
+      tip(circ(X(b),y,5,C(1),{stroke:'var(--surf)','stroke-width':2}),`${name} 2025: ${b}%`));
+  });
+  f.append(svg,legend([['2015',C(2)],['2025',C(1)]]));
+}});
+
+/* 4 · Lollipop chart */
+CHARTS.push({id:'lollipop',cat:'Comparison',title:'Lollipop chart',
+why:'A bar chart on a diet. When you have many categories, rows of heavy ink turn into a wall; a thin stem plus a dot marks the same value with a tenth of the ink, so differences pop instead of drowning.',
+swap:'long bar charts with 8+ categories',
+h:300,render(f){
+  const W=520,H=300,x0=140,x1=490,yT=36,dy=26,max=100;
+  const data=[['Rust',87],['TypeScript',74],['Python',71],['Go',68],['Kotlin',63],['Swift',61],['C#',55],['Java',47],['C++',43],['PHP',31]];
+  const X=v=>x0+(v/max)*(x1-x0);
+  const svg=S(W,H,'Lollipop chart of language satisfaction scores');
+  [0,25,50,75,100].forEach(v=>svg.append(line(X(v),yT-10,X(v),yT+9*dy+12,'var(--grid)'),txt(X(v),yT+9*dy+28,v,{a:'middle',fs:10})));
+  data.forEach(([name,v],i)=>{
+    const y=yT+i*dy;
+    svg.append(txt(x0-12,y+4,name,{a:'end',c:'var(--tx2)'}),
+      line(x0,y,X(v),y,C(1),2),
+      tip(circ(X(v),y,5,C(1),{stroke:'var(--surf)','stroke-width':2}),`${name}: ${v} / 100`));
+    if(i===0)svg.append(txt(X(v)+11,y+4,v,{c:'var(--ink)',w:600}));
+  });
+  f.append(svg);
+}});
+
+/* 5 · Bullet chart */
+CHARTS.push({id:'bullet',cat:'Comparison',title:'Bullet chart',
+why:'Stephen Few’s gauge-killer. Actual vs target vs qualitative bands in one slim row — a whole KPI dashboard’s worth of context in the footprint of a single bar. Gauges waste 90% of their pixels; this wastes none.',
+swap:'speedometer gauges and donut KPIs',
+h:170,render(f){
+  const W=520,H=170,x0=120,x1=490,yT=26,dy=46;
+  const rows=[['Revenue $M',78,85,[55,80,100]],['NPS',62,55,[40,70,100]],['On-time %',71,90,[60,85,100]]];
+  const svg=S(W,H,'Bullet chart of three KPIs vs targets');
+  rows.forEach(([name,val,tgt,bands],i)=>{
+    const y=yT+i*dy,X=v=>x0+(v/100)*(x1-x0);
+    let prev=0;
+    bands.forEach((b,bi)=>{svg.append(rect(X(prev),y,X(b)-X(prev),22,'var(--ink)',{'fill-opacity':.2-.065*bi}));prev=b});
+    svg.append(tip(path(barH(x0,X(val),y+7,8),{fill:C(1)}),`${name}: ${val} (target ${tgt})`),
+      line(X(tgt),y-3,X(tgt),y+25,'var(--ink)',2),
+      txt(x0-12,y+15,name,{a:'end',c:'var(--tx2)'}),
+      txt(X(val)+7,y+15,val,{c:'var(--ink)',w:600,fs:11}));
+  });
+  svg.append(txt(x0,yT+3*dy+6,'band = poor / ok / good · tick = target',{fs:10.5}));
+  f.append(svg);
+}});
+
+/* 6 · Beeswarm plot */
+CHARTS.push({id:'beeswarm',cat:'Distribution',title:'Beeswarm plot',
+why:'Every data point, honestly placed, none hidden. Dots pack around their true value like bees, so you see clusters, gaps, and outliers a histogram’s bins would smear away — and each dot stays hoverable and identifiable.',
+swap:'histograms when n < ~300',
+h:230,render(f){
+  const W=520,H=230,x0=40,x1=490,yMid=118,max=800,r=4.6;
+  const R=rng(7);
+  const vals=Array.from({length:90},()=>Math.min(790,Math.exp(5.3+.45*gauss(R))));
+  const X=v=>x0+(v/max)*(x1-x0);
+  const svg=S(W,H,'Beeswarm of API response times');
+  [0,200,400,600,800].forEach(v=>svg.append(line(X(v),30,X(v),195,'var(--grid)'),txt(X(v),212,v+(v?'':' ms'),{a:'middle',fs:10})));
+  const placed=[];
+  vals.sort((a,b)=>a-b).forEach(v=>{
+    const x=X(v);let y=null;
+    for(let k=0;k<40&&y===null;k++){
+      for(const s of(k===0?[0]:[k,-k])){
+        const cy=yMid+s*(r*1.05);
+        if(placed.every(p=>(p[0]-x)**2+(p[1]-cy)**2>(2*r-0.5)**2)){y=cy;break}
+      }
+    }
+    if(y===null)y=yMid;placed.push([x,y]);
+    svg.append(tip(circ(x,y,r,C(1),{stroke:'var(--surf)','stroke-width':2}),Math.round(v)+' ms'));
+  });
+  const med=quantile(vals,.5);
+  svg.append(line(X(med),42,X(med),188,'var(--ink)',1.5),txt(X(med)+6,44,'median '+Math.round(med)+' ms',{c:'var(--tx2)',fs:10.5,w:600}));
+  f.append(svg);
+}});
+
+/* 7 · Ridgeline plot */
+CHARTS.push({id:'ridgeline',cat:'Distribution',title:'Ridgeline plot',
+why:'Stacked, gently overlapping density curves — the Joy Division cover as statistics. Comparing one distribution across many groups (hours × weekdays, scores × cohorts) reads at a glance where side-by-side histograms need a page.',
+swap:'grids of small histograms',
+h:300,render(f){
+  const W=520,H=300,x0=95,x1=490,rows=['Mon','Tue','Wed','Thu','Fri'],dy=46,amp=64,base0=88;
+  const R=rng(11);
+  const X=h=>x0+(h/24)*(x1-x0);
+  const svg=S(W,H,'Ridgeline plot of ride start times by weekday');
+  [0,6,12,18,24].forEach(h=>svg.append(txt(X(h),H-8,h+':00',{a:'middle',fs:10})));
+  rows.forEach((day,i)=>{
+    const evening=.45+.13*i;
+    const vals=Array.from({length:160},()=>R()<evening?17.8+1.6*gauss(R):8.5+1.3*gauss(R));
+    const d=kde(vals,0,24,.9,90),peak=Math.max(...d.map(p=>p[1]));
+    const yBase=base0+i*dy;
+    const pts=d.map(([x,v])=>[X(x),yBase-(v/peak)*amp]);
+    svg.append(path(P(pts)+`L${x1} ${yBase}L${x0} ${yBase}Z`,{fill:'var(--surf)'}),
+      path(P(pts)+`L${x1} ${yBase}L${x0} ${yBase}Z`,{fill:C(1),'fill-opacity':.12}),
+      tip(path(P(pts),{fill:'none',stroke:C(1),'stroke-width':2,'stroke-linejoin':'round'}),`${day}: morning + evening peaks`),
+      txt(x0-10,yBase-2,day,{a:'end',c:'var(--tx2)',w:600}));
+  });
+  f.append(svg);
+}});
+
+/* 8 · Raincloud plot */
+CHARTS.push({id:'raincloud',cat:'Distribution',title:'Raincloud plot',
+why:'Half a violin (the cloud), the raw jittered points (the rain), and a box for the summary stats — three honest views of the same distribution in one compact row. The current darling of methods reformers, still rare in the wild.',
+swap:'box plots that hide bimodality',
+h:300,render(f){
+  const W=520,H=300,x0=95,x1=490,dy=88,min=0,max=60;
+  const groups=[['Team A',22,6,1],['Team B',34,9,2],['Team C',28,4,3]];
+  const R=rng(23);
+  const X=v=>x0+((v-min)/(max-min))*(x1-x0);
+  const svg=S(W,H,'Raincloud plot of deploy durations by team');
+  [0,15,30,45,60].forEach(v=>svg.append(line(X(v),22,X(v),268,'var(--grid)'),txt(X(v),284,v+(v?'':' min'),{a:'middle',fs:10})));
+  groups.forEach(([name,mu,sd,slot],i)=>{
+    const yB=62+i*dy;
+    const vals=Array.from({length:44},()=>Math.max(2,mu+sd*gauss(R))).sort((a,b)=>a-b);
+    const d=kde(vals,min,max,3.4),peak=Math.max(...d.map(p=>p[1]));
+    const cloud=d.map(([x,v])=>[X(x),yB-(v/peak)*34]);
+    svg.append(path(P(cloud)+`L${X(max)} ${yB}L${X(min)} ${yB}Z`,{fill:C(slot),'fill-opacity':.14}),
+      path(P(cloud),{fill:'none',stroke:C(slot),'stroke-width':2}));
+    vals.forEach(v=>svg.append(tip(circ(X(v),yB+9+R()*12,2.6,C(slot),{'fill-opacity':.75}),`${name}: ${v.toFixed(1)} min`)));
+    const q1=quantile(vals,.25),q3=quantile(vals,.75),md=quantile(vals,.5);
+    svg.append(rect(X(q1),yB+2,X(q3)-X(q1),5,C(slot),{rx:2.5}),
+      line(X(md),yB,X(md),yB+9,'var(--ink)',2),
+      txt(x0-10,yB+4,name,{a:'end',c:'var(--tx2)',w:600}));
+  });
+  f.append(svg);
+}});
+
+/* 9 · Violin plot */
+CHARTS.push({id:'violin',cat:'Distribution',title:'Violin plot',
+why:'A box plot shows five numbers; a violin shows the whole shape. Bimodal? Skewed? Truncated? The mirrored density silhouette answers instantly. Standard in research papers, weirdly absent from business dashboards.',
+swap:'box plots and error bars alone',
+h:290,render(f){
+  const W=520,H=290,yT=32,yB=248,min=0,max=100;
+  const groups=[['Control',48,13],['Variant A',61,9],['Variant B',55,19],['Variant C',67,7]];
+  const R=rng(31);
+  const Y=v=>yB-((v-min)/(max-min))*(yB-yT);
+  const svg=S(W,H,'Violin plots of task scores across four experiment arms');
+  [0,25,50,75,100].forEach(v=>svg.append(line(70,Y(v),490,Y(v),'var(--grid)'),txt(60,Y(v)+4,v,{a:'end',fs:10})));
+  groups.forEach(([name,mu,sd],i)=>{
+    const cx=125+i*105;
+    const vals=Array.from({length:70},()=>Math.max(2,Math.min(98,mu+sd*gauss(R))));
+    const d=kde(vals,min,max,6),peak=Math.max(...d.map(p=>p[1]));
+    const right=d.map(([v,dd])=>[cx+(dd/peak)*30,Y(v)]);
+    const left=d.map(([v,dd])=>[cx-(dd/peak)*30,Y(v)]).reverse();
+    svg.append(tip(path(P(right.concat(left))+'Z',{fill:C(i+1),'fill-opacity':.14,stroke:C(i+1),'stroke-width':2,'stroke-linejoin':'round'}),
+      `${name}: median ${Math.round(quantile(vals.slice().sort((a,b)=>a-b),.5))}`),
+      circ(cx,Y(quantile(vals.slice().sort((a,b)=>a-b),.5)),4,'var(--ink)',{stroke:'var(--surf)','stroke-width':2}),
+      txt(cx,yB+24,name,{a:'middle',c:'var(--tx2)'}));
+  });
+  f.append(svg);
+}});
+
+/* 10 · Barcode / strip plot */
+CHARTS.push({id:'barcode',cat:'Distribution',title:'Barcode (strip) plot',
+why:'One thin tick per observation. The most information-dense way to show small distributions — you literally see every value, and dense regions read as darker bands. Perfect inside tables and tight dashboard rows.',
+swap:'tiny bar charts and sparkline histograms',
+h:190,render(f){
+  const W=520,H=190,x0=110,x1=490,dy=42;
+  const groups=[['Cohort ’23',58,14,1],['Cohort ’24',66,10,2],['Cohort ’25',73,8,5]];
+  const R=rng(41);
+  const X=v=>x0+(v/100)*(x1-x0);
+  const svg=S(W,H,'Barcode strip plot of retention scores by cohort');
+  [0,25,50,75,100].forEach(v=>svg.append(txt(X(v),H-10,v,{a:'middle',fs:10})));
+  groups.forEach(([name,mu,sd,slot],i)=>{
+    const y=34+i*dy;
+    svg.append(txt(x0-12,y+9,name,{a:'end',c:'var(--tx2)'}));
+    for(let k=0;k<42;k++){
+      const v=Math.max(2,Math.min(98,mu+sd*gauss(R)));
+      svg.append(tip(line(X(v),y-8,X(v),y+8,C(slot),1.6,{'stroke-opacity':.8}),`${name}: ${v.toFixed(0)}`));
+    }
+  });
+  f.append(svg);
+}});
+
+/* 11 · Hexbin density */
+CHARTS.push({id:'hexbin',cat:'Distribution',title:'Hexbin density map',
+why:'Ten thousand overlapping dots is a smudge; hexagonal bins turn overplotting into an honest density surface. Hexes beat squares because every neighbor is equidistant — no misleading horizontal/vertical bias.',
+swap:'scatterplots with crippling overplot',
+h:290,render(f){
+  const W=520,H=290,s=10;
+  const R=rng(53);
+  const pts=[];
+  for(let i=0;i<900;i++)pts.push([.34+.09*gauss(R),.40+.10*gauss(R)]);
+  for(let i=0;i<700;i++)pts.push([.67+.12*gauss(R),.62+.09*gauss(R)]);
+  const bins=new Map();
+  for(const[px,py]of pts){
+    const x=60+px*420,y=250-py*220;
+    let q=(Math.sqrt(3)/3*x-y/3)/s,r=(2/3*y)/s;
+    let rx=Math.round(q),ry=Math.round(-q-r),rz=Math.round(r);
+    const dq=Math.abs(rx-q),dr=Math.abs(rz-r),ds=Math.abs(ry-(-q-r));
+    if(dq>ds&&dq>dr)rx=-ry-rz;else if(dr>ds)rz=-rx-ry;
+    const key=rx+','+rz;bins.set(key,(bins.get(key)||0)+1);
+  }
+  const maxN=Math.max(...bins.values());
+  const svg=S(W,H,'Hexbin density of two clusters');
+  svg.append(line(58,262,490,262,'var(--axis)'),line(58,262,58,20,'var(--axis)'),
+    txt(274,284,'session length',{a:'middle',fs:10.5}),
+    txt(20,140,'pages viewed',{a:'middle',fs:10.5,at:{transform:'rotate(-90 20 140)'}}));
+  for(const[key,n]of bins){
+    const[q,r]=key.split(',').map(Number);
+    const cx=s*(Math.sqrt(3)*q+Math.sqrt(3)/2*r),cy=s*1.5*r;
+    if(cx<52||cx>496||cy<14||cy>258)continue;
+    const hex=[];
+    for(let k=0;k<6;k++){const a=Math.PI/180*(60*k-30);hex.push([cx+s*Math.cos(a),cy+s*Math.sin(a)])}
+    svg.append(tip(path(P(hex)+'Z',{fill:Q(n/maxN),stroke:'var(--surf)','stroke-width':1.5}),n+' points'));
+  }
+  f.append(svg);
+}});
+
+/* 12 · Horizon chart */
+CHARTS.push({id:'horizon',cat:'Time & cycles',title:'Horizon chart',wide:true,
+why:'A line chart folded like origami: the value range is sliced into bands, layered, and mirrored, so a whole wall of time series fits in the height of a text line each. The only sane way to monitor 30+ metrics at once.',
+swap:'stacks of sparklines / tiny line charts',
+h:230,render(f){
+  const W=760,H=230,x0=110,x1=730,rowH=38,n=130,bands=3;
+  const names=['CPU','Memory','Network','Disk I/O'];
+  const svg=S(W,H,'Horizon chart of four system metrics vs baseline');
+  names.forEach((name,ri)=>{
+    const R=rng(60+ri*7);let v=0;const vals=[];
+    for(let i=0;i<n;i++){v=v*.92+.32*gauss(R)+.25*Math.sin(i/12+ri*2);vals.push(Math.max(-1,Math.min(1,v)))}
+    const yB=44+ri*(rowH+8);
+    svg.append(rect(x0,yB-rowH,x1-x0,rowH,'var(--ink)',{'fill-opacity':.035}),
+      txt(x0-10,yB-rowH/2+4,name,{a:'end',c:'var(--tx2)',w:600}));
+    for(const sign of[1,-1])for(let b=0;b<bands;b++){
+      const pts=vals.map((vv,i)=>{
+        const mag=Math.max(0,Math.min(1,vv*sign*bands-b));
+        return[x0+(x1-x0)*i/(n-1),yB-mag*rowH];
+      });
+      svg.append(path(P(pts)+`L${x1} ${yB}L${x0} ${yB}Z`,{fill:sign>0?C(1):C(6),'fill-opacity':.3}));
+    }
+    svg.append(tip(rect(x0,yB-rowH,x1-x0,rowH,'transparent'),`${name}: darker = further from baseline\nblue above · red below`));
+  });
+  ['Jan','Mar','May','Jul','Sep','Nov'].forEach((m,i)=>txtM(m,i));
+  function txtM(m,i){svg.append(txt(x0+(x1-x0)*i/5.4,H-6,m,{fs:10}))}
+  f.append(svg,legend([['Above baseline',C(1)],['Below baseline',C(6)]]));
+}});
+
+/* 13 · Cycle plot */
+CHARTS.push({id:'cycle',cat:'Time & cycles',title:'Cycle plot',
+why:'Cleveland’s trick for seasonal data: one mini-panel per weekday (or month), each showing that day’s trend across weeks. You see the seasonal shape AND whether Mondays specifically are growing — one line chart can’t show both.',
+swap:'line charts of daily data where seasonality buries the trend',
+h:280,render(f){
+  const W=520,H=280,pw=56,gap=9,x0=64,yT=36,yB=214,vmin=20,vmax=90;
+  const days=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+  const base=[62,68,71,70,74,38,30];
+  const R=rng(77);
+  const Y=v=>yB-((v-vmin)/(vmax-vmin))*(yB-yT);
+  const svg=S(W,H,'Cycle plot of orders by weekday across six weeks');
+  [20,40,60,80].forEach(v=>svg.append(line(x0-6,Y(v),x0+7*(pw+gap)-gap+4,Y(v),'var(--grid)'),txt(x0-12,Y(v)+4,v,{a:'end',fs:10})));
+  days.forEach((d,di)=>{
+    const px=x0+di*(pw+gap);
+    const vals=Array.from({length:6},(_,w)=>base[di]+w*1.6+3.5*gauss(R));
+    const mean=vals.reduce((a,b)=>a+b)/6;
+    svg.append(line(px,Y(mean),px+pw,Y(mean),'var(--axis)',1.5));
+    const pts=vals.map((v,w)=>[px+4+(pw-8)*w/5,Y(v)]);
+    svg.append(tip(path(P(pts),{fill:'none',stroke:C(1),'stroke-width':2,'stroke-linejoin':'round','stroke-linecap':'round'}),
+      `${d}: weeks 1→6, mean ${mean.toFixed(0)}`));
+    svg.append(txt(px+pw/2,yB+22,d,{a:'middle',fs:10.5}));
+  });
+  svg.append(txt(x0,H-14,'each panel: weeks 1→6 · gray tick = weekday mean',{fs:10.5}));
+  f.append(svg);
+}});
+
+/* 14 · Connected scatterplot */
+CHARTS.push({id:'connscatter',cat:'Time & cycles',title:'Connected scatterplot',
+why:'Two variables over time, drawn as a path through their joint space. Loops mean hysteresis, kinks mean regime change — dynamics that two separate line charts hide completely. The NYT uses it for oil vs GDP; you can too.',
+swap:'two stacked line charts sharing a time axis',
+h:300,render(f){
+  const W=520,H=300,x0=70,x1=480,yT=30,yB=250;
+  const data=[['2016',31,42],['2017',36,49],['2018',44,55],['2019',52,58],['2020',58,44],['2021',54,33],['2022',47,29],['2023',41,35],['2024',38,47],['2025',43,58]];
+  const X=v=>x0+((v-25)/40)*(x1-x0),Y=v=>yB-((v-22)/42)*(yB-yT);
+  const svg=S(W,H,'Connected scatterplot of price vs demand, 2016–2025');
+  svg.append(line(x0,yB,x1,yB,'var(--axis)'),line(x0,yB,x0,yT,'var(--axis)'),
+    txt((x0+x1)/2,yB+34,'average price $',{a:'middle',fs:10.5}),
+    txt(26,140,'units sold (k)',{a:'middle',fs:10.5,at:{transform:'rotate(-90 26 140)'}}));
+  [30,40,50,60].forEach(v=>svg.append(txt(X(v),yB+18,v,{a:'middle',fs:10})));
+  [30,40,50,60].forEach(v=>svg.append(txt(x0-8,Y(v)+4,v,{a:'end',fs:10})));
+  svg.append(path(P(data.map(d=>[X(d[1]),Y(d[2])])),{fill:'none',stroke:C(1),'stroke-width':2,'stroke-linejoin':'round'}));
+  data.forEach(([yr,px,vy],i)=>{
+    svg.append(tip(circ(X(px),Y(vy),4.5,C(1),{stroke:'var(--surf)','stroke-width':2}),`${yr}: $${px}, ${vy}k units`));
+    if(['2016','2020','2022','2025'].includes(yr))
+      svg.append(txt(X(px)+9,Y(vy)-7,yr,{c:'var(--tx2)',fs:10.5,w:600}));
+  });
+  f.append(svg);
+}});
+
+/* 15 · Calendar heatmap */
+CHARTS.push({id:'calendar',cat:'Time & cycles',title:'Calendar heatmap',wide:true,
+why:'GitHub made it famous, then everyone forgot it works for any daily metric. Weekday rhythms, holiday dips, and streaks are visible because the layout matches how humans already think about days. Six months in one glance.',
+swap:'daily bar charts with 180 skinny bars',
+h:190,render(f){
+  const W=760,H=190,cell=15.5,gapPx=2.5,gx0=88,gy0=48,weeks=36;
+  const R=rng(91);
+  const months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep'];
+  const svg=S(W,H,'Calendar heatmap of daily active users');
+  months.forEach((m,i)=>svg.append(txt(gx0+i*4.33*(cell+gapPx),34,m,{fs:10.5})));
+  ['Mon','Wed','Fri'].forEach((d,i)=>svg.append(txt(gx0-10,gy0+(1+i*2)*(cell+gapPx)-4,d,{a:'end',fs:10})));
+  for(let w=0;w<weeks;w++)for(let d=0;d<7;d++){
+    const t=Math.max(.03,Math.min(.97,.5+.28*Math.sin(w/6)+(d>4?-.3:.12)+.18*gauss(R)));
+    svg.append(tip(rect(gx0+w*(cell+gapPx),gy0+d*(cell+gapPx),cell,cell,Q(t),{rx:3}),
+      `week ${w+1}, ${['Mon','Tue','Wed','Thu','Fri','Sat','Sun'][d]} — ${(t*1000|0)} DAU`));
+  }
+  svg.append(txt(gx0,H-10,'less',{fs:10}));
+  [0,.25,.5,.75,1].forEach((t,i)=>svg.append(rect(gx0+34+i*15,H-19,12,12,Q(t),{rx:3})));
+  svg.append(txt(gx0+34+5*15+6,H-10,'more',{fs:10}));
+  f.append(svg);
+}});
+
+/* 16 · Spiral (time helix) plot */
+CHARTS.push({id:'spiral',cat:'Time & cycles',title:'Spiral time plot',
+why:'Time coiled so that the same week of every year lands at the same angle. Multi-year seasonality literally lines up along the spokes — three years of data, and December always points the same way. Hypnotic AND functional.',
+swap:'overlaid year-over-year line charts',
+h:320,render(f){
+  const W=520,H=320,cx=260,cy=160,weeks=156;
+  const svg=S(W,H,'Spiral plot of weekly sales across three years');
+  ['Jan','Apr','Jul','Oct'].forEach((m,i)=>{
+    const a=-Math.PI/2+i*Math.PI/2;
+    svg.append(txt(cx+146*Math.cos(a),cy+146*Math.sin(a)+4,m,{a:'middle',fs:10.5,c:'var(--tx2)'}));
+  });
+  const R=rng(101);
+  const pt=w=>{const a=(w/52)*2*Math.PI-Math.PI/2,r=36+(w/weeks)*88;return[cx+r*Math.cos(a),cy+r*Math.sin(a)]};
+  for(let w=0;w<weeks-1;w++){
+    const seas=.5+.4*Math.sin((w%52)/52*2*Math.PI+.6);
+    const t=Math.max(.02,Math.min(.98,seas*(0.7+0.3*w/weeks)+.09*gauss(R)));
+    const[xa,ya]=pt(w),[xb,yb]=pt(w+1);
+    svg.append(tip(line(xa,ya,xb,yb,Q(t),8,{'stroke-linecap':'butt'}),
+      `year ${1+Math.floor(w/52)}, week ${(w%52)+1} — ${(t*100|0)}`));
+  }
+  [['’23',36],['’24',80],['’25',124]].forEach(([y,r])=>svg.append(txt(cx+4,cy-r+16,y,{fs:10,c:'var(--tx2)',w:600})));
+  f.append(svg);
+}});
+
+/* 17 · Streamgraph */
+CHARTS.push({id:'stream',cat:'Time & cycles',title:'Streamgraph',
+wide:true,
+why:'A stacked area chart released from its baseline. Centering the stack minimizes wiggle, so each layer’s swelling and fading reads organically — ideal for “what rose and fell over time” stories where exact values matter less than shape.',
+swap:'stacked area charts with 4+ jittery series',
+h:300,render(f){
+  const W=760,H=300,x0=70,x1=730,mid=140,n=48;
+  const names=['Ambient','House','Jazz','Hip-hop','Classical'];
+  const inside=['#fff','#0b0b0b','#0b0b0b','#fff','#fff'];
+  const series=names.map((_,si)=>{
+    const R=rng(120+si*13);const c=8+si*8.5;
+    return Array.from({length:n},(_,i)=>Math.max(.5,
+      6+22*Math.exp(-((i-c)**2)/(2*11**2))+3.5*Math.sin(i/4+si)+1.8*gauss(R)));
+  });
+  const totals=Array.from({length:n},(_,i)=>series.reduce((a,s)=>a+s[i],0));
+  const k=1.9,X=i=>x0+(x1-x0)*i/(n-1);
+  const svg=S(W,H,'Streamgraph of listening hours by genre');
+  let lower=totals.map(t=>-t/2*k);
+  series.forEach((s,si)=>{
+    const upper=lower.map((lo,i)=>lo+s[i]*k);
+    const top=upper.map((u,i)=>[X(i),mid+u]);
+    const bot=lower.map((lo,i)=>[X(i),mid+lo]).reverse();
+    svg.append(tip(path(P(top.concat(bot))+'Z',{fill:C(si+1),stroke:'var(--surf)','stroke-width':2,'stroke-linejoin':'round'}),
+      names[si]));
+    let bi=0;for(let i=0;i<n;i++)if(s[i]>s[bi])bi=i;
+    if(s[bi]*k>17)svg.append(txt(X(bi),mid+(upper[bi]+lower[bi])/2+4,names[si],
+      {a:'middle',fs:11,w:600,c:inside[si]}));
+    lower=upper;
+  });
+  ['2021','2022','2023','2024','2025'].forEach((yr,i)=>svg.append(txt(x0+(x1-x0)*i/4,H-12,yr,{a:'middle',fs:10.5})));
+  f.append(svg,legend(names.map((nm,i)=>[nm,C(i+1)])));
+}});
+
+/* 18 · XmR control chart */
+CHARTS.push({id:'xmr',cat:'Time & cycles',title:'XmR control chart',
+why:'The statistical process control classic, criminally rare outside factories. Process limits computed from the data itself tell you which wiggles are routine noise and which demand action — the cure for reacting to every random blip.',
+swap:'line charts that trigger a meeting per wobble',
+h:270,render(f){
+  const W=520,H=270,x0=60,x1=485,yT=34,yB=222;
+  const R=rng(131);
+  const vals=Array.from({length:24},()=>50+7*gauss(R));vals[16]=83;
+  const mean=vals.reduce((a,b)=>a+b)/24;
+  let mr=0;for(let i=1;i<24;i++)mr+=Math.abs(vals[i]-vals[i-1]);mr/=23;
+  const unpl=mean+2.66*mr,lnpl=mean-2.66*mr;
+  const X=i=>x0+(x1-x0)*i/23,Y=v=>yB-((v-10)/85)*(yB-yT);
+  const svg=S(W,H,'XmR control chart of weekly incident counts');
+  svg.append(rect(x0,Y(unpl),x1-x0,Y(lnpl)-Y(unpl),C(1),{'fill-opacity':.06}),
+    line(x0,Y(mean),x1,Y(mean),'var(--mut)',1.5),
+    line(x0,Y(unpl),x1,Y(unpl),'var(--axis)',1),
+    line(x0,Y(lnpl),x1,Y(lnpl),'var(--axis)',1),
+    txt(x1+4,Y(unpl)+4,'UNPL',{fs:9.5}),txt(x1+4,Y(mean)+4,'mean',{fs:9.5}),txt(x1+4,Y(lnpl)+4,'LNPL',{fs:9.5}));
+  svg.append(path(P(vals.map((v,i)=>[X(i),Y(v)])),{fill:'none',stroke:C(1),'stroke-width':2,'stroke-linejoin':'round'}));
+  vals.forEach((v,i)=>{
+    const out=v>unpl||v<lnpl;
+    svg.append(tip(circ(X(i),Y(v),out?5:3.5,out?'var(--crit)':C(1),{stroke:'var(--surf)','stroke-width':2}),
+      `week ${i+1}: ${v.toFixed(0)} incidents${out?' — special cause!':''}`));
+    if(out)svg.append(txt(X(i),Y(v)-12,'⚠ special cause',{a:'middle',fs:10,w:600,c:'var(--crit)'}));
+  });
+  [0,6,12,18,23].forEach(i=>svg.append(txt(X(i),yB+22,'w'+(i+1),{a:'middle',fs:10})));
+  f.append(svg);
+}});
+
+/* 19 · Sankey diagram */
+CHARTS.push({id:'sankey',cat:'Flow & relationships',title:'Sankey diagram',wide:true,
+why:'Flows with conserved width — where things come from, where they go, and what leaks out along the way. Funnels, energy budgets, user journeys, money. Nothing else makes “where did we lose them?” this obvious.',
+swap:'funnel charts and pairs of pie charts',
+h:300,render(f){
+  const W=760,H=300,k=2.6,nw=12,cols=[80,360,640];
+  const nodes={Organic:{c:0,v:40,s:1},Paid:{c:0,v:30,s:3},Referral:{c:0,v:20,s:5},
+    Signup:{c:1,v:55,s:2},Bounce:{c:1,v:35,s:0},Active:{c:2,v:35,s:4},Churned:{c:2,v:20,s:6}};
+  const flows=[['Organic','Signup',28],['Organic','Bounce',12],['Paid','Signup',17],['Paid','Bounce',13],
+    ['Referral','Signup',10],['Referral','Bounce',10],['Signup','Active',35],['Signup','Churned',20]];
+  const svg=S(W,H,'Sankey diagram of a signup funnel');
+  const colY=[46,46,46];
+  for(const[name,nd]of Object.entries(nodes)){nd.y=colY[nd.c];colY[nd.c]+=nd.v*k+22;nd.off0=nd.y;nd.off1=nd.y}
+  for(const[a,b,v]of flows){
+    const na=nodes[a],nb=nodes[b],x0v=cols[na.c]+nw,x1v=cols[nb.c];
+    const y0a=na.off1,y0b=y0a+v*k;na.off1=y0b;
+    const y1a=nb.off0,y1b=y1a+v*k;nb.off0=y1b;
+    const mx=(x0v+x1v)/2;
+    svg.append(tip(path(`M${x0v} ${y0a}C${mx} ${y0a} ${mx} ${y1a} ${x1v} ${y1a}L${x1v} ${y1b}C${mx} ${y1b} ${mx} ${y0b} ${x0v} ${y0b}Z`,
+      {fill:na.s?C(na.s):'var(--mut)','fill-opacity':.3}),`${a} → ${b}: ${v}k users`));
+  }
+  for(const[name,nd]of Object.entries(nodes)){
+    svg.append(tip(rect(cols[nd.c],nd.y,nw,nd.v*k,nd.s?C(nd.s):'var(--mut)',{rx:3}),`${name}: ${nd.v}k`),
+      txt(nd.c===2?cols[nd.c]-8:cols[nd.c]+nw+8,nd.y+nd.v*k/2+4,`${name} ${nd.v}k`,
+        {a:nd.c===2?'end':'start',c:'var(--tx2)',w:600,fs:11.5}));
+  }
+  ['Acquisition','Conversion','Outcome'].forEach((t,i)=>svg.append(txt(cols[i]+nw/2,26,t,{a:'middle',fs:10.5})));
+  f.append(svg);
+}});
+
+/* 20 · Chord diagram */
+CHARTS.push({id:'chord',cat:'Flow & relationships',title:'Chord diagram',
+why:'All pairwise flows in one circle — migrations, trades, team hand-offs. The ribbons’ widths at each end show asymmetry, and one glance answers “who talks to whom, and how much?” A matrix of numbers could never.',
+swap:'flow matrices and hairball network graphs',
+h:330,render(f){
+  const W=520,H=330,cx=260,cy=166,r=108,ring=13;
+  const names=['Core','Apps','Data','Infra'];
+  const M=[[0,12,8,4],[12,0,10,6],[8,10,0,14],[4,6,14,0]];
+  const totals=M.map(row=>row.reduce((a,b)=>a+b));
+  const grand=totals.reduce((a,b)=>a+b);
+  const pad=.09,unit=(2*Math.PI-4*pad)/grand;
+  const svg=S(W,H,'Chord diagram of cross-team review flows');
+  const groupA=[];let a=-Math.PI/2;
+  totals.forEach((t,i)=>{groupA.push([a,a+t*unit]);a+=t*unit+pad});
+  const sub=names.map(()=>({}));
+  names.forEach((_,i)=>{let s=groupA[i][0];
+    names.forEach((_,j)=>{if(M[i][j]){sub[i][j]=[s,s+M[i][j]*unit];s+=M[i][j]*unit}})});
+  names.forEach((_,i)=>names.forEach((_,j)=>{
+    if(i<j&&M[i][j]){
+      const[a0,a1]=sub[i][j],[b0,b1]=sub[j][i];
+      const p=(ang)=>[cx+(r-2)*Math.cos(ang),cy+(r-2)*Math.sin(ang)];
+      const[xa,ya]=p(a0),[xb,yb]=p(a1),[xc,yc]=p(b0),[xd,yd]=p(b1);
+      svg.append(tip(path(
+        `M${xa} ${ya}A${r-2} ${r-2} 0 0 1 ${xb} ${yb}Q${cx} ${cy} ${xc} ${yc}A${r-2} ${r-2} 0 0 1 ${xd} ${yd}Q${cx} ${cy} ${xa} ${ya}Z`,
+        {fill:C(i+1),'fill-opacity':.32}),`${names[i]} ↔ ${names[j]}: ${M[i][j]} reviews/wk`));
+    }
+  }));
+  names.forEach((nm,i)=>{
+    const[a0,a1]=groupA[i],mid=(a0+a1)/2;
+    svg.append(tip(path(arcPath(cx,cy,r,r+ring,a0,a1),{fill:C(i+1)}),`${nm}: ${totals[i]} total`),
+      txt(cx+(r+ring+13)*Math.cos(mid),cy+(r+ring+13)*Math.sin(mid)+4,nm,
+        {a:Math.cos(mid)>.3?'start':Math.cos(mid)<-.3?'end':'middle',c:'var(--tx2)',w:600,fs:11.5}));
+  });
+  f.append(svg);
+}});
+
+/* 21 · Arc diagram */
+CHARTS.push({id:'arcdiag',cat:'Flow & relationships',title:'Arc diagram',
+why:'A network flattened onto a line, connections drawn as arcs above it. Order the nodes well (by time, cluster, or degree) and structure leaps out — bridges span far, cliques huddle. Infinitely more readable than a force-directed hairball.',
+swap:'force-directed network graphs',
+h:270,render(f){
+  const W=520,H=270,y=222;
+  const names=['Ada','Ben','Chloe','Dev','Elif','Finn','Gus','Hana'];
+  const links=[[0,2,3],[0,5,2],[1,3,4],[2,4,2],[2,6,5],[3,7,3],[4,5,4],[5,7,2],[1,6,2],[0,1,5]];
+  const X=i=>52+i*59;
+  const svg=S(W,H,'Arc diagram of collaboration links');
+  svg.append(line(30,y,490,y,'var(--axis)'));
+  for(const[a,b,w]of links){
+    const xa=X(Math.min(a,b)),xb=X(Math.max(a,b)),rx=(xb-xa)/2,ry=Math.min((xb-xa)*.46,150);
+    svg.append(tip(path(`M${xa} ${y}A${rx} ${ry} 0 0 1 ${xb} ${y}`,
+      {fill:'none',stroke:C(1),'stroke-width':w,'stroke-opacity':.45,'stroke-linecap':'round'}),
+      `${names[a]} ↔ ${names[b]}: ${w} projects`));
+  }
+  names.forEach((nm,i)=>svg.append(
+    circ(X(i),y,5.5,C(1),{stroke:'var(--surf)','stroke-width':2}),
+    txt(X(i),y+22,nm,{a:'middle',fs:10.5,c:'var(--tx2)'})));
+  f.append(svg);
+}});
+
+/* 22 · Parallel coordinates */
+CHARTS.push({id:'parallel',cat:'Flow & relationships',title:'Parallel coordinates',
+why:'Every axis vertical, every record a thread through all of them. Four, six, ten dimensions at once — clusters show up as braided bundles, trade-offs as crossing fans. The only chart that lets you SEE high-dimensional structure raw.',
+swap:'matrices of pairwise scatterplots',
+h:290,render(f){
+  const W=520,H=290,yT=48,yB=240;
+  const axes=['power','efficiency','weight','price'];
+  const AX=i=>95+i*125;
+  const R=rng(151);
+  const svg=S(W,H,'Parallel coordinates of 14 vehicle designs');
+  axes.forEach((nm,i)=>svg.append(line(AX(i),yT,AX(i),yB,'var(--axis)',1.5),
+    txt(AX(i),30,nm,{a:'middle',c:'var(--tx2)',w:600,fs:11.5}),
+    txt(AX(i),yB+20,'low',{a:'middle',fs:9.5}),txt(AX(i),yT-6,'high',{a:'middle',fs:9.5})));
+  const mk=(bias)=>{const p=R();const vals=[p*.5+bias[0],(1-p)*.5+bias[1],p*.4+bias[2],p*.55+bias[3]];
+    return vals.map(v=>Math.max(.04,Math.min(.96,v+.14*gauss(R))))};
+  const groups=[['Sport',1,[.45,.05,.35,.4]],['Eco',2,[.05,.45,.05,.05]]];
+  groups.forEach(([nm,slot,bias])=>{
+    for(let k=0;k<7;k++){
+      const vals=mk(bias);
+      svg.append(tip(path(P(vals.map((v,i)=>[AX(i),yB-(yB-yT)*v])),
+        {fill:'none',stroke:C(slot),'stroke-width':2,'stroke-opacity':.65,'stroke-linejoin':'round'}),
+        `${nm} design ${k+1}\n`+axes.map((ax,i)=>`${ax}: ${(vals[i]*100|0)}`).join(' · ')));
+    }
+  });
+  f.append(svg,legend(groups.map(([nm,slot])=>[nm,C(slot)])));
+}});
+
+/* 23 · Ternary plot */
+CHARTS.push({id:'ternary',cat:'Flow & relationships',title:'Ternary plot',
+why:'For any three parts that sum to 100% — soil, portfolios, time allocation, election shares. One triangle replaces three coupled charts, and composition shifts become visible trajectories. Geologists never abandoned it; the rest of us should return.',
+swap:'three separate percentage bar charts',
+h:310,render(f){
+  const W=520,H=310;
+  const A=[260,42],B=[112,268],Cc=[408,268];
+  const bary=(a,b,c)=>[(a*A[0]+b*B[0]+c*Cc[0])/100,(a*A[1]+b*B[1]+c*Cc[1])/100];
+  const svg=S(W,H,'Ternary plot of soil composition samples');
+  svg.append(path(P([A,B,Cc])+'Z',{fill:'none',stroke:'var(--axis)','stroke-width':1.5,'stroke-linejoin':'round'}));
+  for(let t=20;t<100;t+=20){
+    svg.append(path(P([bary(t,100-t,0),bary(t,0,100-t)]),{fill:'none',stroke:'var(--grid)'}),
+      path(P([bary(100-t,t,0),bary(0,t,100-t)]),{fill:'none',stroke:'var(--grid)'}),
+      path(P([bary(100-t,0,t),bary(0,100-t,t)]),{fill:'none',stroke:'var(--grid)'}));
+  }
+  svg.append(txt(A[0],A[1]-12,'Clay',{a:'middle',c:'var(--tx2)',w:600}),
+    txt(B[0]-8,B[1]+18,'Sand',{a:'middle',c:'var(--tx2)',w:600}),
+    txt(Cc[0]+8,Cc[1]+18,'Silt',{a:'middle',c:'var(--tx2)',w:600}));
+  const R=rng(163);
+  const groups=[['Field A',1,[55,25,20]],['Field B',2,[20,50,30]]];
+  groups.forEach(([nm,slot,ctr])=>{
+    for(let k=0;k<9;k++){
+      let a=Math.max(2,ctr[0]+11*gauss(R)),b=Math.max(2,ctr[1]+11*gauss(R)),c=Math.max(2,ctr[2]+11*gauss(R));
+      const s=(a+b+c)/100;a/=s;b/=s;c/=s;
+      const[x,y]=bary(a,b,c);
+      svg.append(tip(circ(x,y,4.6,C(slot),{stroke:'var(--surf)','stroke-width':2}),
+        `${nm}: clay ${a.toFixed(0)}% · sand ${b.toFixed(0)}% · silt ${c.toFixed(0)}%`));
+    }
+  });
+  f.append(svg,legend(groups.map(([nm,slot])=>[nm,C(slot)])));
+}});
+
+/* 24 · UpSet plot */
+CHARTS.push({id:'upset',cat:'Flow & relationships',title:'UpSet plot',
+why:'Venn diagrams die past three sets; UpSet scales to dozens. Each column is one exact intersection — the dot matrix says which sets, the bar says how many. The standard in genomics for a decade, unknown almost everywhere else.',
+swap:'4+ set Venn/Euler diagrams',
+h:320,render(f){
+  const W=520,H=320,mx0=150,colW=34,barB=150,barT=34,rowY=176,rowH=27;
+  const sets=['A','B','C','D'],sizes=[31,26,18,12];
+  const combos=[[['A'],10],[['A','B'],9],[['B'],7],[['C'],6],[['A','C'],5],[['D'],5],[['B','C'],4],[['A','D'],4],[['A','B','C'],3],[['B','C','D'],3]];
+  const maxN=10;
+  const svg=S(W,H,'UpSet plot of feature-flag audience overlaps');
+  combos.forEach(([m,n],ci)=>{
+    const x=mx0+ci*colW;
+    svg.append(tip(path(barUp(x,20,barB,barB-(n/maxN)*(barB-barT)),{fill:C(1)}),
+      m.join(' ∩ ')+`: ${n}k users`),
+      txt(x+10,barB-(n/maxN)*(barB-barT)-6,n,{a:'middle',fs:10,c:'var(--tx2)'}));
+    sets.forEach((s,si)=>{
+      const y=rowY+si*rowH,on=m.includes(s);
+      svg.append(circ(x+10,y,5.5,on?'var(--ink)':'var(--grid)'));
+    });
+    const idx=m.map(s=>sets.indexOf(s));
+    if(idx.length>1)svg.append(line(x+10,rowY+Math.min(...idx)*rowH,x+10,rowY+Math.max(...idx)*rowH,'var(--ink)',2.5));
+  });
+  sets.forEach((s,si)=>{
+    const y=rowY+si*rowH;
+    svg.append(txt(56,y+4,'set '+s,{a:'end',c:'var(--tx2)',fs:11}),
+      tip(path(barH(mx0-14,mx0-14-(sizes[si]/31)*66,y-5,10,3),{fill:'var(--mut)','fill-opacity':.8}),
+      `set ${s}: ${sizes[si]}k total`));
+  });
+  svg.append(txt(mx0-14,rowY+4*rowH+8,'← set size',{a:'end',fs:10}),
+    txt(mx0,18,'intersection size ↑',{fs:10}));
+  f.append(svg);
+}});
+
+/* 25 · Waffle chart */
+CHARTS.push({id:'waffle',cat:'Part-to-whole',title:'Waffle chart',
+why:'A pie chart you can actually read. 100 squares, each 1% — humans count and compare squares far better than they judge angles. Percentages become concrete (“38 of these 100 people”), which is also how honest risk communication works.',
+swap:'pie and donut charts',
+h:250,render(f){
+  const W=520,H=250,cell=17.5,gapPx=3,gx=150,gy=18;
+  const parts=[['Organic',38,1],['Paid',27,2],['Partners',21,3],['Other',14,5]];
+  const svg=S(W,H,'Waffle chart of signup sources, 100 squares');
+  let idx=0;
+  for(const[nm,n,slot]of parts)for(let k=0;k<n;k++){
+    const col=idx%10,row=9-Math.floor(idx/10);
+    svg.append(tip(rect(gx+col*(cell+gapPx),gy+row*(cell+gapPx),cell,cell,C(slot),{rx:3.5}),`${nm}: ${n}%`));
+    idx++;
+  }
+  f.append(svg,legend(parts.map(([nm,n,slot])=>[`${nm} ${n}%`,C(slot)])));
+}});
+
+/* 26 · Marimekko chart */
+CHARTS.push({id:'mekko',cat:'Part-to-whole',title:'Marimekko (mosaic) chart',
+why:'Two part-to-whole dimensions at once: column width is market size, stacked height is share within it. The area of every tile is real revenue — so a dominant share of a tiny segment stops looking impressive. Strategy consultants’ secret weapon.',
+swap:'side-by-side 100% stacked bars that hide segment size',
+h:300,render(f){
+  const W=520,H=300,x0=56,x1=496,yT=34,yB=242,gapPx=3;
+  const regions=[['NA',38,[52,30,18]],['EU',30,[38,42,20]],['APAC',22,[30,28,42]],['LATAM',10,[46,24,30]]];
+  const prods=['Cloud','Licenses','Services'];
+  const svg=S(W,H,'Marimekko chart: region width × product mix');
+  let cx=x0;
+  for(const[nm,wPct,mix]of regions){
+    const wpx=(wPct/100)*(x1-x0)-gapPx;
+    let cy=yT;
+    mix.forEach((m,mi)=>{
+      const hpx=(m/100)*(yB-yT)-gapPx;
+      svg.append(tip(rect(cx,cy,wpx,hpx,C(mi+1),{rx:3}),`${nm} · ${prods[mi]}: ${m}% of a ${wPct}% region`));
+      if(hpx>17&&wpx>34)svg.append(txt(cx+wpx/2,cy+hpx/2+4,m+'%',{a:'middle',fs:10.5,w:600,c:mi===0?'#fff':'#0b0b0b'}));
+      cy+=hpx+gapPx;
+    });
+    svg.append(txt(cx+wpx/2,yB+18,nm,{a:'middle',c:'var(--tx2)',w:600,fs:11}),
+      txt(cx+wpx/2,yB+33,wPct+'% of mkt',{a:'middle',fs:9.5}));
+    cx+=wpx+gapPx;
+  }
+  f.append(svg,legend(prods.map((nm,i)=>[nm,C(i+1)])));
+}});
+
+/* 27 · Icicle chart */
+CHARTS.push({id:'icicle',cat:'Part-to-whole',title:'Icicle chart',
+why:'A treemap unrolled into strict layers: depth runs left→right, size runs top→bottom. Unlike a treemap, alignment is preserved — you can actually compare siblings and trace any leaf back to its root without squinting.',
+swap:'treemaps where hierarchy gets lost',
+h:290,render(f){
+  const W=520,H=290,yT=26,yB=272,gapPx=2.5;
+  const tree=[['Product',45,1,[['Search',18],['Feed',15],['Profile',12]]],
+              ['Growth',30,2,[['Ads',14],['SEO',9],['Email',7]]],
+              ['Infra',25,3,[['Compute',15],['Storage',10]]]];
+  const total=100,Yl=v=>(v/total)*(yB-yT)-gapPx;
+  const svg=S(W,H,'Icicle chart of engineering headcount');
+  svg.append(tip(rect(30,yT,110,yB-yT-gapPx,'var(--ink)',{rx:4,'fill-opacity':.09}),'Org: 100 engineers'),
+    txt(85,(yT+yB)/2+4,'Org · 100',{a:'middle',c:'var(--tx2)',w:600,fs:11.5}));
+  let cy=yT;
+  for(const[nm,v,slot,kids]of tree){
+    const h=Yl(v);
+    svg.append(tip(rect(146,cy,150,h,C(slot),{rx:4}),`${nm}: ${v}`),
+      txt(221,cy+h/2+4,`${nm} · ${v}`,{a:'middle',fs:11,w:600,c:slot===1?'#fff':'#0b0b0b'}));
+    let ky=cy;
+    for(const[knm,kv]of kids){
+      const kh=Yl(kv);
+      svg.append(tip(rect(302,ky,150,kh,C(slot),{rx:4,'fill-opacity':.45}),`${nm} / ${knm}: ${kv}`));
+      if(kh>15)svg.append(txt(377,ky+kh/2+4,`${knm} · ${kv}`,{a:'middle',fs:10.5,c:'var(--ink)'}));
+      ky+=kh+gapPx;
+    }
+    cy+=h+gapPx;
+  }
+  f.append(svg);
+}});
+
+/* 28 · Sunburst chart */
+CHARTS.push({id:'sunburst',cat:'Part-to-whole',title:'Sunburst chart',
+why:'The icicle bent into rings — hierarchy radiates outward from the whole at the center. Angles at every depth stay proportional to size, so nested composition reads without a single number. Best when the tree, not the leaf values, is the story.',
+swap:'nested pie charts and exploded donuts',
+h:330,render(f){
+  const W=520,H=330,cx=260,cy=168;
+  const tree=[['Product',45,1,[['Search',18],['Feed',15],['Profile',12]]],
+              ['Growth',30,2,[['Ads',14],['SEO',9],['Email',7]]],
+              ['Infra',25,3,[['Compute',15],['Storage',10]]]];
+  const svg=S(W,H,'Sunburst chart of engineering headcount');
+  let a=-Math.PI/2;const unit=2*Math.PI/100;
+  for(const[nm,v,slot,kids]of tree){
+    const a1=a+v*unit,mid=(a+a1)/2;
+    svg.append(tip(path(arcPath(cx,cy,44,84,a,a1),{fill:C(slot),stroke:'var(--surf)','stroke-width':2}),`${nm}: ${v}`),
+      txt(cx+64*Math.cos(mid),cy+64*Math.sin(mid)+4,nm,{a:'middle',fs:10.5,w:600,c:slot===1?'#fff':'#0b0b0b'}));
+    let ka=a;
+    for(const[knm,kv]of kids){
+      const ka1=ka+kv*unit,kmid=(ka+ka1)/2;
+      svg.append(tip(path(arcPath(cx,cy,86,120,ka,ka1),{fill:C(slot),'fill-opacity':.45,stroke:'var(--surf)','stroke-width':2}),
+        `${nm} / ${knm}: ${kv}`));
+      if(kv>=9)svg.append(txt(cx+134*Math.cos(kmid),cy+134*Math.sin(kmid)+4,knm,
+        {a:Math.cos(kmid)>.3?'start':Math.cos(kmid)<-.3?'end':'middle',fs:10,c:'var(--tx2)'}));
+      ka=ka1;
+    }
+    a=a1;
+  }
+  svg.append(txt(cx,cy-2,'100',{a:'middle',fs:20,w:600,c:'var(--ink)'}),
+    txt(cx,cy+15,'engineers',{a:'middle',fs:10}));
+  f.append(svg);
+}});
+
+/* 29 · Circle packing */
+CHARTS.push({id:'packing',cat:'Part-to-whole',title:'Circle packing',
+why:'Hierarchy as nested bubbles. Less space-efficient than a treemap but far more intuitive — containment IS the metaphor, and rough size comparison is all you usually need for orientation. Wonderful as a clickable map of anything nested.',
+swap:'org-chart boxes and first-glance treemaps',
+h:330,render(f){
+  const W=520,H=330,k=11.6,k2=6.3;
+  const groups=[['Product',45,1,[18,15,12],['Search','Feed','Profile']],
+                ['Growth',30,2,[14,9,7],['Ads','SEO','Email']],
+                ['Infra',25,3,[15,10],['Compute','Storage']]];
+  const rOf=v=>Math.sqrt(v)*k;
+  const rA=rOf(45),rB=rOf(30),rC=rOf(25);
+  const Ax=150,Ay=190,Bx=Ax+rA+rB+4,By=190;
+  const d=rA+rB+4,ra=rA+rC+6,rb=rB+rC+6;
+  const px=(d*d+ra*ra-rb*rb)/(2*d),py=Math.sqrt(Math.max(0,ra*ra-px*px));
+  const centers=[[Ax,Ay],[Bx,By],[Ax+px,Ay-py]];
+  const svg=S(W,H,'Circle packing of engineering headcount');
+  groups.forEach(([nm,v,slot,kids,knames],gi)=>{
+    const[gx,gy]=centers[gi],pr=rOf(v);
+    svg.append(circ(gx,gy,pr,C(slot),{'fill-opacity':.1,stroke:C(slot),'stroke-width':1.5,'stroke-opacity':.5}),
+      txt(gx,gy-pr-8,`${nm} · ${v}`,{a:'middle',c:'var(--tx2)',w:600,fs:11.5}));
+    const kr=kids.map(kv=>Math.sqrt(kv)*k2);
+    const angles=kids.length===3?[-90,150,30]:[180,0];
+    const ringR=kids.length===3?pr*.46:pr-Math.max(...kr)-8;
+    kids.forEach((kv,ki)=>{
+      const aRad=angles[ki]*Math.PI/180;
+      const cxk=gx+(kids.length===3?ringR:(pr-kr[ki]-7)*(ki===0?-1:1))*(kids.length===3?Math.cos(aRad):1);
+      const cyk=gy+(kids.length===3?ringR*Math.sin(aRad):0);
+      svg.append(tip(circ(cxk,cyk,kr[ki],C(slot),{'fill-opacity':.75,stroke:'var(--surf)','stroke-width':2}),
+        `${nm} / ${knames[ki]}: ${kv}`));
+      if(kr[ki]>16)svg.append(txt(cxk,cyk+4,kv,{a:'middle',fs:10.5,w:600,c:slot===1?'#fff':'#0b0b0b'}));
+    });
+  });
+  f.append(svg);
+}});
+
+/* 30 · Waterfall chart */
+CHARTS.push({id:'waterfall',cat:'Part-to-whole',title:'Waterfall chart',
+why:'How you got from A to B, one contribution at a time. Each floating bar starts where the last ended, so gains and losses read as a physical staircase. Finance bridges live here; product metrics and headcount changes should too.',
+swap:'two bars labeled “before” and “after”',
+h:290,render(f){
+  const W=520,H=290,x0=64,yB=240,bw=56,gapPx=16,vmax=620;
+  const steps=[['Start',420,'total'],['Pricing',60,'up'],['New logos',85,'up'],['Churn',-45,'down'],['FX',-18,'down'],['End',502,'total']];
+  const Y=v=>yB-(v/vmax)*(yB-36);
+  const svg=S(W,H,'Waterfall chart of ARR bridge');
+  [0,200,400,600].forEach(v=>svg.append(line(x0-8,Y(v),486,Y(v),'var(--grid)'),txt(x0-14,Y(v)+4,v,{a:'end',fs:10})));
+  let run=0,prevX=null,prevY=null;
+  steps.forEach(([nm,v,kind],i)=>{
+    const x=x0+i*(bw+gapPx);
+    let yTop,yBot,fill;
+    if(kind==='total'){run=v;yTop=Y(v);yBot=yB;fill='var(--mut)';
+      svg.append(tip(path(barUp(x,bw,yBot,yTop),{fill}),`${nm}: $${v}k`));}
+    else{
+      const from=run;run+=v;
+      yTop=Y(Math.max(from,run));yBot=Y(Math.min(from,run));
+      fill=v>=0?C(1):C(6);
+      svg.append(tip(rect(x,yTop,bw,Math.max(3,yBot-yTop),fill,{rx:4}),`${nm}: ${v>=0?'+':''}$${v}k`));
+    }
+    if(prevX!==null)svg.append(line(prevX,prevY,x,prevY,'var(--axis)',1));
+    prevX=x+bw;prevY=kind==='total'?Y(run):Y(run);
+    svg.append(txt(x+bw/2,yTop-8,(kind==='total'?'':(v>=0?'+':''))+(kind==='total'?run:v),{a:'middle',fs:10.5,w:600,c:'var(--tx2)'}),
+      txt(x+bw/2,yB+18,nm,{a:'middle',fs:10}));
+  });
+  f.append(svg);
+}});
+
+/* 31 · Hilbert curve heatmap */
+CHARTS.push({id:'hilbert',cat:'Far out',title:'Hilbert curve heatmap',
+why:'A long 1-D sequence folded onto a 2-D square by a space-filling curve: neighbors in time stay neighbors on screen. 256 hours become one tile where anomalous stretches form visible blobs. How security teams map entire IP spaces — works on any long series.',
+swap:'absurdly wide strip charts of long sequences',
+h:330,render(f){
+  const W=520,H=330,n=16,cell=16.5,gx=124,gy=22;
+  function d2xy(order,d){let x=0,y=0,t=d;
+    for(let s=1;s<order;s*=2){
+      const rx=1&Math.floor(t/2),ry=1&(t^rx);
+      if(ry===0){if(rx===1){x=s-1-x;y=s-1-y}const tmp=x;x=y;y=tmp}
+      x+=s*rx;y+=s*ry;t=Math.floor(t/4);
+    }return[x,y]}
+  const R=rng(211);
+  const svg=S(W,H,'Hilbert curve heatmap of 256 hours of traffic');
+  const ctrs=[];
+  for(let i=0;i<256;i++){
+    const hour=i%24;
+    let v=.45+.3*Math.sin((hour-9)/24*2*Math.PI)+.07*gauss(R);
+    if(i>=170&&i<=186)v+=.45;
+    v=Math.max(.02,Math.min(.98,v));
+    const[x,y]=d2xy(n,i);
+    const px=gx+x*cell,py=gy+y*cell;
+    ctrs.push([px+cell/2,py+cell/2]);
+    svg.append(tip(rect(px,py,cell-1.5,cell-1.5,Q(v),{rx:2.5}),`hour ${i} (day ${1+(i/24|0)}, ${hour}:00) — load ${(v*100|0)}%${i>=170&&i<=186?' ⚠ incident':''}`));
+  }
+  svg.append(path(P(ctrs),{fill:'none',stroke:'var(--ink)','stroke-width':1,'stroke-opacity':.16}));
+  svg.append(circ(ctrs[0][0],ctrs[0][1],3.5,'var(--ink)'),txt(ctrs[0][0]-8,ctrs[0][1]+4,'h0',{a:'end',fs:9.5}),
+    circ(ctrs[255][0],ctrs[255][1],3.5,'var(--ink)'),txt(ctrs[255][0]+8,ctrs[255][1]+4,'h255',{fs:9.5}));
+  svg.append(txt(260,H-8,'the faint thread is the timeline — follow it; the bright blob is a 16-hour incident',{a:'middle',fs:10.5}));
+  f.append(svg);
+}});
+
+/* 32 · Priestley timeline */
+CHARTS.push({id:'priestley',cat:'Far out',title:'Priestley timeline',wide:true,
+why:'Invented in 1765 and still the cleanest way to show many durations at once — every bar is a lifespan on a shared axis, so overlap, succession, and gaps become geometry. Project portfolios, tenures, product lifecycles: all Priestley charts in waiting.',
+swap:'tables of start/end dates (and most Gantt software)',
+h:300,render(f){
+  const W=760,H=300,x0=150,x1=730,yT=40,dy=28,months=30;
+  const cats={Platform:1,Product:2,Research:5};
+  const items=[['Auth rebuild',0,8,'Platform'],['Design system',2,14,'Product'],['Search v2',5,17,'Product'],
+    ['Billing engine',7,20,'Platform'],['ML ranking',10,26,'Research'],['Mobile rewrite',12,24,'Product'],
+    ['Edge caching',16,29,'Platform'],['Agent lab',21,30,'Research']];
+  const X=m=>x0+(m/months)*(x1-x0);
+  const svg=S(W,H,'Priestley timeline of eight projects');
+  [['Jan ’24',0],['Jul ’24',6],['Jan ’25',12],['Jul ’25',18],['Jan ’26',24],['Jul ’26',30]].forEach(([lb,m])=>
+    svg.append(line(X(m),yT-12,X(m),yT+8*dy,'var(--grid)'),txt(X(m),yT+8*dy+18,lb,{a:'middle',fs:10})));
+  items.forEach(([nm,s,e,cat],i)=>{
+    const y=yT+i*dy;
+    svg.append(txt(x0-12,y+11,nm,{a:'end',c:'var(--tx2)',fs:11}),
+      tip(rect(X(s),y,X(e)-X(s),15,C(cats[cat]),{rx:4}),`${nm} (${cat}): month ${s} → ${e}, ${e-s} mo`));
+  });
+  f.append(svg,legend(Object.entries(cats).map(([nm,slot])=>[nm,C(slot)])));
+}});
+
+/* 6 more slots were considered and cut for honesty: radar (misleading areas),
+   word clouds (noise), 3-D pies (never), dual-axis anything (never). */
+
+/* ================================================================
+   PAGE ASSEMBLY
+   ================================================================ */
+const CATS=['All','Comparison','Distribution','Time & cycles','Flow & relationships','Part-to-whole','Far out'];
+const gallery=document.getElementById('gallery');
+CHARTS.forEach((c,i)=>{
+  const card=document.createElement('article');
+  card.className='card'+(c.wide?' wide':'');card.dataset.cat=c.cat;card.id=c.id;
+  card.innerHTML=`<div class="chip">${c.cat}</div>
+    <h3><span class="no">${String(i+1).padStart(2,'0')} · </span>${c.title}</h3>
+    <p class="why">${c.why}</p><figure></figure>
+    <p class="swap"><b>Use instead of:</b> ${c.swap}</p>`;
+  gallery.appendChild(card);
+  try{c.render(card.querySelector('figure'))}
+  catch(err){card.querySelector('figure').textContent='render error: '+err.message;console.error(c.id,err)}
+});
+const filters=document.getElementById('filters');
+CATS.forEach(cat=>{
+  const b=document.createElement('button');
+  b.textContent=cat+(cat==='All'?` (${CHARTS.length})`:` (${CHARTS.filter(c=>c.cat===cat).length})`);
+  if(cat==='All')b.classList.add('on');
+  b.onclick=()=>{
+    filters.querySelectorAll('button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+    document.querySelectorAll('article.card').forEach(cd=>
+      cd.style.display=(cat==='All'||cd.dataset.cat===cat)?'':'none');
+  };
+  filters.appendChild(b);
+});
+document.getElementById('themeBtn').onclick=()=>{
+  const r=document.documentElement;
+  const cur=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+  r.dataset.theme=cur==='dark'?'light':'dark';
+};
+</script>
+</body>
+</html>
