@@ -5,11 +5,20 @@ priority Member States, coded against a 16-field taxonomy (a–p) and checked fo
 **alignment with the EU Framework for Science Diplomacy**.
 
 ## Files
-- `index.html` — interactive viewer (filter, search, cards / table / charts, per-actor detail). Open directly in a browser; no build step or network needed.
+- **`actors.json`** — the dataset, single source of truth (v7 model: per-record
+  sources, graded SD-type fit, split founded/SD-engagement years, objective codes,
+  structured alignment scores, typed relations, coder/confidence/status metadata).
+- **`schema.json`** — required fields + enums; `build.js` validates against it.
+- **`build.js`** — run `node cusp/build.js` after any data edit: validates every
+  record (fails the build on bad data) and regenerates `data.js` + both standalones.
+- `data.js` — **generated** app bundle (do not edit by hand).
+- `index.html` — interactive viewer (filter, search, cards / table / charts, per-actor detail incl. sources and alignment scores).
 - `survey.html` — **assessment tool**: pick a country *or* a partner type, then judge each matching actor one at a time on the A–E scale (significance, per-SD-type fit, activity, orientation, notes). Auto-saves to the browser; exports JSON/CSV.
-- `data.js` — the dataset. Each actor is one object coded against the taxonomy.
-- `*-standalone.html` — self-contained builds (data inlined) of the viewer and the survey, for one-tap opening / sharing.
-- `README.md` — method, taxonomy, sources, and the running country log.
+- `*-standalone.html` — generated self-contained builds of the viewer and survey.
+- `RUBRICS.md` — operational definitions for all judgement fields + the documented
+  heuristics used for the initial v7 recode.
+- `migrate.js` — audit trail of the v6 → v7 migration (override tables).
+- `IMPROVEMENT_PLAN.md` — assessment of weaknesses and the phased plan.
 
 ## Assessment tool (`survey.html`)
 A light, guided survey so a respondent can *judge* the mapped actors:
@@ -72,8 +81,15 @@ operational / enabling) and code of conduct — as promised in the proposal text
   institutions & infrastructures (DE: Helmholtz/DESY; FR: Institut Pasteur Network;
   FR: CNES; IT: ASI), academies (NL: KNAW), and multinationals (DE: Siemens; NL:
   ASML; EU: Airbus). — *78 actors, 19 jurisdictions, all 7 actor types represented.*
-- _Next:_ remaining EU members (HU, SI, HR, RO, BG, SK, LT, LV, LU, CY, MT);
-  deepen FR/NL/ES/IT further; add A–E 'fit' scoring per SD type.
+- **v7 (2026-07-10) — Phase 0+1 of the improvement plan:** migrated to
+  `actors.json` + schema + validating `build.js`; added per-record **sources**
+  (97 URLs), split `foundedYear`/`sdSinceYear` (8 records honestly "not datable"),
+  graded **sdTypeFit** (A–E per type), 12-code objective enum, structured 4-dimension
+  **alignment scores** (documented heuristic), 153 typed **relations** edges,
+  coder/confidence/status metadata; wrote `RUBRICS.md`; recoded activity per rubric
+  (5 downgrades). All records `status: draft` pending Phase 2 verification.
+- _Next (Phase 2):_ evidence verification pass → `status: verified`; then Phase 3
+  coverage (remaining 11 EU members, intergovernmental RIs incl. CERN, sub-national actors).
 
 > A self-contained build, `cusp-standalone.html` (data inlined), is regenerated each
 > iteration for one-tap opening without the sibling `data.js`.

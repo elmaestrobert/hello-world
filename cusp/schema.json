@@ -1,0 +1,46 @@
+{
+  "$comment": "CUSP actor record schema. Single source of truth for enums; build.js validates actors.json against this before generating app artifacts.",
+  "required": [
+    "id", "name", "country", "geography", "actorType",
+    "sdTypeFit", "foundedYear", "sdSinceYear",
+    "activity", "domains", "orientation", "interestFocus",
+    "coreObjective", "objectiveCodes", "positioning", "explicitness",
+    "governance", "tools", "sciFields", "networked", "relations",
+    "documents", "sources", "alignment",
+    "coder", "dateCoded", "confidence", "status"
+  ],
+  "enums": {
+    "actorType": ["Diplomatic", "Governmental/IO", "Scientific/Research", "NGO/Network", "Training", "Policy Advice", "Industry"],
+    "activity": ["A", "B", "C", "D", "E"],
+    "fit": ["A", "B", "C", "D", "E"],
+    "orientation": ["Cooperative", "Mixed", "Competitive"],
+    "interestFocus": ["National", "Cross-border", "Global"],
+    "positioning": ["Primary", "Secondary", "Tertiary"],
+    "explicitness": ["Explicit", "Implicit", "Emerging"],
+    "tools": ["Treasure", "Authority", "Nodality", "Organisation"],
+    "confidence": ["H", "M", "L"],
+    "status": ["draft", "verified"],
+    "relationType": ["funds", "coordinates", "member-of", "hosts", "advises", "partners", "steers", "part-of", "joint-initiative-of", "convenes", "informs"],
+    "objectiveCodes": ["KNOW", "TAL", "VAL", "INF", "GLB", "ECO", "SEC", "TRU", "EVI", "DEV", "GOV", "DIA"]
+  },
+  "objectiveCodeLabels": {
+    "KNOW": "Access to knowledge & foresight",
+    "TAL": "Attract & circulate talent",
+    "VAL": "Promote values & academic freedom",
+    "INF": "Influence / soft power",
+    "GLB": "Address global challenges",
+    "ECO": "Competitiveness & economic security",
+    "SEC": "Security & technological sovereignty",
+    "TRU": "Bridge-building & trust (incl. track-II)",
+    "EVI": "Evidence for policy",
+    "DEV": "Development & capacity building",
+    "GOV": "Standards & global governance",
+    "DIA": "Diaspora engagement"
+  },
+  "notes": {
+    "sdTypeFit": "Graded A-E fit per SD type {s4d,d4s,SinD,DinS}, per taxonomy (c). Replaces the old binary sdType list; apps derive sdType = types with fit A or B.",
+    "sdSinceYear": "Taxonomy (d): year of first identifiable SD engagement. May be null when undatable. Distinct from foundedYear.",
+    "alignment": "Structured {strategic,operational,enabling,conduct} each 0-3 + note. Initial scores derived by the documented heuristic in RUBRICS.md; Phase 2 replaces them with evidence-based scores.",
+    "objectiveCodes": "PROVISIONAL enum pending the A-E report objective list (p.66); remap when the report text is available."
+  }
+}

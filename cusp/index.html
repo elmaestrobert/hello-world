@@ -166,31 +166,49 @@ function row(a){
     <td>${a.domains.join(", ")}</td></tr>`;
 }
 function field(k,v){return `<div class="field"><div class="k">${k}</div><div class="v">${v}</div></div>`}
+const FIT_COLOR={A:"#1fab74",B:"#7bc043",C:"#f2c14e",D:"#f08a4b",E:"#5a6a8f"};
+function fitChips(fit){
+  return ["s4d","d4s","SinD","DinS"].map(t=>
+    `<span class="tag" style="border-color:${FIT_COLOR[fit[t]]}">${t} <b style="color:${FIT_COLOR[fit[t]]}">${fit[t]}</b></span>`).join(" ");
+}
+function alignBar(v){return "▰".repeat(v)+"▱".repeat(3-v);}
 function openModal(a){
   const s=document.getElementById("sheet");
+  const yrs = a.sdSinceYear ? `${a.sdSinceYear} (${2026-a.sdSinceYear} yrs)` : "not datable";
+  const founded = a.foundedYear && a.foundedYear!==a.sdSinceYear ? ` · founded ${a.foundedYear}` : "";
+  const objs=(a.objectiveCodes||[]).map(c=>`<span class="tag">${c} — ${(typeof OBJECTIVE_LABELS!=="undefined"&&OBJECTIVE_LABELS[c])||c}</span>`).join(" ");
+  const al=a.alignment;
   s.innerHTML=`<span class="x" onclick="document.getElementById('modal').classList.remove('on')">×</span>
     <h2>${a.name}</h2>
-    <div class="meta" style="color:var(--muted)">${typeTag(a.actorType)} &nbsp;${a.country} · ${a.geography}</div>
+    <div class="meta" style="color:var(--muted)">${typeTag(a.actorType)} &nbsp;${a.country} · ${a.geography}
+      &nbsp;<span class="tag">${a.status||"draft"}</span><span class="tag">confidence ${a.confidence||"–"}</span></div>
     <div class="grid2">
       ${field("a · Geography",a.geography)}
       ${field("b · Actor type",a.actorType)}
-      ${field("c · SD type",a.sdType.join(", "))}
-      ${field("d · Engaged since",a.sinceYear+" ("+(2026-a.sinceYear)+" yrs)")}
+      ${field("c · SD type fit (A–E)",fitChips(a.sdTypeFit||{}))}
+      ${field("d · SD engagement",yrs+founded)}
       ${field("e · Activity",a.activity)}
       ${field("f · Domains",a.domains.join(", "))}
       ${field("g · Orientation",a.orientation)}
       ${field("h · Interest focus",a.interestFocus)}
-      ${field("i · Core objective",a.coreObjective)}
+      ${field("i · Core objective",a.coreObjective+"<div style='margin-top:5px'>"+objs+"</div>")}
       ${field("j · Positioning",a.positioning)}
       ${field("k · Explicitness",a.explicitness)}
       ${field("l · Governance",a.governance)}
-      ${field("m · Tools",a.tools.join(", "))}
+      ${field("m · Tools → instruments",a.tools.join(", ")+(a.toolsInstruments?`<div style='margin-top:4px;font-size:11px;color:var(--muted)'>strategic: ${a.toolsInstruments.strategic.join(", ")||"–"} · operational: ${a.toolsInstruments.operational.join(", ")||"–"} · enabling: ${a.toolsInstruments.enabling.join(", ")||"–"}</div>`:""))}
       ${field("n · Science fields",a.sciFields.join(", "))}
-      ${field("o · Networked with",a.networked)}
+      ${field("o · Networked with",a.networked+((a.relations&&a.relations.length)?`<div style='margin-top:5px'>${a.relations.map(r=>`<span class="tag">${r.type} → ${r.to}</span>`).join(" ")}</div>`:""))}
     </div>
     <div class="field" style="margin-top:12px"><div class="k">p · Documents produced</div>
       <ul class="docs">${a.documents.map(d=>`<li>${d}</li>`).join("")}</ul></div>
-    <div class="align"><div class="k">Alignment with EU SD Framework</div><div>${a.alignment}</div></div>`;
+    ${(a.sources&&a.sources.length)?`<div class="field" style="margin-top:12px"><div class="k">Sources (accessed ${a.sources[0].accessed})</div>
+      <ul class="docs">${a.sources.map(s=>`<li><a class="src" href="${s.url}" target="_blank" rel="noopener">${s.title}</a></li>`).join("")}</ul></div>`:""}
+    <div class="align"><div class="k">Alignment with EU SD Framework</div>
+      ${al&&typeof al==="object"?`<div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:7px;font-size:12px">
+        <span>strategic <b>${alignBar(al.strategic)}</b></span><span>operational <b>${alignBar(al.operational)}</b></span>
+        <span>enabling <b>${alignBar(al.enabling)}</b></span><span>conduct <b>${alignBar(al.conduct)}</b></span></div>
+      <div>${al.note}</div>`:`<div>${a.alignment}</div>`}
+      <div style="margin-top:6px;font-size:11px;color:var(--muted)">Scores 0–3, initial heuristic per RUBRICS.md — pending Phase 2 evidence-based scoring.</div></div>`;
   document.getElementById('modal').classList.add('on');
 }
 function statBlock(title,key){
@@ -228,7 +246,7 @@ document.getElementById("v-stats").onclick=()=>setView("stats");
 document.getElementById("reset").onclick=()=>{for(const k in F)F[k].clear();Q="";document.getElementById("q").value="";document.querySelectorAll(".chip.on").forEach(c=>c.classList.remove("on"));render()};
 document.getElementById("modal").onclick=e=>{if(e.target.id==="modal")e.currentTarget.classList.remove("on")};
 document.getElementById("legend").innerHTML=Object.entries(TYPE_COLOR).map(([t,c])=>`<span><span class="dot" style="background:${c}"></span>${t}</span>`).join("");
-document.getElementById("meta").textContent=`${ACTORS.length} actors · ${uniq("country").length} jurisdictions · updated 2026-06-10`;
+document.getElementById("meta").textContent=`${ACTORS.length} actors · ${uniq("country").length} jurisdictions · dataset v${typeof DATASET!=="undefined"?DATASET.version:"?"} (${typeof DATASET!=="undefined"?DATASET.generated:"?"})`;
 buildChips();render();
 </script>
 </body>
