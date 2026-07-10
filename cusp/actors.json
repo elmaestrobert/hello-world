@@ -1,5 +1,5 @@
 {
-  "version": "7.1.1",
+  "version": "7.2.0",
   "generated": "2026-07-10",
   "actors": [
     {
@@ -7703,6 +7703,4310 @@
         "note": "Aligned — space is a flagship SD domain; ASI is a secondary site of Italian S&T diplomacy."
       },
       "coder": "CUSP initial coding (AI-assisted, single-coder)",
+      "dateCoded": "2026-07-10",
+      "confidence": "H",
+      "status": "verified",
+      "dateVerified": "2026-07-10"
+    },
+    {
+      "id": "bg-mfa",
+      "name": "Ministry of Foreign Affairs of the Republic of Bulgaria",
+      "country": "Bulgaria",
+      "geography": "National (Sofia)",
+      "actorType": "Diplomatic",
+      "sdTypeFit": {
+        "s4d": "A",
+        "d4s": "E",
+        "SinD": "B",
+        "DinS": "E"
+      },
+      "foundedYear": 1879,
+      "sdSinceYear": 2021,
+      "activity": "C",
+      "domains": [
+        "General S&T",
+        "Emerging technologies",
+        "Energy & climate",
+        "Biotechnology"
+      ],
+      "orientation": "Mixed",
+      "interestFocus": "National",
+      "coreObjective": "Use scientific and technological cooperation as an instrument to deepen strategic partnerships (notably with the United States) and support Bulgaria's OECD accession and geopolitical resilience.",
+      "objectiveCodes": [
+        "INF",
+        "ECO",
+        "SEC"
+      ],
+      "positioning": "Tertiary",
+      "explicitness": "Emerging",
+      "governance": "Central government ministry headed by the Minister of Foreign Affairs; science-diplomacy themes carried by the political leadership (Deputy Minister level) and by the Diplomatic Institute, the MFA's training and public-diplomacy arm, rather than by a dedicated SD unit.",
+      "tools": [
+        "Nodality",
+        "Authority",
+        "Organisation"
+      ],
+      "toolsInstruments": {
+        "strategic": [
+          "Authority"
+        ],
+        "operational": [
+          "Nodality",
+          "Organisation"
+        ],
+        "enabling": []
+      },
+      "sciFields": [
+        "Artificial intelligence",
+        "Biotechnology",
+        "Energy",
+        "Public health",
+        "Climate science"
+      ],
+      "networked": "Works through its Diplomatic Institute (public lectures and training on science and bio-diplomacy), partners with Sofia University and the US Embassy on scientific-technological diplomacy events, and chairs the interdepartmental mechanism for Bulgaria's OECD accession where evidence-based and technological cooperation issues surface.",
+      "relations": [
+        {
+          "type": "hosts",
+          "to": "Diplomatic Institute to the Minister of Foreign Affairs of Bulgaria"
+        },
+        {
+          "type": "coordinates",
+          "to": "Interdepartmental Coordination Mechanism on Bulgaria's Accession to the OECD"
+        },
+        {
+          "type": "partners",
+          "to": "Sofia University St. Kliment Ohridski"
+        },
+        {
+          "type": "partners",
+          "to": "U.S. Embassy in Bulgaria"
+        }
+      ],
+      "documents": [
+        "Deputy Minister statement 'Scientific and Technological Diplomacy Are a Driver of the Strategic Partnership Between Bulgaria and the United States' (2026)",
+        "Diplomatic Institute public-event series on science diplomacy, biological diplomacy and the bioeconomy"
+      ],
+      "sources": [
+        {
+          "title": "Deputy Minister Velizar Shalamanov: Scientific and Technological Diplomacy Are a Driver of the Strategic Partnership Between Bulgaria and the United States (MFA Bulgaria)",
+          "url": "https://www.mfa.bg/en/news/47891",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "Science diplomacy - the key to survival in the modern world (Radio Bulgaria)",
+          "url": "https://bnrnews.bg/en/post/475668/science-diplomacy-the-key-to-survival-in-the-modern-world",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "Diplomatic Institute to the Minister of Foreign Affairs of Bulgaria (EU-LAC Foundation)",
+          "url": "https://eulacfoundation.org/en/diplomatic-institute-minister-foreign-affairs-bulgaria",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        }
+      ],
+      "alignment": {
+        "strategic": 1,
+        "operational": 2,
+        "enabling": 1,
+        "conduct": 1,
+        "note": "Rhetorically aligned with the EU Science Diplomacy Framework's science-for-strategic-partnership logic (tech, AI, biotech in foreign policy), but institutionalisation is thin: no dedicated SD unit or budget line is identifiable, so alignment is emerging rather than operational."
+      },
+      "coder": "CUSP Phase 3 (AI research agent, batch bgrohrsi)",
+      "dateCoded": "2026-07-10",
+      "confidence": "M",
+      "status": "verified",
+      "dateVerified": "2026-07-10"
+    },
+    {
+      "id": "bg-bas",
+      "name": "Bulgarian Academy of Sciences (BAS)",
+      "country": "Bulgaria",
+      "geography": "National (Sofia)",
+      "actorType": "Scientific/Research",
+      "sdTypeFit": {
+        "s4d": "B",
+        "d4s": "A",
+        "SinD": "E",
+        "DinS": "E"
+      },
+      "foundedYear": 1869,
+      "sdSinceYear": 1957,
+      "activity": "A",
+      "domains": [
+        "General S&T"
+      ],
+      "orientation": "Cooperative",
+      "interestFocus": "Global",
+      "coreObjective": "Sustain and expand Bulgarian research capacity and knowledge access through inter-academy agreements, exchange programmes and membership in international scientific bodies.",
+      "objectiveCodes": [
+        "KNOW",
+        "TAL",
+        "TRU"
+      ],
+      "positioning": "Secondary",
+      "explicitness": "Implicit",
+      "governance": "Autonomous national academy established by law, governed by a General Assembly of academicians and a President; largely state-budget funded, with a dedicated Department of International Relations (established 1957) administering international cooperation.",
+      "tools": [
+        "Organisation",
+        "Nodality",
+        "Treasure"
+      ],
+      "toolsInstruments": {
+        "strategic": [],
+        "operational": [
+          "Organisation",
+          "Nodality"
+        ],
+        "enabling": [
+          "Treasure"
+        ]
+      },
+      "sciFields": [
+        "Multidisciplinary (natural sciences, engineering, social sciences and humanities)"
+      ],
+      "networked": "Carries out most of Bulgaria's institutional international scientific cooperation: bilateral agreements with academies and research organisations in 45 countries, agreements with UNESCO and WMO, and membership in ALLEA, EASAC, the International Science Council, ANSO and 20+ other international scientific organisations.",
+      "relations": [
+        {
+          "type": "member-of",
+          "to": "ALLEA (All European Academies)"
+        },
+        {
+          "type": "member-of",
+          "to": "International Science Council (ISC)"
+        },
+        {
+          "type": "member-of",
+          "to": "ANSO (Alliance of International Science Organizations)"
+        },
+        {
+          "type": "partners",
+          "to": "UNESCO"
+        },
+        {
+          "type": "partners",
+          "to": "World Meteorological Organization (WMO)"
+        }
+      ],
+      "documents": [
+        "Bilateral inter-academy scientific cooperation agreements with organisations in 45 countries",
+        "Cooperation agreements with UNESCO and WMO"
+      ],
+      "sources": [
+        {
+          "title": "International cooperation - Bulgarian Academy of Sciences",
+          "url": "https://www.bas.bg/?page_id=11216&lang=en",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "Bulgaria, Bulgarian Academy of Sciences (BAS) - International Science Council",
+          "url": "https://council.science/member/bulgarian-academy-of-sciences-bas/",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "Bulgarian Academy of Sciences 1869 - InterAcademy Partnership",
+          "url": "https://www.interacademies.org/organization/bulgarian-academy-sciences",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        }
+      ],
+      "alignment": {
+        "strategic": 0,
+        "operational": 3,
+        "enabling": 2,
+        "conduct": 1,
+        "note": "Fits the Framework's bottom-tier delivery layer: a research-performing organisation whose long-standing inter-academy diplomacy (d4s) and academy networks provide ready channels for EU-level science diplomacy, though it does not frame its work in SD terms."
+      },
+      "coder": "CUSP Phase 3 (AI research agent, batch bgrohrsi)",
+      "dateCoded": "2026-07-10",
+      "confidence": "H",
+      "status": "verified",
+      "dateVerified": "2026-07-10"
+    },
+    {
+      "id": "ro-mae",
+      "name": "Ministry of Foreign Affairs of Romania (MAE)",
+      "country": "Romania",
+      "geography": "National (Bucharest)",
+      "actorType": "Diplomatic",
+      "sdTypeFit": {
+        "s4d": "B",
+        "d4s": "A",
+        "SinD": "E",
+        "DinS": "E"
+      },
+      "foundedYear": 1862,
+      "sdSinceYear": 1993,
+      "activity": "C",
+      "domains": [
+        "General S&T",
+        "Research infrastructures",
+        "Education & mobility"
+      ],
+      "orientation": "Cooperative",
+      "interestFocus": "Cross-border",
+      "coreObjective": "Use diplomacy to support Romanian research and higher education abroad - promoting pan-European research infrastructures hosted in Romania and facilitating academic and scientific exchange.",
+      "objectiveCodes": [
+        "INF",
+        "KNOW",
+        "TAL"
+      ],
+      "positioning": "Tertiary",
+      "explicitness": "Emerging",
+      "governance": "Central government ministry; science and research topics are handled within the public and cultural diplomacy portfolio (a 'Diplomacy through Research' strand) rather than by a dedicated science-diplomacy unit; the binational Fulbright Commission operates under MAE coordination.",
+      "tools": [
+        "Nodality",
+        "Authority"
+      ],
+      "toolsInstruments": {
+        "strategic": [
+          "Authority"
+        ],
+        "operational": [
+          "Nodality"
+        ],
+        "enabling": []
+      },
+      "sciFields": [
+        "High-power laser physics (ELI-NP)",
+        "Danube and river-sea environmental research (DANUBIUS-RI)",
+        "General"
+      ],
+      "networked": "Maintains a dedicated 'Diplomatie prin cercetare' (Diplomacy through Research) portfolio promoting Romania's role as coordinator/major partner of pan-European research infrastructures (ELI-NP, DANUBIUS-RI); cooperates with the Ministry of Education and Research, the Romanian Academy and the Romanian Cultural Institute on education and science abroad, and coordinates the Romanian-US Fulbright Commission.",
+      "relations": [
+        {
+          "type": "coordinates",
+          "to": "Romanian-U.S. Fulbright Commission"
+        },
+        {
+          "type": "partners",
+          "to": "Romanian Academy"
+        },
+        {
+          "type": "partners",
+          "to": "Ministry of Education and Research (Romania)"
+        },
+        {
+          "type": "informs",
+          "to": "ELI-NP / DANUBIUS-RI international partners"
+        }
+      ],
+      "documents": [
+        "'Cercetare in Romania / Diplomatie prin cercetare' (Diplomacy through Research) policy pages",
+        "MAE education and research objectives within public and cultural diplomacy"
+      ],
+      "sources": [
+        {
+          "title": "Cercetare in Romania / Diplomatie prin cercetare - Ministry of Foreign Affairs of Romania",
+          "url": "https://www.mae.ro/node/52258",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "When is cultural diplomacy not about culture? When it's about science - DiploFoundation",
+          "url": "https://www.diplomacy.edu/blog/when-cultural-diplomacy-not-about-culture-when-its-about-science/",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "Cercetare in Romania - Ministry of Foreign Affairs of Romania",
+          "url": "https://www.mae.ro/node/42228",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        }
+      ],
+      "alignment": {
+        "strategic": 1,
+        "operational": 1,
+        "enabling": 1,
+        "conduct": 1,
+        "note": "The 'diplomacy through research' strand and infrastructure promotion match the Framework's d4s pillar (attracting and anchoring European research infrastructures), but activity is intermittent and folded into cultural diplomacy, leaving weak institutional alignment."
+      },
+      "coder": "CUSP Phase 3 (AI research agent, batch bgrohrsi)",
+      "dateCoded": "2026-07-10",
+      "confidence": "M",
+      "status": "verified",
+      "dateVerified": "2026-07-10"
+    },
+    {
+      "id": "ro-acad",
+      "name": "Romanian Academy (Academia Romana)",
+      "country": "Romania",
+      "geography": "National (Bucharest)",
+      "actorType": "Scientific/Research",
+      "sdTypeFit": {
+        "s4d": "B",
+        "d4s": "A",
+        "SinD": "E",
+        "DinS": "E"
+      },
+      "foundedYear": 1866,
+      "sdSinceYear": null,
+      "activity": "B",
+      "domains": [
+        "General S&T"
+      ],
+      "orientation": "Cooperative",
+      "interestFocus": "Global",
+      "coreObjective": "Maintain Romania's presence in the international academic system through inter-academy agreements and memberships that secure knowledge access and scientific standing.",
+      "objectiveCodes": [
+        "KNOW",
+        "TRU",
+        "EVI"
+      ],
+      "positioning": "Secondary",
+      "explicitness": "Implicit",
+      "governance": "Autonomous public institution and highest scientific-cultural forum of Romania; led by a President, four Vice-Presidents and a Secretary General elected by the General Assembly of academicians; runs a large network of research institutes.",
+      "tools": [
+        "Organisation",
+        "Nodality"
+      ],
+      "toolsInstruments": {
+        "strategic": [],
+        "operational": [
+          "Organisation",
+          "Nodality"
+        ],
+        "enabling": []
+      },
+      "sciFields": [
+        "Multidisciplinary (sciences, humanities, arts)"
+      ],
+      "networked": "Has cooperation agreements with 50+ academies and scientific organisations in Europe, Asia and the Americas; full member of ALLEA, EASAC, the InterAcademy Partnership and the International Academic Union; in May 2025 it signed an agreement with Academia Europaea establishing the Academia Europaea Bucharest Hub.",
+      "relations": [
+        {
+          "type": "member-of",
+          "to": "ALLEA (All European Academies)"
+        },
+        {
+          "type": "member-of",
+          "to": "EASAC (European Academies' Science Advisory Council)"
+        },
+        {
+          "type": "member-of",
+          "to": "InterAcademy Partnership (IAP)"
+        },
+        {
+          "type": "member-of",
+          "to": "International Science Council (ISC)"
+        },
+        {
+          "type": "hosts",
+          "to": "Academia Europaea Bucharest Hub"
+        }
+      ],
+      "documents": [
+        "Inter-academy scientific and cultural cooperation agreements with 50+ academies and organisations",
+        "Academia Europaea - Romanian Academy collaboration agreement establishing the Bucharest Hub (2025)"
+      ],
+      "sources": [
+        {
+          "title": "Academia Romana - Relatii externe (international relations)",
+          "url": "https://acad.ro/institutia/externe.html",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "Romania, Academia Romana - International Science Council",
+          "url": "https://council.science/member/romania-academia-romana/",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "Academia Europaea Bucharest Hub",
+          "url": "https://acadeurobucharest.eu/",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        }
+      ],
+      "alignment": {
+        "strategic": 0,
+        "operational": 3,
+        "enabling": 1,
+        "conduct": 1,
+        "note": "A classic academy-diplomacy actor consistent with the Framework's emphasis on academies as science-advice and bridge-building infrastructure; its EASAC/ALLEA memberships plug it into EU-level evidence-for-policy channels even though it does not use SD vocabulary."
+      },
+      "coder": "CUSP Phase 3 (AI research agent, batch bgrohrsi)",
+      "dateCoded": "2026-07-10",
+      "confidence": "H",
+      "status": "verified",
+      "dateVerified": "2026-07-10"
+    },
+    {
+      "id": "hr-mzom",
+      "name": "Ministry of Science, Education and Youth of the Republic of Croatia (MZOM)",
+      "country": "Croatia",
+      "geography": "National (Zagreb)",
+      "actorType": "Governmental/IO",
+      "sdTypeFit": {
+        "s4d": "E",
+        "d4s": "A",
+        "SinD": "E",
+        "DinS": "B"
+      },
+      "foundedYear": 1990,
+      "sdSinceYear": 2001,
+      "activity": "A",
+      "domains": [
+        "General S&T",
+        "Space",
+        "High-energy physics",
+        "Higher education & mobility"
+      ],
+      "orientation": "Cooperative",
+      "interestFocus": "Cross-border",
+      "coreObjective": "Negotiate and fund Croatia's integration into European and global research organisations and bilateral S&T cooperation to expand access to knowledge, infrastructure and talent.",
+      "objectiveCodes": [
+        "KNOW",
+        "ECO",
+        "TAL"
+      ],
+      "positioning": "Secondary",
+      "explicitness": "Implicit",
+      "governance": "Central government ministry (lineage from the post-1990 science ministry; renamed Ministry of Science, Education and Youth in 2024); its Science Directorate and Directorate for International Cooperation manage bilateral agreements and multilateral memberships.",
+      "tools": [
+        "Treasure",
+        "Authority",
+        "Organisation"
+      ],
+      "toolsInstruments": {
+        "strategic": [
+          "Authority"
+        ],
+        "operational": [
+          "Organisation"
+        ],
+        "enabling": [
+          "Treasure"
+        ]
+      },
+      "sciFields": [
+        "High-energy physics",
+        "Space science and Earth observation",
+        "General S&T",
+        "Education"
+      ],
+      "networked": "Negotiated Croatia's CERN Associate Membership (2019) and ESA European Cooperating State Agreement (signed 2023, PECS 2023), maintains bilateral education/science programmes with ~30 countries, funds the Croatian Science Foundation (whose 'Research Cooperability' programme links diaspora scientists to Croatia), and represents Croatia in EU and multilateral science fora; note that Croatia's MFA (MVEP) has only episodic SD engagement (a 2012 Diplomatic Academy roundtable), so MZOM is the operational S&T-diplomacy hub.",
+      "relations": [
+        {
+          "type": "steers",
+          "to": "Croatian participation in CERN (Associate Member State since 2019)"
+        },
+        {
+          "type": "partners",
+          "to": "European Space Agency (ECS/PECS Agreement)"
+        },
+        {
+          "type": "funds",
+          "to": "Croatian Science Foundation (HRZZ)"
+        },
+        {
+          "type": "coordinates",
+          "to": "Bilateral S&T and education cooperation agreements (~30 countries)"
+        }
+      ],
+      "documents": [
+        "CERN Associate Membership Agreement (signed 28 February 2019)",
+        "ESA European Cooperating State (ECS) Agreement and PECS Charter subscription (2023)",
+        "Bilateral educational and scientific cooperation programmes and agreements"
+      ],
+      "sources": [
+        {
+          "title": "Minister Fuchs signed the new Agreement with the European Space Agency - Ministry of Science, Education and Youth",
+          "url": "https://mzom.gov.hr/news/minister-fuchs-signed-the-new-agreement-with-the-european-space-agency/5413",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "Croatia to become an Associate Member of CERN - CERN press release",
+          "url": "https://home.cern/news/press-release/cern/croatia-become-associate-member-cern",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "Croatia to become 12th ESA European Cooperating State - ESA",
+          "url": "https://www.esa.int/About_Us/Corporate_news/Croatia_to_become_12th_ESA_European_Cooperating_State",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "Bilateral agreements and worldwide cooperation - Croatia (Eurydice, European Commission)",
+          "url": "https://eurydice.eacea.ec.europa.eu/national-education-systems/croatia/bilateral-agreements-and-worldwide-cooperation",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        }
+      ],
+      "alignment": {
+        "strategic": 0,
+        "operational": 3,
+        "enabling": 1,
+        "conduct": 1,
+        "note": "Strongly aligned with the Framework's d4s pillar - using diplomatic negotiation to secure access to European research infrastructures (CERN, ESA) and mobility - though it frames this as international scientific cooperation rather than science diplomacy."
+      },
+      "coder": "CUSP Phase 3 (AI research agent, batch bgrohrsi)",
+      "dateCoded": "2026-07-10",
+      "confidence": "H",
+      "status": "verified",
+      "dateVerified": "2026-07-10"
+    },
+    {
+      "id": "hr-hazu",
+      "name": "Croatian Academy of Sciences and Arts (HAZU)",
+      "country": "Croatia",
+      "geography": "National (Zagreb)",
+      "actorType": "Scientific/Research",
+      "sdTypeFit": {
+        "s4d": "B",
+        "d4s": "A",
+        "SinD": "E",
+        "DinS": "E"
+      },
+      "foundedYear": 1861,
+      "sdSinceYear": 1994,
+      "activity": "C",
+      "domains": [
+        "General S&T",
+        "Arts & humanities"
+      ],
+      "orientation": "Cooperative",
+      "interestFocus": "Cross-border",
+      "coreObjective": "Represent Croatian science and culture internationally and develop relations with other academies and scientific organisations as part of its statutory mission.",
+      "objectiveCodes": [
+        "KNOW",
+        "TRU"
+      ],
+      "positioning": "Secondary",
+      "explicitness": "Implicit",
+      "governance": "National academy established by law (founded 1861 as the Yugoslav Academy, Croatian Academy since 1991); governed by its Assembly of members and Presidency; state-funded autonomous institution.",
+      "tools": [
+        "Organisation",
+        "Nodality"
+      ],
+      "toolsInstruments": {
+        "strategic": [],
+        "operational": [
+          "Organisation",
+          "Nodality"
+        ],
+        "enabling": []
+      },
+      "sciFields": [
+        "Multidisciplinary (natural sciences, medicine, social sciences, humanities, arts)"
+      ],
+      "networked": "Statutory task of developing international relations with academies and scientific organisations; co-founding participant of ALLEA and member of EASAC, the InterAcademy Partnership (IAP/IAMP), the International Union of Academies, the European Science Foundation and the Central and Eastern European Network of academies.",
+      "relations": [
+        {
+          "type": "member-of",
+          "to": "ALLEA (All European Academies)"
+        },
+        {
+          "type": "member-of",
+          "to": "EASAC (European Academies' Science Advisory Council)"
+        },
+        {
+          "type": "member-of",
+          "to": "InterAcademy Partnership (IAP)"
+        },
+        {
+          "type": "member-of",
+          "to": "International Union of Academies (IUA)"
+        },
+        {
+          "type": "member-of",
+          "to": "Central and Eastern European Network of academies (CEEN)"
+        }
+      ],
+      "documents": [
+        "Portrait of the Croatian Academy of Sciences and Arts (ALLEA member profile)",
+        "Inter-academy cooperation agreements with European and world academies"
+      ],
+      "sources": [
+        {
+          "title": "Croatian Academy of Sciences and Arts 1861 - InterAcademy Partnership",
+          "url": "https://www.interacademies.org/organization/croatian-academy-sciences-and-arts",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "Portrait of the Croatian Academy of Sciences and Arts - ALLEA",
+          "url": "https://www.allea.org/wp-content/uploads/2015/09/Croatia_CASA.pdf",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "Croatian Academy of Sciences and Arts (HAZU) - ERA-LEARN organisation profile",
+          "url": "https://www.era-learn.eu/network-information/organisations/croatian-academy-of-sciences-and-arts",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        }
+      ],
+      "alignment": {
+        "strategic": 0,
+        "operational": 2,
+        "enabling": 1,
+        "conduct": 1,
+        "note": "Fits the Framework's academy layer via EASAC/ALLEA science-advice channels, but its SD engagement is routine inter-academy relations without dedicated programmes - documented but intermittent, hence modest alignment in practice."
+      },
+      "coder": "CUSP Phase 3 (AI research agent, batch bgrohrsi)",
+      "dateCoded": "2026-07-10",
+      "confidence": "H",
+      "status": "verified",
+      "dateVerified": "2026-07-10"
+    },
+    {
+      "id": "si-mzez",
+      "name": "Ministry of Foreign and European Affairs of the Republic of Slovenia (MZEZ)",
+      "country": "Slovenia",
+      "geography": "National (Ljubljana)",
+      "actorType": "Diplomatic",
+      "sdTypeFit": {
+        "s4d": "B",
+        "d4s": "A",
+        "SinD": "E",
+        "DinS": "E"
+      },
+      "foundedYear": 1991,
+      "sdSinceYear": null,
+      "activity": "A",
+      "domains": [
+        "General S&T",
+        "Artificial intelligence",
+        "Climate & shared natural resources",
+        "Culture & education"
+      ],
+      "orientation": "Cooperative",
+      "interestFocus": "Cross-border",
+      "coreObjective": "Plan and coordinate Slovenia's scientific (and cultural) diplomacy - concluding international umbrella agreements on science and education and positioning Slovenia as a regional convener of science diplomacy in South-East Europe.",
+      "objectiveCodes": [
+        "KNOW",
+        "INF",
+        "GLB"
+      ],
+      "positioning": "Secondary",
+      "explicitness": "Explicit",
+      "governance": "Central government ministry; a dedicated Department for Cultural and Scientific Diplomacy sits within the Directorate for Economic and Public Diplomacy and coordinates with line ministries, embassies and multilateral organisations.",
+      "tools": [
+        "Authority",
+        "Nodality",
+        "Organisation"
+      ],
+      "toolsInstruments": {
+        "strategic": [
+          "Authority"
+        ],
+        "operational": [
+          "Nodality",
+          "Organisation"
+        ],
+        "enabling": []
+      },
+      "sciFields": [
+        "General S&T",
+        "Artificial intelligence",
+        "Climate and environmental science"
+      ],
+      "networked": "Drafts and concludes international umbrella agreements on culture, education and science with other ministries; partnered with the Ministry of Higher Education, Science and Innovation, the Slovenian National Commission for UNESCO and the UNESCO Regional Bureau to co-organise the Regional Meeting on Science Diplomacy in Europe (Ljubljana, November 2025, supported by IRCAI); works with the Slovenian Science Foundation and embassies (e.g. Slovenian-Indian Festival of Science) and participates in the European Science Diplomacy Conferences.",
+      "relations": [
+        {
+          "type": "hosts",
+          "to": "Department for Cultural and Scientific Diplomacy"
+        },
+        {
+          "type": "convenes",
+          "to": "Regional Meeting on Science Diplomacy in Europe (Ljubljana 2025, with UNESCO)"
+        },
+        {
+          "type": "partners",
+          "to": "Ministry of Higher Education, Science and Innovation (Slovenia)"
+        },
+        {
+          "type": "partners",
+          "to": "UNESCO Regional Bureau for Science and Culture in Europe"
+        },
+        {
+          "type": "partners",
+          "to": "Slovenian Science Foundation"
+        }
+      ],
+      "documents": [
+        "International umbrella agreements in culture, education and science (bilateral protocols)",
+        "Recommendations and policy brief of the Regional Meeting on Science Diplomacy in Europe (Ljubljana, 2025)"
+      ],
+      "sources": [
+        {
+          "title": "Department for Cultural and Scientific Diplomacy - Ministry of Foreign and European Affairs (GOV.SI)",
+          "url": "https://www.gov.si/en/state-authorities/ministries/ministry-of-foreign-and-european-affairs/about-the-ministry/directorate-for-economic-and-public-diplomacy/department-for-cultural-and-scientific-diplomacy/",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "Shaping the Future: Regional Meeting on Science Diplomacy in Europe - UNESCO",
+          "url": "https://www.unesco.org/en/articles/shaping-future-regional-meeting-science-diplomacy-europe",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "Department for Cultural and Scientific Diplomacy, Ministry of Foreign and European Affairs - Culture.si",
+          "url": "https://www.culture.si/en/Department_for_Public_Diplomacy_and_International_Cooperation_in_Culture,_Ministry_of_Foreign_and_European_Affairs",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "Second European Science Diplomacy Conference in Copenhagen - GOV.SI",
+          "url": "https://www.gov.si/en/news/2025-12-18-second-european-science-diplomacy-conference-in-copenhagen/",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        }
+      ],
+      "alignment": {
+        "strategic": 2,
+        "operational": 3,
+        "enabling": 1,
+        "conduct": 1,
+        "note": "Among the most explicitly Framework-aligned actors in the region: the 2025 Ljubljana regional meeting it co-organised built directly on 'A European Framework for Science Diplomacy' (2025), and it participates in the European Science Diplomacy Conferences."
+      },
+      "coder": "CUSP Phase 3 (AI research agent, batch bgrohrsi)",
+      "dateCoded": "2026-07-10",
+      "confidence": "H",
+      "status": "verified",
+      "dateVerified": "2026-07-10"
+    },
+    {
+      "id": "si-asef",
+      "name": "ASEF - American Slovenian Education Foundation",
+      "country": "Slovenia",
+      "geography": "Transnational (Ljubljana & Menlo Park/Stanford, CA)",
+      "actorType": "NGO/Network",
+      "sdTypeFit": {
+        "s4d": "A",
+        "d4s": "B",
+        "SinD": "E",
+        "DinS": "E"
+      },
+      "foundedYear": 2014,
+      "sdSinceYear": 2014,
+      "activity": "A",
+      "domains": [
+        "General S&T",
+        "Higher education & talent",
+        "Computer science & AI"
+      ],
+      "orientation": "Cooperative",
+      "interestFocus": "Cross-border",
+      "coreObjective": "Connect the global Slovenian scientific diaspora with Slovenia through research fellowships and exchanges, turning diaspora scholarship into a soft-power and talent-circulation asset.",
+      "objectiveCodes": [
+        "DIA",
+        "TAL",
+        "TRU"
+      ],
+      "positioning": "Primary",
+      "explicitness": "Explicit",
+      "governance": "Private non-profit foundation founded in 2014, headquartered in California with the ASEF Institute for Education and Research in Ljubljana; governed by a board and run with academic mentors across universities worldwide; funded by donations, endowments and project grants.",
+      "tools": [
+        "Treasure",
+        "Nodality",
+        "Organisation"
+      ],
+      "toolsInstruments": {
+        "strategic": [],
+        "operational": [
+          "Nodality",
+          "Organisation"
+        ],
+        "enabling": [
+          "Treasure"
+        ]
+      },
+      "sciFields": [
+        "Computer science",
+        "Engineering",
+        "Natural and social sciences (fellowships across disciplines)"
+      ],
+      "networked": "Runs Junior Fellowships that have sent 200+ Slovenian students on 10-week research visits to leading universities (launched with Stanford Computer Science in 2014); co-organises the Slovenian American Virtual Academic Symposium (SAVAS) with the U.S. Embassy in Slovenia; conducted the research project 'Transatlantic Cooperation and the Diaspora as a Soft Power' with New University, linking it to Slovenian ministries, universities and diaspora communities.",
+      "relations": [
+        {
+          "type": "joint-initiative-of",
+          "to": "Slovenian American Virtual Academic Symposium (SAVAS), with the U.S. Embassy in Slovenia"
+        },
+        {
+          "type": "partners",
+          "to": "Stanford University (Computer Science summer research programme)"
+        },
+        {
+          "type": "partners",
+          "to": "University of Ljubljana"
+        },
+        {
+          "type": "partners",
+          "to": "New University (Nova univerza), Slovenia"
+        }
+      ],
+      "documents": [
+        "Transatlantic Cooperation and the Diaspora as a Soft Power - The Role and Importance of Intellectuals in the United States and Canada (research project)",
+        "ASEF Junior Fellowship programme materials and SAVAS symposium proceedings"
+      ],
+      "sources": [
+        {
+          "title": "About - ASEF (American Slovenian Education Foundation)",
+          "url": "https://asef.net/about/",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "American Slovenian Education Foundation - Culture.si",
+          "url": "https://www.culture.si/en/American_Slovenian_Education_Foundation",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "American Slovenian Education Foundation (ASEF) Junior Fellowships - University at Buffalo",
+          "url": "https://www.buffalo.edu/fellowships/funding/ASEF.html",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        }
+      ],
+      "alignment": {
+        "strategic": 3,
+        "operational": 3,
+        "enabling": 3,
+        "conduct": 1,
+        "note": "Exemplifies the diaspora-network channel the EU Framework highlights for talent circulation and transatlantic bridge-building; as a purpose-built non-state actor it complements, and cooperates with, Slovenia's official science-diplomacy structures."
+      },
+      "coder": "CUSP Phase 3 (AI research agent, batch bgrohrsi)",
+      "dateCoded": "2026-07-10",
+      "confidence": "H",
+      "status": "verified",
+      "dateVerified": "2026-07-10"
+    },
+    {
+      "id": "hu-mfat",
+      "name": "Ministry of Foreign Affairs and Trade (KKM) — TéT attaché network",
+      "country": "Hungary",
+      "geography": "National (Budapest)",
+      "actorType": "Diplomatic",
+      "sdTypeFit": {
+        "s4d": "B",
+        "d4s": "A",
+        "SinD": "E",
+        "DinS": "E"
+      },
+      "foundedYear": 2014,
+      "sdSinceYear": 2016,
+      "activity": "B",
+      "domains": [
+        "General S&T",
+        "Digital"
+      ],
+      "orientation": "Mixed",
+      "interestFocus": "National",
+      "coreObjective": "Advance Hungary's RDI interests abroad by hosting and financing the network of Science and Technology (TéT) attachés embedded in Hungarian missions.",
+      "objectiveCodes": [
+        "KNOW",
+        "ECO",
+        "INF"
+      ],
+      "positioning": "Secondary",
+      "explicitness": "Explicit",
+      "governance": "National ministry; dual structure — TéT attachés professionally supervised by NKFIH but organisationally/financially part of KKM missions (Instruction 10/2016); has a Cultural and Science Diplomacy department.",
+      "tools": [
+        "Organisation",
+        "Treasure",
+        "Nodality",
+        "Authority"
+      ],
+      "toolsInstruments": {
+        "strategic": [
+          "Authority"
+        ],
+        "operational": [
+          "Organisation",
+          "Nodality"
+        ],
+        "enabling": [
+          "Treasure"
+        ]
+      },
+      "sciFields": [
+        "Natural sciences",
+        "Engineering",
+        "Innovation"
+      ],
+      "networked": "Runs (jointly with NKFIH) TéT attachés at 11-14 stations incl. Berlin, Munich, Vienna, London, Paris, New York, San Francisco, Sao Paulo, Beijing, Seoul, Tel Aviv, Tokyo; active staffing (2025 Vienna call).",
+      "relations": [
+        {
+          "type": "hosts",
+          "to": "TéT (Science & Technology) attaché network"
+        },
+        {
+          "type": "funds",
+          "to": "TéT (Science & Technology) attaché network"
+        },
+        {
+          "type": "partners",
+          "to": "NKFIH (National Research, Development & Innovation Office)"
+        }
+      ],
+      "documents": [
+        "Instruction 10/2016 of the Minister of Foreign Affairs & Trade on S&T attachés",
+        "John von Neumann Programme — RDI strategy (2023)"
+      ],
+      "sources": [
+        {
+          "title": "NKFIH — Network of S&T diplomats",
+          "url": "https://nkfih.gov.hu/english/international-cooperation/bilateral-relations/st-diplomacy-at-foreign-missions/network-of-diplomats",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "Embassy of Hungary Paris — TéT attaché",
+          "url": "https://parizs.mfa.gov.hu/hun/page/tudomany-es-technologia",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "KKM Cultural & Science Diplomacy dept — TéT cooperation",
+          "url": "https://tdf.kormany.hu/altalanos-tet",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        }
+      ],
+      "alignment": {
+        "strategic": 2,
+        "operational": 3,
+        "enabling": 2,
+        "conduct": 1,
+        "note": "Matches the Framework's diplomacy-for-science channel — attachés in embassies as the national RDI-diplomacy delivery mechanism; strategic ownership shared with NKFIH, hence activity B."
+      },
+      "coder": "CUSP Phase 3 (AI research agent, batch hu)",
+      "dateCoded": "2026-07-10",
+      "confidence": "M",
+      "status": "verified",
+      "dateVerified": "2026-07-10"
+    },
+    {
+      "id": "hu-mta",
+      "name": "Hungarian Academy of Sciences (MTA)",
+      "country": "Hungary",
+      "geography": "National (Budapest)",
+      "actorType": "Scientific/Research",
+      "sdTypeFit": {
+        "s4d": "A",
+        "d4s": "B",
+        "SinD": "B",
+        "DinS": "E"
+      },
+      "foundedYear": 1825,
+      "sdSinceYear": 1999,
+      "activity": "A",
+      "domains": [
+        "General S&T"
+      ],
+      "orientation": "Cooperative",
+      "interestFocus": "Global",
+      "coreObjective": "Represent Hungarian science internationally and convene global science-policy dialogue as principal organiser of the World Science Forum (with UNESCO, ISC, AAAS, TWAS, EASAC).",
+      "objectiveCodes": [
+        "KNOW",
+        "DIA",
+        "EVI"
+      ],
+      "positioning": "Secondary",
+      "explicitness": "Explicit",
+      "governance": "Self-governing public body under Act XL of 1994; research-institute network transferred to ELKH/HUN-REN after the 2019 reform, leaving MTA as a learned society with in-house international relations & science advice.",
+      "tools": [
+        "Nodality",
+        "Organisation",
+        "Authority",
+        "Treasure"
+      ],
+      "toolsInstruments": {
+        "strategic": [
+          "Authority"
+        ],
+        "operational": [
+          "Nodality",
+          "Organisation"
+        ],
+        "enabling": [
+          "Treasure"
+        ]
+      },
+      "sciFields": [
+        "All fields"
+      ],
+      "networked": "Member of ALLEA, EASAC, ISC, IAP; bilateral academy agreements; 200th-anniversary programme (Nov 2025) with UNESCO ceremony in Paris; co-hosted ANSO-MTA Silk Road Forum (Sep 2025).",
+      "relations": [
+        {
+          "type": "member-of",
+          "to": "x-allea"
+        },
+        {
+          "type": "member-of",
+          "to": "EASAC"
+        },
+        {
+          "type": "member-of",
+          "to": "International Science Council (ISC)"
+        },
+        {
+          "type": "convenes",
+          "to": "World Science Forum (with UNESCO, ISC, AAAS, TWAS, EASAC)"
+        },
+        {
+          "type": "partners",
+          "to": "HUN-REN (former MTA research network)"
+        }
+      ],
+      "documents": [
+        "Act XL of 1994 on the MTA",
+        "World Science Forum declarations (Budapest)"
+      ],
+      "sources": [
+        {
+          "title": "MTA — 200th anniversary international events",
+          "url": "https://mta.hu/english/mta-200th-anniversary-international-events-114835",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "EASAC — member academies",
+          "url": "https://easac.eu/about-easac/member-academies",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "UNESCO — MTA 200th anniversary celebration",
+          "url": "https://www.unesco.org/en/articles/celebration-200th-anniversary-hungarian-academy-sciences",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        }
+      ],
+      "alignment": {
+        "strategic": 2,
+        "operational": 3,
+        "enabling": 2,
+        "conduct": 1,
+        "note": "Strong fit — science-in-diplomacy advice via EASAC/ALLEA and science-for-diplomacy convening via the UNESCO-partnered World Science Forum; the 2019 loss of its research network narrowed resources but not its explicit international SD role."
+      },
+      "coder": "CUSP Phase 3 (AI research agent, batch hu)",
+      "dateCoded": "2026-07-10",
+      "confidence": "H",
+      "status": "verified",
+      "dateVerified": "2026-07-10"
+    },
+    {
+      "id": "ig-cern",
+      "name": "CERN — European Organization for Nuclear Research",
+      "country": "Intergovernmental",
+      "hostCountry": "Switzerland/France (Geneva)",
+      "geography": "Intergovernmental — hosted on the Franco-Swiss border near Geneva",
+      "actorType": "Scientific/Research",
+      "sdTypeFit": {
+        "s4d": "A",
+        "d4s": "E",
+        "SinD": "E",
+        "DinS": "B"
+      },
+      "foundedYear": 1954,
+      "sdSinceYear": 1954,
+      "activity": "A",
+      "domains": [
+        "Particle physics",
+        "International cooperation",
+        "Peace-building"
+      ],
+      "orientation": "Cooperative",
+      "interestFocus": "Global",
+      "coreObjective": "Provide a world-leading particle-physics laboratory that unites nations around fundamental science while serving as a template for peaceful scientific collaboration.",
+      "objectiveCodes": [
+        "KNOW",
+        "TRU",
+        "GLB"
+      ],
+      "positioning": "Primary",
+      "explicitness": "Explicit",
+      "governance": "Treaty-based intergovernmental organisation established under the 1953 CERN Convention (auspices of UNESCO); governed by the CERN Council of Member States",
+      "tools": [
+        "Treasure",
+        "Authority",
+        "Nodality",
+        "Organisation"
+      ],
+      "toolsInstruments": {
+        "strategic": [
+          "Authority"
+        ],
+        "operational": [
+          "Nodality",
+          "Organisation"
+        ],
+        "enabling": [
+          "Treasure"
+        ]
+      },
+      "sciFields": [
+        "Particle physics",
+        "High-energy physics",
+        "Accelerator science",
+        "Computing"
+      ],
+      "networked": "Governed by a Council in which each of its 24 Member States (Estonia joined as the 24th in 2024, the first Baltic state) holds voting rights, plus Associate Members and Observers; convenes thousands of visiting scientists worldwide.",
+      "relations": [
+        {
+          "type": "member-of",
+          "to": "EIROforum"
+        },
+        {
+          "type": "hosts",
+          "to": "Large Hadron Collider (LHC)"
+        },
+        {
+          "type": "joint-initiative-of",
+          "to": "SESAME (Middle East synchrotron, model inspired by CERN)"
+        },
+        {
+          "type": "partners",
+          "to": "UNESCO"
+        }
+      ],
+      "documents": [
+        "Convention for the Establishment of a European Organization for Nuclear Research (1953)",
+        "CERN European Strategy for Particle Physics"
+      ],
+      "sources": [
+        {
+          "title": "CERN welcomes Estonia as its 24th Member State",
+          "url": "https://home.cern/news/press-release/cern/cern-welcomes-estonia-its-24th-member-state",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "CERN and UNESCO: 60 years of science for peace (UNESCO)",
+          "url": "https://www.unesco.org/en/articles/cern-and-unesco-60-years-science-peace",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "Estonia becomes 24th Member State (CERN Courier)",
+          "url": "https://cerncourier.com/a/estonia-becomes-24th-member-state/",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        }
+      ],
+      "alignment": {
+        "strategic": 3,
+        "operational": 3,
+        "enabling": 2,
+        "conduct": 1,
+        "note": "CERN is the archetypal science-for-diplomacy body cited by the EU framework: born of post-war reconciliation under UNESCO auspices and directly inspiring the SESAME bridge-building laboratory in the Middle East."
+      },
+      "coder": "CUSP Phase 3 (AI research agent, batch intergov)",
+      "dateCoded": "2026-07-10",
+      "confidence": "H",
+      "status": "verified",
+      "dateVerified": "2026-07-10"
+    },
+    {
+      "id": "ig-embl",
+      "name": "EMBL — European Molecular Biology Laboratory",
+      "country": "Intergovernmental",
+      "hostCountry": "Germany (Heidelberg) with sites in UK, France, Italy, Spain",
+      "geography": "Intergovernmental — headquartered in Heidelberg with six sites across Europe",
+      "actorType": "Scientific/Research",
+      "sdTypeFit": {
+        "s4d": "A",
+        "d4s": "E",
+        "SinD": "E",
+        "DinS": "B"
+      },
+      "foundedYear": 1974,
+      "sdSinceYear": 1974,
+      "activity": "A",
+      "domains": [
+        "Molecular biology",
+        "Life sciences",
+        "Training and mobility"
+      ],
+      "orientation": "Cooperative",
+      "interestFocus": "Global",
+      "coreObjective": "Advance molecular life sciences in Europe through shared research infrastructure, training of young scientists, and technology development across member states.",
+      "objectiveCodes": [
+        "KNOW",
+        "TAL",
+        "TRU"
+      ],
+      "positioning": "Primary",
+      "explicitness": "Explicit",
+      "governance": "Treaty-based intergovernmental organisation founded by the 1974 EMBL Agreement; governed by an EMBL Council of Member States",
+      "tools": [
+        "Treasure",
+        "Authority",
+        "Nodality",
+        "Organisation"
+      ],
+      "toolsInstruments": {
+        "strategic": [
+          "Authority"
+        ],
+        "operational": [
+          "Nodality",
+          "Organisation"
+        ],
+        "enabling": [
+          "Treasure"
+        ]
+      },
+      "sciFields": [
+        "Molecular biology",
+        "Structural biology",
+        "Genomics",
+        "Bioinformatics"
+      ],
+      "networked": "Governed by a Council of its ~29 member states (expanding eastward with Estonia and Latvia joining in 2023), plus prospect and associate members; a distributed six-site network training international cohorts of scientists.",
+      "relations": [
+        {
+          "type": "member-of",
+          "to": "EIROforum"
+        },
+        {
+          "type": "hosts",
+          "to": "European Bioinformatics Institute (EMBL-EBI, Hinxton UK)"
+        },
+        {
+          "type": "partners",
+          "to": "European life-science research infrastructures"
+        }
+      ],
+      "documents": [
+        "Agreement establishing the European Molecular Biology Laboratory (1974)",
+        "EMBL Programme (rolling multi-year scientific programme)"
+      ],
+      "sources": [
+        {
+          "title": "Member states | EMBL.org",
+          "url": "https://www.embl.org/about/member-states/",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "European Molecular Biology Laboratory (EMBL) — UKRI",
+          "url": "https://www.ukri.org/what-we-do/browse-our-areas-of-investment-and-support/european-molecular-biology-laboratory/",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "European Molecular Biology Laboratory — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/European_Molecular_Biology_Laboratory",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        }
+      ],
+      "alignment": {
+        "strategic": 3,
+        "operational": 3,
+        "enabling": 2,
+        "conduct": 1,
+        "note": "EMBL embodies science-for-diplomacy through pan-European life-science cooperation and talent mobility, steadily widening membership as an instrument of European scientific integration."
+      },
+      "coder": "CUSP Phase 3 (AI research agent, batch intergov)",
+      "dateCoded": "2026-07-10",
+      "confidence": "H",
+      "status": "verified",
+      "dateVerified": "2026-07-10"
+    },
+    {
+      "id": "ig-esa",
+      "name": "ESA — European Space Agency",
+      "country": "Intergovernmental",
+      "hostCountry": "France (Paris HQ) with centres in Germany, Italy, Netherlands, Spain",
+      "geography": "Intergovernmental — headquartered in Paris with establishments across Europe",
+      "actorType": "Scientific/Research",
+      "sdTypeFit": {
+        "s4d": "A",
+        "d4s": "E",
+        "SinD": "E",
+        "DinS": "B"
+      },
+      "foundedYear": 1975,
+      "sdSinceYear": 1975,
+      "activity": "A",
+      "domains": [
+        "Space science",
+        "Earth observation",
+        "International cooperation",
+        "Space policy"
+      ],
+      "orientation": "Cooperative",
+      "interestFocus": "Global",
+      "coreObjective": "Shape the development of Europe's space capability through joint programmes in science, exploration, Earth observation and access to space for the benefit of member states.",
+      "objectiveCodes": [
+        "KNOW",
+        "GLB",
+        "ECO"
+      ],
+      "positioning": "Primary",
+      "explicitness": "Explicit",
+      "governance": "Treaty-based intergovernmental organisation under the 1975 ESA Convention; governed by the ESA Council with mandatory and optional programmes",
+      "tools": [
+        "Treasure",
+        "Authority",
+        "Nodality",
+        "Organisation"
+      ],
+      "toolsInstruments": {
+        "strategic": [
+          "Authority"
+        ],
+        "operational": [
+          "Nodality",
+          "Organisation"
+        ],
+        "enabling": [
+          "Treasure"
+        ]
+      },
+      "sciFields": [
+        "Astrophysics",
+        "Planetary science",
+        "Earth observation",
+        "Space technology"
+      ],
+      "networked": "Governed by a Council of its 23 Member States (Slovenia acceded as the 23rd on 1 January 2025) plus Associate and Cooperating States; coordinates with the EU, NASA and other space agencies.",
+      "relations": [
+        {
+          "type": "partners",
+          "to": "European Union (EU–ESA cooperation, Copernicus, Galileo)"
+        },
+        {
+          "type": "partners",
+          "to": "NASA and international space agencies"
+        },
+        {
+          "type": "member-of",
+          "to": "EIROforum"
+        }
+      ],
+      "documents": [
+        "Convention for the Establishment of a European Space Agency (1975)",
+        "ESA Agenda / long-term strategy"
+      ],
+      "sources": [
+        {
+          "title": "Slovenia becomes 23rd ESA Member State (ESA)",
+          "url": "https://www.esa.int/About_Us/Corporate_news/Slovenia_becomes_23rd_ESA_Member_State",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "European Space Agency — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/European_Space_Agency",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "European Space Agency (ESA) — Britannica",
+          "url": "https://www.britannica.com/topic/European-Space-Agency",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        }
+      ],
+      "alignment": {
+        "strategic": 3,
+        "operational": 3,
+        "enabling": 2,
+        "conduct": 1,
+        "note": "ESA is central to European space diplomacy: its consensus model across 23 nations and free-and-open programmes such as Copernicus project EU soft power and underpin science-for-diplomacy toward Africa and global partners."
+      },
+      "coder": "CUSP Phase 3 (AI research agent, batch intergov)",
+      "dateCoded": "2026-07-10",
+      "confidence": "H",
+      "status": "verified",
+      "dateVerified": "2026-07-10"
+    },
+    {
+      "id": "ig-eso",
+      "name": "ESO — European Southern Observatory",
+      "country": "Intergovernmental",
+      "hostCountry": "Germany (Garching HQ); observatories in Chile",
+      "geography": "Intergovernmental — headquartered near Munich with telescopes hosted in Chile",
+      "actorType": "Scientific/Research",
+      "sdTypeFit": {
+        "s4d": "A",
+        "d4s": "E",
+        "SinD": "E",
+        "DinS": "B"
+      },
+      "foundedYear": 1962,
+      "sdSinceYear": 1962,
+      "activity": "A",
+      "domains": [
+        "Astronomy",
+        "Astrophysics",
+        "International cooperation"
+      ],
+      "orientation": "Cooperative",
+      "interestFocus": "Global",
+      "coreObjective": "Build and operate world-class ground-based astronomical facilities that give European astronomers access to the southern sky under intergovernmental partnership.",
+      "objectiveCodes": [
+        "KNOW",
+        "GLB",
+        "TRU"
+      ],
+      "positioning": "Primary",
+      "explicitness": "Explicit",
+      "governance": "Treaty-based intergovernmental organisation under the 1962 ESO Convention; governed by the ESO Council, with host-state agreements with Chile",
+      "tools": [
+        "Treasure",
+        "Authority",
+        "Nodality",
+        "Organisation"
+      ],
+      "toolsInstruments": {
+        "strategic": [
+          "Authority"
+        ],
+        "operational": [
+          "Nodality",
+          "Organisation"
+        ],
+        "enabling": [
+          "Treasure"
+        ]
+      },
+      "sciFields": [
+        "Astronomy",
+        "Astrophysics",
+        "Cosmology",
+        "Instrumentation"
+      ],
+      "networked": "Governed by a Council of its 16 Member States plus host state Chile and Australia as a Strategic Partner; operates La Silla, Paranal (VLT) and builds the Extremely Large Telescope in Chile.",
+      "relations": [
+        {
+          "type": "member-of",
+          "to": "EIROforum"
+        },
+        {
+          "type": "hosts",
+          "to": "Very Large Telescope and Extremely Large Telescope (Chile)"
+        },
+        {
+          "type": "partners",
+          "to": "Republic of Chile (host-state agreements)"
+        },
+        {
+          "type": "partners",
+          "to": "Australia (Strategic Partner)"
+        }
+      ],
+      "documents": [
+        "Convention establishing the European Southern Observatory (1962)",
+        "ESO–Chile international agreements"
+      ],
+      "sources": [
+        {
+          "title": "Member States | ESO",
+          "url": "https://www.eso.org/public/about-eso/memberstates/",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "European Southern Observatory — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/European_Southern_Observatory",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "ESO | Members | EIROforum",
+          "url": "https://www.eiroforum.org/about-eiroforum/members/eso/",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        }
+      ],
+      "alignment": {
+        "strategic": 3,
+        "operational": 3,
+        "enabling": 2,
+        "conduct": 1,
+        "note": "ESO demonstrates science-for-diplomacy both intra-European (16 member states pooling astronomy funding) and externally through its decades-long host partnership with Chile and strategic partnership with Australia."
+      },
+      "coder": "CUSP Phase 3 (AI research agent, batch intergov)",
+      "dateCoded": "2026-07-10",
+      "confidence": "H",
+      "status": "verified",
+      "dateVerified": "2026-07-10"
+    },
+    {
+      "id": "ig-ess",
+      "name": "ESS — European Spallation Source ERIC",
+      "country": "Intergovernmental",
+      "hostCountry": "Sweden (Lund) with data centre in Denmark (Copenhagen)",
+      "geography": "Intergovernmental — sited in Lund, Sweden, with the data management centre in Copenhagen, Denmark",
+      "actorType": "Scientific/Research",
+      "sdTypeFit": {
+        "s4d": "A",
+        "d4s": "E",
+        "SinD": "E",
+        "DinS": "B"
+      },
+      "foundedYear": 2015,
+      "sdSinceYear": 2015,
+      "activity": "B",
+      "domains": [
+        "Neutron science",
+        "Materials research",
+        "Research infrastructure"
+      ],
+      "orientation": "Cooperative",
+      "interestFocus": "Cross-border",
+      "coreObjective": "Build and operate the world's most powerful neutron source as a shared European facility for materials and life-science research.",
+      "objectiveCodes": [
+        "KNOW",
+        "TRU",
+        "ECO"
+      ],
+      "positioning": "Primary",
+      "explicitness": "Implicit",
+      "governance": "European Research Infrastructure Consortium (ERIC) — the first ERIC in Scandinavia, established 2015; governed by an ESS ERIC Council of member and observer countries",
+      "tools": [
+        "Treasure",
+        "Authority",
+        "Organisation"
+      ],
+      "toolsInstruments": {
+        "strategic": [
+          "Authority"
+        ],
+        "operational": [
+          "Organisation"
+        ],
+        "enabling": [
+          "Treasure"
+        ]
+      },
+      "sciFields": [
+        "Neutron scattering",
+        "Materials science",
+        "Condensed matter physics",
+        "Structural biology"
+      ],
+      "networked": "Governed by an ESS ERIC Council of ~13 member and observer countries; host nations Sweden and Denmark jointly cover roughly half the construction cost, with other European states contributing largely in-kind.",
+      "relations": [
+        {
+          "type": "member-of",
+          "to": "EIROforum"
+        },
+        {
+          "type": "hosts",
+          "to": "European Spallation Source facility (Lund)"
+        },
+        {
+          "type": "partners",
+          "to": "European neutron and photon research infrastructures (LENS)"
+        }
+      ],
+      "documents": [
+        "Statutes of the European Spallation Source ERIC",
+        "EC Implementing Decision establishing ESS ERIC (2015)"
+      ],
+      "sources": [
+        {
+          "title": "Governance | ESS",
+          "url": "https://ess.eu/ess-organisation/governance",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "European Spallation Source — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/European_Spallation_Source",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "ESS | Members | EIROforum",
+          "url": "https://www.eiroforum.org/about-eiroforum/members/ess/",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        }
+      ],
+      "alignment": {
+        "strategic": 1,
+        "operational": 3,
+        "enabling": 1,
+        "conduct": 1,
+        "note": "As the first ERIC in Scandinavia, ESS shows the ERIC legal instrument functioning as a science-for-diplomacy vehicle, binding host states Sweden and Denmark and eleven partner countries into a shared big-science facility."
+      },
+      "coder": "CUSP Phase 3 (AI research agent, batch intergov)",
+      "dateCoded": "2026-07-10",
+      "confidence": "H",
+      "status": "verified",
+      "dateVerified": "2026-07-10"
+    },
+    {
+      "id": "ig-ecmwf",
+      "name": "ECMWF — European Centre for Medium-Range Weather Forecasts",
+      "country": "Intergovernmental",
+      "hostCountry": "United Kingdom (Reading) with sites in Italy (Bologna) and Germany (Bonn)",
+      "geography": "Intergovernmental — headquartered in Reading, UK, with a data centre in Bologna and a site in Bonn",
+      "actorType": "Scientific/Research",
+      "sdTypeFit": {
+        "s4d": "A",
+        "d4s": "E",
+        "SinD": "E",
+        "DinS": "B"
+      },
+      "foundedYear": 1975,
+      "sdSinceYear": 1975,
+      "activity": "A",
+      "domains": [
+        "Weather forecasting",
+        "Climate services",
+        "Earth observation"
+      ],
+      "orientation": "Cooperative",
+      "interestFocus": "Global",
+      "coreObjective": "Produce and deliver global medium-range weather forecasts and climate data as a shared intergovernmental service to member and cooperating states.",
+      "objectiveCodes": [
+        "EVI",
+        "KNOW",
+        "GLB"
+      ],
+      "positioning": "Primary",
+      "explicitness": "Implicit",
+      "governance": "Treaty-based intergovernmental organisation under the ECMWF Convention (in force 1 November 1975, amended 2010); governed by the ECMWF Council",
+      "tools": [
+        "Treasure",
+        "Authority",
+        "Nodality",
+        "Organisation"
+      ],
+      "toolsInstruments": {
+        "strategic": [
+          "Authority"
+        ],
+        "operational": [
+          "Nodality",
+          "Organisation"
+        ],
+        "enabling": [
+          "Treasure"
+        ]
+      },
+      "sciFields": [
+        "Numerical weather prediction",
+        "Meteorology",
+        "Climate science",
+        "Data assimilation"
+      ],
+      "networked": "Governed by a Council of its 23 Member States and 12 Co-operating States; operates the EU Copernicus climate and atmosphere services on behalf of the European Commission.",
+      "relations": [
+        {
+          "type": "member-of",
+          "to": "EIROforum"
+        },
+        {
+          "type": "partners",
+          "to": "European Union (Copernicus Climate Change and Atmosphere Monitoring Services)"
+        },
+        {
+          "type": "partners",
+          "to": "World Meteorological Organization (WMO)"
+        }
+      ],
+      "documents": [
+        "Convention establishing the European Centre for Medium-Range Weather Forecasts (1973, in force 1975; amended 2010)"
+      ],
+      "sources": [
+        {
+          "title": "Member States | ECMWF",
+          "url": "https://www.ecmwf.int/en/about/who-we-are/member-states",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "History | ECMWF",
+          "url": "https://www.ecmwf.int/en/about/who-we-are/history",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "European Centre for Medium-Range Weather Forecasts — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/European_Centre_for_Medium-Range_Weather_Forecasts",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        }
+      ],
+      "alignment": {
+        "strategic": 1,
+        "operational": 3,
+        "enabling": 2,
+        "conduct": 1,
+        "note": "ECMWF operationalises evidence-for-policy science diplomacy: a shared intergovernmental forecasting service delivering the EU's Copernicus climate and atmosphere data as a global public good."
+      },
+      "coder": "CUSP Phase 3 (AI research agent, batch intergov)",
+      "dateCoded": "2026-07-10",
+      "confidence": "H",
+      "status": "verified",
+      "dateVerified": "2026-07-10"
+    },
+    {
+      "id": "ig-eurohpc",
+      "name": "EuroHPC — European High Performance Computing Joint Undertaking",
+      "country": "Intergovernmental",
+      "hostCountry": "Luxembourg (Luxembourg City)",
+      "geography": "Intergovernmental (EU Joint Undertaking) — seated in Luxembourg City",
+      "actorType": "Scientific/Research",
+      "sdTypeFit": {
+        "s4d": "A",
+        "d4s": "E",
+        "SinD": "E",
+        "DinS": "B"
+      },
+      "foundedYear": 2018,
+      "sdSinceYear": 2018,
+      "activity": "A",
+      "domains": [
+        "High-performance computing",
+        "Artificial intelligence",
+        "Quantum computing",
+        "Digital sovereignty"
+      ],
+      "orientation": "Mixed",
+      "interestFocus": "Cross-border",
+      "coreObjective": "Pool EU and national resources to build a world-class European supercomputing, AI and quantum ecosystem and secure European digital sovereignty.",
+      "objectiveCodes": [
+        "ECO",
+        "KNOW",
+        "SEC"
+      ],
+      "positioning": "Primary",
+      "explicitness": "Explicit",
+      "governance": "EU Joint Undertaking (public–public/private partnership) established by Council Regulation (EU) 2018/1488, recast by (EU) 2021/1173 and amended in 2024 and 2026; governed by a Governing Board of the EU and Participating States",
+      "tools": [
+        "Treasure",
+        "Authority",
+        "Organisation",
+        "Nodality"
+      ],
+      "toolsInstruments": {
+        "strategic": [
+          "Authority"
+        ],
+        "operational": [
+          "Organisation",
+          "Nodality"
+        ],
+        "enabling": [
+          "Treasure"
+        ]
+      },
+      "sciFields": [
+        "High-performance computing",
+        "Artificial intelligence",
+        "Quantum computing",
+        "Computational science"
+      ],
+      "networked": "A Joint Undertaking pooling the European Union, ~32 participating European states and private members; its Governing Board directs procurement and siting of pan-European supercomputers and, since 2026, AI Gigafactories and quantum systems.",
+      "relations": [
+        {
+          "type": "funds",
+          "to": "EuroHPC supercomputing sites (LUMI, Leonardo, MareNostrum, JUPITER, etc.)"
+        },
+        {
+          "type": "part-of",
+          "to": "European Union (Joint Undertaking)"
+        },
+        {
+          "type": "coordinates",
+          "to": "National HPC competence centres and participating states"
+        }
+      ],
+      "documents": [
+        "Council Regulation (EU) 2021/1173 establishing the EuroHPC Joint Undertaking",
+        "Council Regulation (EU) 2024/1732 and 2026 amendment (AI Gigafactories, quantum)"
+      ],
+      "sources": [
+        {
+          "title": "Regulation (EU) 2021/1173 — EUR-Lex",
+          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32021R1173",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "EuroHPC JU's Mandate Expanded Under New Regulation Amendment (EuroHPC JU)",
+          "url": "https://www.eurohpc-ju.europa.eu/eurohpc-jus-mandate-expanded-under-new-regulation-amendment-2026-01-20_en",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "European High-Performance Computing Joint Undertaking — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/European_High-Performance_Computing_Joint_Undertaking",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        }
+      ],
+      "alignment": {
+        "strategic": 3,
+        "operational": 3,
+        "enabling": 2,
+        "conduct": 1,
+        "note": "EuroHPC is a distinctly EU-flavoured science-for-diplomacy instrument: a Joint Undertaking mobilising 32 states around digital sovereignty, with a mixed cooperative/competitive orientation reflecting strategic autonomy goals."
+      },
+      "coder": "CUSP Phase 3 (AI research agent, batch intergov)",
+      "dateCoded": "2026-07-10",
+      "confidence": "H",
+      "status": "verified",
+      "dateVerified": "2026-07-10"
+    },
+    {
+      "id": "lt-eimin",
+      "name": "Ministry of the Economy and Innovation (EIMIN)",
+      "country": "Lithuania",
+      "geography": "National (Vilnius)",
+      "actorType": "Governmental/IO",
+      "sdTypeFit": {
+        "s4d": "B",
+        "d4s": "A",
+        "SinD": "E",
+        "DinS": "E"
+      },
+      "foundedYear": 1990,
+      "sdSinceYear": 2019,
+      "activity": "A",
+      "domains": [
+        "General S&T",
+        "Digital"
+      ],
+      "orientation": "Cooperative",
+      "interestFocus": "National",
+      "coreObjective": "Advance Lithuania's economic and innovation diplomacy via the commercial/innovation attaché network and agencies connecting Lithuanian high-tech to foreign ecosystems.",
+      "objectiveCodes": [
+        "ECO",
+        "KNOW",
+        "TAL"
+      ],
+      "positioning": "Secondary",
+      "explicitness": "Implicit",
+      "governance": "Government ministry; renamed Ministry of the Economy and Innovation in 2019 (innovation portfolio added); owner of Innovation Agency Lithuania (2022).",
+      "tools": [
+        "Organisation",
+        "Treasure",
+        "Nodality",
+        "Authority"
+      ],
+      "toolsInstruments": {
+        "strategic": [
+          "Authority"
+        ],
+        "operational": [
+          "Organisation",
+          "Nodality"
+        ],
+        "enabling": [
+          "Treasure"
+        ]
+      },
+      "sciFields": [
+        "Lasers & photonics",
+        "Life sciences",
+        "Fintech & ICT",
+        "Cybersecurity"
+      ],
+      "networked": "Runs a worldwide commercial-attaché network with innovation mandate (Brussels, LA, NY, Chicago, Tokyo, Tel Aviv, China, Finland); operates InnoHub Lithuania in Silicon Valley via Innovation Agency Lithuania; works alongside the MFA's 'Global Lithuania' diaspora programme.",
+      "relations": [
+        {
+          "type": "steers",
+          "to": "Innovation Agency Lithuania"
+        },
+        {
+          "type": "coordinates",
+          "to": "Lithuanian commercial/innovation attaché network"
+        },
+        {
+          "type": "hosts",
+          "to": "InnoHub Lithuania (Silicon Valley)"
+        },
+        {
+          "type": "partners",
+          "to": "Lithuanian MFA (Global Lithuania)"
+        }
+      ],
+      "documents": [
+        "National Progress Plan 2021-2030 (innovation objectives)",
+        "Regulations of commercial (economic) affairs attachés"
+      ],
+      "sources": [
+        {
+          "title": "Attaché and trade representatives - EIMIN",
+          "url": "https://eimin.lrv.lt/en/structure-and-contacts/attache-and-trade-representatives/",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "Lithuania establishes InnoHub in Silicon Valley - Lithuania.lt",
+          "url": "https://lithuania.lt/news/business-and-innovations-in-lithuania/lithuania-establishes-innohub-in-silicon-valley-to-boost-tech-innovation/",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "EIMIN news: new commercial attaché in Japan",
+          "url": "https://eimin.lrv.lt/lt/ziniasklaidai/naujienos/eimin-naujasis-lietuvos-komercijos-atase-japonijoje-stiprins-verslo-partneryste-O819/",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        }
+      ],
+      "alignment": {
+        "strategic": 0,
+        "operational": 3,
+        "enabling": 2,
+        "conduct": 1,
+        "note": "Fits the Framework's diplomacy-for-science/innovation strand — diplomatic postings and overseas hubs for ecosystem access, framed as economic/innovation diplomacy rather than SD. Note: attachés are formally commercial attachés with innovation mandates; a distinct 'innovation attaché' title could not be independently verified."
+      },
+      "coder": "CUSP Phase 3 (AI research agent, batch lt)",
+      "dateCoded": "2026-07-10",
+      "confidence": "M",
+      "status": "verified",
+      "dateVerified": "2026-07-10"
+    },
+    {
+      "id": "lt-lmt",
+      "name": "Research Council of Lithuania (LMT)",
+      "country": "Lithuania",
+      "geography": "National (Vilnius)",
+      "actorType": "Scientific/Research",
+      "sdTypeFit": {
+        "s4d": "E",
+        "d4s": "A",
+        "SinD": "B",
+        "DinS": "B"
+      },
+      "foundedYear": 1991,
+      "sdSinceYear": 2011,
+      "activity": "A",
+      "domains": [
+        "General S&T"
+      ],
+      "orientation": "Cooperative",
+      "interestFocus": "Cross-border",
+      "coreObjective": "Fund Lithuanian research and integrate it internationally: Horizon Europe NCPs, EURAXESS coordination, bilateral programmes (incl. Ukraine), representation in European research bodies.",
+      "objectiveCodes": [
+        "KNOW",
+        "TAL",
+        "EVI"
+      ],
+      "positioning": "Secondary",
+      "explicitness": "Implicit",
+      "governance": "National research council & funding agency established by the Seimas (1991); advisory body to Seimas and Government.",
+      "tools": [
+        "Treasure",
+        "Nodality",
+        "Organisation"
+      ],
+      "toolsInstruments": {
+        "strategic": [],
+        "operational": [
+          "Nodality",
+          "Organisation"
+        ],
+        "enabling": [
+          "Treasure"
+        ]
+      },
+      "sciFields": [
+        "All fields"
+      ],
+      "networked": "Hosts Lithuania's Horizon Europe NCP network; national EURAXESS coordinator since 2011; involved in the LINO Brussels liaison office; Science Europe member; administers COST coordination and the Lithuania-Ukraine bilateral programme.",
+      "relations": [
+        {
+          "type": "advises",
+          "to": "Seimas and Government of Lithuania"
+        },
+        {
+          "type": "member-of",
+          "to": "Science Europe"
+        },
+        {
+          "type": "coordinates",
+          "to": "EURAXESS Lithuania"
+        },
+        {
+          "type": "coordinates",
+          "to": "Horizon Europe NCPs (Lithuania)"
+        },
+        {
+          "type": "joint-initiative-of",
+          "to": "Lithuania-Ukraine bilateral research programme"
+        }
+      ],
+      "documents": [
+        "Law on the Research Council of Lithuania (1991, as amended)",
+        "Lithuania-Ukraine bilateral S&T cooperation programme"
+      ],
+      "sources": [
+        {
+          "title": "Membership and representation - LMT",
+          "url": "https://www.lmt.lt/en/science-policy-implementation/international-collaboration/membership-and-representation/2552",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "Horizon Europe NCPs - LMT",
+          "url": "https://www.lmt.lt/en/horizon-europe/national-contact-points-ncps-services-and-contacts/3679",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "Lithuania-Ukraine programme - LMT",
+          "url": "https://www.lmt.lt/en/research-funding/international-collaborations/lithuania-ukraine/818",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        }
+      ],
+      "alignment": {
+        "strategic": 0,
+        "operational": 3,
+        "enabling": 2,
+        "conduct": 1,
+        "note": "Strongly aligned with the Framework's diplomacy-for-science dimension — operationalises Lithuania's EU and bilateral research access without explicit SD labelling. Confidence M: official .lt sites returned 403 via the research proxy, URLs evidenced through search-index results."
+      },
+      "coder": "CUSP Phase 3 (AI research agent, batch lt)",
+      "dateCoded": "2026-07-10",
+      "confidence": "M",
+      "status": "draft"
+    },
+    {
+      "id": "lu-lsa",
+      "name": "Luxembourg Space Agency (LSA)",
+      "country": "Luxembourg",
+      "geography": "National (Luxembourg City)",
+      "actorType": "Governmental/IO",
+      "sdTypeFit": {
+        "s4d": "B",
+        "d4s": "A",
+        "SinD": "B",
+        "DinS": "E"
+      },
+      "foundedYear": 2018,
+      "sdSinceYear": 2018,
+      "activity": "A",
+      "domains": [
+        "Space"
+      ],
+      "orientation": "Cooperative",
+      "interestFocus": "National",
+      "coreObjective": "Develop Luxembourg's commercial space ecosystem by brokering international agreements and representing the country in ESA, EU and UN space fora.",
+      "objectiveCodes": [
+        "ECO",
+        "GOV",
+        "GLB"
+      ],
+      "positioning": "Primary",
+      "explicitness": "Implicit",
+      "governance": "State agency created in September 2018 under the Ministry of the Economy; represents Luxembourg in ESA and in EU and UN space programmes and carries forward the SpaceResources.lu initiative (2016) and the 2017 space-resources law.",
+      "tools": [
+        "Treasure",
+        "Authority",
+        "Nodality",
+        "Organisation"
+      ],
+      "toolsInstruments": {
+        "strategic": [
+          "Authority"
+        ],
+        "operational": [
+          "Nodality",
+          "Organisation"
+        ],
+        "enabling": [
+          "Treasure"
+        ]
+      },
+      "sciFields": [
+        "Space science and technology",
+        "Space resources utilisation",
+        "Earth observation",
+        "Space law and policy"
+      ],
+      "networked": "Densely networked internationally for a micro-state agency: MoU-based cooperation with NASA (2019 joint statement, 2024 US-Luxembourg framework agreement), partnership with ESA on space resources, founding signatory context for the Artemis Accords, and a 2025 agreement with the European Space Policy Institute (ESPI).",
+      "relations": [
+        {
+          "type": "part-of",
+          "to": "Ministry of the Economy (Luxembourg)"
+        },
+        {
+          "type": "partners",
+          "to": "NASA"
+        },
+        {
+          "type": "member-of",
+          "to": "European Space Agency (Luxembourg delegation)"
+        },
+        {
+          "type": "partners",
+          "to": "European Space Policy Institute (ESPI)"
+        }
+      ],
+      "documents": [
+        "Law of 20 July 2017 on the Exploration and Use of Space Resources",
+        "NASA-LSA Joint Statement of Intent (22 October 2019)",
+        "US-Luxembourg Framework Agreement on cooperation in the exploration of space resources for peaceful purposes (December 2024)"
+      ],
+      "sources": [
+        {
+          "title": "The Agency - Luxembourg Space Agency",
+          "url": "https://space-agency.public.lu/en/agency.html",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "Joint Statement Signing Between NASA and the Luxembourg Space Agency - NASA",
+          "url": "https://www.nasa.gov/image-article/joint-statement-signing-between-nasa-luxembourg-space-agency/",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "USA and Luxembourg sign new framework agreement to cooperate in the exploration of space resources - Luxembourg Government",
+          "url": "https://gouvernement.lu/en/gouvernement/delles-lex/actualites.gouvernement2024+en+actualites+toutes_actualites+communiques+2024+12-decembre+13-delles-nelson.html",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "New Agreement between LSA and ESPI - Luxembourg Government (October 2025)",
+          "url": "https://gouvernement.lu/en/actualites/toutes_actualites/communiques/2025/10-octobre/31-agreement-lsa-espi.html",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        }
+      ],
+      "alignment": {
+        "strategic": 1,
+        "operational": 3,
+        "enabling": 2,
+        "conduct": 1,
+        "note": "Textbook small-state science diplomacy: Luxembourg uses bilateral space agreements and norm-shaping on space resources (SinD/DinS dimension) to punch above its weight, closely matching the EU Framework's emphasis on leveraging S&T assets for economic and geopolitical positioning."
+      },
+      "coder": "CUSP Phase 3 (AI research agent, batch lucymt)",
+      "dateCoded": "2026-07-10",
+      "confidence": "H",
+      "status": "verified",
+      "dateVerified": "2026-07-10"
+    },
+    {
+      "id": "lu-fnr",
+      "name": "Luxembourg National Research Fund (Fonds National de la Recherche, FNR)",
+      "country": "Luxembourg",
+      "geography": "National (Esch-sur-Alzette/Belval)",
+      "actorType": "Scientific/Research",
+      "sdTypeFit": {
+        "s4d": "E",
+        "d4s": "A",
+        "SinD": "E",
+        "DinS": "E"
+      },
+      "foundedYear": 1999,
+      "sdSinceYear": null,
+      "activity": "B",
+      "domains": [
+        "Multidisciplinary"
+      ],
+      "orientation": "Cooperative",
+      "interestFocus": "Cross-border",
+      "coreObjective": "Fund and internationalise Luxembourg's public research system, using bilateral agency-to-agency agreements and multilateral networks to give national research a higher international profile.",
+      "objectiveCodes": [
+        "KNOW",
+        "TAL",
+        "GLB"
+      ],
+      "positioning": "Secondary",
+      "explicitness": "Implicit",
+      "governance": "Public establishment created by the Law of 31 May 1999, supervised by the Ministry of Higher Education and Research; governed by a board and executive secretariat.",
+      "tools": [
+        "Treasure",
+        "Organisation",
+        "Nodality"
+      ],
+      "toolsInstruments": {
+        "strategic": [],
+        "operational": [
+          "Organisation",
+          "Nodality"
+        ],
+        "enabling": [
+          "Treasure"
+        ]
+      },
+      "sciFields": [
+        "All fields (multidisciplinary funder)",
+        "Health",
+        "Digital/ICT",
+        "Sustainable development"
+      ],
+      "networked": "Runs the INTER programme with bilateral collaboration agreements with 18 foreign funding agencies (incl. ANR France, FWO/F.R.S-FNRS Belgium, UKRI, US NSF, NRF Korea) and participates in 12 international research networks; member of the International Science Council.",
+      "relations": [
+        {
+          "type": "member-of",
+          "to": "International Science Council"
+        },
+        {
+          "type": "partners",
+          "to": "Agence Nationale de la Recherche (France)"
+        },
+        {
+          "type": "partners",
+          "to": "US National Science Foundation"
+        },
+        {
+          "type": "partners",
+          "to": "National Research Foundation of Korea"
+        }
+      ],
+      "documents": [
+        "Law of 31 May 1999 establishing the FNR",
+        "FNR Annual Report 2020",
+        "INTER programme bilateral agreements"
+      ],
+      "sources": [
+        {
+          "title": "INTER - International Cooperation - FNR",
+          "url": "https://www.fnr.lu/international-cooperation/",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "Luxembourg, National Research Fund (FNR) - International Science Council",
+          "url": "https://council.science/member/luxembourg-fonds-national-de-la-recherche/",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "Fonds national de la Recherche (FNR) - Ministry of Higher Education and Research, Luxembourg",
+          "url": "https://mesr.gouvernement.lu/en/le-ministere/annuaire.html?id=1042",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        }
+      ],
+      "alignment": {
+        "strategic": 0,
+        "operational": 3,
+        "enabling": 2,
+        "conduct": 1,
+        "note": "Classic diplomacy-for-science funder: its bilateral lead-agency agreements and multilateral network memberships build the connective tissue the EU Framework relies on, though FNR does not frame its work in explicit science-diplomacy terms; sdSinceYear left null as the first bilateral agreement is not reliably datable."
+      },
+      "coder": "CUSP Phase 3 (AI research agent, batch lucymt)",
+      "dateCoded": "2026-07-10",
+      "confidence": "H",
+      "status": "verified",
+      "dateVerified": "2026-07-10"
+    },
+    {
+      "id": "cy-rif",
+      "name": "Research and Innovation Foundation (RIF / IDEK)",
+      "country": "Cyprus",
+      "geography": "National (Nicosia)",
+      "actorType": "Scientific/Research",
+      "sdTypeFit": {
+        "s4d": "B",
+        "d4s": "A",
+        "SinD": "E",
+        "DinS": "E"
+      },
+      "foundedYear": 1996,
+      "sdSinceYear": null,
+      "activity": "B",
+      "domains": [
+        "Multidisciplinary",
+        "Innovation/Startups"
+      ],
+      "orientation": "Cooperative",
+      "interestFocus": "National",
+      "coreObjective": "Act as the executive arm of Cyprus's R&I system, funding research and implementing bilateral S&T agreements and MoUs that connect Cypriot researchers and innovators internationally.",
+      "objectiveCodes": [
+        "KNOW",
+        "ECO",
+        "GLB"
+      ],
+      "positioning": "Secondary",
+      "explicitness": "Emerging",
+      "governance": "Non-profit private-law foundation established in 1996 as the Research Promotion Foundation and renamed RIF in October 2018; twelve-member board appointed by the Council of Ministers and chaired by the Chief Scientist; operates as executive arm of the national R&I governance system under the Deputy Ministry of Research, Innovation and Digital Policy.",
+      "tools": [
+        "Treasure",
+        "Organisation",
+        "Nodality"
+      ],
+      "toolsInstruments": {
+        "strategic": [],
+        "operational": [
+          "Organisation",
+          "Nodality"
+        ],
+        "enabling": [
+          "Treasure"
+        ]
+      },
+      "sciFields": [
+        "All fields (multidisciplinary funder)"
+      ],
+      "networked": "Implements bilateral RTD agreements between Cyprus and other countries and, jointly with the Deputy Ministry, a strategy of value-adding MoUs with partners such as Japan, India and the UAE; coordinates Cypriot participation in EU framework programmes and international R&I organisations.",
+      "relations": [
+        {
+          "type": "coordinates",
+          "to": "Cyprus participation in Horizon Europe (national NCP system)"
+        },
+        {
+          "type": "partners",
+          "to": "Counterpart agencies in Japan, India and the UAE (bilateral MoUs)"
+        },
+        {
+          "type": "informs",
+          "to": "Deputy Ministry of Research, Innovation and Digital Policy (Cyprus)"
+        }
+      ],
+      "documents": [
+        "Council of Ministers decision restructuring the Cyprus RTDI system (October 2018)",
+        "Bilateral MoUs with Japan, India and the UAE"
+      ],
+      "sources": [
+        {
+          "title": "The Foundation - Research and Innovation Foundation (IDEK)",
+          "url": "https://www.research.org.cy/en/rif/the-foundation/",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "Research and innovation have become central to Cyprus economy, says RIF - Cyprus Mail (Dec 2025)",
+          "url": "https://cyprus-mail.com/2025/12/18/research-and-innovation-have-become-central-to-cyprus-economy-says-rif",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "Research and Innovation Foundation (RIF) - OECD STIP Compass",
+          "url": "https://stip.oecd.org/stip/interactive-dashboards/responsible-organizations/Cyprus||132",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        }
+      ],
+      "alignment": {
+        "strategic": 1,
+        "operational": 3,
+        "enabling": 2,
+        "conduct": 1,
+        "note": "RIF's bilateral-agreement portfolio and its role in Cyprus's 'extroverted innovation diplomacy' align with the EU Framework's d4s pillar; SD framing is emerging rather than institutionalised, and the first bilateral engagement is not reliably datable (sdSinceYear null)."
+      },
+      "coder": "CUSP Phase 3 (AI research agent, batch lucymt)",
+      "dateCoded": "2026-07-10",
+      "confidence": "H",
+      "status": "verified",
+      "dateVerified": "2026-07-10"
+    },
+    {
+      "id": "cy-dmrid",
+      "name": "Deputy Ministry of Research, Innovation and Digital Policy (incl. Office of the Chief Scientist)",
+      "country": "Cyprus",
+      "geography": "National (Nicosia)",
+      "actorType": "Governmental/IO",
+      "sdTypeFit": {
+        "s4d": "E",
+        "d4s": "A",
+        "SinD": "B",
+        "DinS": "E"
+      },
+      "foundedYear": 2020,
+      "sdSinceYear": 2020,
+      "activity": "B",
+      "domains": [
+        "Digital/ICT",
+        "Innovation policy",
+        "Multidisciplinary"
+      ],
+      "orientation": "Cooperative",
+      "interestFocus": "National",
+      "coreObjective": "Steer Cyprus's national research, innovation and digital policy and pursue structured international S&T cooperation ('extroverted innovation diplomacy') with technologically advanced partners.",
+      "objectiveCodes": [
+        "ECO",
+        "GOV",
+        "GLB"
+      ],
+      "positioning": "Secondary",
+      "explicitness": "Emerging",
+      "governance": "Deputy Ministry of the Republic of Cyprus established in March 2020; the Chief Scientist for Research, Innovation and Technology (post created in the 2018 governance reform, currently Demetris Skourides) chairs the RIF Board and the Committee of Ministry R&I Coordinators.",
+      "tools": [
+        "Authority",
+        "Nodality",
+        "Organisation"
+      ],
+      "toolsInstruments": {
+        "strategic": [
+          "Authority"
+        ],
+        "operational": [
+          "Nodality",
+          "Organisation"
+        ],
+        "enabling": []
+      },
+      "sciFields": [
+        "Digital technologies",
+        "Cross-sector R&I policy"
+      ],
+      "networked": "Anchors the national R&I governance system created in October 2018 and, with RIF, has driven MoU-based cooperation with Japan, India, the UAE and outreach to the US, Australia and Israel; represents Cyprus in EU and international regulatory and R&I fora.",
+      "relations": [
+        {
+          "type": "steers",
+          "to": "Research and Innovation Foundation (RIF)"
+        },
+        {
+          "type": "convenes",
+          "to": "Committee of Ministry R&I Coordinators (chaired by the Chief Scientist)"
+        },
+        {
+          "type": "partners",
+          "to": "Counterpart ministries/agencies in Japan, India and the UAE (bilateral MoUs)"
+        }
+      ],
+      "documents": [
+        "Council of Ministers decision establishing the new national R&I governance system (October 2018)",
+        "Cyprus national R&I strategy documents published by the Office of the Chief Scientist"
+      ],
+      "sources": [
+        {
+          "title": "Deputy Ministry - Deputy Ministry of Research, Innovation and Digital Policy - Gov.cy",
+          "url": "https://www.gov.cy/dmrid/en/about/",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "Governance - Office of the Chief Scientist, Republic of Cyprus",
+          "url": "https://chiefscientist.gov.cy/strategy-and-policy/governance/",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "RTDI Governance - Research and Innovation Foundation (IDEK)",
+          "url": "https://www.research.org.cy/en/strategic-planning/rtdi-governance/",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "Cyprus' Research and Innovation Ecosystem Gaining Strong Momentum - Politis",
+          "url": "https://en.politis.com.cy/economy/975607/cyprus-research-and-innovation-ecosystem-gaining-strong-momentum",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        }
+      ],
+      "alignment": {
+        "strategic": 1,
+        "operational": 3,
+        "enabling": 1,
+        "conduct": 1,
+        "note": "The Chief Scientist's explicit 'innovation diplomacy' agenda maps directly onto the EU Framework's call for whole-of-government SD structures, but the practice is recent (post-2023) and rests partly on press coverage rather than a codified SD strategy, hence M confidence and 'Emerging' explicitness."
+      },
+      "coder": "CUSP Phase 3 (AI research agent, batch lucymt)",
+      "dateCoded": "2026-07-10",
+      "confidence": "M",
+      "status": "verified",
+      "dateVerified": "2026-07-10"
+    },
+    {
+      "id": "mt-xjenza",
+      "name": "Xjenza Malta (formerly Malta Council for Science and Technology, MCST)",
+      "country": "Malta",
+      "geography": "National (Kalkara, Villa Bighi)",
+      "actorType": "Governmental/IO",
+      "sdTypeFit": {
+        "s4d": "B",
+        "d4s": "A",
+        "SinD": "E",
+        "DinS": "E"
+      },
+      "foundedYear": 1988,
+      "sdSinceYear": 2012,
+      "activity": "B",
+      "domains": [
+        "Space",
+        "Marine/Oceanography",
+        "Multidisciplinary"
+      ],
+      "orientation": "Cooperative",
+      "interestFocus": "Cross-border",
+      "coreObjective": "Serve as Malta's national R&D and space funding and policy agency, using bilateral agreements and ESA cooperation to plug Maltese research into Mediterranean and global networks.",
+      "objectiveCodes": [
+        "KNOW",
+        "ECO",
+        "GLB"
+      ],
+      "positioning": "Secondary",
+      "explicitness": "Implicit",
+      "governance": "Government agency established by Legal Notice 112 of 2024 as successor to the Malta Council for Science and Technology (public body created in 1988); acts as national R&D and space funding agency and policy body, and represents Malta in EU fora (ERAC, ESFRI, COST, SFIC, High Level Space Working Party).",
+      "tools": [
+        "Treasure",
+        "Nodality",
+        "Organisation"
+      ],
+      "toolsInstruments": {
+        "strategic": [],
+        "operational": [
+          "Nodality",
+          "Organisation"
+        ],
+        "enabling": [
+          "Treasure"
+        ]
+      },
+      "sciFields": [
+        "All fields (multidisciplinary funder)",
+        "Space",
+        "Oceanography and geophysics"
+      ],
+      "networked": "Operates bilateral R&I funds and agreements with Italy (CNR alliance 2024, OGS MoU), Turkey (TUBITAK joint calls incl. 2026) and China, and manages Malta's ESA relationship from the 2012 Cooperation Agreement to European Cooperating State status (ECS agreement signed October 2023, in force September 2024).",
+      "relations": [
+        {
+          "type": "partners",
+          "to": "National Research Council of Italy (CNR)"
+        },
+        {
+          "type": "partners",
+          "to": "TUBITAK (Turkey)"
+        },
+        {
+          "type": "partners",
+          "to": "OGS - Italian National Institute of Oceanography and Applied Geophysics"
+        },
+        {
+          "type": "coordinates",
+          "to": "Malta's participation as ESA European Cooperating State"
+        }
+      ],
+      "documents": [
+        "Legal Notice 112 of 2024 establishing Xjenza Malta",
+        "ESA-Malta Cooperation Agreement (2012) and European Cooperating State Agreement (2023)",
+        "Malta National R&I Strategy 2030"
+      ],
+      "sources": [
+        {
+          "title": "Xjenza Malta (official site)",
+          "url": "https://xjenzamalta.mt/",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "Malta becomes ESA European Cooperating State - ESA",
+          "url": "https://www.esa.int/About_Us/Corporate_news/Malta_becomes_ESA_European_Cooperating_State",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "2565-TUBITAK-Science Malta (XJENZA) Joint 2026 Call - TUBITAK",
+          "url": "https://tubitak.gov.tr/en/announcement/2565-tubitak-science-malta-xjenza-joint-2026-call-open-applications",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "Xjenza Malta - EURAXESS Malta",
+          "url": "https://www.euraxess.org.mt/malta/malta-network/malta-council-science-and-technology",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        }
+      ],
+      "alignment": {
+        "strategic": 0,
+        "operational": 3,
+        "enabling": 2,
+        "conduct": 1,
+        "note": "Xjenza Malta concentrates virtually all of Malta's SD capacity in one agency, combining d4s bilateral funds with ESA accession diplomacy, which fits the EU Framework's model of national coordination points; SD is practised through 'international cooperation' language rather than an explicit SD strategy."
+      },
+      "coder": "CUSP Phase 3 (AI research agent, batch lucymt)",
+      "dateCoded": "2026-07-10",
+      "confidence": "H",
+      "status": "verified",
+      "dateVerified": "2026-07-10"
+    },
+    {
+      "id": "lv-izm",
+      "name": "Ministry of Education and Science (IZM)",
+      "country": "Latvia",
+      "geography": "National (Riga)",
+      "actorType": "Governmental/IO",
+      "sdTypeFit": {
+        "s4d": "E",
+        "d4s": "A",
+        "SinD": "B",
+        "DinS": "E"
+      },
+      "foundedYear": 1919,
+      "sdSinceYear": 1999,
+      "activity": "A",
+      "domains": [
+        "General S&T",
+        "Quantum",
+        "Digital",
+        "Space"
+      ],
+      "orientation": "Cooperative",
+      "interestFocus": "National",
+      "coreObjective": "Lead Latvia's research policy and secure access to European and international research programmes, infrastructures and bilateral S&T cooperation.",
+      "objectiveCodes": [
+        "KNOW",
+        "ECO",
+        "GLB"
+      ],
+      "positioning": "Secondary",
+      "explicitness": "Implicit",
+      "governance": "Cabinet ministry; Science Department represents Latvia in EU Council (Research) and ERA governance; steers Latvian Council of Science (LZP) and VIAA.",
+      "tools": [
+        "Authority",
+        "Treasure",
+        "Organisation",
+        "Nodality"
+      ],
+      "toolsInstruments": {
+        "strategic": [
+          "Authority"
+        ],
+        "operational": [
+          "Organisation",
+          "Nodality"
+        ],
+        "enabling": [
+          "Treasure"
+        ]
+      },
+      "sciFields": [
+        "All fields",
+        "Quantum",
+        "Semiconductors",
+        "Space"
+      ],
+      "networked": "Anchors Latvia in ERA, Horizon Europe committees, EU Chips JU; bilateral S&T agreements (China, India, Egypt, Croatia) + Baltic tripartite cooperation; steers LZP which hosts Horizon Europe NCP functions and the Swiss-Latvian programme. Latvian MFA science function only emerging (2028 EU Presidency preparation with three universities, Jun 2026 memorandum).",
+      "relations": [
+        {
+          "type": "steers",
+          "to": "Latvian Council of Science (LZP)"
+        },
+        {
+          "type": "steers",
+          "to": "State Education Development Agency (VIAA)"
+        },
+        {
+          "type": "coordinates",
+          "to": "Horizon Europe NCP system (Research Latvia)"
+        },
+        {
+          "type": "partners",
+          "to": "Latvian MFA (2028 EU Presidency science strand)"
+        },
+        {
+          "type": "informs",
+          "to": "EU Council Competitiveness (Research)"
+        }
+      ],
+      "documents": [
+        "Science, Technology Development and Innovation Guidelines 2021-2027",
+        "Smart Specialisation Strategy (RIS3)",
+        "Cabinet regulations on EU Chips JU participation (amended Oct 2024)"
+      ],
+      "sources": [
+        {
+          "title": "IZM — Science (official)",
+          "url": "https://www.izm.gov.lv/en/science",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "ERA-LEARN — IZM organisation profile",
+          "url": "https://www.era-learn.eu/network-information/organisations/ministry-of-education-and-science",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "LSM — Latvia to push science and innovation during 2028 presidency (16.06.2026)",
+          "url": "https://eng.lsm.lv/article/society/education/16.06.2026-latvia-to-push-science-and-innovation-during-2028-presidency-stint.a651713/",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        }
+      ],
+      "alignment": {
+        "strategic": 0,
+        "operational": 3,
+        "enabling": 2,
+        "conduct": 1,
+        "note": "Fits the Framework's diplomacy-for-science strand as the national gateway actor; no explicit SD language yet. The MFA's science function is only emerging, leaving IZM the best-evidenced governmental SD actor. Confidence M: .gov.lv pages could not be fetch-verified via the proxy."
+      },
+      "coder": "CUSP Phase 3 (AI research agent, batch lv)",
+      "dateCoded": "2026-07-10",
+      "confidence": "M",
+      "status": "verified",
+      "dateVerified": "2026-07-10"
+    },
+    {
+      "id": "lv-lza",
+      "name": "Latvian Academy of Sciences (LZA)",
+      "country": "Latvia",
+      "geography": "National (Riga)",
+      "actorType": "Scientific/Research",
+      "sdTypeFit": {
+        "s4d": "A",
+        "d4s": "E",
+        "SinD": "B",
+        "DinS": "E"
+      },
+      "foundedYear": 1946,
+      "sdSinceYear": 1994,
+      "activity": "B",
+      "domains": [
+        "General S&T"
+      ],
+      "orientation": "Cooperative",
+      "interestFocus": "Cross-border",
+      "coreObjective": "Represent Latvian science in European and global academy networks and channel evidence-based science advice into national and EU policy.",
+      "objectiveCodes": [
+        "KNOW",
+        "EVI",
+        "DIA"
+      ],
+      "positioning": "Secondary",
+      "explicitness": "Implicit",
+      "governance": "Autonomous learned society under a Saeima-approved Charter; dedicated international-relations function managing memberships and bilateral academy agreements.",
+      "tools": [
+        "Nodality",
+        "Organisation"
+      ],
+      "toolsInstruments": {
+        "strategic": [],
+        "operational": [
+          "Nodality",
+          "Organisation"
+        ],
+        "enabling": []
+      },
+      "sciFields": [
+        "All fields"
+      ],
+      "networked": "Represents Latvia in ALLEA (since 1994), EASAC, ISC, IAP, UAI, World Federation of Scientists; bilateral academy agreements; trilateral Baltic academies cooperation with Estonia and Lithuania, often extended to Nordic counterparts.",
+      "relations": [
+        {
+          "type": "member-of",
+          "to": "x-allea"
+        },
+        {
+          "type": "member-of",
+          "to": "EASAC"
+        },
+        {
+          "type": "member-of",
+          "to": "International Science Council (ISC)"
+        },
+        {
+          "type": "member-of",
+          "to": "InterAcademy Partnership (IAP)"
+        },
+        {
+          "type": "partners",
+          "to": "Estonian & Lithuanian academies (Baltic cooperation)"
+        },
+        {
+          "type": "advises",
+          "to": "Government and Saeima of Latvia"
+        }
+      ],
+      "documents": [
+        "LZA Charter (Saeima-approved)",
+        "LZA Yearbook (annual, incl. international cooperation)"
+      ],
+      "sources": [
+        {
+          "title": "LZA — international organizations",
+          "url": "https://lza.lv/en/international/international-organizations",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "ISC member page — Latvian Academy of Sciences",
+          "url": "https://council.science/member/latvia-latvian-academy-of-sciences/",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "ALLEA — members",
+          "url": "https://allea.org/members/",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        }
+      ],
+      "alignment": {
+        "strategic": 0,
+        "operational": 3,
+        "enabling": 1,
+        "conduct": 1,
+        "note": "Matches the Framework's science-for-diplomacy and science-advice dimensions — Latvia's node in European academy networks plus Baltic-regional bridge-building, without explicit SD branding. Confidence M: direct fetches denied by proxy, memberships corroborated across 3+ independent domains."
+      },
+      "coder": "CUSP Phase 3 (AI research agent, batch lv)",
+      "dateCoded": "2026-07-10",
+      "confidence": "M",
+      "status": "verified",
+      "dateVerified": "2026-07-10"
+    },
+    {
+      "id": "at-daw",
+      "name": "Diplomatische Akademie Wien – Vienna School of International Studies",
+      "country": "Austria",
+      "geography": "National (Vienna), international student body",
+      "actorType": "Training",
+      "sdTypeFit": {
+        "s4d": "A",
+        "d4s": "B",
+        "SinD": "E",
+        "DinS": "E"
+      },
+      "foundedYear": 1754,
+      "sdSinceYear": 2019,
+      "activity": "B",
+      "domains": [
+        "diplomatic training",
+        "international relations",
+        "science-policy interface"
+      ],
+      "orientation": "Cooperative",
+      "interestFocus": "Cross-border",
+      "coreObjective": "Train diplomats and international professionals, increasingly including science, technology and global-challenge topics in diplomatic curricula.",
+      "objectiveCodes": [
+        "TAL",
+        "KNOW",
+        "DIA"
+      ],
+      "positioning": "Secondary",
+      "explicitness": "Explicit",
+      "governance": "Postgraduate public institution under Austrian federal law, closely linked to the Federal Ministry for European and International Affairs",
+      "tools": [
+        "Nodality",
+        "Organisation"
+      ],
+      "toolsInstruments": {
+        "strategic": [],
+        "operational": [
+          "Nodality",
+          "Organisation"
+        ],
+        "enabling": []
+      },
+      "sciFields": [
+        "political science",
+        "international law",
+        "interdisciplinary global challenges"
+      ],
+      "networked": "Hosted the H2020 S4D4C project's flagship science diplomacy training workshop 'Opening Science! Opening Diplomacy!' (Vienna, Nov 2019) with 25 international participants, connecting it to the EU science diplomacy training community. Maintains ties to Austrian MFA, Vienna-based international organisations and diplomatic academies worldwide. Building science-diplomacy capacity in current and future diplomats.",
+      "relations": [
+        {
+          "type": "hosts",
+          "to": "S4D4C Science Diplomacy Workshop Vienna (2019)"
+        },
+        {
+          "type": "partners",
+          "to": "Austrian Federal Ministry for European and International Affairs"
+        },
+        {
+          "type": "partners",
+          "to": "ZSI – Centre for Social Innovation (S4D4C coordinator)"
+        }
+      ],
+      "documents": [
+        "S4D4C Vienna workshop programme 'Science Diplomacy Dynamics' (2019)",
+        "DA Master of Advanced International Studies curriculum"
+      ],
+      "sources": [
+        {
+          "title": "Opening Science! Opening Diplomacy! The S4D4C science diplomacy workshop in Vienna (S4D4C)",
+          "url": "https://www.s4d4c.eu/opening-science-opening-diplomacy-the-s4d4c-science-diplomacy-workshop-in-vienna/",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "Diplomatische Akademie Wien – Vienna School of International Studies (official site)",
+          "url": "https://www.da-vienna.ac.at/en/",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "S4D4C Science Diplomacy Workshop Vienna (ZSI event page)",
+          "url": "https://www.zsi.at/en/object/event/5255",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        }
+      ],
+      "alignment": {
+        "strategic": 2,
+        "operational": 3,
+        "enabling": 2,
+        "conduct": 1,
+        "note": "Directly serves the EU Science Diplomacy Framework's capacity-building pillar by training the diplomatic workforce on science-informed foreign policy, building on EU-funded (S4D4C) curricula."
+      },
+      "coder": "CUSP Phase 3 (AI research agent, batch rebalance)",
+      "dateCoded": "2026-07-10",
+      "confidence": "H",
+      "status": "verified",
+      "dateVerified": "2026-07-10"
+    },
+    {
+      "id": "eu-eui",
+      "name": "European University Institute – School of Transnational Governance (Florence)",
+      "country": "Intergovernmental",
+      "geography": "Intergovernmental — hosted in Florence, pan-European mandate",
+      "actorType": "Training",
+      "sdTypeFit": {
+        "s4d": "A",
+        "d4s": "B",
+        "SinD": "E",
+        "DinS": "E"
+      },
+      "foundedYear": 1972,
+      "sdSinceYear": 2017,
+      "activity": "B",
+      "domains": [
+        "transnational governance",
+        "tech and digital policy",
+        "diplomacy training"
+      ],
+      "orientation": "Cooperative",
+      "interestFocus": "Cross-border",
+      "coreObjective": "Equip policymakers, diplomats and practitioners with skills for governance beyond the state, including executive training on trade diplomacy, digital politics and technology governance through the School of Transnational Governance (est. 2017).",
+      "objectiveCodes": [
+        "TAL",
+        "GOV",
+        "DIA"
+      ],
+      "positioning": "Secondary",
+      "explicitness": "Emerging",
+      "governance": "Intergovernmental organisation established by convention among EU member states; STG partly supported by the European Commission",
+      "tools": [
+        "Nodality",
+        "Organisation"
+      ],
+      "toolsInstruments": {
+        "strategic": [],
+        "operational": [
+          "Nodality",
+          "Organisation"
+        ],
+        "enabling": []
+      },
+      "sciFields": [
+        "social sciences",
+        "digital and technology policy",
+        "economics",
+        "law"
+      ],
+      "networked": "The STG Executive Training Hub runs seminars for professionals in policy, diplomacy, international organisations and the private sector, with clusters on Digital Politics, Economy and Societies and courses such as International Trade and Diplomacy. The EUI sits at the centre of European policy-academic networks and convenes The State of the Union conference. Governance of science, technology and digital issues beyond the state; executive training in trade and tech diplomacy.",
+      "relations": [
+        {
+          "type": "part-of",
+          "to": "European University Institute (STG as academic unit)"
+        },
+        {
+          "type": "partners",
+          "to": "European Commission"
+        },
+        {
+          "type": "convenes",
+          "to": "The State of the Union conference (Florence)"
+        }
+      ],
+      "documents": [
+        "STG Executive Training catalogue (exed.eui.eu)",
+        "EUI Global Executive Master brochure"
+      ],
+      "sources": [
+        {
+          "title": "The STG Executive Training Hub (EUI)",
+          "url": "https://www.eui.eu/en/academic-units/school-of-transnational-governance/the-stg-executive-training-hub",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "International Trade and Diplomacy – STG executive course (EUI ExEd)",
+          "url": "https://exed.eui.eu/open-courses/international-trade-and-diplomacy",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "The EUI Global Executive Master brochure (hosted by Italian Cultural Institute, Italian MFA network)",
+          "url": "https://iicwashington.esteri.it/wp-content/uploads/2023/11/The_EUI_Global_Executive_Master_Brochure.pdf",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        }
+      ],
+      "alignment": {
+        "strategic": 1,
+        "operational": 3,
+        "enabling": 2,
+        "conduct": 1,
+        "note": "Chosen over the College of Europe for its demonstrable executive-training offer at the science/tech-diplomacy interface (digital politics cluster, trade-and-diplomacy courses); a natural delivery vehicle for the EU SD Framework's training and skills agenda."
+      },
+      "coder": "CUSP Phase 3 (AI research agent, batch rebalance)",
+      "dateCoded": "2026-07-10",
+      "confidence": "H",
+      "status": "verified",
+      "dateVerified": "2026-07-10",
+      "hostCountry": "Italy (Florence)"
+    },
+    {
+      "id": "x-euroscience",
+      "name": "EuroScience (European Association for the Advancement of Science and Technology)",
+      "country": "France",
+      "geography": "European (Strasbourg HQ), pan-European membership",
+      "actorType": "NGO/Network",
+      "sdTypeFit": {
+        "s4d": "B",
+        "d4s": "A",
+        "SinD": "E",
+        "DinS": "E"
+      },
+      "foundedYear": 1997,
+      "sdSinceYear": 2004,
+      "activity": "E",
+      "domains": [
+        "science-society dialogue",
+        "science policy",
+        "research advocacy"
+      ],
+      "orientation": "Cooperative",
+      "interestFocus": "Cross-border",
+      "coreObjective": "Foster open debate on science and science policy in Europe, principally through the biennial EuroScience Open Forum (ESOF), which explicitly addresses science diplomacy, science advice and science-policy dialogue.",
+      "objectiveCodes": [
+        "DIA",
+        "VAL",
+        "KNOW"
+      ],
+      "positioning": "Secondary",
+      "explicitness": "Explicit",
+      "governance": "Non-profit association under French law; filed for bankruptcy in January 2024 and placed in liquidation after EU co-funding arrangements changed",
+      "tools": [
+        "Nodality"
+      ],
+      "toolsInstruments": {
+        "strategic": [],
+        "operational": [
+          "Nodality"
+        ],
+        "enabling": []
+      },
+      "sciFields": [
+        "multidisciplinary"
+      ],
+      "networked": "Created and owned the ESOF brand (first forum 2004; last edition Katowice, June 2024, co-funded by the European Commission) and the European City of Science designation, convening scientists, policymakers and diplomats. Its liquidation leaves the future of ESOF (incl. a 2026 edition) uncertain, with community efforts under way to safeguard the trademark. Open pan-European dialogue between science, policy and society, including science diplomacy sessions at ESOF.",
+      "relations": [
+        {
+          "type": "convenes",
+          "to": "ESOF – EuroScience Open Forum"
+        },
+        {
+          "type": "convenes",
+          "to": "European City of Science initiative"
+        },
+        {
+          "type": "partners",
+          "to": "European Commission (Horizon co-funding of ESOF)"
+        }
+      ],
+      "documents": [
+        "ESOF 2026 call for bids",
+        "ESOF 2024 Katowice programme"
+      ],
+      "sources": [
+        {
+          "title": "Organiser of the EU's main science conference goes bankrupt (Science|Business, 2024)",
+          "url": "https://sciencebusiness.net/news/horizon-europe/organiser-eus-main-science-conference-goes-bankrupt",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "EuroScience researcher association placed in liquidation (Research Professional News, 2024)",
+          "url": "https://www.researchprofessionalnews.com/rr-news-europe-universities-2024-3-euroscience-researcher-association-placed-in-liquidation/",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "ESOF – EuroScience Open Forum 2024 (European Commission, Research and Innovation)",
+          "url": "https://research-and-innovation.ec.europa.eu/events/upcoming-events/esof-euroscience-open-forum-2024-2024-06-12_en",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "EuroScience – news and events (official site)",
+          "url": "https://www.euroscience.org/news-and-events",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        }
+      ],
+      "alignment": {
+        "strategic": 2,
+        "operational": 0,
+        "enabling": 2,
+        "conduct": 1,
+        "note": "Historically a key bottom-up convening space aligned with the EU SD Framework's societal-engagement dimension; graded latent (E) because the association is in liquidation since early 2024 and no ESOF activity is verified in the last 12 months."
+      },
+      "coder": "CUSP Phase 3 (AI research agent, batch rebalance)",
+      "dateCoded": "2026-07-10",
+      "confidence": "H",
+      "status": "verified",
+      "dateVerified": "2026-07-10"
+    },
+    {
+      "id": "x-sareurope",
+      "name": "Scholars at Risk Europe (SAR Europe)",
+      "country": "Ireland",
+      "geography": "European (hosted at Maynooth University), coordinating national sections across Europe",
+      "actorType": "NGO/Network",
+      "sdTypeFit": {
+        "s4d": "E",
+        "d4s": "A",
+        "SinD": "E",
+        "DinS": "E"
+      },
+      "foundedYear": 2018,
+      "sdSinceYear": 2018,
+      "activity": "A",
+      "domains": [
+        "academic freedom",
+        "researcher protection",
+        "higher-education advocacy"
+      ],
+      "orientation": "Cooperative",
+      "interestFocus": "Global",
+      "coreObjective": "Support and coordinate Scholars at Risk national sections and partner networks across Europe and advocate at EU level for the protection of threatened scholars and respect for academic freedom worldwide.",
+      "objectiveCodes": [
+        "VAL",
+        "TAL",
+        "DIA"
+      ],
+      "positioning": "Secondary",
+      "explicitness": "Implicit",
+      "governance": "European office of the global Scholars at Risk network (NYU-based NGO network), hosted at Maynooth University; launched at the European Parliament in November 2018",
+      "tools": [
+        "Nodality",
+        "Organisation"
+      ],
+      "toolsInstruments": {
+        "strategic": [],
+        "operational": [
+          "Nodality",
+          "Organisation"
+        ],
+        "enabling": []
+      },
+      "sciFields": [
+        "all disciplines"
+      ],
+      "networked": "Coordinates the Europe-wide InSPIREurope alliance for researchers at risk (10 partners, funded under Marie Sklodowska-Curie Actions) and links university sections in most European countries to EU institutions. Works with the global SAR network's monitoring and advocacy arms (e.g. Free to Think reports). Protection of at-risk researchers and promotion of academic freedom in EU policy and external action.",
+      "relations": [
+        {
+          "type": "part-of",
+          "to": "Scholars at Risk Network (global)"
+        },
+        {
+          "type": "coordinates",
+          "to": "InSPIREurope / InSPIREurope+ (MSCA initiative for researchers at risk)"
+        },
+        {
+          "type": "advises",
+          "to": "EU institutions (European Parliament, Commission) on academic freedom"
+        },
+        {
+          "type": "partners",
+          "to": "Maynooth University (host)"
+        }
+      ],
+      "documents": [
+        "Free to Think annual reports",
+        "InSPIREurope project documentation"
+      ],
+      "sources": [
+        {
+          "title": "History & Mission – SAR Europe (official site)",
+          "url": "https://sareurope.eu/who-we-are/history-mission/",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "Scholars at Risk Europe (global SAR network site)",
+          "url": "https://www.scholarsatrisk.org/scholars-at-risk-europe/",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "European alliance for academics at risk to be based out of Maynooth University (The Irish Times, 2019)",
+          "url": "https://www.irishtimes.com/news/education/european-alliance-for-academics-at-risk-to-be-based-out-of-maynooth-university-1.4049383",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        }
+      ],
+      "alignment": {
+        "strategic": 0,
+        "operational": 3,
+        "enabling": 2,
+        "conduct": 1,
+        "note": "Embodies the values-based strand of the EU SD Framework: defending academic freedom and scientific values in external relations, with an operational EU-funded coordination role (InSPIREurope)."
+      },
+      "coder": "CUSP Phase 3 (AI research agent, batch rebalance)",
+      "dateCoded": "2026-07-10",
+      "confidence": "H",
+      "status": "verified",
+      "dateVerified": "2026-07-10"
+    },
+    {
+      "id": "de-dfg",
+      "name": "DFG – Deutsche Forschungsgemeinschaft (German Research Foundation)",
+      "country": "Germany",
+      "geography": "National (Bonn HQ) with offices in North America, Latin America, India, Japan and the Sino-German Center in Beijing",
+      "actorType": "Governmental/IO",
+      "sdTypeFit": {
+        "s4d": "B",
+        "d4s": "A",
+        "SinD": "E",
+        "DinS": "E"
+      },
+      "foundedYear": 1951,
+      "sdSinceYear": 2000,
+      "activity": "A",
+      "domains": [
+        "research funding",
+        "international research cooperation",
+        "research policy"
+      ],
+      "orientation": "Cooperative",
+      "interestFocus": "Global",
+      "coreObjective": "Fund excellent research in Germany and enable international collaboration through bilateral programmes, overseas liaison offices and joint institutions such as the Sino-German Center for Research Promotion.",
+      "objectiveCodes": [
+        "KNOW",
+        "GLB",
+        "TAL"
+      ],
+      "positioning": "Secondary",
+      "explicitness": "Implicit",
+      "governance": "Self-governing membership association under German private law, funded jointly by the federal government and the Laender; dedicated International Affairs division",
+      "tools": [
+        "Treasure",
+        "Organisation",
+        "Nodality"
+      ],
+      "toolsInstruments": {
+        "strategic": [],
+        "operational": [
+          "Organisation",
+          "Nodality"
+        ],
+        "enabling": [
+          "Treasure"
+        ]
+      },
+      "sciFields": [
+        "all disciplines"
+      ],
+      "networked": "Operates liaison offices in Washington/New York, Latin America, India and Japan and co-runs the Sino-German Center with China's NSFC; co-founded and co-organises GAIN (German Academic International Network, with DAAD and Alexander von Humboldt Foundation) to engage the German research diaspora in North America. All DFG programmes are open to international project collaboration. Enabling international scientific collaboration and keeping science-based channels open with strategic partner countries.",
+      "relations": [
+        {
+          "type": "joint-initiative-of",
+          "to": "Sino-German Center for Research Promotion (DFG with NSFC)"
+        },
+        {
+          "type": "coordinates",
+          "to": "GAIN – German Academic International Network (with DAAD and AvH)"
+        },
+        {
+          "type": "member-of",
+          "to": "Global Research Council"
+        },
+        {
+          "type": "member-of",
+          "to": "International Science Council"
+        }
+      ],
+      "documents": [
+        "DFG international cooperation strategy pages",
+        "GAIN annual conference programmes"
+      ],
+      "sources": [
+        {
+          "title": "DFG – International Activities (official site)",
+          "url": "https://www.dfg.de/en/dfg-profile/international-cooperation/international-activities",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "DFG Office North America (official site)",
+          "url": "https://www.dfg.de/en/about-us/international-cooperation/dfg-abroad/north-america",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "German Research Foundation (DFG) at DWIH New York",
+          "url": "https://www.dwih-newyork.org/en/supporter/german-research-foundation-dfg/",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "Germany, German Research Foundation (DFG) – International Science Council member page",
+          "url": "https://council.science/member/germany-deutsche-forschungsgemeinschaft-dfg/",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        }
+      ],
+      "alignment": {
+        "strategic": 0,
+        "operational": 3,
+        "enabling": 2,
+        "conduct": 1,
+        "note": "A funder-level anchor for the EU SD Framework: its bilateral instruments, overseas offices and joint centres operationalise 'diplomacy for science' and provide resilient science channels with third countries, including China."
+      },
+      "coder": "CUSP Phase 3 (AI research agent, batch rebalance)",
+      "dateCoded": "2026-07-10",
+      "confidence": "H",
+      "status": "verified",
+      "dateVerified": "2026-07-10"
+    },
+    {
+      "id": "it-leonardo",
+      "name": "Leonardo S.p.A.",
+      "country": "Italy",
+      "geography": "Global (Rome HQ), core operations in Italy, UK, Poland and US",
+      "actorType": "Industry",
+      "sdTypeFit": {
+        "s4d": "A",
+        "d4s": "E",
+        "SinD": "E",
+        "DinS": "B"
+      },
+      "foundedYear": 1948,
+      "sdSinceYear": 2017,
+      "activity": "C",
+      "domains": [
+        "aerospace",
+        "defence",
+        "security",
+        "cyber",
+        "space"
+      ],
+      "orientation": "Competitive",
+      "interestFocus": "Cross-border",
+      "coreObjective": "Develop dual-use aerospace, defence and security technologies and act as an industrial pillar of European defence cooperation through EDF, EDA and cross-border joint programmes.",
+      "objectiveCodes": [
+        "SEC",
+        "ECO",
+        "TRU"
+      ],
+      "positioning": "Tertiary",
+      "explicitness": "Emerging",
+      "governance": "Publicly listed company; Italian Ministry of Economy and Finance is the reference shareholder (~30%), giving its international technology partnerships a quasi-diplomatic dimension",
+      "tools": [
+        "Organisation",
+        "Nodality"
+      ],
+      "toolsInstruments": {
+        "strategic": [],
+        "operational": [
+          "Organisation",
+          "Nodality"
+        ],
+        "enabling": []
+      },
+      "sciFields": [
+        "aerospace engineering",
+        "electronics",
+        "cybersecurity",
+        "space systems"
+      ],
+      "networked": "Among the European players with the largest number of funded European Defence Fund projects, participating in EDA initiatives (incl. dual-use technology-transfer work) and Horizon Europe consortia with universities and research institutes; pursues international joint ventures (e.g. GCAP with UK/Japan partners) that function as technology-diplomacy channels. Dual-use technology cooperation and European defence-industrial integration as instruments of interstate technology relations.",
+      "relations": [
+        {
+          "type": "partners",
+          "to": "European Defence Fund consortia (European Commission)"
+        },
+        {
+          "type": "partners",
+          "to": "European Defence Agency (dual-use R&D initiatives)"
+        },
+        {
+          "type": "member-of",
+          "to": "ASD – AeroSpace and Defence Industries Association of Europe"
+        },
+        {
+          "type": "joint-initiative-of",
+          "to": "GCAP / international joint ventures with UK and Japanese industry"
+        }
+      ],
+      "documents": [
+        "Leonardo EDF project portfolio announcements",
+        "Leonardo funded collaborative research projects pages"
+      ],
+      "sources": [
+        {
+          "title": "European Defence Fund: Leonardo is the European player with funding for the largest number of projects (Leonardo)",
+          "url": "https://www.leonardo.com/en/news-and-stories-detail/-/detail/leonardo-edf-wp21-fundings",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "Leonardo Innovation Programme (European Investment Bank project page)",
+          "url": "https://www.eib.org/en/projects/all/20200620",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "Leonardo S.p.A. datacard (LobbyFacts / EU Transparency Register data)",
+          "url": "https://www.lobbyfacts.eu/datacard/leonardo-spa?rid=02550382403-01",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        }
+      ],
+      "alignment": {
+        "strategic": 1,
+        "operational": 2,
+        "enabling": 1,
+        "conduct": 1,
+        "note": "Fits the EU SD Framework's economic-security and dual-use dimension as an industrial stakeholder rather than an SD actor per se; graded C because engagement is programme-driven (EDF/EDA consortia) without a dedicated science-diplomacy unit."
+      },
+      "coder": "CUSP Phase 3 (AI research agent, batch rebalance)",
+      "dateCoded": "2026-07-10",
+      "confidence": "M",
+      "status": "verified",
+      "dateVerified": "2026-07-10"
+    },
+    {
+      "id": "fi-nokia",
+      "name": "Nokia Corporation",
+      "country": "Finland",
+      "geography": "Global (Espoo HQ), R&D across Europe, US and Asia",
+      "actorType": "Industry",
+      "sdTypeFit": {
+        "s4d": "B",
+        "d4s": "E",
+        "SinD": "E",
+        "DinS": "A"
+      },
+      "foundedYear": 1865,
+      "sdSinceYear": 2021,
+      "activity": "C",
+      "domains": [
+        "telecommunications",
+        "network standards",
+        "digital infrastructure"
+      ],
+      "orientation": "Competitive",
+      "interestFocus": "Global",
+      "coreObjective": "Shape global 6G standardisation and secure European technological sovereignty by leading the EU's 6G flagship projects Hexa-X (2021-2023) and Hexa-X-II (2023-2025) and channelling their results into 3GPP, ETSI and ITU.",
+      "objectiveCodes": [
+        "GOV",
+        "ECO",
+        "SEC"
+      ],
+      "positioning": "Tertiary",
+      "explicitness": "Emerging",
+      "governance": "Publicly listed multinational corporation headquartered in Finland",
+      "tools": [
+        "Nodality",
+        "Organisation"
+      ],
+      "toolsInstruments": {
+        "strategic": [],
+        "operational": [
+          "Nodality",
+          "Organisation"
+        ],
+        "enabling": []
+      },
+      "sciFields": [
+        "telecommunications engineering",
+        "signal processing",
+        "AI/ML for networks"
+      ],
+      "networked": "Led the 25-partner Hexa-X and 44-partner Hexa-X-II consortia under the EU's Smart Networks and Services Joint Undertaking, building pre-standardisation consensus across industry and academia and feeding coordinated European positions into ITU, ETSI and 3GPP - a de facto standards-diplomacy role framed around EU sovereignty, trust and security values. Global 5G/6G standards diplomacy and European technological sovereignty in next-generation networks.",
+      "relations": [
+        {
+          "type": "coordinates",
+          "to": "Hexa-X / Hexa-X-II EU 6G flagship projects (SNS JU)"
+        },
+        {
+          "type": "member-of",
+          "to": "3GPP and ETSI standards bodies"
+        },
+        {
+          "type": "member-of",
+          "to": "6G Smart Networks and Services Industry Association (6G-IA)"
+        },
+        {
+          "type": "informs",
+          "to": "ITU (6G/IMT-2030 vision and recommendations)"
+        }
+      ],
+      "documents": [
+        "Hexa-X and Hexa-X-II deliverables",
+        "Nokia 6G vision white papers"
+      ],
+      "sources": [
+        {
+          "title": "Nokia to lead the EU's 6G project Hexa-X (Nokia press release)",
+          "url": "https://www.nokia.com/newsroom/nokia-to-lead-the-eus-6g-project-hexa-x/",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "Nokia to lead the next phase of Europe's 6G flagship project: HEXA-X-II (Smart Networks and Services Joint Undertaking, europa.eu)",
+          "url": "https://smart-networks.europa.eu/nokia-to-lead-the-next-phase-of-europes-6g-flagship-project/",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "On the road to 6G with the European 6G Flagship project Hexa-X-II (Nokia blog)",
+          "url": "https://www.nokia.com/blog/on-the-road-to-6g-with-the-european-6g-flagship-project-hexa-x-ii/",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        }
+      ],
+      "alignment": {
+        "strategic": 1,
+        "operational": 2,
+        "enabling": 1,
+        "conduct": 1,
+        "note": "Illustrates the EU SD Framework's tech-sovereignty and standards-governance agenda: an industry actor whose EU-flagship leadership performs 'diplomacy in science' within global standards arenas, though without an explicit SD mandate (hence C-grade activity)."
+      },
+      "coder": "CUSP Phase 3 (AI research agent, batch rebalance)",
+      "dateCoded": "2026-07-10",
+      "confidence": "M",
+      "status": "verified",
+      "dateVerified": "2026-07-10"
+    },
+    {
+      "id": "sk-mzveza",
+      "name": "Ministry of Foreign and European Affairs (MZVEZ SR)",
+      "country": "Slovakia",
+      "geography": "National (Bratislava)",
+      "actorType": "Diplomatic",
+      "sdTypeFit": {
+        "s4d": "B",
+        "d4s": "A",
+        "SinD": "E",
+        "DinS": "E"
+      },
+      "foundedYear": 1993,
+      "sdSinceYear": 2018,
+      "activity": "B",
+      "domains": [
+        "General S&T",
+        "Digital",
+        "Security/Dual-use"
+      ],
+      "orientation": "Cooperative",
+      "interestFocus": "National",
+      "coreObjective": "Use the diplomatic network to internationalise Slovak research and innovation actors, mainly through economic-and-innovation diplomacy.",
+      "objectiveCodes": [
+        "ECO",
+        "INF",
+        "KNOW"
+      ],
+      "positioning": "Secondary",
+      "explicitness": "Implicit",
+      "governance": "Central state body; economic diplomacy directorate runs ~60 economic diplomats in 40+ countries; innovation diplomats (programme approved late 2018, managed with MIRRI/VAIA) sit within embassies; convenes 'Team Slovakia' platform (2021).",
+      "tools": [
+        "Nodality",
+        "Organisation",
+        "Authority"
+      ],
+      "toolsInstruments": {
+        "strategic": [
+          "Authority"
+        ],
+        "operational": [
+          "Nodality",
+          "Organisation"
+        ],
+        "enabling": []
+      },
+      "sciFields": [
+        "Innovation & tech",
+        "ICT/cybersecurity",
+        "Deep-tech"
+      ],
+      "networked": "Operates through the embassy network and EU structures; hosts innovation diplomats (China, Finland, USA, Israel); Innovation Day series connecting Slovak innovators with foreign ambassadors (35th edition June 2025).",
+      "relations": [
+        {
+          "type": "part-of",
+          "to": "Government of the Slovak Republic"
+        },
+        {
+          "type": "hosts",
+          "to": "Slovak innovation diplomats network (with MIRRI/VAIA)"
+        },
+        {
+          "type": "convenes",
+          "to": "Team Slovakia coordination platform"
+        },
+        {
+          "type": "partners",
+          "to": "MIRRI (Ministry of Investments, Regional Development & Informatization)"
+        }
+      ],
+      "documents": [
+        "Inovačná diplomacia (government material, approved end-2018)",
+        "Team Slovakia platform (2021)",
+        "Annual foreign-policy orientation documents"
+      ],
+      "sources": [
+        {
+          "title": "Economic diplomacy — MZVEZ SR",
+          "url": "https://www.mzv.sk/en/web/en/diplomacy/economic-diplomacy",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "MIRRI — innovation diplomats review",
+          "url": "https://mirri.gov.sk/aktuality/investicie/inovacni-diplomati-zhodnotili-svoje-posobenie-v-krajinach-ich-vyslania/",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "Inovačná diplomacia — Slov-lex legislative material",
+          "url": "https://www.slov-lex.sk/legislativne-procesy",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        }
+      ],
+      "alignment": {
+        "strategic": 0,
+        "operational": 3,
+        "enabling": 1,
+        "conduct": 1,
+        "note": "Fits the Framework's diplomacy-for-science/innovation strand (Innovation Days, embassy innovation diplomats), framed as economic/innovation rather than science diplomacy; source URLs could not be fetch-verified from this environment (proxy denial), hence M."
+      },
+      "coder": "CUSP Phase 3 (AI research agent, batch sk)",
+      "dateCoded": "2026-07-10",
+      "confidence": "M",
+      "status": "verified",
+      "dateVerified": "2026-07-10"
+    },
+    {
+      "id": "sk-sav",
+      "name": "Slovak Academy of Sciences (SAV)",
+      "country": "Slovakia",
+      "geography": "National (Bratislava)",
+      "actorType": "Scientific/Research",
+      "sdTypeFit": {
+        "s4d": "E",
+        "d4s": "A",
+        "SinD": "B",
+        "DinS": "E"
+      },
+      "foundedYear": 1953,
+      "sdSinceYear": 1993,
+      "activity": "A",
+      "domains": [
+        "General S&T"
+      ],
+      "orientation": "Cooperative",
+      "interestFocus": "Global",
+      "coreObjective": "Connect Slovak research to European and global science through bilateral agreements, academy networks and joint funding calls; channel academy expertise into European science advice.",
+      "objectiveCodes": [
+        "KNOW",
+        "EVI",
+        "TAL"
+      ],
+      "positioning": "Secondary",
+      "explicitness": "Implicit",
+      "governance": "Public self-governing research institution (Act No. 133/2002); dedicated Department of International Cooperation manages bilateral/multilateral cooperation and mobility.",
+      "tools": [
+        "Organisation",
+        "Nodality",
+        "Treasure"
+      ],
+      "toolsInstruments": {
+        "strategic": [],
+        "operational": [
+          "Organisation",
+          "Nodality"
+        ],
+        "enabling": [
+          "Treasure"
+        ]
+      },
+      "sciFields": [
+        "All fields"
+      ],
+      "networked": "Member of ALLEA, EASAC, ISC, IAP and ~27 international scientific organisations; bilateral agreements/joint calls with CSIC, TÜBITAK, CNR, Slovenia; ASTRI Hong Kong MoU (Sep 2025).",
+      "relations": [
+        {
+          "type": "member-of",
+          "to": "x-allea"
+        },
+        {
+          "type": "member-of",
+          "to": "EASAC"
+        },
+        {
+          "type": "member-of",
+          "to": "International Science Council (ISC)"
+        },
+        {
+          "type": "partners",
+          "to": "es-csic"
+        },
+        {
+          "type": "informs",
+          "to": "EU institutions (via EASAC science advice)"
+        }
+      ],
+      "documents": [
+        "Act No. 133/2002 Coll. on the SAS",
+        "SAS-CSIC Cooperation Agreement; SAS-ASTRI MoU (2025)",
+        "Slovak-Slovenian bilateral calls 2024-2025"
+      ],
+      "sources": [
+        {
+          "title": "Department of International Cooperation — SAS",
+          "url": "https://oms.sav.sk/en/profile/about-us/",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "ISC member page — Slovak Academy of Sciences",
+          "url": "https://council.science/member/slovak-republic-slovak-academy-of-sciences/",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "IAP — Slovak Academy of Sciences",
+          "url": "https://www.interacademies.org/organization/slovak-academy-sciences",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        }
+      ],
+      "alignment": {
+        "strategic": 0,
+        "operational": 3,
+        "enabling": 2,
+        "conduct": 1,
+        "note": "Classic diplomacy-for-science (bilateral agreements, joint calls, mobility) plus science-in-diplomacy via EASAC/ALLEA/ISC — aligns with the Framework's emphasis on academies as evidence and cooperation brokers, though it rarely uses the SD label."
+      },
+      "coder": "CUSP Phase 3 (AI research agent, batch sk)",
+      "dateCoded": "2026-07-10",
+      "confidence": "H",
+      "status": "verified",
+      "dateVerified": "2026-07-10"
+    },
+    {
+      "id": "be-fwo",
+      "name": "FWO — Research Foundation Flanders",
+      "country": "Belgium",
+      "geography": "Sub-national (Flanders)",
+      "actorType": "Governmental/IO",
+      "sdTypeFit": {
+        "s4d": "B",
+        "d4s": "A",
+        "SinD": "E",
+        "DinS": "E"
+      },
+      "foundedYear": 1928,
+      "sdSinceYear": null,
+      "activity": "A",
+      "domains": [
+        "research funding",
+        "researcher mobility",
+        "international research cooperation"
+      ],
+      "orientation": "Cooperative",
+      "interestFocus": "Cross-border",
+      "coreObjective": "Fund excellent fundamental and strategic research in Flanders and connect Flemish science to the world through bilateral agreements, mobility schemes and multilateral funder networks.",
+      "objectiveCodes": [
+        "KNOW",
+        "TAL"
+      ],
+      "positioning": "Secondary",
+      "explicitness": "Implicit",
+      "governance": "Autonomous public foundation of the Flemish Community, funded and steered mainly by the Flemish Government's Department of Economy, Science and Innovation (EWI); governed by a board with government and university representation",
+      "tools": [
+        "Treasure",
+        "Nodality"
+      ],
+      "toolsInstruments": {
+        "strategic": [],
+        "operational": [
+          "Nodality"
+        ],
+        "enabling": [
+          "Treasure"
+        ]
+      },
+      "sciFields": [
+        "all fields (fundamental and strategic research)"
+      ],
+      "networked": "FWO maintains bilateral cooperation agreements with counterpart funders worldwide (e.g. CNRS, NWO, JSPS, NSFC) and represents Flanders in European and global funder networks such as Science Europe and ERA-NET/European Partnership schemes. It succeeded the Belgian NFWO/FNRS (1928), splitting along community lines in 2006. Positioning Flanders as an internationally competitive research region; because Belgium devolves science policy to the communities/regions, FWO acts as the de facto national funding agency for Flanders in international fora.",
+      "relations": [
+        {
+          "type": "member-of",
+          "to": "Science Europe"
+        },
+        {
+          "type": "partners",
+          "to": "F.R.S.-FNRS (Wallonia-Brussels counterpart)"
+        },
+        {
+          "type": "partners",
+          "to": "International counterpart funders (CNRS, NWO, JSPS, NSFC)"
+        },
+        {
+          "type": "steers",
+          "to": "Flanders' participation in European research partnerships and ERA-NETs"
+        },
+        {
+          "type": "informs",
+          "to": "Flemish Government Department of Economy, Science and Innovation (EWI)"
+        }
+      ],
+      "documents": [
+        "FWO annual reports",
+        "FWO strategy plan",
+        "Bilateral scientific cooperation agreements"
+      ],
+      "sources": [
+        {
+          "title": "FWO — Who is FWO (official)",
+          "url": "https://www.fwo.be/en/about-fwo/who-is-fwo/",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "Research Foundation – Flanders (FWO) — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Research_Foundation_%E2%80%93_Flanders_(FWO)",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "Research Foundation Flanders (FWO) — ERA-LEARN organisation profile",
+          "url": "https://www.era-learn.eu/network-information/organisations/research-foundation-flanders",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        }
+      ],
+      "alignment": {
+        "strategic": 0,
+        "operational": 2,
+        "enabling": 2,
+        "conduct": 1,
+        "note": "Fits the EU SD Framework's diplomacy-for-science strand: a sub-national funder that, due to Belgian federalism, performs national-level international science-policy functions (bilateral agreements, multilateral funder diplomacy) for Flanders. SD is implicit — framed as internationalisation of research rather than diplomacy."
+      },
+      "coder": "CUSP Phase 3 (AI research agent, batch subnational)",
+      "dateCoded": "2026-07-10",
+      "confidence": "H",
+      "status": "verified",
+      "dateVerified": "2026-07-10"
+    },
+    {
+      "id": "be-wbi",
+      "name": "WBI — Wallonie-Bruxelles International (Research & Innovation liaison)",
+      "country": "Belgium",
+      "geography": "Sub-national (Wallonia & Brussels Federation)",
+      "actorType": "Governmental/IO",
+      "sdTypeFit": {
+        "s4d": "E",
+        "d4s": "B",
+        "SinD": "A",
+        "DinS": "E"
+      },
+      "foundedYear": 2009,
+      "sdSinceYear": 2009,
+      "activity": "A",
+      "domains": [
+        "paradiplomacy",
+        "research and innovation liaison",
+        "academic cooperation",
+        "culture"
+      ],
+      "orientation": "Cooperative",
+      "interestFocus": "Cross-border",
+      "coreObjective": "Act as the international-relations agency of French-speaking Belgium, running an explicit scientific and academic diplomacy network of advisors abroad that links Wallonia-Brussels research actors to foreign partners.",
+      "objectiveCodes": [
+        "KNOW",
+        "INF"
+      ],
+      "positioning": "Primary",
+      "explicitness": "Explicit",
+      "governance": "Public administration jointly serving the Wallonia-Brussels Federation, the Walloon Region and the French Community Commission of Brussels; created by cooperation agreement (operational 2009) from the merger of CGRI and DRI",
+      "tools": [
+        "Nodality",
+        "Treasure"
+      ],
+      "toolsInstruments": {
+        "strategic": [],
+        "operational": [
+          "Nodality"
+        ],
+        "enabling": [
+          "Organization",
+          "Treasure"
+        ]
+      },
+      "sciFields": [
+        "all fields (liaison function)",
+        "innovation and technology"
+      ],
+      "networked": "WBI historically posted Scientific Liaison Officers (ALS) in Sweden, Brazil, the US, Germany, Switzerland and Canada; a recent reform restructured this into a network of 10 'Scientific and Academic Advisors' abroad, explicitly described as an instrument of scientific and academic diplomacy, alongside its general delegations. Projecting the Wallonia-Brussels Federation abroad and connecting its researchers and universities to international partners through a dedicated diplomatic-style network.",
+      "relations": [
+        {
+          "type": "part-of",
+          "to": "Wallonia-Brussels Federation / Walloon Region governments"
+        },
+        {
+          "type": "coordinates",
+          "to": "Network of Scientific and Academic Advisors abroad"
+        },
+        {
+          "type": "partners",
+          "to": "F.R.S.-FNRS"
+        },
+        {
+          "type": "partners",
+          "to": "AWEX (Wallonia Export & Investment Agency)"
+        },
+        {
+          "type": "convenes",
+          "to": "Wallonia-Brussels research and higher-education actors for international projects"
+        }
+      ],
+      "documents": [
+        "WBI reform note on sectoral networks abroad (scientific and academic diplomacy)",
+        "WBI management contract (contrat de gestion)",
+        "Wallonie-Bruxelles international cooperation agreements"
+      ],
+      "sources": [
+        {
+          "title": "WBI — Réforme des réseaux sectoriels Wallonie-Bruxelles à l'étranger (official)",
+          "url": "https://www.wbi.be/fr/news/news-item/reforme-reseaux-sectoriels-wallonie-bruxelles-letranger-lisibilite-coherence",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "Wallonie-Bruxelles International (WBI) — Portail de la Wallonie",
+          "url": "https://www.wallonie.be/fr/acteurs-et-institutions/wallonie/autres-acteurs-publics-de-la-wallonie/wallonie-bruxelles-international-wbi",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "Research & Innovation — Wallonie-Bruxelles au Canada",
+          "url": "https://www.wallonie-bruxelles.ca/en/research-innovation-0",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        }
+      ],
+      "alignment": {
+        "strategic": 3,
+        "operational": 2,
+        "enabling": 2,
+        "conduct": 1,
+        "note": "One of the clearest cases of explicit sub-national science diplomacy in the EU: a regional foreign-affairs agency with named 'scientific and academic diplomacy' advisors abroad, mirroring national science-counsellor networks at federated-entity level. Aligns with the EU SD Framework's science-in-diplomacy and diplomacy-for-science strands."
+      },
+      "coder": "CUSP Phase 3 (AI research agent, batch subnational)",
+      "dateCoded": "2026-07-10",
+      "confidence": "H",
+      "status": "verified",
+      "dateVerified": "2026-07-10"
+    },
+    {
+      "id": "de-bayfor",
+      "name": "BayFOR — Bavarian Research Alliance",
+      "country": "Germany",
+      "geography": "Sub-national (Bavaria)",
+      "actorType": "Governmental/IO",
+      "sdTypeFit": {
+        "s4d": "E",
+        "d4s": "A",
+        "SinD": "E",
+        "DinS": "E"
+      },
+      "foundedYear": 2006,
+      "sdSinceYear": 2006,
+      "activity": "A",
+      "domains": [
+        "EU research funding advisory",
+        "science-business networking",
+        "regional innovation"
+      ],
+      "orientation": "Cooperative",
+      "interestFocus": "Cross-border",
+      "coreObjective": "Support Bavarian science and industry in accessing EU research funding and initiate international research cooperation, including through the state-funded BayIntAn programme for initiating international projects.",
+      "objectiveCodes": [
+        "KNOW",
+        "ECO",
+        "INF"
+      ],
+      "positioning": "Secondary",
+      "explicitness": "Implicit",
+      "governance": "Non-profit GmbH founded 2006 by Bavarian cabinet resolution on the initiative of the Bavarian universities and universities of applied sciences; funded by the Bavarian State Ministries for Science and the Arts and for Economic Affairs; part of the Bavarian Research and Innovation Agency",
+      "tools": [
+        "Nodality",
+        "Treasure"
+      ],
+      "toolsInstruments": {
+        "strategic": [],
+        "operational": [
+          "Nodality"
+        ],
+        "enabling": [
+          "Treasure"
+        ]
+      },
+      "sciFields": [
+        "all fields (funding advisory)",
+        "applied sciences and engineering",
+        "health",
+        "environment"
+      ],
+      "networked": "BayFOR operates offices in Munich, Nuremberg and Brussels, is a member of the informal Union of Informal Liaison Offices Network (UnILiON) in Brussels and a partner in the EU's Enterprise Europe Network, giving Bavaria a standing regional science-liaison presence at EU level. Maximising Bavarian participation in EU Framework Programmes and internationalising Bavarian science, with a permanent liaison presence in Brussels.",
+      "relations": [
+        {
+          "type": "part-of",
+          "to": "Bavarian Research and Innovation Agency (Bayerische Forschungs- und Innovationsagentur)"
+        },
+        {
+          "type": "member-of",
+          "to": "UnILiON (Universities Informal Liaison Offices Network, Brussels)"
+        },
+        {
+          "type": "member-of",
+          "to": "Enterprise Europe Network"
+        },
+        {
+          "type": "funds",
+          "to": "Bavarian researchers initiating international projects (BayIntAn programme)"
+        },
+        {
+          "type": "informs",
+          "to": "Bavarian State Ministry of Science and the Arts"
+        }
+      ],
+      "documents": [
+        "BayFOR background/mission statement",
+        "BayIntAn funding programme documentation",
+        "Bavarian cabinet resolution of 17 October 2006"
+      ],
+      "sources": [
+        {
+          "title": "BayFOR — Background (official)",
+          "url": "https://www.bayfor.org/en/about-us/organisation/background.html",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "Bavarian Research Alliance (BayFOR) — UnILiON member profile",
+          "url": "https://www.unilion.eu/?page_id=196",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "The partners — Bavarian Research and Innovation Agency",
+          "url": "https://www.forschung-innovation-bayern.de/en/about-us/the-partners/",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        }
+      ],
+      "alignment": {
+        "strategic": 0,
+        "operational": 2,
+        "enabling": 2,
+        "conduct": 1,
+        "note": "Represents the German Laender model of sub-national SD: a state-backed intermediary conducting diplomacy-for-science towards the EU institutions (Brussels liaison office, EU funding brokerage) and seeding international cooperation via BayIntAn, without an explicit diplomacy mandate."
+      },
+      "coder": "CUSP Phase 3 (AI research agent, batch subnational)",
+      "dateCoded": "2026-07-10",
+      "confidence": "H",
+      "status": "verified",
+      "dateVerified": "2026-07-10"
+    },
+    {
+      "id": "es-icrea",
+      "name": "ICREA — Catalan Institution for Research and Advanced Studies",
+      "country": "Spain",
+      "geography": "Sub-national (Catalonia)",
+      "actorType": "Governmental/IO",
+      "sdTypeFit": {
+        "s4d": "E",
+        "d4s": "A",
+        "SinD": "E",
+        "DinS": "E"
+      },
+      "foundedYear": 2001,
+      "sdSinceYear": 2001,
+      "activity": "B",
+      "domains": [
+        "international talent attraction",
+        "research excellence",
+        "higher education"
+      ],
+      "orientation": "Competitive",
+      "interestFocus": "Global",
+      "coreObjective": "Attract and permanently integrate leading researchers from anywhere in the world into Catalan universities and research centres through tenured, research-only ICREA professorships.",
+      "objectiveCodes": [
+        "TAL",
+        "KNOW"
+      ],
+      "positioning": "Secondary",
+      "explicitness": "Implicit",
+      "governance": "Public non-profit foundation created in 2001 by the Generalitat de Catalunya (Catalan government), attached to its department responsible for research and universities; operates as an 'institution without walls' embedding researchers in host institutions",
+      "tools": [
+        "Treasure",
+        "Nodality"
+      ],
+      "toolsInstruments": {
+        "strategic": [],
+        "operational": [
+          "Nodality"
+        ],
+        "enabling": [
+          "Treasure"
+        ]
+      },
+      "sciFields": [
+        "all fields (humanities to experimental sciences)"
+      ],
+      "networked": "ICREA embeds 300+ researchers from around the world in some 48 Catalan host universities and research centres, and its recruitment brand is a core element of Catalonia's international research profile, including strong performance in ERC grants. Global competition for scientific talent as an instrument of Catalonia's international projection and research competitiveness.",
+      "relations": [
+        {
+          "type": "part-of",
+          "to": "Generalitat de Catalunya (Department of Research and Universities)"
+        },
+        {
+          "type": "partners",
+          "to": "Catalan universities and CERCA research centres (host institutions)"
+        },
+        {
+          "type": "funds",
+          "to": "Tenured ICREA research professorships for internationally recruited scientists"
+        }
+      ],
+      "documents": [
+        "ICREA annual reports (Memoria)",
+        "ICREA 25th anniversary institutional statement"
+      ],
+      "sources": [
+        {
+          "title": "ICREA — Who we are (official)",
+          "url": "https://www.icrea.cat/who-we-are/",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "Catalan Institution for Research and Advanced Studies — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Catalan_Institution_for_Research_and_Advanced_Studies",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "Catalan Institution for Research and Advanced Studies (ICREA) — fundit profile",
+          "url": "https://fundit.fr/en/institutions/catalan-institution-research-and-advanced-studies-icrea",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        }
+      ],
+      "alignment": {
+        "strategic": 0,
+        "operational": 2,
+        "enabling": 2,
+        "conduct": 1,
+        "note": "Sub-national SD here means talent diplomacy: a regional government instrument competing globally for scientific talent, aligning with the EU SD Framework's diplomacy-for-science and talent-circulation objectives. Chosen over the Catalan knowledge department as the stronger, operationally international single record; graded B because it lacks a dedicated diplomatic/international-relations unit."
+      },
+      "coder": "CUSP Phase 3 (AI research agent, batch subnational)",
+      "dateCoded": "2026-07-10",
+      "confidence": "H",
+      "status": "verified",
+      "dateVerified": "2026-07-10"
+    },
+    {
+      "id": "es-ikerbasque",
+      "name": "Ikerbasque — Basque Foundation for Science",
+      "country": "Spain",
+      "geography": "Sub-national (Basque Country)",
+      "actorType": "Governmental/IO",
+      "sdTypeFit": {
+        "s4d": "E",
+        "d4s": "A",
+        "SinD": "E",
+        "DinS": "E"
+      },
+      "foundedYear": 2007,
+      "sdSinceYear": 2007,
+      "activity": "B",
+      "domains": [
+        "international talent attraction",
+        "research system development",
+        "science promotion"
+      ],
+      "orientation": "Competitive",
+      "interestFocus": "Global",
+      "coreObjective": "Attract, recruit and retain researchers from around the world into Basque universities and research centres to strengthen and internationalise the Basque science system.",
+      "objectiveCodes": [
+        "TAL",
+        "KNOW"
+      ],
+      "positioning": "Secondary",
+      "explicitness": "Implicit",
+      "governance": "Foundation created in 2007 by the Basque Government within its science, technology and innovation policy; funded by the regional government with co-funding from EU programmes (e.g. Marie Sklodowska-Curie COFUND)",
+      "tools": [
+        "Treasure",
+        "Nodality"
+      ],
+      "toolsInstruments": {
+        "strategic": [],
+        "operational": [
+          "Nodality"
+        ],
+        "enabling": [
+          "Treasure"
+        ]
+      },
+      "sciFields": [
+        "all fields of knowledge"
+      ],
+      "networked": "Ikerbasque has recruited around 373 researchers from some 35 countries into Basque universities and research centres, and connects the Basque research system to European instruments through MSCA COFUND-supported fellowship calls and international recruitment campaigns. Using global researcher recruitment to internationalise the Basque research and innovation system and raise its external visibility.",
+      "relations": [
+        {
+          "type": "part-of",
+          "to": "Basque Government (science, technology and innovation policy)"
+        },
+        {
+          "type": "partners",
+          "to": "University of the Basque Country and Basque BERC/CIC research centres (host institutions)"
+        },
+        {
+          "type": "funds",
+          "to": "Ikerbasque Research Professor and Research Fellow positions for internationally recruited scientists"
+        }
+      ],
+      "documents": [
+        "Ikerbasque annual activity reports",
+        "Ikerbasque 10-year report 'Researching 10 years'"
+      ],
+      "sources": [
+        {
+          "title": "Ikerbasque — About us (official)",
+          "url": "https://www.ikerbasque.net/en/about-us",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "Ikerbasque — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Ikerbasque",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        },
+        {
+          "title": "Ikerbasque — The Basque Foundation for Science (Science.eus)",
+          "url": "https://www.science.eus/en/institutions/ikerbasque-basque-foundation-science",
+          "accessed": "2026-07-10",
+          "supports": "record"
+        }
+      ],
+      "alignment": {
+        "strategic": 0,
+        "operational": 2,
+        "enabling": 2,
+        "conduct": 1,
+        "note": "Like ICREA, a regional talent-diplomacy instrument: sub-national SD consists of state-funded global recruitment that internationalises the regional science base, matching the EU SD Framework's diplomacy-for-science and brain-circulation aims. Graded B — strong budgeted international programmes and recent activity, but no dedicated diplomatic unit."
+      },
+      "coder": "CUSP Phase 3 (AI research agent, batch subnational)",
       "dateCoded": "2026-07-10",
       "confidence": "H",
       "status": "verified",

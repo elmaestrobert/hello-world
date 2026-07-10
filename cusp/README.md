@@ -100,8 +100,18 @@ operational / enabling) and code of conduct — as promised in the proposal text
   is national member organisations (not intergovernmental); Greek diaspora
   network launched Aug 2017, activity downgraded to D. Full detail in
   `verification-report.md`; audit trail in `phase2-corrections.js`.
-- _Next (Phase 3):_ coverage — remaining 11 EU members, intergovernmental RIs
-  (CERN, EMBL, ESA, ESO, ESS…), sub-national actors, type rebalance.
+- **v7.2.0 (2026-07-10) — Phase 3 coverage:** +40 records (118 total, 117 verified).
+  All 27 EU member states now covered + intergovernmental layer (CERN, EMBL, ESA,
+  ESO, ESS, ECMWF, EuroHPC, EUI — `country: Intergovernmental` + `hostCountry`
+  convention, resolving proposal question #9) + first sub-national actors (FWO,
+  WBI, BayFOR, ICREA, Ikerbasque — taxonomy point a) + type rebalance (Vienna
+  Diplomatic Academy & EUI/STG for Training; Scholars at Risk Europe; DFG;
+  Leonardo & Nokia for Industry). First honest **E grade**: EuroScience
+  (liquidated Jan 2024). One record kept draft: lt-lmt (single-domain sourcing).
+  New records researched & sourced by parallel agents at the verified standard
+  (≥2 independent domains).
+- _Next (Phase 4):_ analytical layer — network graph from `relations[]`,
+  alignment dashboard, country compare, survey aggregation round-trip.
 
 > A self-contained build, `cusp-standalone.html` (data inlined), is regenerated each
 > iteration for one-tap opening without the sibling `data.js`.
